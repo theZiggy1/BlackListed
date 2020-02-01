@@ -67,6 +67,7 @@ public class WeaponScript : MonoBehaviour
     // This function will be called when the weapon gets destroyed (durability = 0)
     private void DestroyWeapon()
     {
-
+        // We will change this later on to work better
+        Destroy(gameObject);
     }
 }
