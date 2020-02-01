@@ -16,12 +16,21 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 43
+<<<<<<< HEAD
     width: 2560
     height: 1357
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 5}
   m_MinSize: {x: 950, y: 767}
+=======
+    width: 1920
+    height: 997
+  m_ShowMode: 4
+  m_Title: 
+  m_RootView: {fileID: 2}
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -121,9 +130,15 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 2560
     height: 1357
   m_MinSize: {x: 950, y: 767}
+=======
+    width: 1920
+    height: 997
+  m_MinSize: {x: 950, y: 300}
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &6
 MonoBehaviour:
@@ -142,7 +157,11 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 2560
+=======
+    width: 1920
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
     height: 30
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -163,8 +182,13 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 1337
     width: 2560
+=======
+    y: 977
+    width: 1920
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
     height: 20
   m_MinSize: {x: 0, y: 0}
   m_MaxSize: {x: 0, y: 0}
@@ -187,6 +211,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 30
+<<<<<<< HEAD
     width: 2560
     height: 1307
   m_MinSize: {x: 683, y: 717}
@@ -194,6 +219,15 @@ MonoBehaviour:
   vertical: 0
   controlID: 6619
 --- !u!114 &9
+=======
+    width: 1920
+    height: 947
+  m_MinSize: {x: 683, y: 494}
+  m_MaxSize: {x: 14004, y: 14044}
+  vertical: 0
+  controlID: 33
+--- !u!114 &6
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -212,6 +246,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 2099
     height: 1307
   m_MinSize: {x: 406, y: 717}
@@ -219,6 +254,15 @@ MonoBehaviour:
   vertical: 1
   controlID: 6620
 --- !u!114 &10
+=======
+    width: 1399
+    height: 947
+  m_MinSize: {x: 406, y: 494}
+  m_MaxSize: {x: 10002, y: 14044}
+  vertical: 1
+  controlID: 34
+--- !u!114 &7
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,6 +281,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 2099
     height: 1035
   m_MinSize: {x: 406, y: 445}
@@ -244,6 +289,15 @@ MonoBehaviour:
   vertical: 0
   controlID: 6621
 --- !u!114 &11
+=======
+    width: 1399
+    height: 651
+  m_MinSize: {x: 406, y: 222}
+  m_MaxSize: {x: 8006, y: 4022}
+  vertical: 0
+  controlID: 35
+--- !u!114 &8
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,11 +314,19 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 0
+<<<<<<< HEAD
     width: 392
     height: 222
   m_MinSize: {x: 202, y: 222}
   m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 18}
+=======
+    width: 262
+    height: 651
+  m_MinSize: {x: 202, y: 222}
+  m_MaxSize: {x: 4002, y: 4022}
+  m_ActualView: {fileID: 13}
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_Panes:
   - {fileID: 18}
   m_Selected: 0
@@ -284,10 +346,17 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 392
     y: 0
     width: 1707
     height: 1035
+=======
+    x: 262
+    y: 0
+    width: 1137
+    height: 651
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_MinSize: {x: 204, y: 222}
   m_MaxSize: {x: 4004, y: 4022}
   m_ActualView: {fileID: 19}
@@ -314,9 +383,15 @@ MonoBehaviour:
   m_Position:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 1035
     width: 2099
     height: 272
+=======
+    y: 651
+    width: 1399
+    height: 296
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_MinSize: {x: 232, y: 272}
   m_MaxSize: {x: 10002, y: 10022}
   m_ActualView: {fileID: 22}
@@ -340,6 +415,7 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 2099
     y: 0
     width: 461
@@ -347,12 +423,22 @@ MonoBehaviour:
   m_MinSize: {x: 277, y: 72}
   m_MaxSize: {x: 4002, y: 4022}
   m_ActualView: {fileID: 24}
+=======
+    x: 1399
+    y: 0
+    width: 521
+    height: 947
+  m_MinSize: {x: 277, y: 72}
+  m_MaxSize: {x: 4002, y: 4022}
+  m_ActualView: {fileID: 19}
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_Panes:
   - {fileID: 24}
   - {fileID: 25}
   - {fileID: 26}
   m_Selected: 0
   m_LastSelected: 1
+<<<<<<< HEAD
 --- !u!114 &15
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -404,6 +490,9 @@ MonoBehaviour:
     height: 274
   m_ViewDataDictionary: {fileID: 0}
 --- !u!114 &17
+=======
+--- !u!114 &12
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
 MonoBehaviour:
   m_ObjectHideFlags: 52
   m_CorrespondingSourceObject: {fileID: 0}
@@ -507,15 +596,24 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: 73
+<<<<<<< HEAD
     width: 392
     height: 203
+=======
+    width: 262
+    height: 632
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_ViewDataDictionary: {fileID: 0}
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 70}
       m_SelectedIDs: 
       m_LastClickedID: 0
+<<<<<<< HEAD
       m_ExpandedIDs: fa0fffff1217ffff3c25ffffc839ffffd2a4ffff28a7ffff4eb5ffffdac5ffff0ad4ffff6c5c0000
+=======
+      m_ExpandedIDs: 74fbffff
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -531,7 +629,11 @@ MonoBehaviour:
         m_IsRenaming: 0
         m_OriginalEventType: 11
         m_IsRenamingFilename: 0
+<<<<<<< HEAD
         m_ClientGUIView: {fileID: 11}
+=======
+        m_ClientGUIView: {fileID: 0}
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
       m_SearchString: 
     m_ExpandedScenes: []
     m_CurrenRootInstanceID: 0
@@ -560,10 +662,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 392
     y: 73
     width: 1705
     height: 1016
+=======
+    x: 262
+    y: 73
+    width: 1135
+    height: 632
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_ViewDataDictionary: {fileID: 0}
   m_ShowContextualTools: 0
   m_WindowGUID: bb0bb22709a2d3f4c8747ce09f87ca46
@@ -575,9 +684,15 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
+<<<<<<< HEAD
     m_Target: {x: 31.27591, y: -10.353806, z: -47.598763}
     speed: 2
     m_Value: {x: 31.27591, y: -10.353806, z: -47.598763}
+=======
+    m_Target: {x: 2.6060524, y: 1.0519116, z: 0.84586585}
+    speed: 2
+    m_Value: {x: 2.6060524, y: 1.0519116, z: 0.84586585}
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -606,6 +721,7 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
+<<<<<<< HEAD
     m_Target: {x: -0.065701075, y: -0.92899615, z: 0.20127384, w: -0.3039864}
     speed: 2
     m_Value: {x: -0.065375626, y: -0.928554, z: 0.19826384, w: -0.30692813}
@@ -613,6 +729,15 @@ MonoBehaviour:
     m_Target: 65.290665
     speed: 2
     m_Value: 62.479107
+=======
+    m_Target: {x: -0.060517173, y: 0.93907243, z: -0.22415033, w: -0.25353596}
+    speed: 2
+    m_Value: {x: -0.060515866, y: 0.93905216, z: -0.22414549, w: -0.25353047}
+  m_Size:
+    m_Target: 9.610942
+    speed: 2
+    m_Value: 9.610942
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -728,9 +853,15 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
+<<<<<<< HEAD
     y: 1108
     width: 2099
     height: 253
+=======
+    y: 724
+    width: 1399
+    height: 277
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_ViewDataDictionary: {fileID: 0}
   m_SearchFilter:
     m_NameFilter: 
@@ -744,6 +875,7 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
     - Assets/Terrain
   m_ViewMode: 1
   m_StartGridSize: 64
@@ -758,6 +890,22 @@ MonoBehaviour:
     m_SelectedIDs: de5c0000
     m_LastClickedID: 23774
     m_ExpandedIDs: 000000008e4500004e510000a45100006c5200001e530000fe540000ca5b000000ca9a3b
+=======
+    - Assets
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets
+  m_LastFoldersGridSize: -1
+  m_LastProjectPath: F:\Users\Farran\Documents\Uni stuff\Glos\Year 3\Semester 2\GroupProject\CastleGame
+  m_LockTracker:
+    m_IsLocked: 0
+  m_FolderTreeState:
+    scrollPos: {x: 0, y: 95}
+    m_SelectedIDs: 5e370000
+    m_LastClickedID: 14174
+    m_ExpandedIDs: 000000005e370000a63a0000243b0000e23c0000583d00006a3e0000023f0000b2420000b64200001043000012440000b046000000ca9a3b
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -785,7 +933,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
     m_ExpandedIDs: 000000008e4500004e510000a45100001e530000905300007a540000fe54000034580000385800009058000078590000ca5b0000
+=======
+    m_ExpandedIDs: 000000005e370000a63a0000243b0000e23c0000583d00006a3e0000023f0000b2420000b64200001043000012440000b0460000
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -887,10 +1039,17 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
+<<<<<<< HEAD
     x: 2099
     y: 73
     width: 459
     height: 1288
+=======
+    x: 1399
+    y: 73
+    width: 519
+    height: 928
+>>>>>>> parent of e0e83d71... Additional files changed after Unity closed
   m_ViewDataDictionary: {fileID: 0}
   m_OpenAddComponentMenu: 0
   m_ObjectsLockedBeforeSerialization: []
