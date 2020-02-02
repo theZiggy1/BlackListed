@@ -2,14 +2,16 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
+!CastleGame/Library/PackageCache/com.unity.render-pipelines.lightweight@5.16.1/ShaderLibrary/Shadows.hlsl
+
+/[Ll]ibrary/*
 /[Tt]emp/
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
 /[Ll]ogs/
 
-CastleGame/[Ll]ibrary/
+CastleGame/[Ll]ibrary/*
 CastleGame/[Tt]emp/
 CastleGame/[Oo]bj/
 CastleGame/[Bb]uild/
@@ -95,7 +97,7 @@ CastleGame/fmod_editor.log
 [Oo]bj/
 [Bb]uild
 /[Bb]uilds/
-/[Ll]ibrary/
+/[Ll]ibrary/*
 sysinfo.txt
 *.stackdump
 /Assets/AssetStoreTools*
@@ -133,6 +135,16 @@ ehthumbs.db
 [Dd]esktop.ini
 Corridor/Library/ShaderCache/
 Corridor/Library/metadata/
+
+
+# Adding an exception for the Shadows.hlsl
+# This is because by default, it means that shadows
+# in custom shader graph shaders are broken.
+# So I've changed it from instructions in a video
+# So now shadows work
+
+!CastleGame/Library/PackageCache/com.unity.render-pipelines.lightweight@5.16.1/ShaderLibrary/Shadows.hlsl
+!CastleGame/Library/PackageCache/com.unity.render-pipelines.lightweight@5.16.1/ShaderLibrary/
 
 
 
