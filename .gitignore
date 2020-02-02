@@ -2,7 +2,6 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-!CastleGame/Library/PackageCache/com.unity.render-pipelines.lightweight@5.16.1/ShaderLibrary/Shadows.hlsl
 
 /[Ll]ibrary/*
 /[Tt]emp/
@@ -135,16 +134,3 @@ ehthumbs.db
 [Dd]esktop.ini
 Corridor/Library/ShaderCache/
 Corridor/Library/metadata/
-
-
-# Adding an exception for the Shadows.hlsl
-# This is because by default, it means that shadows
-# in custom shader graph shaders are broken.
-# So I've changed it from instructions in a video
-# So now shadows work
-
-!CastleGame/Library/PackageCache/com.unity.render-pipelines.lightweight@5.16.1/ShaderLibrary/Shadows.hlsl
-!CastleGame/Library/PackageCache/com.unity.render-pipelines.lightweight@5.16.1/ShaderLibrary/
-
-
-
