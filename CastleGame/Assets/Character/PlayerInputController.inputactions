@@ -1,0 +1,33 @@
+{
+    "name": "PlayerInputController",
+    "maps": [
+        {
+            "name": "PlayerController",
+            "id": "f183dbae-a92c-4fff-97be-0185fbc842bc",
+            "actions": [
+                {
+                    "name": "LeftStick",
+                    "type": "Value",
+                    "id": "5db4ca47-de28-4056-9a76-e9b879e8d6ac",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "eb51b0cf-ce8a-4b16-a38e-fbb946615db7",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
