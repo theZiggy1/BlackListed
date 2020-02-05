@@ -14,8 +14,10 @@ public class WeaponScript : MonoBehaviour
     [SerializeField]
     private float damage;
     [SerializeField]
+    [Tooltip("How fast we can attack with the weapon, in Hz (per second)")]
     private float attackRate; // How fast we can attack with the weapon, measured in Hz
     [SerializeField]
+    [Tooltip("Our starting weapons should be indestructible. If they have durability set this to false/unticked")]
     private bool isIndestructible; // Is the weapon indestructible? - Our starting weapons will be
     [SerializeField]
     private float startDurability; // If the weapon isn't indestructible, how much durability does it normally have?
