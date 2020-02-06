@@ -10,6 +10,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Vector2 movementVec;
+    [SerializeField]
     float movespeed = 5f;
     float rotSpeed = 50f;
 
