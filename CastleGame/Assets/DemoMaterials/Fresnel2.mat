@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Object1
-  m_Shader: {fileID: 4800000, guid: f79adbf40ae814f40a51bee9321055e1, type: 3}
+  m_Name: Fresnel2
+  m_Shader: {fileID: 4800000, guid: ad113e8a8a439ea469be6ee1fc436f63, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_6D948AF7:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -44,6 +48,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_817F9E47: 1
+    - Vector1_B1AF29DA: 1
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -63,8 +69,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_556E8993: {r: 2, g: 1.113726, b: 0, a: 0}
-    - Color_EC811B98: {r: 0, g: 0, b: 0, a: 0}
-    - _Color: {r: 0.8584906, g: 0.028346404, b: 0.028346404, a: 1}
+    - Color_556E8993: {r: 2.670157, g: 2.670157, b: 2.670157, a: 0}
+    - Color_EC811B98: {r: 0.35849056, g: 0.35849056, b: 0.35849056, a: 0}
+    - _Color: {r: 0.04601282, g: 0.25315475, b: 0.8867924, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}

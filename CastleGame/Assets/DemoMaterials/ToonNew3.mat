@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Object10
-  m_Shader: {fileID: -6465566751694194690, guid: 7430f671f1aabec4da06e71c12980b3c,
+  m_Name: ToonNew3
+  m_Shader: {fileID: -6465566751694194690, guid: a2465f5d8aac12645832cfc536e6d3f7,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -25,6 +25,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_485ED67A: -0.2
     - Vector1_5B4D1271: 0.5
     - Vector1_62524A06: 0.3
     - Vector1_62E46485: 0
@@ -35,6 +36,8 @@ Material:
     - Vector1_9B9C5679: 0.7
     - Vector1_A2A4DBE: 0
     - Vector1_B1AF29DA: 3
+    - Vector1_B6AA910C: 0.2
+    - Vector1_DA6FC0C9: 2
     - Vector1_DFCEE156: 32
     m_Colors:
     - Color_28703146: {r: 0.8679245, g: 0.3256317, b: 0.0040939935, a: 0}

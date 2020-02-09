@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Object11
-  m_Shader: {fileID: -6465566751694194690, guid: a2465f5d8aac12645832cfc536e6d3f7,
+  m_Name: ToonNew5
+  m_Shader: {fileID: -6465566751694194690, guid: fbf5a944e78fdf24e9efa2eee4ba85b7,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -25,11 +25,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_1650F9C8: 0.3
+    - Vector1_4449245C: 0.01
     - Vector1_485ED67A: -0.2
     - Vector1_5B4D1271: 0.5
     - Vector1_62524A06: 0.3
     - Vector1_62E46485: 0
     - Vector1_785C6780: 0.3
+    - Vector1_79D802A7: 1
     - Vector1_79F99DD4: 0.1
     - Vector1_817F9E47: 3
     - Vector1_925A47A1: 4
@@ -42,9 +45,11 @@ Material:
     m_Colors:
     - Color_28703146: {r: 0.8679245, g: 0.3256317, b: 0.0040939935, a: 0}
     - Color_556E8993: {r: 0.2841698, g: 3.5648696, b: 0, a: 0}
+    - Color_5689B2E2: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
     - Color_8F9AAD63: {r: 0.33962262, g: 0.01951854, b: 0, a: 0}
     - Color_9B061719: {r: 1, g: 1, b: 1, a: 0}
     - Color_B1B3694E: {r: 0.7830189, g: 0.15881987, b: 0.15881987, a: 0}
     - Color_B57EBF66: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
     - Color_C941FDF3: {r: 1, g: 1, b: 1, a: 0}
+    - Color_E83334F: {r: 0, g: 0, b: 0, a: 0}
     - Color_EC811B98: {r: 0.5214489, g: 0.5849056, b: 0.5284312, a: 0}

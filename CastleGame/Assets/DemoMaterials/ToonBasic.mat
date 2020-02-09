@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Object4
+  m_Name: ToonBasic
   m_Shader: {fileID: -6465566751694194690, guid: 3953fdd9ec16b9c4a8e0ea28e423776b,
     type: 3}
   m_ShaderKeywords: 
@@ -22,13 +22,13 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - Vector1_5B4D1271: 0.5
-    - Vector1_62524A06: 0.04
-    - Vector1_62E46485: 0.05
+    - Vector1_62524A06: 0.3
+    - Vector1_62E46485: 0
     - Vector1_817F9E47: 3
-    - Vector1_A2A4DBE: -0.5
+    - Vector1_A2A4DBE: 0
     - Vector1_B1AF29DA: 3
     m_Colors:
     - Color_556E8993: {r: 0.2841698, g: 3.5648696, b: 0, a: 0}
-    - Color_8F9AAD63: {r: 0.41509432, g: 0.14684941, b: 0.15110725, a: 0}
-    - Color_B1B3694E: {r: 0.8018868, g: 0.6955044, b: 0.4955055, a: 0}
+    - Color_8F9AAD63: {r: 0.33962262, g: 0.01951854, b: 0, a: 0}
+    - Color_B1B3694E: {r: 0.7830189, g: 0.15881987, b: 0.15881987, a: 0}
     - Color_EC811B98: {r: 0.5214489, g: 0.5849056, b: 0.5284312, a: 0}
