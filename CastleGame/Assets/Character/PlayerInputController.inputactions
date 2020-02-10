@@ -10,6 +10,38 @@
                     "type": "Value",
                     "id": "5db4ca47-de28-4056-9a76-e9b879e8d6ac",
                     "expectedControlType": "",
+                    "processors": "AxisDeadzone",
+                    "interactions": ""
+                },
+                {
+                    "name": "RightStick",
+                    "type": "Value",
+                    "id": "c1c123a2-34f0-45f8-9dd6-e0d728780ecc",
+                    "expectedControlType": "",
+                    "processors": "AxisDeadzone",
+                    "interactions": ""
+                },
+                {
+                    "name": "SwitchWeapon",
+                    "type": "Button",
+                    "id": "0159afb2-4580-44ae-8ab8-9dd5ecf52717",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "AttackRightTrigger",
+                    "type": "Button",
+                    "id": "e0c8367a-4cdc-4b7d-9d11-0e690be8a567",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Press"
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "b8e3f387-e811-48ea-88fe-d2000f2259b9",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 }
@@ -23,6 +55,50 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c221c3d5-af4a-4342-8bdf-4ce34ea7b985",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightStick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d161c3e-a557-40a9-ab6f-a0a09237348a",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "SwitchWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6cecfdad-d4f6-40ba-a904-fc42e425b637",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AttackRightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0b1ab22d-abc2-4c9f-a29b-18feb4132f55",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

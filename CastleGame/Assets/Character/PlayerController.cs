@@ -10,11 +10,14 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Vector2 movementVec;
-    [SerializeField]
-    float movespeed = 5f;
-    float rotSpeed = 50f;
-
+    Vector2 rotVec;
+    [SerializeField] float movespeed = 5f;
+    float rotSpeed = 1f;
    [SerializeField] GameObject thisPlayerChild;
+    [SerializeField] float jumpForce;
+    [SerializeField] GameObject projectile;
+    [SerializeField] Transform projectileSpawn;
+    [SerializeField] float forceStrength;
 
     // Start is called before the first frame update
     void Start()
@@ -44,14 +47,18 @@ public class PlayerController : MonoBehaviour
      */
     void LookAt()
     {
-       Vector3 LookDirection = new Vector3(movementVec.y, 0.0f, -movementVec.x);
-        if(LookDirection == Vector3.zero)
+       Vector3 LookDirection = new Vector3(rotVec.y, 0.0f, -rotVec.x);
+        if (LookDirection.x > 0.11 || LookDirection.x < -0.11)
         {
-            return;
+            if (LookDirection.z > 0.11 || LookDirection.z < -0.11)
+            {
+            
+
+                Quaternion lookRotation = Quaternion.LookRotation(LookDirection, Vector3.up);
+                float step = rotSpeed * Time.deltaTime;
+                thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
+           }
         }
-        Quaternion lookRotation = Quaternion.LookRotation(LookDirection, Vector3.up);
-        float step = rotSpeed * Time.deltaTime;
-        thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
     }
 
     /*
@@ -60,16 +67,31 @@ public class PlayerController : MonoBehaviour
     void OnLeftStick(InputValue value)
     {
         movementVec = value.Get<Vector2>();
+      // Debug.Log(value.Get<Vector2>());
+    }
+
+    void OnRightStick(InputValue value)
+    {
+        rotVec = value.Get<Vector2>();
         Debug.Log(value.Get<Vector2>());
     }
 
     void OnAttackRightTrigger()
     {
-      
+        Debug.Log("Attacking!");
+     GameObject Bullet =   GameObject.Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+        Bullet.GetComponent<Rigidbody>().AddForce(Bullet.transform.forward * forceStrength);
     }
 
-    void OnLeftTrigger()
+    void OnSwitchWeapon()
     {
-        Debug.Log("Left trigger was pressed!");
+        Debug.Log("Switching Weapon!");
+    }
+
+    void OnJump()
+    {
+
+        Debug.Log("Jumping!");
+        this.GetComponent<Rigidbody>().AddForce(0.0f, jumpForce, 0.0f);
     }
 }
