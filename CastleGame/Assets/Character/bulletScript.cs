@@ -8,7 +8,7 @@ public class bulletScript : MonoBehaviour
     [SerializeField] float forceStrength;
     void Start()
     {
-        this.GetComponent<Rigidbody>().AddRelativeForce(this.transform.forward * forceStrength);
+        //this.GetComponent<Rigidbody>().AddRelativeForce(this.transform.forward * forceStrength);
     }
 
     // Update is called once per frame

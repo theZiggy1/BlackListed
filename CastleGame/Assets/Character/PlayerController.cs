@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Attacking!");
      GameObject Bullet =   GameObject.Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
-        Bullet.GetComponent<Rigidbody>().AddForce(Bullet.transform.forward * forceStrength);
+        Bullet.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * forceStrength);
     }
 
     void OnSwitchWeapon()
