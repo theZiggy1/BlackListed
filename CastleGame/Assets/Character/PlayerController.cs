@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce;
     [SerializeField] GameObject projectile;
     [SerializeField] Transform projectileSpawn;
+    [SerializeField] Transform meleeSpawn;
     [SerializeField] float forceStrength;
+    bool isRangedAttack = true;
 
     // Start is called before the first frame update
     void Start()
@@ -76,21 +78,43 @@ public class PlayerController : MonoBehaviour
         Debug.Log(value.Get<Vector2>());
     }
 
+    /*
+     * This handles the attacking of the game. It is split into two parts, a melee and a ranged attack, using a bool value to control which controls
+     * the attacks which is being done.
+     * */
     void OnAttackRightTrigger()
     {
         Debug.Log("Attacking!");
-     GameObject Bullet =   GameObject.Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
-        Bullet.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * forceStrength);
-    }
 
+        if (isRangedAttack)
+        {
+            GameObject Bullet = GameObject.Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
+            Bullet.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * forceStrength);
+            Destroy(Bullet, 4.0f);
+        }
+        else
+        {
+            GameObject Melee = GameObject.Instantiate(projectile, meleeSpawn.position, meleeSpawn.rotation);
+            Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
+            Destroy(Melee, 0.5f);
+        }
+    }
+    /*
+     * simple control to change if the attack is melee or ranged, we control that using a bool value. 
+     */
     void OnSwitchWeapon()
     {
-        Debug.Log("Switching Weapon!");
+        isRangedAttack = !isRangedAttack;
+        Debug.Log("Switching Weapon!" + isRangedAttack);
     }
 
+
+    /*
+     * Our jump. currently it is unimpeded, you can jump infinte number of times, will need to be edited in the future
+     * TODO: add Ground to each object, lock the jumping to when you touch the ground only. 
+     */ 
     void OnJump()
     {
-
         Debug.Log("Jumping!");
         this.GetComponent<Rigidbody>().AddForce(0.0f, jumpForce, 0.0f);
     }
