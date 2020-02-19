@@ -8,7 +8,7 @@ public class EnemySpawnerScript : MonoBehaviour
     [SerializeField] GameObject wallBehind;
     [SerializeField] GameObject wallInfront;
     [SerializeField] GameObject Enemies;
-    [SerializeField] Transform SpawnPoint;
+    [SerializeField] Transform[] SpawnPoint;
 
     [SerializeField]  int numEnemies = 1;
     void Start()
@@ -26,7 +26,7 @@ public class EnemySpawnerScript : MonoBehaviour
     {
         wallBehind.SetActive(true);
         wallInfront.SetActive(true);
-        GameObject Enemy = GameObject.Instantiate(Enemies, SpawnPoint.position, SpawnPoint.rotation);
+        GameObject Enemy = GameObject.Instantiate(Enemies, SpawnPoint[0].position, SpawnPoint[0].rotation);
         Enemy.GetComponent<EnemyScript>().Spawner = this.gameObject;
     }
 
