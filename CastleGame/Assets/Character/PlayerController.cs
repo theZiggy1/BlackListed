@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     Vector2 movementVec;
     Vector2 rotVec;
     [SerializeField] float movespeed = 5f;
-    float rotSpeed = 1f;
+    float rotSpeed = 0.1f;
    [SerializeField] GameObject thisPlayerChild;
     [SerializeField] float jumpForce;
     [SerializeField] GameObject projectile;
