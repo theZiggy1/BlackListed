@@ -12,8 +12,9 @@ public class EnemySpawnerScript : MonoBehaviour
 
     [SerializeField]  int numEnemies = 1;
     [SerializeField] Camera inGameCamera;
-    [SerializeField] Transform camaraLocation;
-    bool LerpTowards;
+    [SerializeField] Transform cameraLocation;
+    bool LerpTowards = false;
+    public float speed;
     void Start()
     {
         
@@ -22,7 +23,14 @@ public class EnemySpawnerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(LerpTowards)
+        {
+            inGameCamera.transform.position = Vector3.MoveTowards(inGameCamera.transform.position, cameraLocation.position, speed * Time.deltaTime);
+            if(Vector3.Distance(inGameCamera.transform.position, cameraLocation.position) < 0.01f)
+            {
+                LerpTowards = false;
+            }
+        }
     }
 
    public  void playersHaveEntered()
@@ -31,6 +39,7 @@ public class EnemySpawnerScript : MonoBehaviour
         wallInfront.SetActive(true);
         GameObject Enemy = GameObject.Instantiate(Enemies, SpawnPoint[0].position, SpawnPoint[0].rotation);
         Enemy.GetComponent<EnemyScript>().Spawner = this.gameObject;
+        LerpTowards = true;
     }
 
     public void EnemyKilled()
