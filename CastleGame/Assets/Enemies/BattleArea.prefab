@@ -39,6 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9132037330410733851}
+  - component: {fileID: 387860165}
   m_Layer: 0
   m_Name: BattleArea
   m_TagString: Untagged
@@ -64,6 +65,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &387860165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9132037330410733848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3be36a150e21d0d41b51f2a9407b8e7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wallBehind: {fileID: 9132037331263933705}
+  wallInfront: {fileID: 9132037332191039391}
+  Enemies: {fileID: 4930572753960081760, guid: 46d2301abb7c89449a5e556fbfbbc958, type: 3}
+  SpawnPoint:
+  - {fileID: 2600564491730065497}
+  numEnemies: 1
 --- !u!1 &9132037331263933705
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +101,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9132037331263933704
 Transform:
   m_ObjectHideFlags: 0
@@ -91,7 +110,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9132037331263933705}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 2.34}
   m_LocalScale: {x: 40, y: 5, z: 2}
   m_Children: []
   m_Father: {fileID: 9132037330410733851}
@@ -173,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9132037332191039390
 Transform:
   m_ObjectHideFlags: 0
@@ -182,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9132037332191039391}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -35}
+  m_LocalPosition: {x: 0, y: 0, z: -36.8}
   m_LocalScale: {x: 40, y: 5, z: 2}
   m_Children: []
   m_Father: {fileID: 9132037330410733851}

@@ -36,11 +36,17 @@ public class PlayerSelectionScript : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        GameObject playerInst;
-        playerInst = Instantiate(playerPrefab, transform.position, transform.rotation);
+        //GameObject playerInst;
+        //playerInst = Instantiate(playerPrefab, transform.position, transform.rotation);
         // Can't set .user, it's read only
         //playerInst.GetComponent<PlayerInput>().user = 
         // Not sure how to get custom spawning of players to work with assigning controllers
+
+        //PlayerInput.Instantiate(playerPrefab, controlScheme: "DefaultControls", device: Keyboard.current);
+        //PlayerInput.Instantiate(playerPrefab, numOfPlayers, controlScheme: "DefaultControls", 0);
+        //PlayerInputManager.JoinPlayer(numOfPlayers, 0, controlScheme: "DefaultControls", InputDevice.all);
+
+        numOfPlayers++;
     }
 
     private void OnPlayerJoined()
