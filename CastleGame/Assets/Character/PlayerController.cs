@@ -21,10 +21,20 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float forceStrength;
     bool isRangedAttack = true;
 
+    private string GAMEMANAGER_TAG = "GameManager";
+    private GameObject gameManager;
+
     // Start is called before the first frame update
     void Start()
     {
         transform.Rotate(0, 45, 0);
+        
+        // Find the Game Manager
+        gameManager = GameObject.FindGameObjectWithTag(GAMEMANAGER_TAG);
+        // Set ourselves to be in its array
+        gameManager.GetComponent<GameManagerScript>().currentPlayers[gameManager.GetComponent<GameManagerScript>().numPlayers] = gameObject;
+        // Then increment that array
+        gameManager.GetComponent<GameManagerScript>().numPlayers++;
     }
 
     // Update is called once per frame
