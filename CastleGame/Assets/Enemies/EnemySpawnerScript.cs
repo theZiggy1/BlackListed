@@ -11,6 +11,9 @@ public class EnemySpawnerScript : MonoBehaviour
     [SerializeField] Transform[] SpawnPoint;
 
     [SerializeField]  int numEnemies = 1;
+    [SerializeField] Camera inGameCamera;
+    [SerializeField] Transform camaraLocation;
+    bool LerpTowards;
     void Start()
     {
         

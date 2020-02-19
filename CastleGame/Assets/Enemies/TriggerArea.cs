@@ -24,6 +24,7 @@ public class TriggerArea : MonoBehaviour
         {
             battleArea.GetComponent<EnemySpawnerScript>().playersHaveEntered();
             this.gameObject.SetActive(false);
+            
         }
     }
 }
