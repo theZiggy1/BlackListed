@@ -10,7 +10,7 @@ public class EnemySpawnerScript : MonoBehaviour
     [SerializeField] GameObject Enemies;
     [SerializeField] Transform[] SpawnPoint;
 
-    [SerializeField]  int numEnemies = 1;
+    [SerializeField]  int numEnemies = 2;
     [SerializeField] Camera inGameCamera;
     [SerializeField] Transform cameraLocation;
     bool LerpTowards = false;
@@ -39,6 +39,10 @@ public class EnemySpawnerScript : MonoBehaviour
         wallInfront.SetActive(true);
         GameObject Enemy = GameObject.Instantiate(Enemies, SpawnPoint[0].position, SpawnPoint[0].rotation);
         Enemy.GetComponent<EnemyScript>().Spawner = this.gameObject;
+
+
+        GameObject Enemy2 = GameObject.Instantiate(Enemies, new Vector3(SpawnPoint[0].position.x + 5, SpawnPoint[0].position.y, SpawnPoint[0].position.z), SpawnPoint[0].rotation);
+        Enemy2.GetComponent<EnemyScript>().Spawner = this.gameObject;
         LerpTowards = true;
     }
 
