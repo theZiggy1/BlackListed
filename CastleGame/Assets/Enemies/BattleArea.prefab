@@ -339,6 +339,7 @@ MonoBehaviour:
   numEnemies: 2
   inGameCamera: {fileID: 0}
   cameraLocation: {fileID: 1899961612}
+  CubeHider: {fileID: 0}
   speed: 5
 --- !u!1 &9132037331263933705
 GameObject:
