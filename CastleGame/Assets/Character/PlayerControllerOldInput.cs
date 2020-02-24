@@ -123,7 +123,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
 
         Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
-        if (LookDirection == Vector3.zero)
+        if (LookDirection == Vector3.zero && movement != Vector3.zero)
         {
             Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
             lookRotation *= Quaternion.Euler(0, 45, 0);
