@@ -66,7 +66,7 @@ public class EnemySpawnerScript : MonoBehaviour
 
             if (players != null)
             {
-                players.transform.position = movePlayers[players.GetComponent<PlayerController>().playerNum].transform.position;
+                players.transform.position = movePlayers[players.GetComponent<PlayerControllerOldInput>().playerNum].transform.position;
             }
         }
         LerpTowards = true;

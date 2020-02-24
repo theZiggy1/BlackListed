@@ -11,7 +11,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 {
     // Input configuration
     [SerializeField]
-    private int playerID = -1;
+    public int playerID = -1;
     private string buttonA; // Button 0
     private string buttonB; // Button 1
     private string buttonX; // Button 2
@@ -37,7 +37,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     Vector2 movementVec;
     Vector2 rotVec;
     [SerializeField] float movespeed = 5f;
-    float rotSpeed = 0.1f;
+    float rotSpeed = 1.0f;
     [SerializeField] GameObject thisPlayerChild;
     [SerializeField] float jumpForce;
     [SerializeField] GameObject projectile;
@@ -49,10 +49,12 @@ public class PlayerControllerOldInput : MonoBehaviour
     private string GAMEMANAGER_TAG = "GameManager";
     private GameObject gameManager;
 
+    public int playerNum;
+    bool Attacking = false;
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(0, 0, 0);
+     //  transform.position = new Vector3(0, 0, 0);
 
         transform.Rotate(0, 45, 0);
         
@@ -66,6 +68,7 @@ public class PlayerControllerOldInput : MonoBehaviour
         // This then sets our player ID to be how many players there are, e.g. if we are the first player, our playerID is now 1
         // if there's already a player there, our playerID is now 2
         playerID = gameManager.GetComponent<GameManagerScript>().numPlayers;
+        playerNum = playerID - 1;
     }
 
     // Update is called once per frame
@@ -73,6 +76,37 @@ public class PlayerControllerOldInput : MonoBehaviour
     {
         Movement();
         LookAt();
+
+
+        if(Input.GetAxis("Joy" + playerID + "RightTrigger") != 0.0f)
+        {
+            if (Attacking == false)
+            {
+                OnAttackRightTrigger();
+                Attacking = true;
+            }
+        }
+
+        if(Attacking == true)
+        {
+            if(Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
+            {
+                Attacking = false;
+            }
+        }
+
+
+        if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
+        {
+            OnSwitchWeapon();
+        }
+
+        if (Input.GetButtonDown("Joy" + playerID + "ButtonA"))
+        {
+            OnJump();
+        }
+
+
     }
     /*
      * Movement is taken in as a 2D Vector from the controller, and then is used to translate the Player
@@ -82,10 +116,10 @@ public class PlayerControllerOldInput : MonoBehaviour
         //Vector3 movement = new Vector3(movementVec.y, 0.0f, -movementVec.x) * movespeed * Time.deltaTime;
         //transform.Translate(movement);
 
-        Debug.Log("Joy1LeftStickVertical: " + Input.GetAxis("Joy1LeftStickVertical"));
-        Debug.Log("Joy1LeftStickHorizontal: " + Input.GetAxis("Joy1LeftStickHorizontal"));
+      //  Debug.Log("Joy1LeftStickVertical: " + Input.GetAxis("Joy1LeftStickVertical"));
+       // Debug.Log("Joy1LeftStickHorizontal: " + Input.GetAxis("Joy1LeftStickHorizontal"));
 
-        Vector3 movement = new Vector3(Input.GetAxis("Joy"+ playerID +"LeftStickVertical") * 0.4f * movespeed, 0.0f, Input.GetAxis("Joy"+ playerID +"LeftStickHorizontal") * 0.4f * movespeed);
+        Vector3 movement = new Vector3(Input.GetAxis("Joy"+ playerID +"LeftStickVertical") * Time.deltaTime * movespeed, 0.0f, Input.GetAxis("Joy"+ playerID +"LeftStickHorizontal") * Time.deltaTime * movespeed);
         transform.Translate(movement);
     }
 
@@ -96,18 +130,22 @@ public class PlayerControllerOldInput : MonoBehaviour
      */
     void LookAt()
     {
-       Vector3 LookDirection = new Vector3(rotVec.y, 0.0f, -rotVec.x);
-        if (LookDirection.x > 0.11 || LookDirection.x < -0.11)
-        {
-            if (LookDirection.z > 0.11 || LookDirection.z < -0.11)
-            {
+       
+       Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
+       // if (LookDirection.x > 0.11 || LookDirection.x < -0.11)
+        //{
+          //  if (LookDirection.z > 0.11 || LookDirection.z < -0.11)
+           // {
             
-
+        if(LookDirection == Vector3.zero)
+        {
+            return;
+        }
                 Quaternion lookRotation = Quaternion.LookRotation(LookDirection, Vector3.up);
                 float step = rotSpeed * Time.deltaTime;
                 thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
-           }
-        }
+          // }
+      //  }
     }
 
     /*
