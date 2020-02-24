@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     {
         fightingPlayer,
         flocking,
+        attackedByPlayer,
         numStates
     }
 
@@ -42,6 +43,9 @@ public class EnemyScript : MonoBehaviour
                 break;
 
             case States.fightingPlayer:
+                break;
+
+            case States.attackedByPlayer:
                 break;
 
         }
