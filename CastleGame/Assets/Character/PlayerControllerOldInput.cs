@@ -120,6 +120,16 @@ public class PlayerControllerOldInput : MonoBehaviour
        // Debug.Log("Joy1LeftStickHorizontal: " + Input.GetAxis("Joy1LeftStickHorizontal"));
 
         Vector3 movement = new Vector3(Input.GetAxis("Joy"+ playerID +"LeftStickVertical") * Time.deltaTime * movespeed, 0.0f, Input.GetAxis("Joy"+ playerID +"LeftStickHorizontal") * Time.deltaTime * movespeed);
+
+
+        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
+        if (LookDirection == Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
+            lookRotation *= Quaternion.Euler(0, 45, 0);
+            float step = rotSpeed * Time.deltaTime;
+            thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
+        }
         transform.Translate(movement);
     }
 
@@ -142,7 +152,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             return;
         }
                 Quaternion lookRotation = Quaternion.LookRotation(LookDirection, Vector3.up);
-                float step = rotSpeed * Time.deltaTime;
+        lookRotation *= Quaternion.Euler(0, 45, 0);
+        float step = rotSpeed * Time.deltaTime;
                 thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
           // }
       //  }
