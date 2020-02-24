@@ -23,8 +23,7 @@ public class TriggerArea : MonoBehaviour
         if(other.gameObject.tag == PLAYER_TAG)
         {
             battleArea.GetComponent<EnemySpawnerScript>().playersHaveEntered();
-            this.gameObject.SetActive(false);
-            
+            this.gameObject.SetActive(false); 
         }
     }
 }

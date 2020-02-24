@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     private string GAMEMANAGER_TAG = "GameManager";
     private GameObject gameManager;
+    public int playerNum;
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +33,15 @@ public class PlayerController : MonoBehaviour
         // Find the Game Manager
         gameManager = GameObject.FindGameObjectWithTag(GAMEMANAGER_TAG);
         // Set ourselves to be in its array
-        gameManager.GetComponent<GameManagerScript>().currentPlayers[gameManager.GetComponent<GameManagerScript>().numPlayers] = gameObject;
-        // Then increment that array
-        gameManager.GetComponent<GameManagerScript>().numPlayers++;
+
+        if (gameManager != null)
+        {
+            gameManager.GetComponent<GameManagerScript>().currentPlayers[gameManager.GetComponent<GameManagerScript>().numPlayers] = gameObject;
+            // Then increment that array
+
+            playerNum = gameManager.GetComponent<GameManagerScript>().numPlayers;
+            gameManager.GetComponent<GameManagerScript>().numPlayers++;
+        }
     }
 
     // Update is called once per frame
