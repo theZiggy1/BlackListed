@@ -17,6 +17,9 @@ public class EnemySpawnerScript : MonoBehaviour
     bool LerpTowards = false;
     public float speed;
 
+    public bool falling = false;
+    public float FallSpeed = 5.0f;
+
     private string GAMEMANAGER_TAG = "GameManager";
     void Start()
     {
@@ -34,6 +37,12 @@ public class EnemySpawnerScript : MonoBehaviour
             {
                 LerpTowards = false;
             }
+        }
+
+        if(falling)
+        {
+            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, this.gameObject.transform.position.y - (FallSpeed * Time.deltaTime), this.gameObject.transform.position.z);
+            Destroy(this.gameObject, 5.0f);
         }
     }
 
@@ -56,6 +65,12 @@ public class EnemySpawnerScript : MonoBehaviour
             }
         }
         LerpTowards = true;
+    }
+
+    public void playersHaveExited()
+    {
+        Debug.Log("Goodbye Blye Sky");
+        falling = true;
     }
 
     public void EnemyKilled()
