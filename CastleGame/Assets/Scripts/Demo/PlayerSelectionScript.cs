@@ -17,9 +17,10 @@ public class PlayerSelectionScript : MonoBehaviour
     //private GameObject gameScene;
 
     [SerializeField]
-    private GameObject playerPrefab;
+    private GameObject playerPrefab; // The player we are spawning
 
-    private int numOfPlayers;
+    [SerializeField]
+    private int numOfPlayers; // We could technically get the number of players from the GameManager, but we don't need to
     
 
     // Start is called before the first frame update
@@ -36,17 +37,12 @@ public class PlayerSelectionScript : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        //GameObject playerInst;
-        //playerInst = Instantiate(playerPrefab, transform.position, transform.rotation);
-        // Can't set .user, it's read only
-        //playerInst.GetComponent<PlayerInput>().user = 
-        // Not sure how to get custom spawning of players to work with assigning controllers
+        if (numOfPlayers < 4)
+        {
+            Instantiate(playerPrefab, transform.position, transform.rotation);
 
-        //PlayerInput.Instantiate(playerPrefab, controlScheme: "DefaultControls", device: Keyboard.current);
-        //PlayerInput.Instantiate(playerPrefab, numOfPlayers, controlScheme: "DefaultControls", 0);
-        //PlayerInputManager.JoinPlayer(numOfPlayers, 0, controlScheme: "DefaultControls", InputDevice.all);
-
-        numOfPlayers++;
+            numOfPlayers++;
+        }
     }
 
     private void OnPlayerJoined()
