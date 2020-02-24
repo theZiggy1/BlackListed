@@ -209,9 +209,9 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 0
+    axis: 3
     joyNum: 1
   - serializedVersion: 3
     m_Name: Joy1RightStickVertical
@@ -225,9 +225,9 @@ InputManager:
     dead: 0.19
     sensitivity: 1
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
-    axis: 1
+    axis: 4
     joyNum: 1
   - serializedVersion: 3
     m_Name: Joy1DpadHorizontal
@@ -273,7 +273,7 @@ InputManager:
     dead: 0.001
     sensitivity: 1000
     snap: 0
-    invert: 0
+    invert: 1
     type: 2
     axis: 8
     joyNum: 1
