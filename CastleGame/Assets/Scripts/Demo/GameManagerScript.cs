@@ -7,6 +7,7 @@ public class GameManagerScript : MonoBehaviour
 {
     public int numPlayers;
     public GameObject[] currentPlayers;
+    public bool[] isEngaged;
 
     // Start is called before the first frame update
     void Start()

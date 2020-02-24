@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -459,25 +459,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!1 &1226868676 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1226868676, guid: 5896f0caf82b5f6438a5640a2dbc476d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5612947628433645811}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1226868678
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1226868676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d94109cc5102ee844b409c02cd387866, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  battleArea: {fileID: 5612947628433645812}
 --- !u!1001 &1321767278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -706,6 +687,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
+        type: 3}
+      propertyPath: isEngaged.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958bb2ac4d041a4bb0ee9b3868f66dd, type: 3}
 --- !u!1 &2014078306
@@ -870,19 +856,5 @@ PrefabInstance:
       propertyPath: inGameCamera
       value: 
       objectReference: {fileID: 90569336}
-    - target: {fileID: 387860165, guid: 5896f0caf82b5f6438a5640a2dbc476d, type: 3}
-      propertyPath: FallSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 387860165, guid: 5896f0caf82b5f6438a5640a2dbc476d, type: 3}
-      propertyPath: speed
-      value: 10
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5896f0caf82b5f6438a5640a2dbc476d, type: 3}
---- !u!1 &5612947628433645812 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9132037330410733848, guid: 5896f0caf82b5f6438a5640a2dbc476d,
-    type: 3}
-  m_PrefabInstance: {fileID: 5612947628433645811}
-  m_PrefabAsset: {fileID: 0}

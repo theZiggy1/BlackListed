@@ -52,11 +52,16 @@ public class EnemySpawnerScript : MonoBehaviour
         wallInfront.SetActive(true);
         GameObject Enemy = GameObject.Instantiate(Enemies, SpawnPoint[0].position, SpawnPoint[0].rotation);
         Enemy.GetComponent<EnemyScript>().Spawner = this.gameObject;
+        Enemy.GetComponent<EnemyScript>().gameManager = gameManager;
+        Enemy.GetComponent<EnemyScript>().playerToFight = Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers);
         GameObject Enemy2 = GameObject.Instantiate(Enemies, new Vector3(SpawnPoint[0].position.x + 5, SpawnPoint[0].position.y, SpawnPoint[0].position.z), SpawnPoint[0].rotation);
         Enemy2.GetComponent<EnemyScript>().Spawner = this.gameObject;
 
+        Enemy2.GetComponent<EnemyScript>().gameManager = gameManager;
+        Enemy2.GetComponent<EnemyScript>().playerToFight = Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers);
 
-        foreach(GameObject players in gameManager.GetComponent<GameManagerScript>().currentPlayers)
+
+        foreach (GameObject players in gameManager.GetComponent<GameManagerScript>().currentPlayers)
         {
 
             if (players != null)
