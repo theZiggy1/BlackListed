@@ -18,6 +18,9 @@ public class TriggerExit : MonoBehaviour
         
     }
 
+    //This calls a slightly different function from the other script. might be worth rewriting the single script with a bool, the housing two different scripts that almost do exactly the same thing. 
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == PLAYER_TAG)

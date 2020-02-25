@@ -17,7 +17,7 @@ public class TriggerArea : MonoBehaviour
     {
         
     }
-
+    //When you enter the trigger area, this lets the area know so, and lets all players enter into the area. It also removes the trigger, so it cant be triggered a second time. 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.tag == PLAYER_TAG)

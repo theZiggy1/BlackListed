@@ -34,50 +34,53 @@ public class PlayerControllerOldInput : MonoBehaviour
     private string RightTrigger; // 10th axis
     
 
-    Vector2 movementVec;
-    Vector2 rotVec;
-    [SerializeField] float movespeed = 5f;
-    float rotSpeed = 1.0f;
-    [SerializeField] GameObject thisPlayerChild;
-    [SerializeField] float jumpForce;
-    [SerializeField] GameObject projectile;
-    [SerializeField] Transform projectileSpawn;
-    [SerializeField] Transform meleeSpawn;
-    [SerializeField] float forceStrength;
-    bool isRangedAttack = true;
+    Vector2 movementVec; //depreciated from the 'old movement system
+    Vector2 rotVec; //see above comment
+    [SerializeField] float movespeed = 5f; //a float to denote how fast the character can move. 
+    float rotSpeed = 1.0f; //The speed the chcracter is able to rotate in the direction around to where the character is facing. 
+    [SerializeField] GameObject thisPlayerChild; //This is child obejct that has been seperated to house the visible portion of the character.
+    [SerializeField] float jumpForce; //how hard the player can jump
+    [SerializeField] GameObject projectile; //The 'bullet the character can spawn.
+    [SerializeField] Transform projectileSpawn; //Thw location of the bullet
+    [SerializeField] Transform meleeSpawn; //The location of the melee attack
+    [SerializeField] float forceStrength; //How hard the bullet is pushed away from the character
+    bool isRangedAttack = true; //whether or not the character is attacking with a ranged attack. This will be depreciated if we implement more then 2 wepaons
 
     private string GAMEMANAGER_TAG = "GameManager";
     private GameObject gameManager;
 
     public int playerNum;
-    bool Attacking = false;
+    bool Attacking = false; // the right trigger is in fact an axis, and to keep the player from attacking each frame, once the trigger is depressed, this is called, and not reverted until the trigger is released completely. 
     // Start is called before the first frame update
     void Start()
     {
      //  transform.position = new Vector3(0, 0, 0);
 
-        transform.Rotate(0, 45, 0);
+        transform.Rotate(0, 45, 0); //The character is rotated 45 degrees when spawned in to help with the rotation of the level. it was either this, or leave each section rotated 45 degrees, and due to how the controller takes in input. 
         
         // Find the Game Manager
-        gameManager = GameObject.FindGameObjectWithTag(GAMEMANAGER_TAG);
+        gameManager = GameObject.FindGameObjectWithTag(GAMEMANAGER_TAG); //this is both the game manager and a blackboard for the player ai. 
         // Set ourselves to be in its array
-        gameManager.GetComponent<GameManagerScript>().currentPlayers[gameManager.GetComponent<GameManagerScript>().numPlayers] = gameObject;
+        gameManager.GetComponent<GameManagerScript>().currentPlayers[gameManager.GetComponent<GameManagerScript>().numPlayers] = gameObject; //Updates the blackboard with info that this charcater has been added tot he world. 
         // Then increment that array
-        gameManager.GetComponent<GameManagerScript>().numPlayers++;
+        gameManager.GetComponent<GameManagerScript>().numPlayers++; // increment the number of players that have been added to the world. 
 
         // This then sets our player ID to be how many players there are, e.g. if we are the first player, our playerID is now 1
         // if there's already a player there, our playerID is now 2
         playerID = gameManager.GetComponent<GameManagerScript>().numPlayers;
-        playerNum = playerID - 1;
+        playerNum = playerID - 1; //This is important for controller info. 
     }
 
     // Update is called once per frame
     void Update()
     {
+        //our update loop due to the controller rewrite now handles what was originally sendmessage from the input system. Now we need to manually handle sending in these inputs
+        //The first is to mandle movement. We also specifically do it in this order in case the right stick is being engaged to look a different direction, otherwise in movement, the player will naturally look towards the direction the player is walking towards. 
         Movement();
         LookAt();
 
 
+        //Handles the attacking from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
         if(Input.GetAxis("Joy" + playerID + "RightTrigger") != 0.0f)
         {
             if (Attacking == false)
@@ -86,7 +89,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                 Attacking = true;
             }
         }
-
+         //This links with the above section. attacking needs to be reset when the player is odne pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
         if(Attacking == true)
         {
             if(Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
@@ -95,12 +98,13 @@ public class PlayerControllerOldInput : MonoBehaviour
             }
         }
 
-
+        //buttons only return true the frame they are called with button down, so the above isnt true here. This lets us handle switching weapons.
         if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
         {
             OnSwitchWeapon();
         }
 
+        //This lets us handle jumping
         if (Input.GetButtonDown("Joy" + playerID + "ButtonA"))
         {
             OnJump();
@@ -119,10 +123,14 @@ public class PlayerControllerOldInput : MonoBehaviour
       //  Debug.Log("Joy1LeftStickVertical: " + Input.GetAxis("Joy1LeftStickVertical"));
        // Debug.Log("Joy1LeftStickHorizontal: " + Input.GetAxis("Joy1LeftStickHorizontal"));
 
+        //The new concesion to the input system, instead of getting a vector we need to build it ourselves from both the horizontal and vertical axis. 
         Vector3 movement = new Vector3(Input.GetAxis("Joy"+ playerID +"LeftStickVertical") * Time.deltaTime * movespeed, 0.0f, Input.GetAxis("Joy"+ playerID +"LeftStickHorizontal") * Time.deltaTime * movespeed);
 
 
+        //If the player is only moving with one stick, and not both, we want the character to look in the direction that the player is walking, if they are using both sticks, then this gets overwritten.
         Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
+
+        //we only want the player to look in a direction if moving, and not if its in the deadzone. vector3.zero is the deadzone. 
         if (LookDirection == Vector3.zero && movement != Vector3.zero)
         {
             Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
@@ -141,18 +149,20 @@ public class PlayerControllerOldInput : MonoBehaviour
     void LookAt()
     {
        
+        //like in movement, instead of being given the vector we need to build it ourselves. 
        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
        // if (LookDirection.x > 0.11 || LookDirection.x < -0.11)
         //{
           //  if (LookDirection.z > 0.11 || LookDirection.z < -0.11)
            // {
-            
+            //the deadzone of a stick is 0.0, and we dont want the character to look at that direction. if you let go of the stick, it would always look at 0,0, instead of the last direction it was looking in.
         if(LookDirection == Vector3.zero)
         {
             return;
         }
                 Quaternion lookRotation = Quaternion.LookRotation(LookDirection, Vector3.up);
-        lookRotation *= Quaternion.Euler(0, 45, 0);
+       
+        lookRotation *= Quaternion.Euler(0, 45, 0); //As the camera is roated 45 degrees, if we didnt also do this, it makes movement wierd. when you moved left it would go left and slightly up from the camera, which while true left, instead left in relation to the camera. This fixes that. 
         float step = rotSpeed * Time.deltaTime;
                 thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
           // }
@@ -160,7 +170,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     }
 
     /*
-     * This handles the input from the left stick on all controllers. 
+     * This handles the input from the left stick on all controllers. This has been depreciated. 
      */
     void OnLeftStick(InputValue value)
     {
@@ -168,6 +178,7 @@ public class PlayerControllerOldInput : MonoBehaviour
       // Debug.Log(value.Get<Vector2>());
     }
 
+    //This is also depreciated. 
     void OnRightStick(InputValue value)
     {
         rotVec = value.Get<Vector2>();
@@ -195,6 +206,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             Destroy(Melee, 0.5f);
         }
     }
+
     /*
      * simple control to change if the attack is melee or ranged, we control that using a bool value. 
      */
@@ -214,6 +226,7 @@ public class PlayerControllerOldInput : MonoBehaviour
         Debug.Log("Jumping!");
         this.GetComponent<Rigidbody>().AddForce(0.0f, jumpForce, 0.0f);
     }
+
 
     private void SetupControls()
     {
