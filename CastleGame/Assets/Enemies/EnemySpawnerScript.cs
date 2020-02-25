@@ -32,11 +32,14 @@ public class EnemySpawnerScript : MonoBehaviour
     {
         if(LerpTowards)
         {
-            inGameCamera.transform.position = Vector3.MoveTowards(inGameCamera.transform.position, cameraLocation.position, speed * Time.deltaTime);
-            if(Vector3.Distance(inGameCamera.transform.position, cameraLocation.position) < 0.01f)
-            {
-                LerpTowards = false;
-            }
+            //inGameCamera.transform.position = Vector3.MoveTowards(inGameCamera.transform.position, cameraLocation.position, speed * Time.deltaTime);
+            //if(Vector3.Distance(inGameCamera.transform.position, cameraLocation.position) < 0.01f)
+            //{
+            //    LerpTowards = false;
+            //}
+
+            inGameCamera.GetComponent<CameraMoveScript>().moveToRoom = true;
+            inGameCamera.GetComponent<CameraMoveScript>().roomTargetObject = cameraLocation;
         }
 
         if(falling)

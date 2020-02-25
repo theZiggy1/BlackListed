@@ -21,7 +21,9 @@ public class FollowPlayerScript : MonoBehaviour
     [Tooltip("The maximum aperture (zoom) of the camera")]
     private float maxAperture;
 
-    private GameObject mainCamera; // Our main camera
+    //private GameObject mainCamera; // Our main camera
+    [SerializeField]
+    private GameObject camMoveObject; // The object attached to us that the camera lerps towards
 
 
     // Start is called before the first frame update
@@ -30,8 +32,9 @@ public class FollowPlayerScript : MonoBehaviour
         // Find the Game Manager
         gameManager = GameObject.FindGameObjectWithTag(GAMEMANAGER_TAG);
 
+        // Don't need to find the main camera anymore, as now the camera movement is camera centric
         // Find Main Camera
-        mainCamera = GameObject.FindGameObjectWithTag(MAINCAM_TAG);
+        //mainCamera = GameObject.FindGameObjectWithTag(MAINCAM_TAG);
     }
 
     // Update is called once per frame
@@ -54,6 +57,7 @@ public class FollowPlayerScript : MonoBehaviour
                                                         (player1Pos.z + (player2Pos.z - player1Pos.z) / 2));
 
         //mainCamera.GetComponent<Camera>().fieldOfView = 60 + ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3);
-        mainCamera.transform.position = new Vector3 (-70 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), mainCamera.transform.position.y, mainCamera.transform.position.z);
+        //mainCamera.transform.position = new Vector3 (-70 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), mainCamera.transform.position.y, mainCamera.transform.position.z);
+        camMoveObject.transform.position = new Vector3(-20 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), camMoveObject.transform.position.y, camMoveObject.transform.position.z);
     }
 }
