@@ -51,6 +51,10 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     public int playerNum;
     bool Attacking = false; // the right trigger is in fact an axis, and to keep the player from attacking each frame, once the trigger is depressed, this is called, and not reverted until the trigger is released completely. 
+
+
+    [SerializeField] GameObject insideTreeCamera;
+    public bool insideTree = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -124,20 +128,47 @@ public class PlayerControllerOldInput : MonoBehaviour
        // Debug.Log("Joy1LeftStickHorizontal: " + Input.GetAxis("Joy1LeftStickHorizontal"));
 
         //The new concesion to the input system, instead of getting a vector we need to build it ourselves from both the horizontal and vertical axis. 
-        Vector3 movement = new Vector3(Input.GetAxis("Joy"+ playerID +"LeftStickVertical") * Time.deltaTime * movespeed, 0.0f, Input.GetAxis("Joy"+ playerID +"LeftStickHorizontal") * Time.deltaTime * movespeed);
+        //outside tree movement
+        Vector3 movement = new Vector3(Input.GetAxis("Joy"+ playerID +"LeftStickVertical"), 0.0f, Input.GetAxis("Joy"+ playerID +"LeftStickHorizontal"));
+        movement = movement * Time.deltaTime * movespeed;
 
+
+        if (insideTree && movement.magnitude > 0.0)
+        {
+            Transform camMat = insideTreeCamera.transform;
+           //transform.forward = camMat.right;
+
+            //movement = camMat.InverseTransformDirection(movement);
+            Vector3 camPos = insideTreeCamera.transform.position;
+            camPos.y = transform.position.y;
+            Vector3 camToPlayer = camPos - transform.position;
+
+            float distToPlayer = camToPlayer.magnitude;
+            camToPlayer.Normalize();
+
+            //transform.right = camToPlayer;
+            Vector3 newUp = Vector3.Cross(camMat.right, camToPlayer);
+            transform.rotation = Quaternion.LookRotation(camMat.right, newUp);
+            movement = -transform.InverseTransformDirection(movement);
+            
+
+        }
 
         //If the player is only moving with one stick, and not both, we want the character to look in the direction that the player is walking, if they are using both sticks, then this gets overwritten.
-        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
+        //Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
 
-        //we only want the player to look in a direction if moving, and not if its in the deadzone. vector3.zero is the deadzone. 
-        if (LookDirection == Vector3.zero && movement != Vector3.zero)
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
-            lookRotation *= Quaternion.Euler(0, 45, 0);
-            float step = rotSpeed * Time.deltaTime;
-            thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
-        }
+        ////we only want the player to look in a direction if moving, and not if its in the deadzone. vector3.zero is the deadzone. 
+        //if (LookDirection == Vector3.zero && movement != Vector3.zero)
+        //{
+        //    Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
+
+         
+        //        lookRotation *= Quaternion.Euler(0, 45, 0);
+
+
+        //    float step = rotSpeed * Time.deltaTime;
+        //    thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
+        //}
         transform.Translate(movement);
     }
 
