@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class GameManagerScript : MonoBehaviour
 {
-    public int numPlayers;
+    public int numPlayers; // This is the number of players actually spawned currently
+    public int playersQueued; // This is the number of players queued up for spawning
     public GameObject[] currentPlayers;
     public bool[] isEngaged;
 
