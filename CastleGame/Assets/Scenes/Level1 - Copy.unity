@@ -220,24 +220,6 @@ MonoBehaviour:
   followPlayerObject: {fileID: 463130601}
   moveSpeed: 100
   moveToRoom: 0
---- !u!1 &96296976 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1978875845550702298, guid: e673e126e64dafb4b964c77eba0b0221,
-    type: 3}
-  m_PrefabInstance: {fileID: 620087937}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &175122068 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6067075956261862489, guid: e673e126e64dafb4b964c77eba0b0221,
-    type: 3}
-  m_PrefabInstance: {fileID: 620087937}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &295921825 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5353417600889078257, guid: e673e126e64dafb4b964c77eba0b0221,
-    type: 3}
-  m_PrefabInstance: {fileID: 620087937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &438486888 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6039657319187798926, guid: 38629bcf73a9a594680055d5aca1480d,
@@ -341,38 +323,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.size
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.data[2]
-      value: 
-      objectReference: {fileID: 1702040902}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.data[3]
-      value: 
-      objectReference: {fileID: 1985417268}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.data[4]
-      value: 
-      objectReference: {fileID: 175122068}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.data[5]
-      value: 
-      objectReference: {fileID: 96296976}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.data[6]
-      value: 
-      objectReference: {fileID: 1060948892}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.data[7]
-      value: 
-      objectReference: {fileID: 1684516623}
-    - target: {fileID: 136147874, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: RoomComponents.Array.data[8]
-      value: 
-      objectReference: {fileID: 295921825}
     - target: {fileID: 1815386359, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
       propertyPath: Camera
       value: 
@@ -563,12 +513,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2899132215499545699}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1060948892 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5580637780191444240, guid: e673e126e64dafb4b964c77eba0b0221,
-    type: 3}
-  m_PrefabInstance: {fileID: 620087937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1062426570
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,18 +610,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2899132215499545699}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1684516623 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4694457017287616433, guid: e673e126e64dafb4b964c77eba0b0221,
-    type: 3}
-  m_PrefabInstance: {fileID: 620087937}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1702040902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4624558555186767420, guid: e673e126e64dafb4b964c77eba0b0221,
-    type: 3}
-  m_PrefabInstance: {fileID: 620087937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1786222827
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -752,12 +684,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958bb2ac4d041a4bb0ee9b3868f66dd, type: 3}
---- !u!1 &1985417268 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7678329773723350613, guid: e673e126e64dafb4b964c77eba0b0221,
-    type: 3}
-  m_PrefabInstance: {fileID: 620087937}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2014078306
 GameObject:
   m_ObjectHideFlags: 0

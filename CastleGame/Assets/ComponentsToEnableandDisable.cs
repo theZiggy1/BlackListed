@@ -9,8 +9,8 @@ public class ComponentsToEnableandDisable : MonoBehaviour
     [SerializeField] GameObject[] WallComponents;
     [SerializeField] GameObject[] RoomComponents;
     
-   bool wallDisabled = false;
-    bool roomDisabled = false;
+  [SerializeField] bool wallDisabled = false;
+  [SerializeField]  bool roomDisabled = false;
     void Start()
     {
         
