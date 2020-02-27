@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1093304747200845517}
   - component: {fileID: 4865939671743930498}
+  - component: {fileID: 136147874}
   m_Layer: 0
   m_Name: TestBattleArea
   m_TagString: Untagged
@@ -54,23 +55,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb0f20ff1f9e0c48b22e9118e3bd625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wallBehind: {fileID: 1093304748121873119}
-  wallInfront: {fileID: 1093304749047994441}
-  Enemies: {fileID: 4930572753960081760, guid: 46d2301abb7c89449a5e556fbfbbc958, type: 3}
-  SpawnPoint:
-  - {fileID: 6161134099320409999}
-  movePlayers:
-  - {fileID: 8185205948935364226}
-  - {fileID: 8185205950670001082}
-  - {fileID: 8185205949223066738}
-  - {fileID: 8185205949152693796}
-  gameManager: {fileID: 0}
-  numEnemies: 2
-  inGameCamera: {fileID: 0}
-  cameraLocation: {fileID: 8185205950746299098}
-  speed: 10
-  falling: 0
-  FallSpeed: 10
+--- !u!114 &136147874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093304747200845518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 511566eed6156ff46b2d4cc84ebdffb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WallComponents:
+  - {fileID: 4694457017287616433}
+  - {fileID: 5353417600889078257}
+  RoomComponents:
+  - {fileID: 3278450215996683277}
+  - {fileID: 8315872994695098687}
+  - {fileID: 4694457017287616433}
+  - {fileID: 5353417600889078257}
+  - {fileID: 4624558555186767420}
+  - {fileID: 7678329773723350613}
+  - {fileID: 6067075956261862489}
+  - {fileID: 1978875845550702298}
+  - {fileID: 5580637780191444240}
 --- !u!1 &1093304748121873119
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,7 +98,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1093304748121873118
 Transform:
   m_ObjectHideFlags: 0
@@ -174,6 +183,7 @@ GameObject:
   - component: {fileID: 1093304749027043508}
   - component: {fileID: 1093304749027043509}
   - component: {fileID: 1093304749027043510}
+  - component: {fileID: 1815386359}
   m_Layer: 0
   m_Name: TriggerEnter
   m_TagString: Untagged
@@ -189,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1093304749027043504}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.64, z: 53.26}
+  m_LocalPosition: {x: 0, y: 2.8, z: 57.1}
   m_LocalScale: {x: 40, y: 5, z: 2}
   m_Children: []
   m_Father: {fileID: 1093304747200845517}
@@ -253,6 +263,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1815386359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1093304749027043504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7603b58a9c5127a4cb7279820885faa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  RoomLocation: {fileID: 8185205950746299098}
+  CameraControl: 1
+  isWallEnter: 1
+  isRoomEnter: 0
+  BattleArea: {fileID: 1093304747200845518}
 --- !u!1 &1093304749047994441
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1093304749047994440
 Transform:
   m_ObjectHideFlags: 0
@@ -1220,6 +1248,7 @@ GameObject:
   - component: {fileID: 8185205950076555295}
   - component: {fileID: 8185205950076555294}
   - component: {fileID: 8185205950076555281}
+  - component: {fileID: 1565168247}
   m_Layer: 0
   m_Name: TriggerExit
   m_TagString: Untagged
@@ -1235,7 +1264,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8185205950076555282}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -14.13}
+  m_LocalPosition: {x: 0, y: 2.7, z: -57}
   m_LocalScale: {x: 40, y: 5, z: 2}
   m_Children: []
   m_Father: {fileID: 1093304747200845517}
@@ -1299,6 +1328,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1565168247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8185205950076555282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7603b58a9c5127a4cb7279820885faa9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 0}
+  RoomLocation: {fileID: 8185205950746299098}
+  CameraControl: 1
+  isWallEnter: 1
+  isRoomEnter: 1
+  BattleArea: {fileID: 1093304747200845518}
 --- !u!1 &8185205950670001085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1353,7 +1400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8185205950746299101}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -15.3553505, y: 20.46951, z: 7.54}
+  m_LocalPosition: {x: -81.3, y: 44, z: 75.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1093304747200845517}

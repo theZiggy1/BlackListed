@@ -58,4 +58,11 @@ public class CameraMoveScript : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, targetObject.position, moveSpeed * Time.deltaTime);
     }
+
+    public void setCameraMoveTo(Transform RoomLocationToMoveTo)
+    {
+        roomTargetObject = RoomLocationToMoveTo;
+        moveToRoom = true;
+        doLerp = true;
+    }
 }

@@ -155,20 +155,20 @@ public class PlayerControllerOldInput : MonoBehaviour
         }
 
         //If the player is only moving with one stick, and not both, we want the character to look in the direction that the player is walking, if they are using both sticks, then this gets overwritten.
-        //Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
+        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
 
-        ////we only want the player to look in a direction if moving, and not if its in the deadzone. vector3.zero is the deadzone. 
-        //if (LookDirection == Vector3.zero && movement != Vector3.zero)
-        //{
-        //    Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
+        //we only want the player to look in a direction if moving, and not if its in the deadzone. vector3.zero is the deadzone. 
+        if (LookDirection == Vector3.zero && movement != Vector3.zero)
+        {
+            Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
 
          
-        //        lookRotation *= Quaternion.Euler(0, 45, 0);
+                lookRotation *= Quaternion.Euler(0, 45, 0);
 
 
-        //    float step = rotSpeed * Time.deltaTime;
-        //    thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
-        //}
+           float step = rotSpeed * Time.deltaTime;
+          thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
+        }
         transform.Translate(movement);
     }
 
