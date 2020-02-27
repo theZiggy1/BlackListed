@@ -7,6 +7,8 @@ public class InsideTreeCamera : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject LookAt;
     public float cameraTransformHeight;
+    public float xOffset;
+    public float zOffset;
     
     void Start()
     {
@@ -18,8 +20,8 @@ public class InsideTreeCamera : MonoBehaviour
     {
         if(LookAt !=null)
         {
-            this.gameObject.transform.LookAt(LookAt.transform);
-            this.gameObject.transform.position = new Vector3(this.gameObject.transform.position.x, LookAt.transform.position.y + cameraTransformHeight, this.gameObject.transform.position.z);
+          //  this.gameObject.transform.LookAt(LookAt.transform);
+            this.gameObject.transform.position = new Vector3(LookAt.transform.position.x + xOffset, LookAt.transform.position.y + cameraTransformHeight, LookAt.transform.position.z + zOffset);
         }
     }
 }

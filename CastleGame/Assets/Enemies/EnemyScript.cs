@@ -17,6 +17,8 @@ public class EnemyScript : MonoBehaviour
         attackedByPlayer,
         numStates
     }
+
+
     //This denotes the type of enemy you are fighting, melee or ranged, and is part of the nested state machine. 
     enum fighterType
     {
