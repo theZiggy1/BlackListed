@@ -9,38 +9,70 @@ using UnityEngine;
 /// </summary>
 public class MiniBoss : MonoBehaviour
 {
+    [SerializeField] States stateMachine;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private int numBullets;
+    [SerializeField] private float speed;
+
     private Rigidbody rigidBody;
-
     private int counter;
+    
+    enum States
+    {
+        fightingPlayer,
+        attackedByPlayer,
+        numStates
+    }
 
-    // Start is called before the first frame update
     void Start()
     {
-        SpawnBullets();
+        stateMachine = States.fightingPlayer;
         counter = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-
         counter++;
+        bullet.transform.Translate(Vector3.forward * Time.deltaTime * speed);
 
-        if(counter <= 5)
+        switch (stateMachine)
         {
-            SpawnBullets();
-            rigidBody.AddForce(-0.5f, 0, 0, ForceMode.VelocityChange);
+            case States.fightingPlayer:
+                if (counter == 1)
+                {
+                    SpawnBullets();
+                }
+                break;
+
+            case States.attackedByPlayer:
+
+                break;
+
+            default:
+                break;
         }
-        //Destroy();
     }
 
     private void SpawnBullets()
     {
-        // creates a bullet from the prefab
-        Instantiate(bullet, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity);
-        bullet.transform.parent = gameObject.transform;
-        // finds the rigidbodies of the bullets
-        rigidBody = GetComponentInChildren<Rigidbody>();
+        Vector3 center = transform.position;
+        for(int i = 0; i < numBullets; i++)
+        {
+            Vector3 position = RandomCircle(center, 2.0f);
+            Quaternion rotation = Quaternion.LookRotation(position, center);
+            Instantiate(bullet, position, rotation);
+            
+        }
+    }
+
+    // create a random circle
+    private Vector3 RandomCircle(Vector3 center, float radius)
+    {
+        float angle = Random.value * 360;
+        Vector3 pos;
+        pos.x = center.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
+        pos.y = center.y;
+        pos.z = center.z + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
+        return pos;
     }
 }
