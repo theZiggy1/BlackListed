@@ -17,6 +17,7 @@ public class MiniBoss : MonoBehaviour
     private Rigidbody rigidBody;
     private int counter;
     
+    // miniboss game states in the state machine
     enum States
     {
         fightingPlayer,
@@ -33,12 +34,20 @@ public class MiniBoss : MonoBehaviour
     void Update()
     {
         counter++;
-        bullet.transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+        foreach(Transform enemyFire in transform)
+        {
+            if(enemyFire.name == "EnemyFire")
+            {
+                // make the bullets move
+                enemyFire.transform.Translate(transform.right * Time.deltaTime * speed);
+            }
+        }
 
         switch (stateMachine)
         {
             case States.fightingPlayer:
-                if (counter == 1)
+                if (counter % 100 == 0)
                 {
                     SpawnBullets();
                 }
@@ -56,12 +65,17 @@ public class MiniBoss : MonoBehaviour
     private void SpawnBullets()
     {
         Vector3 center = transform.position;
-        for(int i = 0; i < numBullets; i++)
+
+        //
+        for (int i = 0; i < numBullets; i++)
         {
             Vector3 position = RandomCircle(center, 2.0f);
             Quaternion rotation = Quaternion.LookRotation(position, center);
-            Instantiate(bullet, position, rotation);
-            
+
+            //Instantiate bullets as the miniboss children and give them the name "EnemyFire"
+            GameObject enemyFire = Instantiate(bullet, position, rotation);
+            enemyFire.transform.parent = gameObject.transform;
+            enemyFire.name = "EnemyFire";
         }
     }
 
@@ -69,10 +83,12 @@ public class MiniBoss : MonoBehaviour
     private Vector3 RandomCircle(Vector3 center, float radius)
     {
         float angle = Random.value * 360;
-        Vector3 pos;
-        pos.x = center.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
-        pos.y = center.y;
-        pos.z = center.z + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
-        return pos;
+
+        // vector 3 to store the x,y,z positions of the circle
+        Vector3 position;
+        position.x = center.x + radius * Mathf.Sin(angle * Mathf.Deg2Rad);
+        position.y = center.y;
+        position.z = center.z + radius * Mathf.Cos(angle * Mathf.Deg2Rad);
+        return position;
     }
 }
