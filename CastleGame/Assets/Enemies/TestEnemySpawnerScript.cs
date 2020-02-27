@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawnerScript : MonoBehaviour
+public class TestEnemySpawnerScript : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject wallBehind;
