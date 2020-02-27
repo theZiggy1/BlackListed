@@ -20,10 +20,15 @@ public class TriggerArea : MonoBehaviour
     //When you enter the trigger area, this lets the area know so, and lets all players enter into the area. It also removes the trigger, so it cant be triggered a second time. 
     private void OnTriggerEnter(Collider other)
     {
+        if(!enabled) { return; }
         if(other.gameObject.tag == PLAYER_TAG)
         {
-            battleArea.GetComponent<EnemySpawnerScript>().playersHaveEntered();
-            this.gameObject.SetActive(false); 
+            Debug.Log("Players entered");
+            if (battleArea != null)
+            {
+                battleArea.GetComponent<EnemySpawnerScript>().playersHaveEntered();
+            }
+            this.gameObject.GetComponent<TriggerArea>().enabled = false;
         }
     }
 }
