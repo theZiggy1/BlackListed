@@ -77,7 +77,7 @@ public class EnemyScript : MonoBehaviour
     //when thsi charcter is destoryed, it updates the blackboard, that it has in fact finished fighting that player
     private void OnDestroy()
     {
-        Spawner.GetComponent<EnemySpawnerScript>().EnemyKilled();
+        Spawner.GetComponent<TestEnemySpawnerScript>().EnemyKilled();
         gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
     }
 }

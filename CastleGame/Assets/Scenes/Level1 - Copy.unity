@@ -331,8 +331,40 @@ PrefabInstance:
       propertyPath: Camera
       value: 
       objectReference: {fileID: 90569334}
+    - target: {fileID: 4865939671743930498, guid: e673e126e64dafb4b964c77eba0b0221,
+        type: 3}
+      propertyPath: enemieToSpawn.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865939671743930498, guid: e673e126e64dafb4b964c77eba0b0221,
+        type: 3}
+      propertyPath: enemyArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865939671743930498, guid: e673e126e64dafb4b964c77eba0b0221,
+        type: 3}
+      propertyPath: spawnPoint.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4865939671743930498, guid: e673e126e64dafb4b964c77eba0b0221,
+        type: 3}
+      propertyPath: spawnPoint.Array.data[0]
+      value: 
+      objectReference: {fileID: 620087938}
+    - target: {fileID: 4865939671743930498, guid: e673e126e64dafb4b964c77eba0b0221,
+        type: 3}
+      propertyPath: enemyArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 4930572753960081760, guid: 46d2301abb7c89449a5e556fbfbbc958,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
+--- !u!4 &620087938 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6161134099320409999, guid: e673e126e64dafb4b964c77eba0b0221,
+    type: 3}
+  m_PrefabInstance: {fileID: 620087937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &828103614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 766581002, guid: 38629bcf73a9a594680055d5aca1480d,
