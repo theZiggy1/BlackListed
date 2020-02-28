@@ -6,14 +6,20 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/PlayerSelectScene.unity
+    guid: 98a812911c378b4439cf9e05aad866a3
+  - enabled: 0
     path: Assets/Scenes/DemoLevel.unity
     guid: bcf8288119a92f4498db157f5883a8bc
   - enabled: 1
     path: Assets/Scenes/PlayerScene.unity
     guid: 2f3b9ae09c87e0f4ea8a85b74d4af777
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DeleteThis.unity
     guid: fc65a33207630224e8eb81e1b9d9c46d
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
+    guid: 4988f9a669b66f941bf9840fefe6279c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 6e686227309e21c498faed0d75433115,
       type: 2}

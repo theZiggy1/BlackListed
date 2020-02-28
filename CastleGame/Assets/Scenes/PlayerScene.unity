@@ -936,6 +936,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 410dbdd83c13ad14fb9d049654fa0871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level1SceneName: Level1
   playerPrefab: {fileID: 2373609497845093344, guid: 38629bcf73a9a594680055d5aca1480d,
     type: 3}
   numOfPlayers: 0

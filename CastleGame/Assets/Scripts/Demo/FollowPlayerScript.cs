@@ -58,6 +58,6 @@ public class FollowPlayerScript : MonoBehaviour
 
         //mainCamera.GetComponent<Camera>().fieldOfView = 60 + ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3);
         //mainCamera.transform.position = new Vector3 (-70 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), mainCamera.transform.position.y, mainCamera.transform.position.z);
-        camMoveObject.transform.position = new Vector3(-20 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), camMoveObject.transform.position.y, camMoveObject.transform.position.z);
+        //camMoveObject.transform.position = new Vector3(-20 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), camMoveObject.transform.position.y, camMoveObject.transform.position.z);
     }
 }

@@ -15,7 +15,7 @@ using UnityEngine.UI;
 public class PlayerSelectionScript : MonoBehaviour
 {
     //[SerializeField]
-    //private GameObject gameScene;
+    //private string level1SceneName; // There's probably a better way to do this
 
     [SerializeField]
     private GameObject playerPrefab; // The player we are spawning
@@ -81,7 +81,7 @@ public class PlayerSelectionScript : MonoBehaviour
         //SceneManager.LoadScene(gameScene.name, LoadSceneMode.Additive);
 
         // Load the level we're gonna go to
-        SceneManager.LoadScene("DeleteThis", LoadSceneMode.Additive);
+        SceneManager.LoadScene("Level1", LoadSceneMode.Additive);
 
         // Set the active scene to be PlayerScene, so that our players get instantiated there
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("PlayerScene"));
