@@ -9,6 +9,11 @@ TagManager:
   - PlayerInputManager
   - SpawnPoint
   - RemoveableWall
+  - Player1UI
+  - Player2UI
+  - Player3UI
+  - Player4UI
+  - HealthBar
   layers:
   - Default
   - TransparentFX

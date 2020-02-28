@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 2373609497845093372}
   - component: {fileID: 2373609497845093371}
   - component: {fileID: -5968065183689115496}
+  - component: {fileID: 7192829661794411745}
   m_Layer: 0
   m_Name: PlayerOldInput
   m_TagString: Player
@@ -145,6 +146,26 @@ MonoBehaviour:
   meleeSpawn: {fileID: 0}
   forceStrength: 100
   playerNum: 0
+  insideTreeCamera: {fileID: 0}
+  insideTree: 0
+--- !u!114 &7192829661794411745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2373609497845093344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97f254346a71214d8cc92748bc17322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 1
+  startingHealth: 100
+  currentHealth: 0
+  usingHealthBar: 1
+  healthBar: {fileID: 0}
+  deathType: 1
 --- !u!111 &2373609497374510660
 Animation:
   m_ObjectHideFlags: 0
