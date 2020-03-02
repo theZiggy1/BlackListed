@@ -138,6 +138,7 @@ public class EntityScript : MonoBehaviour
         }
 
         // This is temporary
-        Destroy(gameObject);
+        Debug.Log(this.gameObject.name + " has died");
+        Destroy(this.gameObject);
     }
 }

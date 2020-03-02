@@ -51,6 +51,7 @@ public class TestEnemySpawnerScript : MonoBehaviour
         Enemy.GetComponent<EnemyScript>().Spawner = this.gameObject;
         Enemy.GetComponent<EnemyScript>().gameManager = gameManager;
         Enemy.GetComponent<EnemyScript>().playerToFight = Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers);
+        
     }
 
  
