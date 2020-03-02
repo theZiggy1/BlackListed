@@ -54,16 +54,23 @@ public class EntityScript : MonoBehaviour
             // Gets the UI parent object with the relevant tag
             playerUI = GameObject.FindGameObjectWithTag("Player" + playerID + "UI");
 
-            foreach (Transform childObject in playerUI.transform)
+            if (playerUI == null)
             {
-                // Finds the child object tagged as HealthBar
-                if (childObject.CompareTag("HealthBar"))
-                {
-                    // Gets the slider from the child game object
-                    healthBar = childObject.gameObject.GetComponent<Slider>();
-                }
+                Debug.Log("PlayerUI not set up!");
             }
+            else
+            {
+                foreach (Transform childObject in playerUI.transform)
+                {
+                    // Finds the child object tagged as HealthBar
+                    if (childObject.CompareTag("HealthBar"))
+                    {
+                        // Gets the slider from the child game object
+                        healthBar = childObject.gameObject.GetComponent<Slider>();
+                    }
+                }
 
+            }
         }
 
         currentHealth = startingHealth;
@@ -78,7 +85,10 @@ public class EntityScript : MonoBehaviour
     void Update()
     {
         // GET RID OF THIS AT SOME POINT
-        UpdateHealthBar();
+        if (usingHealthBar)
+        {
+            UpdateHealthBar();
+        }
 
         if (currentHealth <= 0)
         {

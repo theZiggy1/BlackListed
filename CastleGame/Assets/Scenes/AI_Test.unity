@@ -268,6 +268,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestBattleArea
       objectReference: {fileID: 0}
+    - target: {fileID: 1565168247, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 90569334}
+    - target: {fileID: 1815386359, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 90569334}
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -323,14 +331,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1815386359, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 90569334}
-    - target: {fileID: 1565168247, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 90569334}
     - target: {fileID: 4865939671743930498, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
       propertyPath: enemieToSpawn.Array.size
@@ -388,6 +388,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TestBattleArea (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1565168247, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 90569334}
+    - target: {fileID: 1815386359, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 90569334}
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -443,14 +451,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1815386359, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 90569334}
-    - target: {fileID: 1565168247, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
-      propertyPath: Camera
-      value: 
-      objectReference: {fileID: 90569334}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e673e126e64dafb4b964c77eba0b0221, type: 3}
 --- !u!1 &948808333
@@ -928,6 +928,16 @@ PrefabInstance:
         type: 3}
       propertyPath: movespeed
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192829661794411745, guid: 38629bcf73a9a594680055d5aca1480d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7192829661794411745, guid: 38629bcf73a9a594680055d5aca1480d,
+        type: 3}
+      propertyPath: usingHealthBar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 38629bcf73a9a594680055d5aca1480d, type: 3}
