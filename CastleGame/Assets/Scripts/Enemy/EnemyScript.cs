@@ -10,7 +10,6 @@ public class EnemyScript : MonoBehaviour
     public float damping;
     public float moveSpeed;
     public float numEnemies;
-    public float radius = 10;
 
     //the different states in the finite state machine. each is written out in the update loop. 
 
@@ -35,6 +34,12 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] fighterType enemyState;
    public GameObject gameManager;
     public GameObject playerObj;
+    public float theta = 0f;
+    public float speed = 1.0f;
+    public float speed2 = 10.0f;
+    public Vector3 newLocation;
+    public float radius = 5;
+    
 
     void Start()
     {
@@ -65,7 +70,17 @@ public class EnemyScript : MonoBehaviour
         {
             case States.flocking:
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
-            
+                theta += Time.deltaTime * speed;
+                if (theta > 360)
+                {
+                    theta = 0;
+                }
+
+                newLocation.x = playerObj.transform.position.x + (radius * Mathf.Cos(theta * Mathf.PI / 180));
+                newLocation.y = playerObj.transform.position.y + 1;
+                newLocation.z = playerObj.transform.position.z + (radius * Mathf.Sin(theta * Mathf.PI / 180));
+
+                this.transform.position = Vector3.MoveTowards(this.transform.position, newLocation, Time.deltaTime * speed2);
 
 
 

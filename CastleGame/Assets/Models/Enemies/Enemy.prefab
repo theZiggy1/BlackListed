@@ -108,12 +108,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawner: {fileID: 0}
   playerToFight: -1
-  damping: 0.5
+  damping: 2
   moveSpeed: 5
+  numEnemies: 0
   stateMachine: 0
   enemyState: 0
   gameManager: {fileID: 0}
   playerObj: {fileID: 0}
+  theta: 0
+  speed: 15
+  speed2: 10
+  newLocation: {x: 0, y: 0, z: 0}
+  radius: 10
 --- !u!114 &5603823750043976474
 MonoBehaviour:
   m_ObjectHideFlags: 0

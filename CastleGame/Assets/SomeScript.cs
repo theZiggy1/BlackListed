@@ -11,7 +11,6 @@ public class SomeScript : MonoBehaviour
    public  float theta = 0f;
     public float speed = 1.0f;
     public float speed2 = 10.0f;
-
     public Vector3 newLocation;
     public float radius;
     // Start is called before the first frame update
@@ -29,7 +28,7 @@ public class SomeScript : MonoBehaviour
             theta = 0;
         }
 
-        newLocation.x = obj.transform.position.x + (radius * Mathf.Cos(theta * Mathf.PI/180));
+        newLocation.x = obj.transform.position.x + (radius * Mathf.Cos(theta * Mathf.PI / 180));
         newLocation.y = obj.transform.position.y + 1;
         newLocation.z = obj.transform.position.z + (radius * Mathf.Sin(theta * Mathf.PI / 180));
 
