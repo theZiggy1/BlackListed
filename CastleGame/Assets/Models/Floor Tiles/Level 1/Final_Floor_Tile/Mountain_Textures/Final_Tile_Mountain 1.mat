@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Final_Tile_Mountain 1
+  m_Shader: {fileID: -6465566751694194690, guid: dfa4c6962ce958842be4be2c14cccce5,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_11C94A0B:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_3892F344:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_4960638D:
+        m_Texture: {fileID: 2800000, guid: 13fa9c22a5ebad448b3bbd9c0a8ebbeb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_9F8CFE01:
+        m_Texture: {fileID: 2800000, guid: bde049a7c058b0d42940a395afa2dd36, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_B8C134B3:
+        m_Texture: {fileID: 2800000, guid: 7da85e42b1bc646489136f61968d6742, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CB1566C5:
+        m_Texture: {fileID: 2800000, guid: 49971ed1a2ead024ea773d5f820ce56f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_D4798073:
+        m_Texture: {fileID: 2800000, guid: 518c6588f90f61043b326507a4e4e23a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_F2253B0B:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_2B647879: 1
+    - Boolean_76B2BC1D: 1
+    - Boolean_C5CC9B1D: 0
+    - Boolean_D8763516: 0
+    - Boolean_ECA3147A: 1
+    - Vector1_1D0B0202: 0.3
+    - Vector1_214D2461: 0
+    - Vector1_33C8DBE1: 0
+    - Vector1_39C6D500: 1
+    - Vector1_485ED67A: -1
+    - Vector1_60F0CCAF: 0.1
+    - Vector1_79F99DD4: 0.1
+    - Vector1_885538: 10
+    - Vector1_8D9CCD60: 1
+    - Vector1_9B9C5679: 0.7
+    - Vector1_A6A3BD6E: 10
+    - Vector1_B6AA910C: 0
+    - Vector1_DA6FC0C9: 4
+    - Vector1_DFCEE156: 32
+    m_Colors:
+    - Color_28703146: {r: 1, g: 1, b: 1, a: 0}
+    - Color_9B061719: {r: 1, g: 1, b: 1, a: 0}
+    - Color_B57EBF66: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
+    - Color_C941FDF3: {r: 1, g: 1, b: 1, a: 0}
+    - Color_F1B2969: {r: 1, g: 1, b: 1, a: 0}
+    - Color_F21A49E0: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
+--- !u!114 &3023925925742540021
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1

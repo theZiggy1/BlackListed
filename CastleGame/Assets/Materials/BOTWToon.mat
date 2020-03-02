@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BOTWToon
+  m_Shader: {fileID: -6465566751694194690, guid: dfa4c6962ce958842be4be2c14cccce5,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_11C94A0B:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_4960638D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_9F8CFE01:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_B8C134B3:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_CB1566C5:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Boolean_2B647879: 0
+    - Boolean_76B2BC1D: 0
+    - Vector1_1D0B0202: 0.3
+    - Vector1_39C6D500: 1
+    - Vector1_485ED67A: -1
+    - Vector1_60F0CCAF: 0.1
+    - Vector1_79F99DD4: 0.1
+    - Vector1_9B9C5679: 0.7
+    - Vector1_A6A3BD6E: 1
+    - Vector1_B6AA910C: 0
+    - Vector1_DA6FC0C9: 4
+    - Vector1_DFCEE156: 32
+    m_Colors:
+    - Color_28703146: {r: 1, g: 1, b: 1, a: 0}
+    - Color_9B061719: {r: 1, g: 1, b: 1, a: 0}
+    - Color_B57EBF66: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
+    - Color_C941FDF3: {r: 1, g: 1, b: 1, a: 0}
+    - Color_F1B2969: {r: 0.9811321, g: 0.95799214, b: 0.95799214, a: 0}
+    - Color_F21A49E0: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0}
