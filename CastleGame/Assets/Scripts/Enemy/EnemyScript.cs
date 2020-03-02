@@ -9,6 +9,8 @@ public class EnemyScript : MonoBehaviour
     public int playerToFight = -1;
     public float damping;
     public float moveSpeed;
+    public float numEnemies;
+    public float radius = 10;
 
     //the different states in the finite state machine. each is written out in the update loop. 
 
@@ -63,7 +65,10 @@ public class EnemyScript : MonoBehaviour
         {
             case States.flocking:
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
-                
+            
+
+
+
                 break;
 
             case States.fightingPlayer:
