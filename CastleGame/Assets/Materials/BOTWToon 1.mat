@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BOTWToon
+  m_Name: BOTWToon 1
   m_Shader: {fileID: -6465566751694194690, guid: dfa4c6962ce958842be4be2c14cccce5,
     type: 3}
   m_ShaderKeywords: 
@@ -65,15 +65,15 @@ Material:
     - Vector1_485ED67A: -1
     - Vector1_60F0CCAF: 0.1
     - Vector1_79F99DD4: 0.1
-    - Vector1_885538: 10
+    - Vector1_885538: 2
     - Vector1_8D9CCD60: 1
     - Vector1_9B9C5679: 0.7
-    - Vector1_A6A3BD6E: 1
+    - Vector1_A6A3BD6E: 0
     - Vector1_B6AA910C: 0
     - Vector1_DA6FC0C9: 4
     - Vector1_DFCEE156: 32
     m_Colors:
-    - Color_28703146: {r: 1, g: 1, b: 1, a: 0}
+    - Color_28703146: {r: 1, g: 0, b: 0, a: 0}
     - Color_9B061719: {r: 1, g: 1, b: 1, a: 0}
     - Color_B57EBF66: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 0}
     - Color_C941FDF3: {r: 1, g: 1, b: 1, a: 0}
