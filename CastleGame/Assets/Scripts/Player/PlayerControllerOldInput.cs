@@ -149,18 +149,18 @@ public class PlayerControllerOldInput : MonoBehaviour
             transform.rotation = newRotation;
             //now that the object is facing the right direction move it appropriately.
             //get the input vector -- this is in local space to the character not in world space
-            Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            Vector3 inputVector = new Vector3(-Input.GetAxis("Horizontal"), 0, -Input.GetAxis("Vertical"));
             //call transform vector to convert the local space into world space to calculate movement
-            inputVector = transform.TransformVector(inputVector);
-            transform.position += (inputVector * Time.deltaTime * 2) + new Vector3(0, 0.002f, 0);
+            //inputVector = transform.TransformVector(inputVector);
+           // transform.position += (inputVector * Time.deltaTime * 2);
             //of course the above could have been done with the following line without the need to transform the vector
-            //transform.position += transform.forward + (inputVector * Time.deltaTime * 2);
+            transform.position += Vector3.Scale(transform.forward,  (inputVector * Time.deltaTime * this.movespeed));
 
 
         }
 
         //If the player is only moving with one stick, and not both, we want the character to look in the direction that the player is walking, if they are using both sticks, then this gets overwritten.
-        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
+        Vector3 LookDirection = new Vector3(-Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, -Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
 
         //we only want the player to look in a direction if moving, and not if its in the deadzone. vector3.zero is the deadzone. 
         if (LookDirection == Vector3.zero && movement != Vector3.zero)

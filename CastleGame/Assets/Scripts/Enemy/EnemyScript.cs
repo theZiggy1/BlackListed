@@ -40,6 +40,9 @@ public class EnemyScript : MonoBehaviour
     public Vector3 newLocation;
     public float radius = 5;
     public float rangedRadius = 7;
+    [SerializeField] GameObject rangedEnemyAttack;
+    [SerializeField] Transform bulletSpawn;
+
     
 
     void Start()

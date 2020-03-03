@@ -20,8 +20,9 @@ public class InsideTreeCamera : MonoBehaviour
     {
         if(LookAt !=null)
         {
-          //  this.gameObject.transform.LookAt(LookAt.transform);
-            this.gameObject.transform.position = new Vector3(LookAt.transform.position.x + xOffset, LookAt.transform.position.y + cameraTransformHeight, LookAt.transform.position.z + zOffset);
+           this.gameObject.transform.LookAt(LookAt.transform);
+            this.gameObject.transform.position = new Vector3(0, LookAt.transform.position.y + cameraTransformHeight, 0);
+            
         }
     }
 }
