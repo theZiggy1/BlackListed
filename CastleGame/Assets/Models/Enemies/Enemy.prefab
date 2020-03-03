@@ -120,6 +120,7 @@ MonoBehaviour:
   speed2: 10
   newLocation: {x: 0, y: 0, z: 0}
   radius: 10
+  rangedRadius: 15
 --- !u!114 &5603823750043976474
 MonoBehaviour:
   m_ObjectHideFlags: 0

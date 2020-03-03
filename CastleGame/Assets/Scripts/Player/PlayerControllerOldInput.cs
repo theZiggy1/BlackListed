@@ -135,22 +135,27 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         if (insideTree && movement.magnitude > 0.0)
         {
-            Transform camMat = insideTreeCamera.transform;
-           //transform.forward = camMat.right;
-
-            //movement = camMat.InverseTransformDirection(movement);
-            Vector3 camPos = insideTreeCamera.transform.position;
+            Transform camTx = Camera.main.transform; //get camera's transform
+                                                     //we want it so that the camera is always to the players right
+            Vector3 newFwd = camTx.right;
+            Vector3 camPos = camTx.position;
             camPos.y = transform.position.y;
-            Vector3 camToPlayer = camPos - transform.position;
+            Vector3 newRight = camPos - transform.position;
+            newRight.Normalize();
+            Vector3 newUp = Vector3.Cross(newFwd, newRight);
 
-            float distToPlayer = camToPlayer.magnitude;
-            camToPlayer.Normalize();
+            Quaternion newRotation = Quaternion.LookRotation(newFwd, newUp);
 
-            //transform.right = camToPlayer;
-            Vector3 newUp = Vector3.Cross(camMat.right, camToPlayer);
-            transform.rotation = Quaternion.LookRotation(camMat.right, newUp);
-            movement = -transform.InverseTransformDirection(movement);
-            
+            transform.rotation = newRotation;
+            //now that the object is facing the right direction move it appropriately.
+            //get the input vector -- this is in local space to the character not in world space
+            Vector3 inputVector = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            //call transform vector to convert the local space into world space to calculate movement
+            inputVector = transform.TransformVector(inputVector);
+            transform.position += (inputVector * Time.deltaTime * 2) + new Vector3(0, 0.002f, 0);
+            //of course the above could have been done with the following line without the need to transform the vector
+            //transform.position += transform.forward + (inputVector * Time.deltaTime * 2);
+
 
         }
 

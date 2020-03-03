@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
 
 
     //This denotes the type of enemy you are fighting, melee or ranged, and is part of the nested state machine. 
-    enum fighterType
+   public enum fighterType
     {
         melee,
         ranged,
@@ -31,7 +31,7 @@ public class EnemyScript : MonoBehaviour
     }
 
    [SerializeField]  States stateMachine;
-    [SerializeField] fighterType enemyState;
+    public fighterType enemyState;
    public GameObject gameManager;
     public GameObject playerObj;
     public float theta = 0f;
@@ -39,6 +39,7 @@ public class EnemyScript : MonoBehaviour
     public float speed2 = 10.0f;
     public Vector3 newLocation;
     public float radius = 5;
+    public float rangedRadius = 7;
     
 
     void Start()
@@ -96,6 +97,18 @@ public class EnemyScript : MonoBehaviour
                     case fighterType.ranged:
 
                         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
+                        theta += Time.deltaTime * speed;
+                        if (theta > 360)
+                        {
+                            theta = 0;
+                        }
+
+                        newLocation.x = playerObj.transform.position.x + (rangedRadius * Mathf.Cos(theta * Mathf.PI / 180));
+                        newLocation.y = playerObj.transform.position.y + 1;
+                        newLocation.z = playerObj.transform.position.z + (rangedRadius * Mathf.Sin(theta * Mathf.PI / 180));
+
+                        this.transform.position = Vector3.MoveTowards(this.transform.position, newLocation, Time.deltaTime * speed2);
+
                         break;
                 }
                 break;
@@ -113,5 +126,25 @@ public class EnemyScript : MonoBehaviour
     {
         Spawner.GetComponent<TestEnemySpawnerScript>().EnemyKilled();
         gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
+    }
+
+
+    public void SpawningInfo(GameObject a_spawner, GameObject a_gameManager, int playerNum, int type)
+
+    {
+      switch(type)
+        {
+            case 0:
+                enemyState = fighterType.melee;
+                break;
+            case 1:
+                enemyState = fighterType.ranged;
+                break;
+        }
+
+        Spawner = a_spawner;
+        gameManager = a_gameManager;
+        playerToFight = playerNum;
+
     }
 }
