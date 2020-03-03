@@ -42,6 +42,7 @@ public class EnemyScript : MonoBehaviour
     public float rangedRadius = 7;
     [SerializeField] GameObject rangedEnemyAttack;
     [SerializeField] Transform bulletSpawn;
+    [SerializeField] float forceStrength;
 
     
 
@@ -55,6 +56,11 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            SpawnBullet();
+        }
         //This checks the blackboard, which is part of the game manager, to see if the selected player is engaged. It might be changed in the future to check thorugh all players, and see if any of them are missig an engagement. 
         //for now it simply checks the one it has been assigned, and then if the player isnt fighting the first one that checks fights said player. 
         if(stateMachine == States.flocking)
@@ -149,5 +155,15 @@ public class EnemyScript : MonoBehaviour
         gameManager = a_gameManager;
         playerToFight = playerNum;
 
+    }
+
+
+    public void SpawnBullet()
+    {
+        GameObject Bullet = GameObject.Instantiate(rangedEnemyAttack, bulletSpawn.position, bulletSpawn.rotation);
+        Bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward * forceStrength);
+        Bullet.GetComponent<bulletScript>().OTHER_TAG = "Player";
+        Bullet.GetComponent<bulletScript>().enemyDamage = 20;
+        Destroy(Bullet, 4.0f);
     }
 }
