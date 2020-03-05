@@ -16,6 +16,28 @@ public class WeaponScript : MonoBehaviour
     [Tooltip("How fast we can attack with the weapon, in Hz (per second)")]
     public float attackRate; // How fast we can attack with the weapon, measured in Hz
 
+    public enum FiringType
+    {
+        semiAuto,
+        fullyAuto,
+        numTypes
+    }
+
+    public enum WeaponType
+    {
+        pistol,
+        shotgun,
+        rifle,
+        sword,
+        axe,
+        greatAxe,
+        pickaxe,
+        numTypes
+    }
+
+    public FiringType firingType;
+    public WeaponType weaponType;
+
     // Weapon stats - private - the ones the player doesn't need to know about
     [SerializeField]
     [Tooltip("Our starting weapons should be indestructible. If they have durability set this to false/unticked")]

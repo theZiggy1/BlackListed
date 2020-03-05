@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4062264902632715189
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -7,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BOTWToon 3
+  m_Name: Floating_Tavern 1
   m_Shader: {fileID: -6465566751694194690, guid: c6255db6a84e54747aa3ece9e893d52a,
     type: 3}
   m_ShaderKeywords: 
@@ -29,7 +42,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6EF6FE:
-        m_Texture: {fileID: 2800000, guid: 7da85e42b1bc646489136f61968d6742, type: 3}
+        m_Texture: {fileID: 2800000, guid: 4e6666113fdf84245a3cf03f39955758, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6F9AB9E4:
@@ -37,7 +50,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_B1E9C909:
-        m_Texture: {fileID: 2800000, guid: bde049a7c058b0d42940a395afa2dd36, type: 3}
+        m_Texture: {fileID: 2800000, guid: 44f4fada562d00749b8b3901e6da3a9e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C832D42B:
@@ -45,33 +58,13 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_FB0B5455:
-        m_Texture: {fileID: 2800000, guid: 13fa9c22a5ebad448b3bbd9c0a8ebbeb, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_3221A039_Texture_1:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_190FEF0_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_1C9AEFEE_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_A29EDAD3_Out_0:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Texture2DAsset_D7CA1ED8_Out_0:
-        m_Texture: {fileID: 2800000, guid: 13fa9c22a5ebad448b3bbd9c0a8ebbeb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_3981617: 0.5
-    - Vector1_5B6F22F0: 10
-    - Vector1_D41BA600: 0.3
+    - Vector1_5B6F22F0: 0
+    - Vector1_D41BA600: 1.1
     m_Colors:
     - Color_1DEDE1BD: {r: 0, g: 0, b: 0, a: 0}
-    - Color_DF1C534: {r: 1, g: 1, b: 1, a: 0}
+    - Color_DF1C534: {r: 0.8301887, g: 0.8301887, b: 0.8301887, a: 0}
