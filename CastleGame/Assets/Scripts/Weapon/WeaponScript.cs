@@ -10,18 +10,21 @@ using UnityEngine;
 
 public class WeaponScript : MonoBehaviour
 {
-    // Weapon stats
-    [SerializeField]
-    private float damage;
-    [SerializeField]
+    // Weapon stats - public - so the player can read them
+    [Tooltip("How much damage the weapon does when it hits something")]
+    public float damage;
     [Tooltip("How fast we can attack with the weapon, in Hz (per second)")]
-    private float attackRate; // How fast we can attack with the weapon, measured in Hz
+    public float attackRate; // How fast we can attack with the weapon, measured in Hz
+
+    // Weapon stats - private - the ones the player doesn't need to know about
     [SerializeField]
     [Tooltip("Our starting weapons should be indestructible. If they have durability set this to false/unticked")]
     private bool isIndestructible; // Is the weapon indestructible? - Our starting weapons will be
     [SerializeField]
+    [Tooltip("Starting durability of the weapon - think of this like HP for a weapon")]
     private float startDurability; // If the weapon isn't indestructible, how much durability does it normally have?
     [SerializeField]
+    [Tooltip("The current durability of the weapon - each time we hit something this reduces by 1")]
     private float currentDurability; // The current durability of the weapon
 
     [SerializeField]
@@ -52,9 +55,7 @@ public class WeaponScript : MonoBehaviour
         // For now I'll just have the box appear, then I'll put a timer on it appearing
 
 
-
-
-
+        //!!! This code will be put on the player instead
 
 
         // After attacking we will reduce our durability by 1
