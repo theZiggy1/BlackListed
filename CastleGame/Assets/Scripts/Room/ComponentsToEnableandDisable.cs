@@ -30,14 +30,20 @@ public class ComponentsToEnableandDisable : MonoBehaviour
         {
             foreach (GameObject obj in WallComponents)
             {
-                obj.GetComponent<MeshRenderer>().enabled = true;
+                if (obj.GetComponent<MeshRenderer>() != null)
+                {
+                    obj.GetComponent<MeshRenderer>().enabled = true;
+                }
             }
         }
         else
         {
             foreach (GameObject obj in WallComponents)
             {
-                obj.GetComponent<MeshRenderer>().enabled = false;
+                if (obj.GetComponent<MeshRenderer>() != null)
+                {
+                    obj.GetComponent<MeshRenderer>().enabled = false;
+                }
             }
         }
 
@@ -52,14 +58,21 @@ public class ComponentsToEnableandDisable : MonoBehaviour
         {
             foreach (GameObject obj in RoomComponents)
             {
-                obj.GetComponent<MeshRenderer>().enabled = true;
+                if (obj.GetComponent<MeshRenderer>() != null)
+                {
+                    obj.GetComponent<MeshRenderer>().enabled = true;
+                }
             }
         }
         else
         {
             foreach (GameObject obj in RoomComponents)
             {
+
+                if (obj.GetComponent<MeshRenderer>() != null)
+                { 
                 obj.GetComponent<MeshRenderer>().enabled = false;
+            }
             }
         }
 
