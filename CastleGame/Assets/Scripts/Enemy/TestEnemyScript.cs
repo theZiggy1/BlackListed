@@ -34,6 +34,8 @@ public class TestEnemyScript : MonoBehaviour
     void Start()
     {
         stateMachine = States.flocking;
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager"); // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
     }
 
     // Update is called once per frame
