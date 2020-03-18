@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// By Farran Holmes
+/// s1712383
+/// </summary>
 public class PlayerSelectManagerScript : MonoBehaviour
 {
     [SerializeField]
