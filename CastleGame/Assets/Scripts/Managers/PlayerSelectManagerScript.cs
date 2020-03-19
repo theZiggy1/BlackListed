@@ -48,6 +48,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
     private bool P3MovedImage;
     private bool P4MovedImage;
 
+    private bool loadedNextLevel;
+
     // These are public so that the player's can read them and get the correct character from them
     // E.g. if P1CharacterID is 3 then Player1 will read that, and change to using Character3
     public int P1CharacterID;
@@ -104,6 +106,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
             P4Joined = true;
         }
 
+
+        // Player 1 character select
         if (P1Joined)
         {
             if (!P1MovedImage) // If we haven't moved images yet
@@ -157,15 +161,183 @@ public class PlayerSelectManagerScript : MonoBehaviour
         }
 
 
+        // Player 2 character select
+        if (P2Joined)
+        {
+            if (!P2MovedImage) // If we haven't moved images yet
+            {
+                // -1 is to the right, 1 is to the left
+                // So, smaller than -0.5 means we've started moving the stick halfway to the right
+                if (Input.GetAxis("Joy2LeftStickHorizontal") < -0.5f)
+                {
+                    Debug.Log("Move right, to the next image");
+
+                    // Add 1 onto the characterID
+                    P2CharacterID++;
+
+                    // If it gets greater than the number of characters we have, reset the value
+                    if (P2CharacterID >= characterImages.Length)
+                    {
+                        P2CharacterID = 0;
+                    }
+
+                    // Set the player's image to be the revelant one from the characterImages array
+                    Player2CharacterImage.sprite = characterImages[P2CharacterID];
+
+                    P2MovedImage = true;
+                }
+                // So, greater than 0.5 means we've started moving the stick halfway to the left
+                if (Input.GetAxis("Joy2LeftStickHorizontal") > 0.5f)
+                {
+                    Debug.Log("Move left, to the previous image");
+
+                    // Subtract 1 from the characterID
+                    P2CharacterID--;
+
+                    // If it gets less than 0, wrap it back round to the number of characters we have
+                    if (P2CharacterID < 0)
+                    {
+                        P2CharacterID = characterImages.Length - 1;
+                    }
+
+                    // Set the player's image to be the revelant one from the characterImages array
+                    Player2CharacterImage.sprite = characterImages[P2CharacterID];
+
+                    P2MovedImage = true;
+                }
+            }
+            // If our stick is back in the centre, then
+            if (Input.GetAxis("Joy2LeftStickHorizontal") < 0.25f && Input.GetAxis("Joy2LeftStickHorizontal") > -0.25f)
+            {
+                // Reset this so we can move images again
+                P2MovedImage = false;
+            }
+        }
+
+
+        // Player 3 character select
+        if (P3Joined)
+        {
+            if (!P3MovedImage) // If we haven't moved images yet
+            {
+                // -1 is to the right, 1 is to the left
+                // So, smaller than -0.5 means we've started moving the stick halfway to the right
+                if (Input.GetAxis("Joy3LeftStickHorizontal") < -0.5f)
+                {
+                    Debug.Log("Move right, to the next image");
+
+                    // Add 1 onto the characterID
+                    P3CharacterID++;
+
+                    // If it gets greater than the number of characters we have, reset the value
+                    if (P3CharacterID >= characterImages.Length)
+                    {
+                        P3CharacterID = 0;
+                    }
+
+                    // Set the player's image to be the revelant one from the characterImages array
+                    Player3CharacterImage.sprite = characterImages[P3CharacterID];
+
+                    P3MovedImage = true;
+                }
+                // So, greater than 0.5 means we've started moving the stick halfway to the left
+                if (Input.GetAxis("Joy3LeftStickHorizontal") > 0.5f)
+                {
+                    Debug.Log("Move left, to the previous image");
+
+                    // Subtract 1 from the characterID
+                    P3CharacterID--;
+
+                    // If it gets less than 0, wrap it back round to the number of characters we have
+                    if (P3CharacterID < 0)
+                    {
+                        P3CharacterID = characterImages.Length - 1;
+                    }
+
+                    // Set the player's image to be the revelant one from the characterImages array
+                    Player3CharacterImage.sprite = characterImages[P3CharacterID];
+
+                    P3MovedImage = true;
+                }
+            }
+            // If our stick is back in the centre, then
+            if (Input.GetAxis("Joy3LeftStickHorizontal") < 0.25f && Input.GetAxis("Joy3LeftStickHorizontal") > -0.25f)
+            {
+                // Reset this so we can move images again
+                P3MovedImage = false;
+            }
+        }
+
+
+        // Player 4 character select
+        if (P4Joined)
+        {
+            if (!P4MovedImage) // If we haven't moved images yet
+            {
+                // -1 is to the right, 1 is to the left
+                // So, smaller than -0.5 means we've started moving the stick halfway to the right
+                if (Input.GetAxis("Joy4LeftStickHorizontal") < -0.5f)
+                {
+                    Debug.Log("Move right, to the next image");
+
+                    // Add 1 onto the characterID
+                    P4CharacterID++;
+
+                    // If it gets greater than the number of characters we have, reset the value
+                    if (P4CharacterID >= characterImages.Length)
+                    {
+                        P4CharacterID = 0;
+                    }
+
+                    // Set the player's image to be the revelant one from the characterImages array
+                    Player4CharacterImage.sprite = characterImages[P4CharacterID];
+
+                    P4MovedImage = true;
+                }
+                // So, greater than 0.5 means we've started moving the stick halfway to the left
+                if (Input.GetAxis("Joy4LeftStickHorizontal") > 0.5f)
+                {
+                    Debug.Log("Move left, to the previous image");
+
+                    // Subtract 1 from the characterID
+                    P4CharacterID--;
+
+                    // If it gets less than 0, wrap it back round to the number of characters we have
+                    if (P4CharacterID < 0)
+                    {
+                        P4CharacterID = characterImages.Length - 1;
+                    }
+
+                    // Set the player's image to be the revelant one from the characterImages array
+                    Player4CharacterImage.sprite = characterImages[P4CharacterID];
+
+                    P4MovedImage = true;
+                }
+            }
+            // If our stick is back in the centre, then
+            if (Input.GetAxis("Joy4LeftStickHorizontal") < 0.25f && Input.GetAxis("Joy4LeftStickHorizontal") > -0.25f)
+            {
+                // Reset this so we can move images again
+                P4MovedImage = false;
+            }
+        }
+
 
         // If any controller presses start, then we start the game (will be probably be changed to a countdown or wait for all joined players to ready up first)
         if (Input.GetButtonDown("Joy1ButtonStart") || Input.GetButtonDown("Joy2ButtonStart") || Input.GetButtonDown("Joy3ButtonStart") || Input.GetButtonDown("Joy4ButtonStart"))
         {
-            // Find the PlayerInputManager
-            GameObject playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
+            if (!loadedNextLevel)
+            {
 
-            // Load the level
-            playerInputManager.GetComponent<PlayerSelectionScript>().Play();
+                // Find the PlayerInputManager
+                GameObject playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
+
+                // Load the level
+                playerInputManager.GetComponent<PlayerSelectionScript>().Play();
+
+                // This is set so that the level can't be loaded twice by accident
+                loadedNextLevel = true;
+            }
         }
         
     }
