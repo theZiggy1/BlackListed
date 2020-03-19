@@ -30,18 +30,54 @@ public class PlayerSelectionScript : MonoBehaviour
     [SerializeField]
     private GameObject GameManager;
 
+
+    // Player UI elements - will be set to hidden at start, then appear when loaded into level
+    [SerializeField]
+    private GameObject player1UI;
+    [SerializeField]
+    private GameObject player2UI;
+    [SerializeField]
+    private GameObject player3UI;
+    [SerializeField]
+    private GameObject player4UI;
+
+
+    // This will be set to true once we've loaded the level
+    private bool levelLoaded;
+
+
     // Start is called before the first frame update
     void Start()
     {
         GameManager = GameObject.FindGameObjectWithTag("GameManager");
 
-        
+        // We can just drag them in in the inspector, but getting with tags saves time
+        player1UI = GameObject.FindGameObjectWithTag("Player1UI");
+        player2UI = GameObject.FindGameObjectWithTag("Player2UI");
+        player3UI = GameObject.FindGameObjectWithTag("Player3UI");
+        player4UI = GameObject.FindGameObjectWithTag("Player4UI");
+        // Deactivate all the UI at the start
+        player1UI.SetActive(false);
+        player2UI.SetActive(false);
+        player3UI.SetActive(false);
+        player4UI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Moved this to the PlayerSelectManagerScript, in the PlayerSelectScene
+        //if (!levelLoaded)
+        //{
+        //    // If any controller presses start, then we start the game (will be probably be changed to a countdown or wait for all joined players to ready up first)
+        //    if (Input.GetButtonDown("Joy1ButtonStart") || Input.GetButtonDown("Joy2ButtonStart") || Input.GetButtonDown("Joy3ButtonStart") || Input.GetButtonDown("Joy4ButtonStart"))
+        //    {
+        //        // Load the level
+        //        Play();
+        //    }
+
+        //    levelLoaded = true;
+        //}
     }
 
     // Queues our player as 'joined to the game' ready for spawning
@@ -73,6 +109,12 @@ public class PlayerSelectionScript : MonoBehaviour
     public void Play()
     {
         Debug.Log("Play game!");
+
+        // Reactivate all the player UI when we load the level
+        player1UI.SetActive(true);
+        player2UI.SetActive(true);
+        player3UI.SetActive(true);
+        player4UI.SetActive(true);
 
         // Annoyingly this is read only
         //GetComponent<PlayerInputManager>().maxPlayerCount

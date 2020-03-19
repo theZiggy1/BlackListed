@@ -1492,7 +1492,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &769044713
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1807,6 +1807,10 @@ MonoBehaviour:
   spawnPoints: []
   spawnIndex: 0
   GameManager: {fileID: 0}
+  player1UI: {fileID: 0}
+  player2UI: {fileID: 0}
+  player3UI: {fileID: 0}
+  player4UI: {fileID: 0}
 --- !u!4 &867286615
 Transform:
   m_ObjectHideFlags: 0

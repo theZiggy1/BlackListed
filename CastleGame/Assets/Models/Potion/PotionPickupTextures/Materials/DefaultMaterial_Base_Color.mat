@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3633063322154983759
+--- !u!114 &-5747672961304100272
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Crystal
-  m_Shader: {fileID: -6465566751694194690, guid: 1cd6aa326ffb08f4eaa65ebf828eae35,
+  m_Name: DefaultMaterial_Base_Color
+  m_Shader: {fileID: -6465566751694194690, guid: 37308e7b4c73fdc438576eb7d0dde85e,
     type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -38,23 +38,23 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6D8F3DC7:
-        m_Texture: {fileID: 2800000, guid: 8ab89b41793aadd48ad9e95ce48401c3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 17a5a8a203ecca04684e801a1e2779b2, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6EF6FE:
-        m_Texture: {fileID: 2800000, guid: 9f3c8d73b1a503c4a8ed1ef2f48ad9e3, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9d7777d4cd215ab45b3b926eca5c96f6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6F9AB9E4:
-        m_Texture: {fileID: 2800000, guid: a6704ba6892887b4db014113e8b78cad, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_9099073B:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - Texture2D_9099073B:
+        m_Texture: {fileID: 2800000, guid: 1b764dd229962ee468ef96344f681c6f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_B1E9C909:
-        m_Texture: {fileID: 2800000, guid: 6a63bf32df0c78143b737dd348710e29, type: 3}
+        m_Texture: {fileID: 2800000, guid: 6635e5eb428552e4abcdb0cd13eed06f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C832D42B:
@@ -62,7 +62,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_FB0B5455:
-        m_Texture: {fileID: 2800000, guid: cef68b5b14185f24fb1eca847ed4c4d2, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9e0f224fc2ba66e46aabbeddc4448d19, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
