@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Farran Holmes
+/// s1712383
+/// </summary>
+
 public class MainMenuScript : MonoBehaviour
 {
     [SerializeField]

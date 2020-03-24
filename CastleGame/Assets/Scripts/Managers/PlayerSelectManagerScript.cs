@@ -332,6 +332,12 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 // Find the PlayerInputManager
                 GameObject playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
 
+                // Tell the PlayerInputManager what charIDs each player has picked
+                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[0] = P1CharacterID;
+                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[1] = P2CharacterID;
+                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[2] = P3CharacterID;
+                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[3] = P4CharacterID;
+
                 // Load the level
                 playerInputManager.GetComponent<PlayerSelectionScript>().Play();
 

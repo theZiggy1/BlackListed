@@ -18,9 +18,15 @@ public class PlayerSelectionScript : MonoBehaviour
     private string sceneNameToLoad; // There's probably a better way to do this
 
     [SerializeField]
-    private GameObject playerPrefab; // The player we are spawning
+    private GameObject[] playerPrefabs; // Array containing the characters that the player can choose from
     [SerializeField]
     private int numOfPlayers; // We could technically get the number of players from the GameManager, but we don't need to
+    public int[] playerCharIDs; // Array containing the IDs of the characters that each player picked
+    [SerializeField]
+    private Material[] playerChildMats; // Contains the materials for the child object of the player character
+
+    [SerializeField]
+    private Material[] PlayerMaterials; // Array containing materials that colour code our players
 
     [SerializeField]
     private GameObject[] spawnPoints;
@@ -88,12 +94,51 @@ public class PlayerSelectionScript : MonoBehaviour
     }
 
     // Actually spawns the player in the world
-    public void SpawnPlayer()
+    public void SpawnPlayer(int characterID, int playerID)
     {
         if (numOfPlayers < 4)
         {
             //Instantiate(playerPrefab, transform.position, transform.rotation);
-            Instantiate(playerPrefab, spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
+            //Instantiate(playerPrefab, spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
+
+            // Spawns the relevant character, for the player that is currently being spawned
+            //Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
+
+            GameObject playerInst = Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
+            
+            // Loop through each of the playerInst's children
+            foreach (Transform child in playerInst.transform)
+            {
+                // Find child object with tag PlayerSubObject
+                if (child.CompareTag("PlayerSubObject"))
+                {
+                    // Loop through each of the child's children
+                    foreach (Transform secondChild in child)
+                    {
+                        // Find child object with tag PlayerSubObject - this has the renderer on it
+                        if (secondChild.CompareTag("PlayerMeshObject"))
+                        {
+                            playerChildMats = secondChild.GetComponent<Renderer>().materials;
+
+                            //playerMats[0].color = Color.black;
+                            //playerMats[0].SetColor("_MainColor", Color.black);
+
+                            // This will change the material at position 1 to show what player we are
+                            // e.g. character's hair colour will change to red if they're player1
+                            playerChildMats[1] = PlayerMaterials[playerID];
+
+                            secondChild.GetComponent<Renderer>().materials = playerChildMats;
+                        }
+                    }
+                }
+            }
+
+            //Material[] playerMats = playerInst.GetComponent<Renderer>().materials;
+
+            //playerMats[0].color = Color.black;
+
+            //playerInst.GetComponent<Renderer>().materials = playerMats;
+
             spawnIndex++;
 
             //numOfPlayers++;
@@ -132,7 +177,9 @@ public class PlayerSelectionScript : MonoBehaviour
 
         for (int i = 0; i < numOfPlayers; i++)
         {
-            SpawnPlayer();
+            // For each of our players, spawn the relevant character, with the relevant colour
+            // e.g. if i = 2 then that's player 3, so spawn the character at position 2 of the playerCharIDs array
+            SpawnPlayer(playerCharIDs[i], i);
         }
 
         // Unload the player select scene

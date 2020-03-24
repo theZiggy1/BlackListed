@@ -1801,9 +1801,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNameToLoad: Level1DEMO
-  playerPrefab: {fileID: 2373609497845093344, guid: 38629bcf73a9a594680055d5aca1480d,
-    type: 3}
+  playerPrefabs:
+  - {fileID: 2373609497845093344, guid: 36066e41d8cfbc84a958c50aa632c502, type: 3}
+  - {fileID: 2373609497845093344, guid: 84ef23e7d4eb6224fbc3097278907631, type: 3}
+  - {fileID: 2373609497845093344, guid: 49ece06de895c3d4fb0abea0e7531f73, type: 3}
+  - {fileID: 2373609497845093344, guid: 136596d835a44da46b2a93a2ad50f086, type: 3}
   numOfPlayers: 0
+  playerCharIDs: 00000000000000000000000000000000
+  playerChildMats: []
+  PlayerMaterials:
+  - {fileID: 2100000, guid: 1b88e2e6dd9ebb84ea27b3b0cd0aedfa, type: 2}
+  - {fileID: 2100000, guid: f84f81a72b9ac1641841c85ae80a98bf, type: 2}
+  - {fileID: 2100000, guid: 2c8e38e29ce1d1d4e8351ad1d4d3637e, type: 2}
+  - {fileID: 2100000, guid: 5f0650141dd96564e80e7e83d67e6204, type: 2}
   spawnPoints: []
   spawnIndex: 0
   GameManager: {fileID: 0}

@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Farran Holmes
+/// s1712383
+/// </summary>
+
 public class EntityScript : MonoBehaviour
 {
     [SerializeField]
