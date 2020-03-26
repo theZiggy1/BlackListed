@@ -77,33 +77,45 @@ public class PlayerSelectManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Joy1ButtonA"))
+        if (!P1Joined)
         {
-            //player1JoinedImage.enabled = false;
-            player1JoinedImage.SetActive(false);
-            playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
-            P1Joined = true;
+            if (Input.GetButtonDown("Joy1ButtonA"))
+            {
+                //player1JoinedImage.enabled = false;
+                player1JoinedImage.SetActive(false);
+                playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
+                P1Joined = true;
+            }
         }
-        if (Input.GetButtonDown("Joy2ButtonA"))
+        if (!P2Joined)
         {
-            //player2JoinedImage.enabled = false;
-            player2JoinedImage.SetActive(false);
-            playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
-            P2Joined = true;
+            if (Input.GetButtonDown("Joy2ButtonA"))
+            {
+                //player2JoinedImage.enabled = false;
+                player2JoinedImage.SetActive(false);
+                playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
+                P2Joined = true;
+            }
         }
-        if (Input.GetButtonDown("Joy3ButtonA"))
+        if (!P3Joined)
         {
-            //player3JoinedImage.enabled = false;
-            player3JoinedImage.SetActive(false);
-            playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
-            P3Joined = true;
+            if (Input.GetButtonDown("Joy3ButtonA"))
+            {
+                //player3JoinedImage.enabled = false;
+                player3JoinedImage.SetActive(false);
+                playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
+                P3Joined = true;
+            }
         }
-        if (Input.GetButtonDown("Joy4ButtonA"))
+        if (!P4Joined)
         {
-            //player4JoinedImage.enabled = false;
-            player4JoinedImage.SetActive(false);
-            playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
-            P4Joined = true;
+            if (Input.GetButtonDown("Joy4ButtonA"))
+            {
+                //player4JoinedImage.enabled = false;
+                player4JoinedImage.SetActive(false);
+                playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
+                P4Joined = true;
+            }
         }
 
 
