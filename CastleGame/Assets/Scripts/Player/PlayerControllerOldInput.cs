@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Linq;
 
 
 /*
@@ -32,7 +33,9 @@ public class PlayerControllerOldInput : MonoBehaviour
     
     private string LeftTrigger; // 9th axis
     private string RightTrigger; // 10th axis
-    
+
+    CharacterController Controller;
+    public List <Animator> Animators;
 
     Vector2 movementVec; //depreciated from the 'old movement system
     Vector2 rotVec; //see above comment
@@ -55,9 +58,77 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     [SerializeField] GameObject insideTreeCamera;
     public bool insideTree = false;
+
+
+    private Animator GetAnimator(string anim_name)
+    {
+        foreach (Animator anim in Animators)
+        {
+
+            //If we found the desired animator
+            if (anim.transform.gameObject.name == anim_name)
+            {
+                //Let's return the animator
+                return anim;
+            }
+
+        }
+
+        return null;
+    }
+
+    //setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
+    private void SetAnimationInteger(string condition, int integer)
+    {
+        foreach (Animator anim in Animators)
+        {
+            anim.SetInteger(condition, integer);
+        }
+    }
+
+    private void SetAnimationFloat(string condition, float floating_num)
+    {
+        foreach (Animator anim in Animators)
+        {
+            anim.SetFloat(condition, floating_num);
+        }
+    }
+
+    private void SetAnimationBool(string condition, bool boolean)
+    {
+        foreach (Animator anim in Animators)
+        {
+            anim.SetBool(condition, boolean);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+
+        Controller = GetComponent<CharacterController>();
+
+        //Let's grab all the animators in the children uwu
+        Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
+        string[] animator_names = {"Trousers", "Boots", "Tunic"};
+        //Let's iterate through them all cause we just need brians
+        foreach (Animator anim in animators)
+        {
+
+            //If the gameobject of this anim is Brian, then we found the right animator!
+            if (animator_names.Contains(anim.transform.gameObject.name))
+            {
+                //Let's yoink this :D
+                Animators.Add (anim);
+                //Let's early out cause fuck the other animators
+            }
+        }
+
+        Animators.Add(gameObject.transform.Find("Brian").GetComponent<Animator>());
+
+
+        SetAnimationInteger("Condition", 0);
+
      //  transform.position = new Vector3(0, 0, 0);
 
         transform.Rotate(0, 45, 0); //The character is rotated 45 degrees when spawned in to help with the rotation of the level. it was either this, or leave each section rotated 45 degrees, and due to how the controller takes in input. 
@@ -167,16 +238,19 @@ public class PlayerControllerOldInput : MonoBehaviour
         {
             Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
 
-         
-                lookRotation *= Quaternion.Euler(0, 45, 0);
 
+                        lookRotation *= Quaternion.Euler(0, 45, 0);
 
-           float step = rotSpeed * Time.deltaTime;
+            //Use this for setting animation. 
+            SetAnimationInteger("Condition", 1);
+
+            float step = rotSpeed * Time.deltaTime;
           thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
             Debug.Log(LookDirection+" Left Stick Look Direction");
         }
         transform.Translate(movement);
         Debug.Log(movement+" Left Stick Movement");
+        
     }
 
     /*
@@ -189,7 +263,7 @@ public class PlayerControllerOldInput : MonoBehaviour
        
         //like in movement, instead of being given the vector we need to build it ourselves. 
        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
-        Debug.Log(LookDirection+" Right Stick");
+        Debug.Log(LookDirection+" Right Stick Look around");
        // if (LookDirection.x > 0.11 || LookDirection.x < -0.11)
         //{
           //  if (LookDirection.z > 0.11 || LookDirection.z < -0.11)
