@@ -43,6 +43,24 @@ public class EntityScript : MonoBehaviour
         NumStates
     }
 
+    [SerializeField]
+    [Tooltip("Does the entity have a chance to drop something on death?")]
+    private bool canDropItem;
+
+    [SerializeField]
+    [Tooltip("Array of anything the entity can potentially drop")]
+    private GameObject[] itemDrops;
+
+    [SerializeField]
+    [Tooltip("The drop chances (in %), corresponding to the same points in the itemDrops array ")]
+    private float[] dropChances;
+
+    [SerializeField]
+    private float randomNumber; // The random number that we generate, for use with the loot system
+
+    [SerializeField]
+    private GameObject itemToDrop; // The item that is going to get dropped
+
     // Start is called before the first frame update
     void Start()
     {
@@ -142,8 +160,49 @@ public class EntityScript : MonoBehaviour
 
         }
 
+        if (canDropItem)
+        {
+            DropItem();
+        }
+
         // This is temporary
         Debug.Log(this.gameObject.name + " has died");
         Destroy(this.gameObject);
+    }
+
+    private void DropItem()
+    {
+        // Gives us a random number (percentage)
+        randomNumber = Random.Range(0f, 100f);
+
+        for (int i = 0; i <= itemDrops.Length; i++)
+        {
+            // If the random number is less than the chance, we drop an item
+            if (randomNumber <= dropChances[i])
+            {
+                // Stores the item we drop
+                itemToDrop = itemDrops[i];
+
+                // Then breaks out of the for loop
+                break;
+            }
+            else
+            {
+                // Subtract the current drop chance, so we can check again
+                randomNumber -= dropChances[i];
+            }
+        }
+
+        if (itemToDrop != null)
+        {
+            Debug.Log("Dropped an item");
+            // Spawns the item where the entity currently is
+            Instantiate(itemToDrop, transform.position, transform.rotation);
+        }
+        else
+        {
+            Debug.Log("No item dropped");
+        }
+
     }
 }
