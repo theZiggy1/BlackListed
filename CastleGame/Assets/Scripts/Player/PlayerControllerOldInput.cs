@@ -108,26 +108,26 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         Controller = GetComponent<CharacterController>();
 
-        //Let's grab all the animators in the children uwu
-        Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
-        string[] animator_names = {"Trousers", "Boots", "Tunic"};
-        //Let's iterate through them all cause we just need brians
-        foreach (Animator anim in animators)
-        {
+        //////////////Let's grab all the animators in the children uwu
+        ////////////Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
+        ////////////string[] animator_names = {"Trousers", "Boots", "Tunic"};
+        //////////////Let's iterate through them all cause we just need brians
+        ////////////foreach (Animator anim in animators)
+        ////////////{
 
-            //If the gameobject of this anim is Brian, then we found the right animator!
-            if (animator_names.Contains(anim.transform.gameObject.name))
-            {
-                //Let's yoink this :D
-                Animators.Add (anim);
-                //Let's early out cause fuck the other animators
-            }
-        }
+        ////////////    //If the gameobject of this anim is Brian, then we found the right animator!
+        ////////////    if (animator_names.Contains(anim.transform.gameObject.name))
+        ////////////    {
+        ////////////        //Let's yoink this :D
+        ////////////        Animators.Add (anim);
+        ////////////        //Let's early out cause fuck the other animators
+        ////////////    }
+        ////////////}
 
-        Animators.Add(gameObject.transform.Find("Brian").GetComponent<Animator>());
+        ////////////Animators.Add(gameObject.transform.Find("Brian").GetComponent<Animator>());
 
 
-        SetAnimationInteger("Condition", 0);
+        ////////////SetAnimationInteger("Condition", 0);
 
      //  transform.position = new Vector3(0, 0, 0);
 
