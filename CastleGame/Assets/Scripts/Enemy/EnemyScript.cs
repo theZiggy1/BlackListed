@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject Spawner;
-    public int playerToFight = -1;
+    public GameObject Spawner;//dep
+    public int playerToFight = -1;//dep
     public float damping;
     public float moveSpeed;
     public float numEnemies;
@@ -32,8 +32,8 @@ public class EnemyScript : MonoBehaviour
 
    [SerializeField]  States stateMachine;
     public fighterType enemyState;
-   public GameObject gameManager;
-    public GameObject playerObj;
+   public GameObject gameManager;//dep
+    public GameObject playerObj;//dep
     public float theta = 0f;
     public float speed = 1.0f;
     public float speed2 = 10.0f;

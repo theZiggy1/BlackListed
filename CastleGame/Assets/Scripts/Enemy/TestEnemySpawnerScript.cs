@@ -9,7 +9,7 @@ public class TestEnemySpawnerScript : MonoBehaviour
     [SerializeField] Transform[] spawnPoint;
 
     [SerializeField] GameObject gameManager;
-    [SerializeField] [Tooltip("For eache enmy here you need to put in an object into spawnPoint.")] enemyTypes[] enemyToSpawn;
+    [SerializeField] [Tooltip("For each enmy here you need to put in an object into spawnPoint.")] enemyTypes[] enemyToSpawn;
 
     [SerializeField] int numEnemies;
 
