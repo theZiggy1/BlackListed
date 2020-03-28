@@ -51,7 +51,7 @@ public class TestEnemySpawnerScript : MonoBehaviour
        // Enemy.GetComponent<EnemyScript>().Spawner = this.gameObject;
        // Enemy.GetComponent<EnemyScript>().gameManager = gameManager;
       //  Enemy.GetComponent<EnemyScript>().playerToFight = Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers);
-        Enemy.GetComponent<EnemyScript>().SpawningInfo(this.gameObject, gameManager, Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers), stateNum);
+        Enemy.GetComponent<EnemyVarScript>().SpawningInfo(this.gameObject, gameManager, Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers));
        
     }
 
@@ -77,6 +77,8 @@ public class TestEnemySpawnerScript : MonoBehaviour
         numEnemies--;
         if (numEnemies == 0)
         {
+
+            Debug.Log("All done");
           //  wallInfront.SetActive(false);
         }
     }

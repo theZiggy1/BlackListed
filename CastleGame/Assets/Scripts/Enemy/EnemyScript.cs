@@ -7,6 +7,10 @@ public class EnemyScript : MonoBehaviour
     // Start is called before the first frame update
     public GameObject Spawner;//dep
     public int playerToFight = -1;//dep
+    public GameObject gameManager;//dep
+    public GameObject playerObj;//dep
+
+    [SerializeField] EnemyVarScript inheritedScript;
     public float damping;
     public float moveSpeed;
     public float numEnemies;
@@ -32,8 +36,6 @@ public class EnemyScript : MonoBehaviour
 
    [SerializeField]  States stateMachine;
     public fighterType enemyState;
-   public GameObject gameManager;//dep
-    public GameObject playerObj;//dep
     public float theta = 0f;
     public float speed = 1.0f;
     public float speed2 = 10.0f;
@@ -49,9 +51,9 @@ public class EnemyScript : MonoBehaviour
     void Start()
     {
         stateMachine = States.flocking;
-        playerObj = gameManager.GetComponent<GameManagerScript>().currentPlayers[playerToFight];
-
-        gameManager = GameObject.FindGameObjectWithTag("GameManager"); // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
+        playerObj = inheritedScript.playerObj;
+        playerToFight = inheritedScript.playerToFight;
+        gameManager = inheritedScript.gameManager; // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
     }
 
     // Update is called once per frame
@@ -132,7 +134,7 @@ public class EnemyScript : MonoBehaviour
     }
 
     //when thsi charcter is destoryed, it updates the blackboard, that it has in fact finished fighting that player
-    private void OnDestroy()
+  /*  private void OnDestroy()
     {
         Spawner.GetComponent<TestEnemySpawnerScript>().EnemyKilled();
         gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
@@ -157,7 +159,7 @@ public class EnemyScript : MonoBehaviour
         playerToFight = playerNum;
 
     }
-
+    */
 
     public void SpawnBullet()
     {
