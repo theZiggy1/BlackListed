@@ -18,6 +18,7 @@ public class TestEnemySpawnerScript : MonoBehaviour
     {
         meleeEnemy,
         rangedEnemy,
+        bossEnemy,
         numEnemies
     }
 
@@ -55,6 +56,12 @@ public class TestEnemySpawnerScript : MonoBehaviour
        
     }
 
+    public void spawnBoss(Transform spawnPoint, int numInArray)
+    {
+        GameObject Boss = GameObject.Instantiate(enemyArray[numInArray], spawnPoint.position, spawnPoint.rotation);
+        Boss.GetComponent<EnemyVarScript>().SpawningInfo(this.gameObject, gameManager);
+    }
+
  
 
 
@@ -68,6 +75,9 @@ public class TestEnemySpawnerScript : MonoBehaviour
                 break;
             case enemyTypes.rangedEnemy:
                 spawnEnemy(locationtoSpawn, 1, 1);
+                break;
+            case enemyTypes.bossEnemy:
+                spawnBoss(locationtoSpawn, 2);
                 break;
         }
     }

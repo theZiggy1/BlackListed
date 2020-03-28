@@ -19,7 +19,14 @@ public class EnemyVarScript : MonoBehaviour
     private void OnDestroy()
     {
         Spawner.GetComponent<TestEnemySpawnerScript>().EnemyKilled();
-        gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
+        if (playerToFight != -1)
+        {
+            gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
+        }
+        else
+        {
+            Debug.Log("not fighting a player");
+        }
     }
    //This one handles the generic enemies, while the second overloaded one handles bosses.
     public void SpawningInfo(GameObject a_spawner, GameObject a_gameManager, int playerNum)
