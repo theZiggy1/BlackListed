@@ -34,7 +34,9 @@ public class MiniBossAi : MonoBehaviour
     [SerializeField] float phase2Threshhold;
 
 
-    public float attackCoolDown; //How long until the miniboss decides what attack to perform.
+    public float attackCoolDown = 1.0f; //How long until the miniboss decides what attack to perform.
+    public bool isAttacking; //if the boss is in the middle of attacking we have no need to keep checking other things. 
+    public float InVulnerableTime = 3.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -51,6 +53,7 @@ public class MiniBossAi : MonoBehaviour
             if (entityHealth <= phase1Threshhold && entityHealth > phase2Threshhold)
             {
                 stateMachine = States.Invulnerable;
+                InVulnerableTime = 1.0f;
             }
         }
         else if(stateMachine == States.Phase2Fast)
@@ -58,30 +61,16 @@ public class MiniBossAi : MonoBehaviour
              if (entityHealth <= phase2Threshhold)
             {
                 stateMachine = States.Invulnerable;
+                InVulnerableTime = 5.0f;
             }
         }
         
-          
-        
-
-
-        switch(stateMachine)
+          switch(stateMachine)
         {
-            case States.Phase1Slow:
-                Debug.Log("Going Slow");
-                break;
-            case States.Phase2Fast:
-
-                Debug.Log("Going Fast");
-                break;
-            case States.Phase3Enraged:
-
-                Debug.Log("Im mad");
-                break;
             case States.Invulnerable:
 
                 Debug.Log("Cant touch this");
-                StartCoroutine(InvlunerablePhase(3));
+                StartCoroutine(InvlunerablePhase(InVulnerableTime));
                 //This phase starts the transitions from going to one phase to another to help ease moving around. 
                 break;
             case States.ChangingPhases:
@@ -89,6 +78,33 @@ public class MiniBossAi : MonoBehaviour
                 Debug.Log("Animation Phase");
                 //This is an empty phase that we go to so the miniboss can perform animations in peace.
                 break;
+        }
+
+        if (isAttacking)
+        {
+            return;
+        }
+        if (attackCoolDown >= 0.0f)
+        {
+            attackCoolDown -= Time.deltaTime;
+            return;
+        }
+
+        switch (stateMachine)
+        {
+            case States.Phase1Slow:
+            
+                Debug.Log("Going Slow");
+                break;
+            case States.Phase2Fast:
+            
+                Debug.Log("Going Fast");
+                break;
+            case States.Phase3Enraged:
+            
+                Debug.Log("Im mad");
+                break;
+           
         }
     }
 
