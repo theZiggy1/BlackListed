@@ -22,6 +22,7 @@ public class MiniBossAi : MonoBehaviour
         GroundPound,
         MultiSwipe,
         MultiThrow,
+        MultiPound,
         numStates
     }
 
@@ -106,6 +107,8 @@ public class MiniBossAi : MonoBehaviour
                     break;
                 case Attacks.MultiSwipe:
                     break;
+                case Attacks.MultiPound:
+                    break;
             }
             //Will call the attack code here,before returning. 
             return;
@@ -118,24 +121,65 @@ public class MiniBossAi : MonoBehaviour
             return;
         }
 
+        int chooseRandomAttack = Random.Range(0, 100);
+        Debug.Log(chooseRandomAttack);
 
         //This statement only decides which attack is being perfromed, the attacks themselves are called elsewhere.
+        //The game decides on a rando m number between 0 and 99. It then based on that number chooses an attack
         switch (stateMachine)
         {
             case States.Phase1Slow:
-            
+                //In the first stage, if the number is under 40 it chooses the first option
+                //If its between 40 and 80 it chooses the second option
+                //and if its over 80 it chooses the third. 
+                if(chooseRandomAttack > 40)
+                {
+
+                }
+                else if(chooseRandomAttack>80 || chooseRandomAttack <= 40)
+                {
+
+                }
+                else
+                {
+
+                }
                 Debug.Log("Going Slow");
                 break;
             case States.Phase2Fast:
-            
+                //In thisgroup, the rate at which each attack happens changes. 
+                if (chooseRandomAttack > 40)
+                {
+
+                }
+                else if (chooseRandomAttack > 80 || chooseRandomAttack <= 40)
+                {
+
+                }
+                else
+                {
+
+                }
                 Debug.Log("Going Fast");
                 break;
             case States.Phase3Enraged:
-            
+                //In this group the attack patterns change to do more of the other ones, over and over. 
+                if (chooseRandomAttack > 40)
+                {
+
+                }
+                else if (chooseRandomAttack > 80 || chooseRandomAttack <= 40)
+                {
+
+                }
+                else
+                {
+
+                }
                 Debug.Log("Im mad");
                 break;
-           
         }
+        isAttacking = true;
     }
 
     void Attack1GroundPound() //This attack creates 4 walls that the players must jump over.
@@ -161,6 +205,11 @@ public class MiniBossAi : MonoBehaviour
     }
 
     void Attack5MultiSwipe() //The boss rushes a random player and swipes at them x-y times. 
+    {
+
+    }
+
+    void Attack6MultiPound()
     {
 
     }
