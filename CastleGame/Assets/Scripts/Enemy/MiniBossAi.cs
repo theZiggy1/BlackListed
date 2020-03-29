@@ -15,7 +15,18 @@ public class MiniBossAi : MonoBehaviour
         numStates
     }
 
+    enum Attacks
+    {
+        Swipe, 
+        ThrowRock,
+        GroundPound,
+        MultiSwipe,
+        MultiThrow,
+        numStates
+    }
+
    [SerializeField] States stateMachine; //thestart of our enumStateMachine
+    [SerializeField] Attacks currentAttack;
 
     //These are how each of the attacks is handled, even if its just a collider with an animation played over it. 
     [SerializeField] GameObject groundAttack; 
@@ -41,6 +52,7 @@ public class MiniBossAi : MonoBehaviour
     void Start()
     {
         stateMachine = States.Phase1Slow;
+        currentAttack = Attacks.Swipe;
     }
 
     // Update is called once per frame
@@ -82,14 +94,32 @@ public class MiniBossAi : MonoBehaviour
 
         if (isAttacking)
         {
+            switch(currentAttack)
+            {
+                case Attacks.Swipe:
+                    break;
+                case Attacks.ThrowRock:
+                    break;
+                case Attacks.GroundPound:
+                    break;
+                case Attacks.MultiThrow:
+                    break;
+                case Attacks.MultiSwipe:
+                    break;
+            }
+            //Will call the attack code here,before returning. 
             return;
         }
+
+
         if (attackCoolDown >= 0.0f)
         {
             attackCoolDown -= Time.deltaTime;
             return;
         }
 
+
+        //This statement only decides which attack is being perfromed, the attacks themselves are called elsewhere.
         switch (stateMachine)
         {
             case States.Phase1Slow:
