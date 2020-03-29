@@ -11,18 +11,85 @@ public class MiniBossAi : MonoBehaviour
         Phase2Fast,
         Phase3Enraged,
         Invulnerable,
+        ChangingPhases,
         numStates
     }
+
+   [SerializeField] States stateMachine; //thestart of our enumStateMachine
+
+    //These are how each of the attacks is handled, even if its just a collider with an animation played over it. 
+    [SerializeField] GameObject groundAttack; 
+    [SerializeField] GameObject rockAttack;
+    [SerializeField] GameObject swipeAttack;
+
+    [SerializeField] EntityScript entityScript; //This reference makes handling invulnerability easier as well. 
+    //This is where the attacks will be performed. The ground attack lets out 4 attacks, in each direction, so it holds an array of the locations
+    [SerializeField] Transform meleeSpawn;
+    [SerializeField] Transform rangedSpawn;
+    [SerializeField] Transform[] groundSpawn;
+
+    //After health drops to these numbers, it changes phases to the next one. 
+    //A third phase threshold isnt needed as lower then thirs phase is the boss being dead.
+    [SerializeField] float phase1Threshhold;
+    [SerializeField] float phase2Threshhold;
+
+
+    public float attackCoolDown; //How long until the miniboss decides what attack to perform.
     // Start is called before the first frame update
     void Start()
     {
-        
+        stateMachine = States.Phase1Slow;
     }
 
     // Update is called once per frame
     void Update()
     {
+        float entityHealth = entityScript.GetCurHealth();
+      //If the boss is in these states, then we know to only check on these phases. if the health is below the thresholds. 
+        if (stateMachine == States.Phase1Slow)
+        {
+            if (entityHealth <= phase1Threshhold && entityHealth > phase2Threshhold)
+            {
+                stateMachine = States.Invulnerable;
+            }
+        }
+        else if(stateMachine == States.Phase2Fast)
+        {
+             if (entityHealth <= phase2Threshhold)
+            {
+                stateMachine = States.Invulnerable;
+            }
+        }
         
+          
+        
+
+
+        switch(stateMachine)
+        {
+            case States.Phase1Slow:
+                Debug.Log("Going Slow");
+                break;
+            case States.Phase2Fast:
+
+                Debug.Log("Going Fast");
+                break;
+            case States.Phase3Enraged:
+
+                Debug.Log("Im mad");
+                break;
+            case States.Invulnerable:
+
+                Debug.Log("Cant touch this");
+                StartCoroutine(InvlunerablePhase(3));
+                //This phase starts the transitions from going to one phase to another to help ease moving around. 
+                break;
+            case States.ChangingPhases:
+
+                Debug.Log("Animation Phase");
+                //This is an empty phase that we go to so the miniboss can perform animations in peace.
+                break;
+        }
     }
 
     void Attack1GroundPound() //This attack creates 4 walls that the players must jump over.
@@ -50,5 +117,22 @@ public class MiniBossAi : MonoBehaviour
     void Attack5MultiSwipe() //The boss rushes a random player and swipes at them x-y times. 
     {
 
+    }
+
+    IEnumerator InvlunerablePhase(float timeTioWait)
+    {
+        entityScript.SetInvulnerable(true);
+        stateMachine = States.ChangingPhases;
+        yield return new WaitForSeconds(timeTioWait);
+        entityScript.SetInvulnerable(false);
+        float entityHealth = entityScript.GetCurHealth();
+        if(entityHealth<= phase1Threshhold && entityHealth > phase2Threshhold)
+        {
+            stateMachine = States.Phase2Fast;
+        }
+        else if (entityHealth <= phase2Threshhold)
+        {
+            stateMachine = States.Phase3Enraged;
+        }
     }
 }

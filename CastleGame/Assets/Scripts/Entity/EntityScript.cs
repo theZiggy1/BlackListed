@@ -34,6 +34,9 @@ public class EntityScript : MonoBehaviour
     [Tooltip("The type of transition that happens when the entity dies")]
     private DeathType deathType;
 
+    [SerializeField]
+    [Tooltip("This bool is dsoes not let players/enemies take damage while is active")] //Added by Anton, has a gettter and setter added, id have made this public, but i kep Farrans writing here. 
+    private bool isInvulnerable = false;
     private enum DeathType
     {
         Animation,
@@ -131,6 +134,11 @@ public class EntityScript : MonoBehaviour
     // Called by other things when they damage us
     public void TakeDamage(float damage)
     {
+        if(isInvulnerable)
+        {
+            return; //If we are invulnerable we dont need to calculate damage do we. 
+        }
+
         currentHealth -= damage;
 
         if (usingHealthBar)
@@ -205,4 +213,22 @@ public class EntityScript : MonoBehaviour
         }
 
     }
-}
+
+    //These two have been aded by Anton, along with the isInvulnerable var in this way to keep with how Farran wrote the script.
+    //Id have made it public so my other scripts could handle the var directly, but what do i know. 
+    public bool GetInvulnerable()
+    {
+        return isInvulnerable;
+    }
+
+    public void SetInvulnerable(bool setInvulnerableState)
+    {
+        isInvulnerable = setInvulnerableState;
+    }
+
+    //Added this so other scripts can at least access the info of what the current Health is.
+    public float GetCurHealth()
+    {
+        return currentHealth;
+    }
+} 
