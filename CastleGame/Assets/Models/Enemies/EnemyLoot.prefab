@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4930572753960081763}
   - component: {fileID: -3972297661699949508}
   - component: {fileID: 5603823750043976474}
+  - component: {fileID: -3959556549188837040}
   m_Layer: 0
   m_Name: EnemyLoot
   m_TagString: Enemy
@@ -109,13 +110,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Spawner: {fileID: 0}
   playerToFight: -1
+  gameManager: {fileID: 0}
+  playerObj: {fileID: 0}
+  inheritedScript: {fileID: -3959556549188837040}
   damping: 2
   moveSpeed: 5
   numEnemies: 0
   stateMachine: 0
   enemyState: 0
-  gameManager: {fileID: 0}
-  playerObj: {fileID: 0}
   theta: 0
   speed: 15
   speed2: 10
@@ -144,6 +146,7 @@ MonoBehaviour:
   usingHealthBar: 0
   healthBar: {fileID: 0}
   deathType: 1
+  isInvulnerable: 0
   canDropItem: 1
   itemDrops:
   - {fileID: 4194714565502002006, guid: e8d1d767d60dc344f8280b55aa8a5ff7, type: 3}
@@ -155,6 +158,22 @@ MonoBehaviour:
   - 60
   randomNumber: 0
   itemToDrop: {fileID: 0}
+--- !u!114 &-3959556549188837040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930572753960081760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf55f32766a4e54aae3e37f7e974d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawner: {fileID: 0}
+  playerToFight: -1
+  gameManager: {fileID: 0}
+  playerObj: {fileID: 0}
 --- !u!1 &6132064472150820601
 GameObject:
   m_ObjectHideFlags: 0
