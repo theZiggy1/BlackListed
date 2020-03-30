@@ -57,11 +57,18 @@ public class MiniBossAi : MonoBehaviour
     public bool performingAttack = false;
     public int attackNum;
     public int playerToAttack;
+    public List<GameObject> Players;
     // Start is called before the first frame update
     void Start()
     {
         stateMachine = States.Phase1Slow;
         currentAttack = Attacks.Swipe;
+        GameObject gameManager = this.GetComponent<EnemyVarScript>().gameManager;
+        foreach( GameObject  players in gameManager.GetComponent<GameManagerScript>().currentPlayers)
+            {
+            if (players != null)
+            { Players.Add(players); }
+        }
     }
 
     // Update is called once per frame
@@ -106,8 +113,22 @@ public class MiniBossAi : MonoBehaviour
             switch(currentAttack)
             {
                 case Attacks.Swipe:
+
+                    if(MoveTo == true)
+                    {
+                        isMovingTo(Players[playerToAttack].transform, 10.0f);
+                    }
+                    else if(performingAttack == false)
+                        {
+                        StartCoroutine(Attack3Melee(1.0f, 2.0f));
+                    }
                     break;
                 case Attacks.ThrowRock:
+
+                    if(performingAttack == false)
+                    {
+                        StartCoroutine(Attack2ThrowRock(1.0f, 2.0f));
+                    }
                     break;
                 case Attacks.GroundPound:
                     //Calls one of two functions
@@ -115,7 +136,7 @@ public class MiniBossAi : MonoBehaviour
 
                     if(MoveTo == true)
                     {
-                        isMovingTo(groundAttackLocations[attackNum], 10.0f);
+                        isMovingTo(groundAttackLocations[attackNum], 10.0f); //needs an edit, to control speed.
                     }
                     else if(performingAttack == false)
                     {
@@ -156,10 +177,7 @@ public class MiniBossAi : MonoBehaviour
                 //and if its over 80 it chooses the third. 
                 if(chooseRandomAttack > 40)
                 {
-                    currentAttack = Attacks.GroundPound;
-                    MoveTo = true;
-                    isAttacking = true;
-                    attackNum = Random.Range(0, groundAttackLocations.Count);
+                    Attack1GP();
                 }
                 else if(chooseRandomAttack>80 || chooseRandomAttack <= 40)
                 {
@@ -206,7 +224,22 @@ public class MiniBossAi : MonoBehaviour
         }
 
     }
+    //Moved functionality of calling the attack into here
+    //This lets me call the funtion instead of duplication code
+    void Attack1GP()
+    {
+        currentAttack = Attacks.GroundPound;
+        MoveTo = true;
+        isAttacking = true;
+        attackNum = Random.Range(0, groundAttackLocations.Count);
+    }
 
+    void Attack3S()
+    {
+        currentAttack = Attacks.Swipe;
+        isAttacking = true;
+        playerToAttack = Random.Range(0, Players.Count);
+    }
     IEnumerator Attack1GroundPound(float timeTioWait, float a_attackCoolDown) //This attack creates 4 walls that the players must jump over.
     {
         Debug.Log("Starting Attack");
@@ -225,15 +258,25 @@ public class MiniBossAi : MonoBehaviour
         performingAttack = false;
     }
 
-    void Attack2ThrowRock() //This attack has the boss throw a rock at the current location of a randomly chosen player
+    IEnumerator Attack2ThrowRock(float timeTioWait, float a_attackCoolDown) //This attack has the boss throw a rock at the current location of a randomly chosen player
     {
+        performingAttack = true;
+        yield return new WaitForSeconds(timeTioWait);
 
+        //This attack faces the direction of the player, and then simply spawns a rock.
+        attackCoolDown = a_attackCoolDown;
+        isAttacking = false;
+        performingAttack = false;
     }
 
     //The boss moves slowly in the first phase, but moves more quickly, and does this attack more in the second phase. 
-    void Attack3Melee() //The boss moves quickly towards a current player, and then when close enough swipes at the player
+    IEnumerator Attack3Melee(float timeTioWait, float a_attackCoolDown) //The boss moves quickly towards a current player, and then when close enough swipes at the player
     {
-
+        performingAttack = true;
+        yield return new WaitForSeconds(timeTioWait);
+        attackCoolDown = a_attackCoolDown;
+        isAttacking = false;
+        performingAttack = false;
     }
     //The two multi attacks are for the third phase of the boss. 
 
