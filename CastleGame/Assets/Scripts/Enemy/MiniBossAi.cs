@@ -177,16 +177,16 @@ public class MiniBossAi : MonoBehaviour
                 //and if its over 80 it chooses the third. 
                 if(chooseRandomAttack > 40)
                 {
-                    //  Attack1GP();
-                    Attack2TR();
+                    
+                    Attack1GP();
                 }
                 else if(chooseRandomAttack>80 || chooseRandomAttack <= 40)
                 {
-                    Attack2TR();
+                    Attack1GP();
                 }
                 else
                 {
-                    Attack2TR();
+                    Attack1GP();
                 }
                 Debug.Log("Going Slow");
                 break;
@@ -249,6 +249,7 @@ public class MiniBossAi : MonoBehaviour
         isAttacking = true;
         playerToAttack = Random.Range(0, Players.Count);
     }
+
     IEnumerator Attack1GroundPound(float timeTioWait, float a_attackCoolDown) //This attack creates 4 walls that the players must jump over.
     {
         Debug.Log("Starting Attack");

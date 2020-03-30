@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomTargetObject: {fileID: 0}
-  followPlayerObject: {fileID: 0}
+  followPlayerObject: {fileID: 554571333}
   moveSpeed: 100
   moveToRoom: 0
 --- !u!1 &313427386
@@ -280,6 +280,18 @@ Transform:
   m_Father: {fileID: 1565447664}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &521323219 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5988133141369413113, guid: 2e6ca092287bd184e96b4a45190c820e,
+    type: 3}
+  m_PrefabInstance: {fileID: 814185476}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &554571333 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5015477883417623924, guid: 2e6ca092287bd184e96b4a45190c820e,
+    type: 3}
+  m_PrefabInstance: {fileID: 814185476}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &620087937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -486,7 +498,7 @@ PrefabInstance:
     - target: {fileID: 5015477883417623924, guid: 2e6ca092287bd184e96b4a45190c820e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 8.32
       objectReference: {fileID: 0}
     - target: {fileID: 5015477883417623924, guid: 2e6ca092287bd184e96b4a45190c820e,
         type: 3}
@@ -528,6 +540,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5208241003138831891, guid: 2e6ca092287bd184e96b4a45190c820e,
+        type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 521323219}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}
 --- !u!1001 &845315311
