@@ -123,9 +123,9 @@ public class PlayerSelectionScript : MonoBehaviour
                             //playerMats[0].color = Color.black;
                             //playerMats[0].SetColor("_MainColor", Color.black);
 
-                            // This will change the material at position 1 to show what player we are
+                            // This will change the material at position 0 to show what player we are
                             // e.g. character's hair colour will change to red if they're player1
-                            playerChildMats[1] = PlayerMaterials[playerID];
+                            playerChildMats[0] = PlayerMaterials[playerID];
 
                             secondChild.GetComponent<Renderer>().materials = playerChildMats;
                         }
