@@ -12,6 +12,7 @@ public class TestEnemySpawnerScript : MonoBehaviour
     [SerializeField] [Tooltip("For each enmy here you need to put in an object into spawnPoint.")] enemyTypes[] enemyToSpawn;
 
     [SerializeField] int numEnemies;
+    [SerializeField] Transform[] attackLocations;
 
 
     enum enemyTypes
@@ -60,6 +61,11 @@ public class TestEnemySpawnerScript : MonoBehaviour
     {
         GameObject Boss = GameObject.Instantiate(enemyArray[numInArray], spawnPoint.position, spawnPoint.rotation);
         Boss.GetComponent<EnemyVarScript>().SpawningInfo(this.gameObject, gameManager);
+      
+            foreach(Transform location in attackLocations)
+            {
+            Boss.GetComponent<MiniBossAi>().AddLocationtoAttack(location);
+        }
     }
 
  

@@ -25,7 +25,7 @@ public class ComponentsToEnableandDisable : MonoBehaviour
 
     public void WallComponentsTrigger()
     {
-        Debug.Log("Wall");
+      //  Debug.Log("Wall");
         if (wallDisabled)
         {
             foreach (GameObject obj in WallComponents)

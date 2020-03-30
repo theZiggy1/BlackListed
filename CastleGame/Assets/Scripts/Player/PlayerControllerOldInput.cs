@@ -246,10 +246,10 @@ public class PlayerControllerOldInput : MonoBehaviour
 
             float step = rotSpeed * Time.deltaTime;
           thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
-            Debug.Log(LookDirection+" Left Stick Look Direction");
+           // Debug.Log(LookDirection+" Left Stick Look Direction");
         }
         transform.Translate(movement);
-        Debug.Log(movement+" Left Stick Movement");
+     //   Debug.Log(movement+" Left Stick Movement");
         
     }
 
@@ -263,7 +263,7 @@ public class PlayerControllerOldInput : MonoBehaviour
        
         //like in movement, instead of being given the vector we need to build it ourselves. 
        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
-        Debug.Log(LookDirection+" Right Stick Look around");
+      //  Debug.Log(LookDirection+" Right Stick Look around");
        // if (LookDirection.x > 0.11 || LookDirection.x < -0.11)
         //{
           //  if (LookDirection.z > 0.11 || LookDirection.z < -0.11)
@@ -304,7 +304,7 @@ public class PlayerControllerOldInput : MonoBehaviour
      * */
     void OnAttackRightTrigger()
     {
-        Debug.Log("Attacking!");
+      //  Debug.Log("Attacking!");
 
         if (isRangedAttack)
         {
@@ -326,7 +326,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     void OnSwitchWeapon()
     {
         isRangedAttack = !isRangedAttack;
-        Debug.Log("Switching Weapon!" + isRangedAttack);
+      //  Debug.Log("Switching Weapon!" + isRangedAttack);
     }
 
 
