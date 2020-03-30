@@ -55,58 +55,66 @@ public class PlayerControllerOldInput : MonoBehaviour
     public int playerNum;
     bool Attacking = false; // the right trigger is in fact an axis, and to keep the player from attacking each frame, once the trigger is depressed, this is called, and not reverted until the trigger is released completely. 
 
-
+    // Tree stuff
     [SerializeField] GameObject insideTreeCamera;
     public bool insideTree = false;
 
 
-    private Animator GetAnimator(string anim_name)
-    {
-        foreach (Animator anim in Animators)
-        {
+    // Animation stuff
+    [SerializeField]
+    private Animator playerAnimator;
 
-            //If we found the desired animator
-            if (anim.transform.gameObject.name == anim_name)
-            {
-                //Let's return the animator
-                return anim;
-            }
 
-        }
+    //private Animator GetAnimator(string anim_name)
+    //{
+    //    foreach (Animator anim in Animators)
+    //    {
 
-        return null;
-    }
+    //        //If we found the desired animator
+    //        if (anim.transform.gameObject.name == anim_name)
+    //        {
+    //            //Let's return the animator
+    //            return anim;
+    //        }
 
-    //setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
-    private void SetAnimationInteger(string condition, int integer)
-    {
-        foreach (Animator anim in Animators)
-        {
-            anim.SetInteger(condition, integer);
-        }
-    }
+    //    }
 
-    private void SetAnimationFloat(string condition, float floating_num)
-    {
-        foreach (Animator anim in Animators)
-        {
-            anim.SetFloat(condition, floating_num);
-        }
-    }
+    //    return null;
+    //}
 
-    private void SetAnimationBool(string condition, bool boolean)
-    {
-        foreach (Animator anim in Animators)
-        {
-            anim.SetBool(condition, boolean);
-        }
-    }
+    ////setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
+    //private void SetAnimationInteger(string condition, int integer)
+    //{
+    //    foreach (Animator anim in Animators)
+    //    {
+    //        anim.SetInteger(condition, integer);
+    //    }
+    //}
+
+    //private void SetAnimationFloat(string condition, float floating_num)
+    //{
+    //    foreach (Animator anim in Animators)
+    //    {
+    //        anim.SetFloat(condition, floating_num);
+    //    }
+    //}
+
+    //private void SetAnimationBool(string condition, bool boolean)
+    //{
+    //    foreach (Animator anim in Animators)
+    //    {
+    //        anim.SetBool(condition, boolean);
+    //    }
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
+        // Animation setup
+        
 
-        Controller = GetComponent<CharacterController>();
+
+        //Controller = GetComponent<CharacterController>();
 
         //////////////Let's grab all the animators in the children uwu
         ////////////Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
@@ -151,16 +159,91 @@ public class PlayerControllerOldInput : MonoBehaviour
     {
         //our update loop due to the controller rewrite now handles what was originally sendmessage from the input system. Now we need to manually handle sending in these inputs
         //The first is to mandle movement. We also specifically do it in this order in case the right stick is being engaged to look a different direction, otherwise in movement, the player will naturally look towards the direction the player is walking towards. 
-        Movement();
-        LookAt();
+        //Movement();
+        //LookAt();
+        // With these two functions above always getting called every frame, instead of input being checked in Update *then* the functions being called,
+        // it means that these will always override any other animation that the player is doing
+        // So therefore input checking needs to be switched to be here, *then* call these functions after
+
+        //Debug.Log("Left stick horizontal = " + Input.GetAxis("Joy" + playerID + "LeftStickHorizontal"));
+        //Debug.Log("Left stick vertical = " + Input.GetAxis("Joy" + playerID + "LeftStickVertical"));
+
+        // With these functions we'll combine it with what direction the character is looking at
+        // to determine which direction of walk animation to use
+
+        // Character is moving right
+        if (Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") < -0.1f)
+        {
+            Debug.Log("Moving right");
+
+            Movement();
+            LookAt();
+
+            // Do the animation for movement
+            playerAnimator.Play("Sword Run Forward");
+        }
+        // Character is moving left
+        else if (Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f)
+        {
+            Debug.Log("Moving left");
+
+            Movement();
+            LookAt();
+
+            // Do the animation for movement
+            playerAnimator.Play("Sword Run Forward");
+        }
+        // Character is moving up
+        else if (Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f)
+        {
+            Debug.Log("Moving up");
+
+            Movement();
+            LookAt();
+
+            // Do the animation for movement
+            playerAnimator.Play("Sword Run Forward");
+        }
+        // Character is moving down
+        else if (Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f)
+        {
+            Debug.Log("Moving down");
+
+            Movement();
+            LookAt();
+
+            // Do the animation for movement
+            playerAnimator.Play("Sword Run Forward");
+        }
+        else
+        {
+            if (!Attacking)
+            {
+                Debug.Log("Not moving");
+
+                playerAnimator.Play("Sword Idle");
+            }
+            else
+            {
+                Debug.Log("We are attacking, so we're not going to revert the animation to idle yet");
+            }
+        }
+
 
 
         //Handles the attacking from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
-        if(Input.GetAxis("Joy" + playerID + "RightTrigger") != 0.0f)
+        if (Input.GetAxis("Joy" + playerID + "RightTrigger") != 0.0f)
         {
             if (Attacking == false)
             {
+                // Does the attack
                 OnAttackRightTrigger();
+
+                // Plays the animation
+                // Naming for this is absolute right now, will probably change later
+                playerAnimator.Play("Sword Swing 1");
+
+                // Sets us so we're attacking
                 Attacking = true;
             }
         }
@@ -241,16 +324,20 @@ public class PlayerControllerOldInput : MonoBehaviour
 
                         lookRotation *= Quaternion.Euler(0, 45, 0);
 
-            //Use this for setting animation. 
-            SetAnimationInteger("Condition", 1);
+            //////Use this for setting animation. 
+            //////SetAnimationInteger("Condition", 1);
 
             float step = rotSpeed * Time.deltaTime;
           thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
            // Debug.Log(LookDirection+" Left Stick Look Direction");
         }
-        transform.Translate(movement);
-     //   Debug.Log(movement+" Left Stick Movement");
         
+        // Actually do the movement
+        transform.Translate(movement);
+        //   Debug.Log(movement+" Left Stick Movement");
+
+        
+
     }
 
     /*

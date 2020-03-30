@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17839181, g: 0.22336558, b: 0.30538186, a: 1}
+  m_IndirectSpecularColor: {r: 0.17839159, g: 0.22336532, b: 0.30538097, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 112000000, guid: ffcd5231b6c1b47409ef45cd4c44c7da,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -6030,6 +6030,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   enemyToSpawn: 0100000001000000
   numEnemies: 0
+  attackLocations: []
 --- !u!1001 &368752753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9744,11 +9745,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterWheelFinal
       objectReference: {fileID: 0}
-    - target: {fileID: -8733040240986845777, guid: b4b406cab8d38c446870ed640d7b11b6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 543b2348c2759ed43b974fd8f070b229, type: 2}
     - target: {fileID: -4216859302048453862, guid: b4b406cab8d38c446870ed640d7b11b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9819,6 +9815,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.4999999
       objectReference: {fileID: 0}
+    - target: {fileID: -8733040240986845777, guid: b4b406cab8d38c446870ed640d7b11b6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 543b2348c2759ed43b974fd8f070b229, type: 2}
     - target: {fileID: -1835110200850362654, guid: b4b406cab8d38c446870ed640d7b11b6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -34951,8 +34952,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyArray:
-  - {fileID: 4930572753960081760, guid: 7c3c21657cbc81e47aac47cd7ccee0e2, type: 3}
-  - {fileID: 4930572753960081760, guid: 7c3c21657cbc81e47aac47cd7ccee0e2, type: 3}
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
   spawnPoint:
   - {fileID: 507718230}
   - {fileID: 1850505490}
@@ -34960,6 +34961,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   enemyToSpawn: 0100000001000000
   numEnemies: 0
+  attackLocations: []
 --- !u!1 &1350921396874891984
 GameObject:
   m_ObjectHideFlags: 0
@@ -36387,6 +36389,7 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   enemyToSpawn: 00000000
   numEnemies: 0
+  attackLocations: []
 --- !u!4 &7619419833094658601
 Transform:
   m_ObjectHideFlags: 0

@@ -46,7 +46,12 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] Transform bulletSpawn;
     [SerializeField] float forceStrength;
 
-    
+    [Space(20)] // 20 pixels of spacing in inspector
+
+    // Animation stuff
+    [SerializeField]
+    private Animator enemyAnimator;
+
 
     void Start()
     {
@@ -59,8 +64,10 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Animation for Walking
+        //enemyAnimator.Play("Walk");
 
-        if(Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.F))
         {
             SpawnBullet();
         }
@@ -68,7 +75,7 @@ public class EnemyScript : MonoBehaviour
         //for now it simply checks the one it has been assigned, and then if the player isnt fighting the first one that checks fights said player. 
         if(stateMachine == States.flocking)
         {
-            if(gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] == false)
+            if (gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] == false)
             {
                 gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = true;
                 stateMachine = States.fightingPlayer;
@@ -95,7 +102,8 @@ public class EnemyScript : MonoBehaviour
 
                 this.transform.position = Vector3.MoveTowards(this.transform.position, newLocation, Time.deltaTime * speed2);
 
-
+                // Animation for Walking
+                enemyAnimator.Play("Walk");
 
                 break;
 
@@ -105,6 +113,10 @@ public class EnemyScript : MonoBehaviour
                     case fighterType.melee:
                         this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
                         this.transform.position = Vector3.MoveTowards(this.transform.position,new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1, playerObj.transform.position.z), Time.deltaTime * moveSpeed);
+
+                        // Animation for Biting
+                        enemyAnimator.Play("Bite");
+
                         break;
                     case fighterType.ranged:
 
@@ -120,6 +132,9 @@ public class EnemyScript : MonoBehaviour
                         newLocation.z = playerObj.transform.position.z + (rangedRadius * Mathf.Sin(theta * Mathf.PI / 180));
 
                         this.transform.position = Vector3.MoveTowards(this.transform.position, newLocation, Time.deltaTime * speed2);
+
+                        // Animation for Ranged Spit
+                        enemyAnimator.Play("Ranged Spit");
 
                         break;
                 }
