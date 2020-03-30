@@ -60,6 +60,36 @@ Transform:
   m_Father: {fileID: 4634237742330532146}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &2484976834555356694
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8208192443388350745}
+  m_Layer: 0
+  m_Name: throwSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8208192443388350745
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2484976834555356694}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.511, z: 1.49}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4634237742330532146}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2782139981521309645
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,6 +189,7 @@ Transform:
   - {fileID: 9098240429425560403}
   - {fileID: 890523439552897053}
   - {fileID: 6937545772605611804}
+  - {fileID: 8208192443388350745}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -276,11 +307,13 @@ MonoBehaviour:
   currentAttack: 0
   groundAttack: {fileID: 8502353928187841571, guid: ed239a0d644788243af638f24653faca,
     type: 3}
-  rockAttack: {fileID: 0}
-  swipeAttack: {fileID: 0}
+  rockAttack: {fileID: 8502353928187841571, guid: ed239a0d644788243af638f24653faca,
+    type: 3}
+  swipeAttack: {fileID: 8502353928187841571, guid: ed239a0d644788243af638f24653faca,
+    type: 3}
   entityScript: {fileID: 5330079862589197124}
   meleeSpawn: {fileID: 0}
-  rangedSpawn: {fileID: 0}
+  rangedSpawn: {fileID: 1416721654267058497}
   groundSpawn:
   - {fileID: 8796445663682172003}
   - {fileID: 9098240429425560403}
@@ -296,6 +329,7 @@ MonoBehaviour:
   performingAttack: 0
   attackNum: 0
   playerToAttack: 0
+  Players: []
 --- !u!1 &5847237206938521255
 GameObject:
   m_ObjectHideFlags: 0

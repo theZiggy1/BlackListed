@@ -177,15 +177,16 @@ public class MiniBossAi : MonoBehaviour
                 //and if its over 80 it chooses the third. 
                 if(chooseRandomAttack > 40)
                 {
-                    Attack1GP();
+                    //  Attack1GP();
+                    Attack2TR();
                 }
                 else if(chooseRandomAttack>80 || chooseRandomAttack <= 40)
                 {
-
+                    Attack2TR();
                 }
                 else
                 {
-
+                    Attack2TR();
                 }
                 Debug.Log("Going Slow");
                 break;
@@ -237,6 +238,14 @@ public class MiniBossAi : MonoBehaviour
     void Attack3S()
     {
         currentAttack = Attacks.Swipe;
+        MoveTo = true;
+        isAttacking = true;
+        playerToAttack = Random.Range(0, Players.Count);
+    }
+
+    void Attack2TR()
+    {
+        currentAttack = Attacks.ThrowRock;
         isAttacking = true;
         playerToAttack = Random.Range(0, Players.Count);
     }
@@ -260,9 +269,13 @@ public class MiniBossAi : MonoBehaviour
 
     IEnumerator Attack2ThrowRock(float timeTioWait, float a_attackCoolDown) //This attack has the boss throw a rock at the current location of a randomly chosen player
     {
+        Debug.Log("Throw Rock");
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
-
+        this.transform.LookAt(Players[playerToAttack].transform);
+        float forceStrenght = 100.0f;
+        GameObject attack = GameObject.Instantiate(rockAttack, rangedSpawn.position, rangedSpawn.rotation);
+        attack.GetComponent<Rigidbody>().AddForce(rangedSpawn.forward * forceStrenght);
         //This attack faces the direction of the player, and then simply spawns a rock.
         attackCoolDown = a_attackCoolDown;
         isAttacking = false;
@@ -272,6 +285,7 @@ public class MiniBossAi : MonoBehaviour
     //The boss moves slowly in the first phase, but moves more quickly, and does this attack more in the second phase. 
     IEnumerator Attack3Melee(float timeTioWait, float a_attackCoolDown) //The boss moves quickly towards a current player, and then when close enough swipes at the player
     {
+        Debug.Log("Swipe");
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
         attackCoolDown = a_attackCoolDown;
