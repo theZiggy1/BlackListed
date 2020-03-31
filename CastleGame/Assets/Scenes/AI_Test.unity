@@ -202,7 +202,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 135, z: 0}
 --- !u!114 &90569338
 MonoBehaviour:
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomTargetObject: {fileID: 0}
-  followPlayerObject: {fileID: 554571333}
+  followPlayerObject: {fileID: 0}
   moveSpeed: 100
   moveToRoom: 0
 --- !u!1 &313427386
@@ -280,18 +280,6 @@ Transform:
   m_Father: {fileID: 1565447664}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &521323219 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5988133141369413113, guid: 2e6ca092287bd184e96b4a45190c820e,
-    type: 3}
-  m_PrefabInstance: {fileID: 814185476}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &554571333 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5015477883417623924, guid: 2e6ca092287bd184e96b4a45190c820e,
-    type: 3}
-  m_PrefabInstance: {fileID: 814185476}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &620087937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -342,7 +330,7 @@ PrefabInstance:
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
@@ -480,11 +468,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5015477883417623915, guid: 2e6ca092287bd184e96b4a45190c820e,
-        type: 3}
-      propertyPath: m_Name
-      value: BrianPlayerController
-      objectReference: {fileID: 0}
     - target: {fileID: 5015477883417623924, guid: 2e6ca092287bd184e96b4a45190c820e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -540,11 +523,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5015477883417623915, guid: 2e6ca092287bd184e96b4a45190c820e,
+        type: 3}
+      propertyPath: m_Name
+      value: BrianPlayerController
+      objectReference: {fileID: 0}
     - target: {fileID: 5208241003138831891, guid: 2e6ca092287bd184e96b4a45190c820e,
         type: 3}
       propertyPath: playerAnimator
       value: 
-      objectReference: {fileID: 521323219}
+      objectReference: {fileID: 0}
+    - target: {fileID: 1466855069742395293, guid: 2e6ca092287bd184e96b4a45190c820e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839366391273112826, guid: 2e6ca092287bd184e96b4a45190c820e,
+        type: 3}
+      propertyPath: playerAnimator
+      value: 
+      objectReference: {fileID: 2025781859}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}
 --- !u!1001 &845315311
@@ -597,7 +595,7 @@ PrefabInstance:
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
@@ -743,7 +741,7 @@ Transform:
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1062426570
 GameObject:
@@ -834,7 +832,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &1390419356
 GameObject:
@@ -1060,5 +1058,11 @@ Transform:
   m_LocalScale: {x: 1000, y: 1, z: 500}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2025781859 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5289388239928198596, guid: 2e6ca092287bd184e96b4a45190c820e,
+    type: 3}
+  m_PrefabInstance: {fileID: 814185476}
+  m_PrefabAsset: {fileID: 0}
