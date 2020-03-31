@@ -177,6 +177,51 @@ public class MiniBossAi : MonoBehaviour
                     }
                     break;
                 case Attacks.MultiSwipe:
+
+                    if (MoveTo == true)
+                    {
+                        isMovingTo(Players[playerToAttack].transform, 10.0f);
+                    }
+                    else if (performingAttack == false)
+                    {
+
+                        int numAttacks = Random.Range(0, 3);
+                        Debug.Log(numAttacks);
+                        if (numAttacks == 0)
+                        {
+                            StartCoroutine(Attack6MultiSwipe(1.0f));
+                            StartCoroutine(Attack6MultiSwipe(1.5f));
+                            StartCoroutine(Attack6MultiSwipe(2.0f));
+                            StartCoroutine(Attack3Melee(2.5f, 2.0f));
+                        }
+                        else if( numAttacks == 1)
+                        {
+                            StartCoroutine(Attack6MultiSwipe(1.0f));
+                            StartCoroutine(Attack6MultiSwipe(1.5f));
+                            StartCoroutine(Attack6MultiSwipe(2.0f));
+                            StartCoroutine(Attack6MultiSwipe(2.5f));
+                            StartCoroutine(Attack6MultiSwipe(3.0f));
+                            StartCoroutine(Attack6MultiSwipe(3.5f));
+                            StartCoroutine(Attack6MultiSwipe(4.0f));
+                            StartCoroutine(Attack3Melee(4.5f, 2.0f));
+                        }
+
+                        else if (numAttacks == 2)
+                        {
+                            StartCoroutine(Attack6MultiSwipe(1.0f));
+                            StartCoroutine(Attack6MultiSwipe(1.5f));
+                            StartCoroutine(Attack6MultiSwipe(2.0f));
+                            StartCoroutine(Attack6MultiSwipe(2.5f));
+                            StartCoroutine(Attack6MultiSwipe(3.0f));
+                            StartCoroutine(Attack6MultiSwipe(3.5f));
+                            StartCoroutine(Attack6MultiSwipe(4.0f));
+                            StartCoroutine(Attack6MultiSwipe(4.5f));
+                            StartCoroutine(Attack6MultiSwipe(5.0f));
+                            StartCoroutine(Attack6MultiSwipe(5.5f));
+                            StartCoroutine(Attack6MultiSwipe(6.0f));
+                            StartCoroutine(Attack3Melee(6.5f, 2.0f));
+                        }
+                    }
                     break;
                 case Attacks.MultiPound:
 
