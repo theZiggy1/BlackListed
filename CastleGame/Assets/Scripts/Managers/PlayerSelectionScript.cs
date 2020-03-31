@@ -198,11 +198,11 @@ public class PlayerSelectionScript : MonoBehaviour
 
     private IEnumerator LoadSceneAsynchronously()
     {
-        // Loads our scene asynchronously in the background
-        loadingOperation = SceneManager.LoadSceneAsync(sceneNameToLoad, LoadSceneMode.Additive);
-
         loadingScreenObject.SetActive(true);
 
+        // Loads our scene asynchronously in the background
+        loadingOperation = SceneManager.LoadSceneAsync(sceneNameToLoad, LoadSceneMode.Additive);
+        
         // While the loading isn't complete
         while (!loadingOperation.isDone)
         {
