@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -619,24 +619,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &457686469660897692 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5945161484111805109, guid: 2e6ca092287bd184e96b4a45190c820e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6114608143171488553}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &457686469995373769 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5945161483374637024, guid: 2e6ca092287bd184e96b4a45190c820e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6114608143171488553}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &2142830660190867181 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5289388239928198596, guid: 2e6ca092287bd184e96b4a45190c820e,
-    type: 3}
-  m_PrefabInstance: {fileID: 6114608143171488553}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2430650005897444056
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -962,20 +944,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1839366391273112826, guid: 2e6ca092287bd184e96b4a45190c820e,
-        type: 3}
-      propertyPath: playerAnimator
-      value: 
-      objectReference: {fileID: 2142830660190867181}
-    - target: {fileID: 1839366391273112826, guid: 2e6ca092287bd184e96b4a45190c820e,
-        type: 3}
-      propertyPath: projectileSpawn
-      value: 
-      objectReference: {fileID: 457686469995373769}
-    - target: {fileID: 1839366391273112826, guid: 2e6ca092287bd184e96b4a45190c820e,
-        type: 3}
-      propertyPath: meleeSpawn
-      value: 
-      objectReference: {fileID: 457686469660897692}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}

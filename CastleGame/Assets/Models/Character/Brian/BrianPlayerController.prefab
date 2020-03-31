@@ -1061,13 +1061,13 @@ MonoBehaviour:
   jumpForce: 250
   projectile: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
     type: 3}
-  projectileSpawn: {fileID: 0}
-  meleeSpawn: {fileID: 0}
+  projectileSpawn: {fileID: 5945161483374637024}
+  meleeSpawn: {fileID: 5945161484111805109}
   forceStrength: 100
   playerNum: 0
   insideTreeCamera: {fileID: 0}
   insideTree: 0
-  playerAnimator: {fileID: 0}
+  playerAnimator: {fileID: 5289388239928198596}
 --- !u!114 &6303211948180969603
 MonoBehaviour:
   m_ObjectHideFlags: 0
