@@ -51,6 +51,13 @@ public class PlayerSelectionScript : MonoBehaviour
     // This will be set to true once we've loaded the level
     private bool levelLoaded;
 
+    private AsyncOperation loadingOperation;
+    private float loadingProgress;
+
+    [SerializeField]
+    private GameObject loadingScreenObject; // Gets set to active once we're loading, and set to false once we've finished loading
+    [SerializeField]
+    private Slider loadingBar;
 
     // Start is called before the first frame update
     void Start()
@@ -169,7 +176,10 @@ public class PlayerSelectionScript : MonoBehaviour
 
         // Load the level we're gonna go to
         //SceneManager.LoadScene("Level1", LoadSceneMode.Additive);
-        SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
+        //SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
+        //SceneManager.LoadSceneAsync(sceneNameToLoad, LoadSceneMode.Additive);
+        StartCoroutine(LoadSceneAsynchronously());
+
 
         // Set the active scene to be PlayerScene, so that our players get instantiated there
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("PlayerScene"));
@@ -184,5 +194,33 @@ public class PlayerSelectionScript : MonoBehaviour
 
         // Unload the player select scene
         SceneManager.UnloadSceneAsync("PlayerSelectScene");
+    }
+
+    private IEnumerator LoadSceneAsynchronously()
+    {
+        // Loads our scene asynchronously in the background
+        loadingOperation = SceneManager.LoadSceneAsync(sceneNameToLoad, LoadSceneMode.Additive);
+
+        loadingScreenObject.SetActive(true);
+
+        // While the loading isn't complete
+        while (!loadingOperation.isDone)
+        {
+            // Transforms the 0-0.9 value of loading into a 0-1 value
+            loadingProgress = Mathf.Clamp01(loadingOperation.progress / 0.9f);
+            Debug.Log("Loading progress: " + loadingProgress);
+
+            loadingBar.value = loadingProgress;
+            
+            // Once we've loaded
+            if (loadingProgress >= 1f)
+            {
+                // Hide the loading screen
+                loadingScreenObject.SetActive(false);
+            }
+
+            // Wait till next frame
+            yield return null;
+        }        
     }
 }

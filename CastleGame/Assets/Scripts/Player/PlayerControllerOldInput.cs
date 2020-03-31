@@ -171,8 +171,8 @@ public class PlayerControllerOldInput : MonoBehaviour
         // With these functions we'll combine it with what direction the character is looking at
         // to determine which direction of walk animation to use
 
-        // Character is moving right
-        if (Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") < -0.1f)
+        // Character is moving right (or looking right)
+        if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") < -0.1f))
         {
             Debug.Log("Moving right");
 
@@ -182,8 +182,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Do the animation for movement
             playerAnimator.Play("Sword Run Forward");
         }
-        // Character is moving left
-        else if (Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f)
+        // Character is moving left (or looking left)
+        else if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") > 0.1f))
         {
             Debug.Log("Moving left");
 
@@ -193,8 +193,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Do the animation for movement
             playerAnimator.Play("Sword Run Forward");
         }
-        // Character is moving up
-        else if (Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f)
+        // Character is moving up (or looking up)
+        else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") > 0.1f))
         {
             Debug.Log("Moving up");
 
@@ -204,8 +204,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Do the animation for movement
             playerAnimator.Play("Sword Run Forward");
         }
-        // Character is moving down
-        else if (Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f)
+        // Character is moving down (or looking down)
+        else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") < -0.1f))
         {
             Debug.Log("Moving down");
 

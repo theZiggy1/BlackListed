@@ -949,5 +949,15 @@ PrefabInstance:
       propertyPath: usingHealthBar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1276476431665126061, guid: 2e6ca092287bd184e96b4a45190c820e,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerSubObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954992440199187010, guid: 2e6ca092287bd184e96b4a45190c820e,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlayerMeshObject
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}
