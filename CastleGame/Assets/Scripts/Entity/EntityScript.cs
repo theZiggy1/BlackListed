@@ -10,10 +10,12 @@ using UnityEngine.UI;
 
 public class EntityScript : MonoBehaviour
 {
+    [Header("Player")]
     [SerializeField]
     [Tooltip("Is this entity a player?")]
     private bool isPlayer;
 
+    [Header("Health")]
     [SerializeField]
     [Tooltip("The health we start with")]
     private float startingHealth;
@@ -23,6 +25,7 @@ public class EntityScript : MonoBehaviour
 
     private float healthConverted; // This is our health converted so it's a value between 0 and 1
 
+    [Header("Health UI")]
     [SerializeField]
     [Tooltip("Is our entity going to have a health bar?")]
     private bool usingHealthBar;
@@ -30,13 +33,11 @@ public class EntityScript : MonoBehaviour
     [SerializeField]
     private Slider healthBar;
 
+    [Header("Death")]
     [SerializeField]
     [Tooltip("The type of transition that happens when the entity dies")]
     private DeathType deathType;
 
-    [SerializeField]
-    [Tooltip("This bool is dsoes not let players/enemies take damage while is active")] //Added by Anton, has a gettter and setter added, id have made this public, but i kep Farrans writing here. 
-    private bool isInvulnerable = false;
     private enum DeathType
     {
         Animation,
@@ -46,6 +47,12 @@ public class EntityScript : MonoBehaviour
         NumStates
     }
 
+    [Header("Invulnerability")]
+    [SerializeField]
+    [Tooltip("This bool is dsoes not let players/enemies take damage while is active")] //Added by Anton, has a gettter and setter added, id have made this public, but i kep Farrans writing here. 
+    private bool isInvulnerable = false;
+    
+    [Header("Loot")]
     [SerializeField]
     [Tooltip("Does the entity have a chance to drop something on death?")]
     private bool canDropItem;
