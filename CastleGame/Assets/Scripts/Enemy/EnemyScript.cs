@@ -39,6 +39,7 @@ public class EnemyScript : MonoBehaviour
     public float theta = 0f;
     public float speed = 1.0f;
     public float speed2 = 10.0f;
+    public float speedWhileGoing = 0.5f;
     public Vector3 newLocation;
     Transform tempTransform;
     public float radius = 5;
@@ -239,7 +240,7 @@ public class EnemyScript : MonoBehaviour
     void isMovingTo(Transform location , float speed)
     {
         Debug.Log("isMoving");
-        this.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, location.position, Time.deltaTime * speed);
+        this.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, location.position, Time.deltaTime * speedWhileGoing);
         this.transform.LookAt(location);
 
         float distance = Vector3.Distance(location.position, this.transform.position);
