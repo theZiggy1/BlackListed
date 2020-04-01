@@ -62,8 +62,8 @@ public class MiniBossAi : MonoBehaviour
     [Header("Animation")]
     [SerializeField]
     private Animator bossAnimator;
-
-
+        
+    private string conditionName = "KalarmAnimControllerCondition"; // This is the name of the condition in the animation
 
     // Start is called before the first frame update
     void Start()
@@ -274,7 +274,7 @@ public class MiniBossAi : MonoBehaviour
         else // If we're not attacking
         {
             // Animation - go back to idle
-            bossAnimator.SetInteger("AnimController", 0);
+            bossAnimator.SetInteger(conditionName, 0);
         }
 
 
@@ -359,7 +359,7 @@ public class MiniBossAi : MonoBehaviour
         attackNum = Random.Range(0, groundAttackLocations.Count);
 
         // Animation
-        //bossAnimator.SetInteger("AnimController", 6);
+        //bossAnimator.SetInteger(conditionName, 6);
     }
 
     void Attack3S()
@@ -370,7 +370,7 @@ public class MiniBossAi : MonoBehaviour
         playerToAttack = Random.Range(0, Players.Count);
 
         // Animation
-        //bossAnimator.SetInteger("AnimController", 6);
+        //bossAnimator.SetInteger(conditionName, 6);
     }
 
     void Attack2TR()
@@ -380,7 +380,7 @@ public class MiniBossAi : MonoBehaviour
         playerToAttack = Random.Range(0, Players.Count);
 
         // Animation
-        //bossAnimator.SetInteger("AnimController", 5);
+        //bossAnimator.SetInteger(conditionName, 5);
     }
 
     void Attack4MGP()
@@ -391,7 +391,7 @@ public class MiniBossAi : MonoBehaviour
         attackNum = Random.Range(0, groundAttackLocations.Count);
 
         // Animation
-        //bossAnimator.SetInteger("AnimController", 6);
+        //bossAnimator.SetInteger(conditionName, 6);
     }
 
     void Attack5MS()
@@ -401,7 +401,7 @@ public class MiniBossAi : MonoBehaviour
         playerToAttack = Random.Range(0, Players.Count);
 
         // Animation
-        //bossAnimator.SetInteger("AnimController", 6);
+        //bossAnimator.SetInteger(conditionName, 6);
     }
 
     void Attack6TMR()
@@ -411,7 +411,7 @@ public class MiniBossAi : MonoBehaviour
         playerToAttack = Random.Range(0, Players.Count);
 
         // Animation
-        //bossAnimator.SetInteger("AnimController", 6);
+        //bossAnimator.SetInteger(conditionName, 6);
     }
 
 
@@ -424,6 +424,10 @@ public class MiniBossAi : MonoBehaviour
 
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
+
+        // Animation
+        bossAnimator.SetInteger(conditionName, 8);
+
         float forceStrenght = 100.0f;
         for (int x = 0; x< groundSpawn.Length; x++)
         {
@@ -433,8 +437,7 @@ public class MiniBossAi : MonoBehaviour
             Debug.Log("Spawned Wall " + x);
         }
 
-        // Animation
-        bossAnimator.SetInteger("AnimController", 5);
+        
 
         attackCoolDown = a_attackCoolDown;
         isAttacking = false;
@@ -458,7 +461,7 @@ public class MiniBossAi : MonoBehaviour
         //This attack faces the direction of the player, and then simply spawns a rock.
 
         // Animation
-        bossAnimator.SetInteger("AnimController", 5);
+        bossAnimator.SetInteger(conditionName, 5);
 
         attackCoolDown = a_attackCoolDown;
         isAttacking = false;
@@ -481,7 +484,7 @@ public class MiniBossAi : MonoBehaviour
         Destroy(attack, 0.25f);
 
         // Animation
-        bossAnimator.SetInteger("AnimController", 5);
+        bossAnimator.SetInteger(conditionName, 5);
 
         attackCoolDown = a_attackCoolDown;
         isAttacking = false;
@@ -505,7 +508,7 @@ public class MiniBossAi : MonoBehaviour
         attack.GetComponent<Rigidbody>().AddForce(rangedSpawn.forward * forceStrenght);
 
         // Animation
-        bossAnimator.SetInteger("AnimController", 5);
+        bossAnimator.SetInteger(conditionName, 5);
     }
 
     IEnumerator Attack6MultiSwipe(float timeTioWait) //The boss rushes a random player and swipes at them x-y times. 
@@ -521,7 +524,7 @@ public class MiniBossAi : MonoBehaviour
         Destroy(attack, 0.25f);
 
         // Animation
-        bossAnimator.SetInteger("AnimController", 5);
+        bossAnimator.SetInteger(conditionName, 5);
     }
 
     IEnumerator Attack5MultiPound(float timeTioWait)
@@ -532,6 +535,10 @@ public class MiniBossAi : MonoBehaviour
 
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
+
+        // Animation
+        bossAnimator.SetInteger(conditionName, 8);
+
         float forceStrenght = 100.0f;
         for (int x = 0; x < groundSpawn.Length; x++)
         {
@@ -540,9 +547,6 @@ public class MiniBossAi : MonoBehaviour
             Destroy(attack, 4.0f);
             Debug.Log("Spawned Wall " + x);
         }
-
-        // Animation
-        bossAnimator.SetInteger("AnimController", 5);
     }
 
     void isMovingTo(Transform Location, float speed)
@@ -554,7 +558,7 @@ public class MiniBossAi : MonoBehaviour
         float distance = Vector3.Distance(Location.position, this.transform.position);
 
         // Animation
-        bossAnimator.SetInteger("AnimController", 1);
+        bossAnimator.SetInteger(conditionName, 1);
 
         if (distance <= 1.5f)
         {
