@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-9143968269077591574
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -20,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Kalarm Boulder
+  m_Name: Kalarm_Rocks
   m_Shader: {fileID: -6465566751694194690, guid: c6255db6a84e54747aa3ece9e893d52a,
     type: 3}
   m_ShaderKeywords: 
@@ -34,19 +21,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_1AE79D10:
-        m_Texture: {fileID: 2800000, guid: ed3b252bf18b4cc40a1722af18ddd4dd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 79f971364df65bb4d98242735a4f0957, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6D8F3DC7:
-        m_Texture: {fileID: 2800000, guid: 2a05ba8846d368c46a8462172709a057, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0003fe6eb98a03944a90e908f1954daf, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6EF6FE:
-        m_Texture: {fileID: 2800000, guid: a34cb2d17d409c240b5948931eb87ad7, type: 3}
+        m_Texture: {fileID: 2800000, guid: 62517e496ec705a40b057cc7c90cd205, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6F9AB9E4:
-        m_Texture: {fileID: 2800000, guid: dc14fd625ebfce34d9a4a85b6dcec198, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3c72f299eeb1ad54d9ce493726e002ad, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9099073B:
@@ -54,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_B1E9C909:
-        m_Texture: {fileID: 2800000, guid: 0dbdaa3c2b44d9744aae910ea58be305, type: 3}
+        m_Texture: {fileID: 2800000, guid: f600e1668737c6d46b6b3f8348b2669a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C832D42B:
@@ -62,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_FB0B5455:
-        m_Texture: {fileID: 2800000, guid: 7a5011f577b9ef4459775a6e5082c18a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 93e81d77b6180384b9394f3e5d28cfd3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -94,7 +81,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_3981617: 1
+    - Vector1_3981617: 0.5
     - Vector1_5B6F22F0: 1
     - Vector1_D41BA600: 1.1
     - _AlphaClip: 0
@@ -125,3 +112,16 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+--- !u!114 &491243534067609767
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
