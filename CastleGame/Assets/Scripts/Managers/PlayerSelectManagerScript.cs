@@ -336,27 +336,30 @@ public class PlayerSelectManagerScript : MonoBehaviour
 
 
         // If any controller presses start, then we start the game (will be probably be changed to a countdown or wait for all joined players to ready up first)
-        if (Input.GetButtonDown("Joy1ButtonStart") || Input.GetButtonDown("Joy2ButtonStart") || Input.GetButtonDown("Joy3ButtonStart") || Input.GetButtonDown("Joy4ButtonStart"))
+        if (P1Joined || P2Joined || P3Joined || P4Joined)
         {
-            if (!loadedNextLevel)
+            if (Input.GetButtonDown("Joy1ButtonStart") || Input.GetButtonDown("Joy2ButtonStart") || Input.GetButtonDown("Joy3ButtonStart") || Input.GetButtonDown("Joy4ButtonStart"))
             {
+                if (!loadedNextLevel)
+                {
 
-                // Find the PlayerInputManager
-                GameObject playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
+                    // Find the PlayerInputManager
+                    GameObject playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
 
-                // Tell the PlayerInputManager what charIDs each player has picked
-                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[0] = P1CharacterID;
-                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[1] = P2CharacterID;
-                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[2] = P3CharacterID;
-                playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[3] = P4CharacterID;
+                    // Tell the PlayerInputManager what charIDs each player has picked
+                    playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[0] = P1CharacterID;
+                    playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[1] = P2CharacterID;
+                    playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[2] = P3CharacterID;
+                    playerInputManager.GetComponent<PlayerSelectionScript>().playerCharIDs[3] = P4CharacterID;
 
-                // Load the level
-                playerInputManager.GetComponent<PlayerSelectionScript>().Play();
+                    // Load the level
+                    playerInputManager.GetComponent<PlayerSelectionScript>().Play();
 
-                // This is set so that the level can't be loaded twice by accident
-                loadedNextLevel = true;
+                    // This is set so that the level can't be loaded twice by accident
+                    loadedNextLevel = true;
+                }
             }
         }
-        
+
     }
 }
