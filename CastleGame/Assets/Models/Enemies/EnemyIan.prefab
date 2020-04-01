@@ -567,6 +567,8 @@ MonoBehaviour:
   bulletSpawn: {fileID: 5254080331427072097}
   forceStrength: 200
   enemyAnimator: {fileID: 1074611102159940950}
+  MoveTo: 0
+  performingAttack: 0
 --- !u!114 &1349731384011610724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1834,8 +1836,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3033667219593020291, guid: f93ca13074504fd4ca65d71625196b08, type: 3}
-  - {fileID: -3033667219593020291, guid: f93ca13074504fd4ca65d71625196b08, type: 3}
+  - {fileID: 2100000, guid: e9644aa1774435b4391b67ccc7e78ebd, type: 2}
+  - {fileID: 2100000, guid: e9644aa1774435b4391b67ccc7e78ebd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
