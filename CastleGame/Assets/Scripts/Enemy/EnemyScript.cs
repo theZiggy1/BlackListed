@@ -40,6 +40,7 @@ public class EnemyScript : MonoBehaviour
     public float speed = 1.0f;
     public float speed2 = 10.0f;
     public Vector3 newLocation;
+    Transform tempTransform;
     public float radius = 5;
     public float rangedRadius = 7;
     [SerializeField] GameObject rangedEnemyAttack;
@@ -86,6 +87,7 @@ public class EnemyScript : MonoBehaviour
             {
                 gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = true;
                 stateMachine = States.fightingPlayer;
+                MoveTo = true;
                 Debug.Log("switching states");
             }
         }
@@ -120,7 +122,7 @@ public class EnemyScript : MonoBehaviour
                     case fighterType.melee:
                         if(MoveTo == true)
                         {
-                            isMovingTo(10.0f);
+                            isMovingTo( playerObj.transform,10.0f);
                         }
                         else if (performingAttack == false)
                         {
@@ -135,19 +137,29 @@ public class EnemyScript : MonoBehaviour
 
                         break;
                     case fighterType.ranged:
-
-                        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
-                        theta += Time.deltaTime * speed;
-                        if (theta > 360)
+                        if (MoveTo == true)
                         {
-                            theta = 0;
+                            this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
+                            theta += Time.deltaTime * speed;
+                            if (theta > 360)
+                            {
+                                theta = 0;
+                            }
+
+                            newLocation.x = playerObj.transform.position.x + (rangedRadius * Mathf.Cos(theta * Mathf.PI / 180));
+                            newLocation.y = playerObj.transform.position.y + 1;
+                            newLocation.z = playerObj.transform.position.z + (rangedRadius * Mathf.Sin(theta * Mathf.PI / 180));
+
+                            
+                            tempTransform.position = newLocation;
+                            tempTransform.rotation = playerObj.transform.rotation;
+                            isMovingTo(tempTransform, 10.0f);
                         }
 
-                        newLocation.x = playerObj.transform.position.x + (rangedRadius * Mathf.Cos(theta * Mathf.PI / 180));
-                        newLocation.y = playerObj.transform.position.y + 1;
-                        newLocation.z = playerObj.transform.position.z + (rangedRadius * Mathf.Sin(theta * Mathf.PI / 180));
-
-                        this.transform.position = Vector3.MoveTowards(this.transform.position, newLocation, Time.deltaTime * speed2);
+                        else if(performingAttack == false)
+                        {
+                            StartCoroutine(rangedAttack(1.0f));
+                        }
 
                         // Animation for Ranged Spit
                         enemyAnimator.Play("Ranged Spit");
@@ -212,13 +224,25 @@ public class EnemyScript : MonoBehaviour
         MoveTo = true;
         performingAttack = false;
     }
-    void isMovingTo(float speed)
+
+
+    IEnumerator rangedAttack(float timeToWait)
+    {
+        performingAttack = true;
+        yield return new WaitForSeconds(timeToWait);
+        this.transform.LookAt(playerObj.transform);
+        SpawnBullet();
+        MoveTo = true;
+        performingAttack = false;
+    }
+
+    void isMovingTo(Transform location , float speed)
     {
         Debug.Log("isMoving");
-        this.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, playerObj.transform.position, Time.deltaTime * speed);
-        this.transform.LookAt(playerObj.transform);
+        this.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, location.position, Time.deltaTime * speed);
+        this.transform.LookAt(location);
 
-        float distance = Vector3.Distance(playerObj.transform.position, this.transform.position);
+        float distance = Vector3.Distance(location.position, this.transform.position);
 
         if (distance <= 1.5f)
         {
