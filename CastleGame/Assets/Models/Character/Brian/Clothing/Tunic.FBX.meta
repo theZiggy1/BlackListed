@@ -3,7 +3,12 @@ guid: 5c3caa83abfff1748b420afedfb1bdcd
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Standard_Tunic
+    second: {fileID: 2100000, guid: 83830fdb47181404bba0e56c2d2cd2a5, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

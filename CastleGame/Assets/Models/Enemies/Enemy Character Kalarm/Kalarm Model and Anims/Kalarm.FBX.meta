@@ -3,7 +3,17 @@ guid: 073356dd4c813404c91ec3afd363c7cb
 ModelImporter:
   serializedVersion: 25
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kalarm Mat01
+    second: {fileID: 2100000, guid: 911e68b8ddfb5e247ae4bb5781f7e6b0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Kalarm Mat02
+    second: {fileID: 2100000, guid: a07e3fae1a42b2642898666e6921b251, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
