@@ -552,13 +552,13 @@ MonoBehaviour:
   playerObj: {fileID: 0}
   inheritedScript: {fileID: 5197794963715545497}
   damping: 2
-  moveSpeed: 3
+  moveSpeed: 1
   numEnemies: 0
   stateMachine: 0
   enemyState: 0
   theta: 0
-  speed: 15
-  speed2: 10
+  speed: 12
+  speed2: 6
   newLocation: {x: 0, y: 0, z: 0}
   radius: 10
   rangedRadius: 15
