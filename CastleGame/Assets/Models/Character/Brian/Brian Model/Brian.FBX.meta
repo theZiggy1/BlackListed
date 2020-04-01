@@ -8,7 +8,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Brian_Character
-    second: {fileID: 2100000, guid: 6b465b7ed449f2640b53124b8a5fe399, type: 2}
+    second: {fileID: 2100000, guid: a6196e467382e6a4fa185ef94267ad78, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -42,7 +42,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
-    useSRGBMaterialColor: 1
+    useSRGBMaterialColor: 0
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
