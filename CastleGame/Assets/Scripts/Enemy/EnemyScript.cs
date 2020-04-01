@@ -53,6 +53,13 @@ public class EnemyScript : MonoBehaviour
     private Animator enemyAnimator;
 
 
+    public bool MoveTo = false;
+
+    public bool performingAttack = false;
+
+    
+
+
     void Start()
     {
         stateMachine = States.flocking;
@@ -111,8 +118,17 @@ public class EnemyScript : MonoBehaviour
                 switch (enemyState)
                 {
                     case fighterType.melee:
-                        this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
-                        this.transform.position = Vector3.MoveTowards(this.transform.position,new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1, playerObj.transform.position.z), Time.deltaTime * moveSpeed);
+                        if(MoveTo == true)
+                        {
+                            isMovingTo(10.0f);
+                        }
+                        else if (performingAttack == false)
+                        {
+                            StartCoroutine(meleeAttack(1.0f));
+                        }
+
+                     //   this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
+                      //  this.transform.position = Vector3.MoveTowards(this.transform.position,new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1, playerObj.transform.position.z), Time.deltaTime * moveSpeed);
 
                         // Animation for Biting
                         enemyAnimator.Play("Bite");
@@ -183,5 +199,32 @@ public class EnemyScript : MonoBehaviour
         Bullet.GetComponent<bulletScript>().OTHER_TAG = "Player";
         Bullet.GetComponent<bulletScript>().enemyDamage = 20;
         Destroy(Bullet, 4.0f);
+    }
+
+    IEnumerator meleeAttack(float timeToWait)
+    {
+        performingAttack = true;
+        yield return new WaitForSeconds(timeToWait);
+        GameObject Bullet = GameObject.Instantiate(rangedEnemyAttack, bulletSpawn.position, bulletSpawn.rotation);
+        Bullet.GetComponent<bulletScript>().OTHER_TAG = "Player";
+        Bullet.GetComponent<bulletScript>().enemyDamage = 20;
+        Destroy(Bullet, 1.0f);
+        MoveTo = true;
+        performingAttack = false;
+    }
+    void isMovingTo(float speed)
+    {
+        Debug.Log("isMoving");
+        this.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, playerObj.transform.position, Time.deltaTime * speed);
+        this.transform.LookAt(playerObj.transform);
+
+        float distance = Vector3.Distance(playerObj.transform.position, this.transform.position);
+
+        if (distance <= 1.5f)
+        {
+            Debug.Log("Done Moving");
+            MoveTo = false;
+
+        }
     }
 }
