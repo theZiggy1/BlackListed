@@ -85,6 +85,9 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 player1JoinedImage.SetActive(false);
                 playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
                 P1Joined = true;
+
+                // Sets us to show char1's portrait
+                Player1CharacterImage.sprite = characterImages[0];
             }
         }
         if (!P2Joined)
@@ -95,6 +98,9 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 player2JoinedImage.SetActive(false);
                 playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
                 P2Joined = true;
+
+                // Sets us to show char1's portrait
+                Player2CharacterImage.sprite = characterImages[0];
             }
         }
         if (!P3Joined)
@@ -105,6 +111,9 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 player3JoinedImage.SetActive(false);
                 playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
                 P3Joined = true;
+
+                // Sets us to show char1's portrait
+                Player3CharacterImage.sprite = characterImages[0];
             }
         }
         if (!P4Joined)
@@ -115,6 +124,9 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 player4JoinedImage.SetActive(false);
                 playerInputObject.GetComponent<PlayerSelectionScript>().JoinPlayer();
                 P4Joined = true;
+
+                // Sets us to show char1's portrait
+                Player4CharacterImage.sprite = characterImages[0];
             }
         }
 
