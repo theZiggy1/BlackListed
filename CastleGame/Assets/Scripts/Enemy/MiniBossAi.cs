@@ -58,6 +58,13 @@ public class MiniBossAi : MonoBehaviour
     public int attackNum;
     public int playerToAttack;
     public List<GameObject> Players;
+
+    [Header("Animation")]
+    [SerializeField]
+    private Animator bossAnimator;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -105,6 +112,10 @@ public class MiniBossAi : MonoBehaviour
 
                 Debug.Log("Animation Phase");
                 //This is an empty phase that we go to so the miniboss can perform animations in peace.
+
+                // Animation - move back to idle
+                //bossAnimator.SetInteger("Condition", 0);
+
                 break;
         }
 
@@ -142,7 +153,6 @@ public class MiniBossAi : MonoBehaviour
                     {
                         StartCoroutine(Attack1GroundPound(1, 2.0f));
                     }
-
                     break;
                 case Attacks.MultiThrow:
 
@@ -239,7 +249,7 @@ public class MiniBossAi : MonoBehaviour
                             StartCoroutine(Attack5MultiPound(1.5f));
                             StartCoroutine(Attack1GroundPound(2.0f, 2.0f));
                         }
-                     else if (numAttacks == 1)
+                        else if (numAttacks == 1)
                         {
                             StartCoroutine(Attack5MultiPound(1.0f));
                             StartCoroutine(Attack5MultiPound(1.5f));
@@ -261,6 +271,11 @@ public class MiniBossAi : MonoBehaviour
             //Will call the attack code here,before returning. 
             return;
         }
+        else // If we're not attacking
+        {
+            // Animation - go back to idle
+            bossAnimator.SetInteger("AnimController", 0);
+        }
 
 
         if (attackCoolDown >= 0.0f)
@@ -269,8 +284,8 @@ public class MiniBossAi : MonoBehaviour
             return;
         }
 
-        int chooseRandomAttack = Random.Range(0, 40);
-
+        //int chooseRandomAttack = Random.Range(0, 40);
+        int chooseRandomAttack = Random.Range(0, 100);
 
         Debug.Log(attackNum);
         Debug.Log(chooseRandomAttack);
@@ -290,12 +305,12 @@ public class MiniBossAi : MonoBehaviour
                 else if (chooseRandomAttack > 80 || chooseRandomAttack <= 40)
                 {
 
-                    Attack1GP();
+                    Attack2TR();
                 }
                 else
                 {
 
-                    Attack1GP();
+                    Attack3S();
                 }
                 Debug.Log("Going Slow");
                 break;
@@ -303,15 +318,15 @@ public class MiniBossAi : MonoBehaviour
                 //In thisgroup, the rate at which each attack happens changes. 
                 if (chooseRandomAttack > 40)
                 {
-
+                    Attack1GP();
                 }
                 else if (chooseRandomAttack > 80 || chooseRandomAttack <= 40)
                 {
-
+                    Attack2TR();
                 }
                 else
                 {
-
+                    Attack3S();
                 }
                 Debug.Log("Going Fast");
                 break;
@@ -319,15 +334,15 @@ public class MiniBossAi : MonoBehaviour
                 //In this group the attack patterns change to do more of the other ones, over and over. 
                 if (chooseRandomAttack > 40)
                 {
-
+                    Attack4MGP();
                 }
                 else if (chooseRandomAttack > 80 || chooseRandomAttack <= 40)
                 {
-
+                    Attack6TMR();
                 }
                 else
                 {
-
+                    Attack5MS();
                 }
                 Debug.Log("Im mad");
                 break;
@@ -342,6 +357,9 @@ public class MiniBossAi : MonoBehaviour
         MoveTo = true;
         isAttacking = true;
         attackNum = Random.Range(0, groundAttackLocations.Count);
+
+        // Animation
+        //bossAnimator.SetInteger("AnimController", 6);
     }
 
     void Attack3S()
@@ -350,6 +368,9 @@ public class MiniBossAi : MonoBehaviour
         MoveTo = true;
         isAttacking = true;
         playerToAttack = Random.Range(0, Players.Count);
+
+        // Animation
+        //bossAnimator.SetInteger("AnimController", 6);
     }
 
     void Attack2TR()
@@ -357,6 +378,9 @@ public class MiniBossAi : MonoBehaviour
         currentAttack = Attacks.ThrowRock;
         isAttacking = true;
         playerToAttack = Random.Range(0, Players.Count);
+
+        // Animation
+        //bossAnimator.SetInteger("AnimController", 5);
     }
 
     void Attack4MGP()
@@ -365,6 +389,9 @@ public class MiniBossAi : MonoBehaviour
         MoveTo = true;
         isAttacking = true;
         attackNum = Random.Range(0, groundAttackLocations.Count);
+
+        // Animation
+        //bossAnimator.SetInteger("AnimController", 6);
     }
 
     void Attack5MS()
@@ -372,6 +399,9 @@ public class MiniBossAi : MonoBehaviour
         currentAttack = Attacks.MultiSwipe;
         isAttacking = true;
         playerToAttack = Random.Range(0, Players.Count);
+
+        // Animation
+        //bossAnimator.SetInteger("AnimController", 6);
     }
 
     void Attack6TMR()
@@ -379,6 +409,9 @@ public class MiniBossAi : MonoBehaviour
         currentAttack = Attacks.MultiThrow;
         isAttacking = true;
         playerToAttack = Random.Range(0, Players.Count);
+
+        // Animation
+        //bossAnimator.SetInteger("AnimController", 6);
     }
 
 
@@ -386,6 +419,9 @@ public class MiniBossAi : MonoBehaviour
     IEnumerator Attack1GroundPound(float timeTioWait, float a_attackCoolDown) //This attack creates 4 walls that the players must jump over.
     {
         Debug.Log("Starting Attack");
+
+        
+
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
         float forceStrenght = 100.0f;
@@ -396,14 +432,23 @@ public class MiniBossAi : MonoBehaviour
             Destroy(attack, 4.0f);
             Debug.Log("Spawned Wall " + x);
         }
+
+        // Animation
+        bossAnimator.SetInteger("AnimController", 5);
+
         attackCoolDown = a_attackCoolDown;
         isAttacking = false;
         performingAttack = false;
+
+        
     }
 
     IEnumerator Attack2ThrowRock(float timeTioWait, float a_attackCoolDown) //This attack has the boss throw a rock at the current location of a randomly chosen player
     {
         Debug.Log("Throw Rock");
+
+        
+
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
         this.transform.LookAt(Players[playerToAttack].transform);
@@ -411,50 +456,80 @@ public class MiniBossAi : MonoBehaviour
         GameObject attack = GameObject.Instantiate(rockAttack, rangedSpawn.position, rangedSpawn.rotation);
         attack.GetComponent<Rigidbody>().AddForce(rangedSpawn.forward * forceStrenght);
         //This attack faces the direction of the player, and then simply spawns a rock.
+
+        // Animation
+        bossAnimator.SetInteger("AnimController", 5);
+
         attackCoolDown = a_attackCoolDown;
         isAttacking = false;
         performingAttack = false;
+
+        
     }
 
     //The boss moves slowly in the first phase, but moves more quickly, and does this attack more in the second phase. 
     IEnumerator Attack3Melee(float timeTioWait, float a_attackCoolDown) //The boss moves quickly towards a current player, and then when close enough swipes at the player
     {
         Debug.Log("Swipe");
+
+        
+
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
         this.transform.LookAt(Players[playerToAttack].transform);
         GameObject attack = GameObject.Instantiate(swipeAttack, meleeSpawn.position, meleeSpawn.rotation);
         Destroy(attack, 0.25f);
+
+        // Animation
+        bossAnimator.SetInteger("AnimController", 5);
+
         attackCoolDown = a_attackCoolDown;
         isAttacking = false;
         performingAttack = false;
+
+        
     }
     //The two multi attacks are for the third phase of the boss. 
 
     IEnumerator Attack4MultiThrow(float timeTioWait) //The boss performs the Throw rock attack multiple times, between x-y times, at randomly chosen players
     {
         Debug.Log("Throw Rock multi");
+
+        
+
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
         this.transform.LookAt(Players[playerToAttack].transform);
         float forceStrenght = 100.0f;
         GameObject attack = GameObject.Instantiate(rockAttack, rangedSpawn.position, rangedSpawn.rotation);
         attack.GetComponent<Rigidbody>().AddForce(rangedSpawn.forward * forceStrenght);
+
+        // Animation
+        bossAnimator.SetInteger("AnimController", 5);
     }
 
     IEnumerator Attack6MultiSwipe(float timeTioWait) //The boss rushes a random player and swipes at them x-y times. 
     {
         Debug.Log("Swipe multi");
+
+        
+
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
         this.transform.LookAt(Players[playerToAttack].transform);
         GameObject attack = GameObject.Instantiate(swipeAttack, meleeSpawn.position, meleeSpawn.rotation);
         Destroy(attack, 0.25f);
+
+        // Animation
+        bossAnimator.SetInteger("AnimController", 5);
     }
 
     IEnumerator Attack5MultiPound(float timeTioWait)
     {
         Debug.Log("Starting Attack mutli");
+
+        
+
         performingAttack = true;
         yield return new WaitForSeconds(timeTioWait);
         float forceStrenght = 100.0f;
@@ -465,6 +540,9 @@ public class MiniBossAi : MonoBehaviour
             Destroy(attack, 4.0f);
             Debug.Log("Spawned Wall " + x);
         }
+
+        // Animation
+        bossAnimator.SetInteger("AnimController", 5);
     }
 
     void isMovingTo(Transform Location, float speed)
@@ -475,12 +553,16 @@ public class MiniBossAi : MonoBehaviour
 
         float distance = Vector3.Distance(Location.position, this.transform.position);
 
-        if(distance <= 1.5f)
+        // Animation
+        bossAnimator.SetInteger("AnimController", 1);
+
+        if (distance <= 1.5f)
         {
             Debug.Log("Done Moving");
             MoveTo= false;
             
         }
+        
     }
     IEnumerator InvlunerablePhase(float timeTioWait)
     {
