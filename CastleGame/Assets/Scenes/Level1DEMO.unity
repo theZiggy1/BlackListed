@@ -9787,11 +9787,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: WaterWheelFinal
       objectReference: {fileID: 0}
-    - target: {fileID: -8733040240986845777, guid: b4b406cab8d38c446870ed640d7b11b6,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 543b2348c2759ed43b974fd8f070b229, type: 2}
     - target: {fileID: -4216859302048453862, guid: b4b406cab8d38c446870ed640d7b11b6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9862,6 +9857,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.6720499
       objectReference: {fileID: 0}
+    - target: {fileID: -8733040240986845777, guid: b4b406cab8d38c446870ed640d7b11b6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 543b2348c2759ed43b974fd8f070b229, type: 2}
     - target: {fileID: -1835110200850362654, guid: b4b406cab8d38c446870ed640d7b11b6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -9954,6 +9954,19 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 576959338}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &576959344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576959340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 235e27a7de27c2a4da9326466d62b0ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
 --- !u!1 &578177269 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f7f106b8899502a41b2697538ec16783,

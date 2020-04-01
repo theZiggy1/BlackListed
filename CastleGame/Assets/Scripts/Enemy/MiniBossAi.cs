@@ -269,7 +269,7 @@ public class MiniBossAi : MonoBehaviour
             return;
         }
 
-        int chooseRandomAttack = Random.Range(0, 100);
+        int chooseRandomAttack = Random.Range(0, 40);
 
 
         Debug.Log(attackNum);
@@ -285,17 +285,17 @@ public class MiniBossAi : MonoBehaviour
                 if (chooseRandomAttack > 40)
                 {
 
-                    Attack6TMR();
+                    Attack1GP();
                 }
                 else if (chooseRandomAttack > 80 || chooseRandomAttack <= 40)
                 {
 
-                    Attack6TMR();
+                    Attack1GP();
                 }
                 else
                 {
 
-                    Attack6TMR();
+                    Attack1GP();
                 }
                 Debug.Log("Going Slow");
                 break;
