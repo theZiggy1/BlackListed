@@ -65,79 +65,79 @@ public class PlayerControllerOldInput : MonoBehaviour
     private Animator playerAnimator;
 
 
-    //private Animator GetAnimator(string anim_name)
-    //{
-    //    foreach (Animator anim in Animators)
-    //    {
+    private Animator GetAnimator(string anim_name)
+    {
+        foreach (Animator anim in Animators)
+        {
 
-    //        //If we found the desired animator
-    //        if (anim.transform.gameObject.name == anim_name)
-    //        {
-    //            //Let's return the animator
-    //            return anim;
-    //        }
+            //If we found the desired animator
+            if (anim.transform.gameObject.name == anim_name)
+            {
+                //Let's return the animator
+                return anim;
+            }
 
-    //    }
+        }
 
-    //    return null;
-    //}
+        return null;
+    }
 
-    ////setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
-    //private void SetAnimationInteger(string condition, int integer)
-    //{
-    //    foreach (Animator anim in Animators)
-    //    {
-    //        anim.SetInteger(condition, integer);
-    //    }
-    //}
+    //setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
+    private void SetAnimationInteger(string condition, int integer)
+    {
+        foreach (Animator anim in Animators)
+        {
+            anim.SetInteger(condition, integer);
+        }
+    }
 
-    //private void SetAnimationFloat(string condition, float floating_num)
-    //{
-    //    foreach (Animator anim in Animators)
-    //    {
-    //        anim.SetFloat(condition, floating_num);
-    //    }
-    //}
+    private void SetAnimationFloat(string condition, float floating_num)
+    {
+        foreach (Animator anim in Animators)
+        {
+            anim.SetFloat(condition, floating_num);
+        }
+    }
 
-    //private void SetAnimationBool(string condition, bool boolean)
-    //{
-    //    foreach (Animator anim in Animators)
-    //    {
-    //        anim.SetBool(condition, boolean);
-    //    }
-    //}
+    private void SetAnimationBool(string condition, bool boolean)
+    {
+        foreach (Animator anim in Animators)
+        {
+            anim.SetBool(condition, boolean);
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         // Animation setup
-        
+
 
 
         //Controller = GetComponent<CharacterController>();
 
-        //////////////Let's grab all the animators in the children uwu
-        ////////////Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
-        ////////////string[] animator_names = {"Trousers", "Boots", "Tunic"};
-        //////////////Let's iterate through them all cause we just need brians
-        ////////////foreach (Animator anim in animators)
-        ////////////{
+        //Let's grab all the animators in the children uwu
+        Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
+        string[] animator_names = { "Trousers", "Boots", "Tunic" };
+        //Let's iterate through them all cause we just need brians
+        foreach (Animator anim in animators)
+        {
 
-        ////////////    //If the gameobject of this anim is Brian, then we found the right animator!
-        ////////////    if (animator_names.Contains(anim.transform.gameObject.name))
-        ////////////    {
-        ////////////        //Let's yoink this :D
-        ////////////        Animators.Add (anim);
-        ////////////        //Let's early out cause fuck the other animators
-        ////////////    }
-        ////////////}
+            //If the gameobject of this anim is Brian, then we found the right animator!
+            if (animator_names.Contains(anim.transform.gameObject.name))
+            {
+                //Let's yoink this :D
+                Animators.Add(anim);
+                //Let's early out cause fuck the other animators
+            }
+        }
 
-        ////////////Animators.Add(gameObject.transform.Find("Brian").GetComponent<Animator>());
+        Animators.Add(gameObject.transform.Find("Brian").GetComponent<Animator>());
 
 
-        ////////////SetAnimationInteger("Condition", 0);
+        //SetAnimationInteger("Condition", 0);
 
-     //  transform.position = new Vector3(0, 0, 0);
+        //  transform.position = new Vector3(0, 0, 0);
 
         transform.Rotate(0, 45, 0); //The character is rotated 45 degrees when spawned in to help with the rotation of the level. it was either this, or leave each section rotated 45 degrees, and due to how the controller takes in input. 
         
@@ -180,7 +180,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             LookAt();
 
             // Do the animation for movement
-            playerAnimator.Play("Sword Run Forward");
+            //playerAnimator.Play("Sword Run Forward");
+            SetAnimationInteger("Condition", 1);
         }
         // Character is moving left (or looking left)
         else if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") > 0.1f))
@@ -191,7 +192,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             LookAt();
 
             // Do the animation for movement
-            playerAnimator.Play("Sword Run Forward");
+            //playerAnimator.Play("Sword Run Forward");
+            SetAnimationInteger("Condition", 1);
         }
         // Character is moving up (or looking up)
         else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") > 0.1f))
@@ -202,7 +204,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             LookAt();
 
             // Do the animation for movement
-            playerAnimator.Play("Sword Run Forward");
+            //playerAnimator.Play("Sword Run Forward");
+            SetAnimationInteger("Condition", 1);
         }
         // Character is moving down (or looking down)
         else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") < -0.1f))
@@ -213,7 +216,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             LookAt();
 
             // Do the animation for movement
-            playerAnimator.Play("Sword Run Forward");
+            //playerAnimator.Play("Sword Run Forward");
+            SetAnimationInteger("Condition", 1);
         }
         else
         {
@@ -221,7 +225,8 @@ public class PlayerControllerOldInput : MonoBehaviour
             {
                 Debug.Log("Not moving");
 
-                playerAnimator.Play("Sword Idle");
+                //playerAnimator.Play("Sword Idle");
+                SetAnimationInteger("Condition", 0);
             }
             else
             {
@@ -241,18 +246,21 @@ public class PlayerControllerOldInput : MonoBehaviour
 
                 // Plays the animation
                 // Naming for this is absolute right now, will probably change later
-                playerAnimator.Play("Sword Swing 1");
+                //playerAnimator.Play("Sword Swing 1");
+                SetAnimationInteger("Condition", 5);
 
                 // Sets us so we're attacking
                 Attacking = true;
             }
         }
          //This links with the above section. attacking needs to be reset when the player is odne pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
-        if(Attacking == true)
+        if (Attacking == true)
         {
-            if(Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
+            if (Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
             {
                 Attacking = false;
+
+                //SetAnimationInteger("Condition", 0);
             }
         }
 
