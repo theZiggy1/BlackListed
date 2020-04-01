@@ -20,13 +20,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 1, g: 1, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 130caab6bd9811849b1d5651c8a07952, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 433f148d3fa302f4e93680ffc18d3504, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,13 +38,13 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.14502034, g: 0.41674843, b: 0.9833995, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -1682,7 +1682,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 786939871}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1839,10 +1839,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneNameToLoad: Level1DEMO
   playerPrefabs:
-  - {fileID: 1466855069742395266, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}
-  - {fileID: 1466855069742395266, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}
-  - {fileID: 1466855069742395266, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}
-  - {fileID: 1466855069742395266, guid: 2e6ca092287bd184e96b4a45190c820e, type: 3}
+  - {fileID: 8944058697107662360, guid: c104d8bbcd9025b488030beb27607ac5, type: 3}
+  - {fileID: 8944058697107662360, guid: c104d8bbcd9025b488030beb27607ac5, type: 3}
+  - {fileID: 8944058697107662360, guid: c104d8bbcd9025b488030beb27607ac5, type: 3}
+  - {fileID: 8944058697107662360, guid: c104d8bbcd9025b488030beb27607ac5, type: 3}
   numOfPlayers: 0
   playerCharIDs: 00000000000000000000000000000000
   playerChildMats: []
@@ -2196,7 +2196,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000123280}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2786,7 +2786,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219808769}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3413,7 +3413,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526545153}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
