@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3449715249627209777
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -20,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Obelisk
+  m_Name: Minecart_Mat
   m_Shader: {fileID: -6465566751694194690, guid: c6255db6a84e54747aa3ece9e893d52a,
     type: 3}
   m_ShaderKeywords: 
@@ -34,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_1AE79D10:
-        m_Texture: {fileID: 2800000, guid: fbd7cd918793d464f91dc39eaed2917d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 87f335f37407a404c9b5e179d940d6f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6D8F3DC7:
@@ -42,11 +29,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6EF6FE:
-        m_Texture: {fileID: 2800000, guid: 5b79f4bc793f8f3489cbe65d8a090c9f, type: 3}
+        m_Texture: {fileID: 2800000, guid: 898519651a721eb4fa21fda0eb3801d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6F9AB9E4:
-        m_Texture: {fileID: 2800000, guid: 73265f69fe38e5a499aad0430fe33d96, type: 3}
+        m_Texture: {fileID: 2800000, guid: 87f335f37407a404c9b5e179d940d6f3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9099073B:
@@ -54,7 +41,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_B1E9C909:
-        m_Texture: {fileID: 2800000, guid: 935814fcaff40ec41bd4d39510eb0a98, type: 3}
+        m_Texture: {fileID: 2800000, guid: fd10f11cc2008654b883eb527a4993af, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C832D42B:
@@ -62,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_FB0B5455:
-        m_Texture: {fileID: 2800000, guid: 50396daae7696094f87f8f41ce60dd46, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -95,7 +82,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_3981617: 0.5
-    - Vector1_5B6F22F0: 2
+    - Vector1_5B6F22F0: 0
     - Vector1_D41BA600: 1.1
     - _AlphaClip: 0
     - _Blend: 0
@@ -125,3 +112,16 @@ Material:
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+--- !u!114 &8592676573152519085
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1
