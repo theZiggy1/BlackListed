@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 112000000, guid: ffcd5231b6c1b47409ef45cd4c44c7da,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4167,7 +4167,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: ae67ca036aefd0f4db4ad52193e14965, type: 2}
+      objectReference: {fileID: 2100000, guid: 187a64cb658956d4ab8afe1692141827, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 646fdd1859eab484a8815a037c19aee2, type: 3}
 --- !u!4 &129182644 stripped
@@ -21161,7 +21161,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: efa9d5b8d36bdca47ba869ddf0019bb9, type: 2}
+      objectReference: {fileID: 2100000, guid: 6a95387eeff2e88449250e64131d155e, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28bb197995d53344f802601f30d03d88, type: 3}
 --- !u!4 &913942195 stripped
