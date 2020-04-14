@@ -51,7 +51,17 @@ public class EntityScript : MonoBehaviour
     [SerializeField]
     [Tooltip("This bool is dsoes not let players/enemies take damage while is active")] //Added by Anton, has a gettter and setter added, id have made this public, but i kep Farrans writing here. 
     private bool isInvulnerable = false;
-    
+
+    [Header("Audio")]
+    [SerializeField]
+    private bool usingAudio;
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip audioClipHurt;
+    [SerializeField]
+    private AudioClip audioClipDied;
+
     [Header("Loot")]
     [SerializeField]
     [Tooltip("Does the entity have a chance to drop something on death?")]
@@ -112,6 +122,12 @@ public class EntityScript : MonoBehaviour
         {
             UpdateHealthBar();
         }
+
+        if (usingAudio)
+        {
+            // For now, the audio source is on the same object as us, so this is fine
+            audioSource = GetComponent<AudioSource>();
+        }
     }
 
     // Update is called once per frame
@@ -148,6 +164,14 @@ public class EntityScript : MonoBehaviour
 
         currentHealth -= damage;
 
+        if (usingAudio)
+        {
+            // Sets us to have the 'hurt' audio clip
+            audioSource.clip = audioClipHurt;
+            // Then plays that clip
+            audioSource.Play();
+        }
+
         if (usingHealthBar)
         {
             UpdateHealthBar();
@@ -156,6 +180,16 @@ public class EntityScript : MonoBehaviour
 
     private void Die()
     {
+        // This 'plays' but you don't actually have enough time to hear it,
+        // as the player's gameobject is destroyed before you can hear it
+        if (usingAudio)
+        {
+            // Sets us to have the 'died' audio clip
+            audioSource.clip = audioClipDied;
+            // Then plays that clip
+            audioSource.Play();
+        }
+
         // These need to be done
 
         if (deathType == DeathType.Animation)

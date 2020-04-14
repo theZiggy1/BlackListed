@@ -64,6 +64,13 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField]
     private Animator playerAnimator;
 
+    [Header("Audio")]
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip audioClipSwordSwing;
+    [SerializeField]
+    private AudioClip audioClipGunShoot;
 
     private Animator GetAnimator(string anim_name)
     {
@@ -152,6 +159,9 @@ public class PlayerControllerOldInput : MonoBehaviour
         // if there's already a player there, our playerID is now 2
         playerID = gameManager.GetComponent<GameManagerScript>().numPlayers;
         playerNum = playerID - 1; //This is important for controller info. 
+
+        // Audio
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -403,12 +413,22 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         if (isRangedAttack)
         {
+            // Sets us to have the 'GunShoot' audio clip
+            audioSource.clip = audioClipGunShoot;
+            // Then plays that clip
+            audioSource.Play();
+
             GameObject Bullet = GameObject.Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
             Bullet.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * forceStrength);
             Destroy(Bullet, 4.0f);
         }
         else
         {
+            // Sets us to have the 'SwordSwing' audio clip
+            audioSource.clip = audioClipSwordSwing;
+            // Then plays that clip
+            audioSource.Play();
+
             GameObject Melee = GameObject.Instantiate(projectile, meleeSpawn.position, meleeSpawn.rotation);
             Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
             Destroy(Melee, 0.5f);
