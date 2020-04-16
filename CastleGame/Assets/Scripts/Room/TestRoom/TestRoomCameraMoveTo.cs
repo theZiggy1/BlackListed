@@ -27,7 +27,10 @@ public class TestRoomCameraMoveTo : MonoBehaviour
     {
         if(other.gameObject.tag == PLAYER_TAG)
         {
+            // If we want the camera to move to a specific location in the room
             if (CameraControl) { Camera.GetComponent<CameraMoveScript>().setCameraMoveTo(RoomLocation); }
+            // If we instead want the camera to just follow the players
+            else { Camera.GetComponent<CameraMoveScript>().setCameraFollowPlayers(); }
 
             if (isWallEnter)
             {

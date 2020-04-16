@@ -10,7 +10,9 @@ public class CameraMoveScript : MonoBehaviour
     [SerializeField]
     private float moveSpeed; // The movement speed of the camera
 
-    public bool moveToRoom; // If true, we move to a room and the camera is static, if false then we move to the FollowPlayer object
+    public bool moveToRoom; // Tells the camera to move to the current room's camera location, if it's in that mode
+
+    //public bool followingPlayers; // Tells the camera to follow the players instead of going to a room's camera location
 
     private Transform targetObject;
     private bool doLerp;
@@ -18,6 +20,23 @@ public class CameraMoveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameObject followObject = GameObject.FindGameObjectWithTag("FollowObject");
+
+        if (followObject != null)
+        {
+            foreach (Transform child in followObject.transform)
+            {
+                if (child.CompareTag("FollowObjectChild"))
+                {
+                    followPlayerObject = child;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Camera can't find FollowPlayer object!");
+        }
+
         targetObject = followPlayerObject;
     }
 
@@ -64,5 +83,10 @@ public class CameraMoveScript : MonoBehaviour
         roomTargetObject = RoomLocationToMoveTo;
         moveToRoom = true;
         doLerp = true;
+    }
+
+    public void setCameraFollowPlayers()
+    {
+        moveToRoom = false;
     }
 }

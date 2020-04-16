@@ -192,6 +192,15 @@ public class PlayerSelectionScript : MonoBehaviour
             SpawnPlayer(playerCharIDs[i], i);
         }
 
+        // Once players are spawned in:
+        // Tell the FollowPlayer object how many players there are
+        GameObject followPlayerObject = GameObject.FindGameObjectWithTag("FollowObject");
+        followPlayerObject.GetComponent<FollowPlayerScript>().numberOfPlayers = numOfPlayers;
+        // Set the FollowPlayer object's playerObjects array to be the players
+        followPlayerObject.GetComponent<FollowPlayerScript>().playerObjects = GameManager.GetComponent<GameManagerScript>().currentPlayers;
+        // Tell the FollowPlayer object to start following the players
+        followPlayerObject.GetComponent<FollowPlayerScript>().startFollowing = true;
+        
         // Unload the player select scene
         SceneManager.UnloadSceneAsync("PlayerSelectScene");
     }

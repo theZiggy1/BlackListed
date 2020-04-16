@@ -366,7 +366,7 @@ public class PlayerSelectManagerScript : MonoBehaviour
 
                     // Load the level
                     playerInputManager.GetComponent<PlayerSelectionScript>().Play();
-
+                    
                     // This is set so that the level can't be loaded twice by accident
                     loadedNextLevel = true;
                 }

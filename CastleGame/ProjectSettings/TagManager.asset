@@ -18,6 +18,8 @@ TagManager:
   - PlayerMeshObject
   - PlayerSubObject
   - ButtonHighlight
+  - FollowObject
+  - FollowObjectChild
   layers:
   - Default
   - TransparentFX
