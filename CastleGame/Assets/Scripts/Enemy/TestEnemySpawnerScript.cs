@@ -5,14 +5,14 @@ using UnityEngine;
 public class TestEnemySpawnerScript : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] [Tooltip("0: will spawn as melee enemy 1: ranged enemy")] GameObject[] enemyArray;
-    [SerializeField] Transform[] spawnPoint;
+    [SerializeField] [Tooltip("0: will spawn as melee enemy 1: ranged enemy")] GameObject[] enemyArray; //This has been depreciated 
+    [SerializeField] Transform[] spawnPoint; //This has as well
 
     [SerializeField] GameObject gameManager;
-    [SerializeField] [Tooltip("For each enmy here you need to put in an object into spawnPoint.")] enemyTypes[] enemyToSpawn;
+    [SerializeField] [Tooltip("For each enmy here you need to put in an object into spawnPoint.")] enemyTypes[] enemyToSpawn; //This is also depreciated
 
-    [SerializeField] int numEnemies;
-    [SerializeField] Transform[] attackLocations;
+    [SerializeField] int numEnemies; //and so is this
+    [SerializeField] Transform[] attackLocations; //this can be handled by the bossaiSpawner.
 
 
     enum enemyTypes
