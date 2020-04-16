@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Wave : MonoBehaviour
 {
-    public float timeUntilWave; //The delay between when the last wave was, until when this one is. 
-    public int numEnemies; //how many enemies are in the wave. 
+    public float timeUntilWave = 0.0f; //The delay between when the last wave was, until when this one is. 
+    public float timeAtEndofWave = 0.0f; //Adding this in case we want to run cinematics or somethning at the end of the wave.
+    public int numEnemies = 0; //how many enemies are in the wave. 
     public GameObject[] enemiesToSpawn; //the list of enemies to be spawned. 
     public Transform[] spawnLocations; //The locations for each enemy to be spawned. 
     // Start is called before the first frame update
