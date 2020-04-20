@@ -3003,6 +3003,7 @@ GameObject:
   - component: {fileID: 90569336}
   - component: {fileID: 90569335}
   - component: {fileID: 90569338}
+  - component: {fileID: 90569339}
   m_Layer: 9
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3041,7 +3042,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 1
   far clip plane: 1000
   field of view: 60
   orthographic: 0
@@ -3091,6 +3092,26 @@ MonoBehaviour:
   followPlayerObject: {fileID: 7619419834754850519}
   moveSpeed: 5
   moveToRoom: 0
+--- !u!114 &90569339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 90569334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_RendererOverrideOption: 1
+  m_RendererData: {fileID: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_Version: 2
 --- !u!1 &91135832 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: c4713a650bcd6ad40b0ceeae52e2d225,
