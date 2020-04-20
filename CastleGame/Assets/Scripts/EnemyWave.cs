@@ -15,4 +15,16 @@ public class EnemyWave : Wave
     {
         
     }
+
+    public override void SpawnEnemies()
+    {
+        base.SpawnEnemies();
+        Debug.Log("Spawned Enemies");
+        for (int i = 0; i < numEnemies; i++)
+        {
+            Debug.Log("Spawned Enemies" + i);
+            GameObject Enemy = GameObject.Instantiate(enemiesToSpawn[i], spawnLocations[i].position, spawnLocations[i].rotation);
+            Enemy.GetComponent<EnemyVarScript>().SpawningInfo(Spawner, gameManager, Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers));
+        }
+    }
 }

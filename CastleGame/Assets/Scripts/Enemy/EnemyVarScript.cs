@@ -18,7 +18,8 @@ public class EnemyVarScript : MonoBehaviour
 
     private void OnDestroy()
     {
-        Spawner.GetComponent<TestEnemySpawnerScript>().EnemyKilled();
+        //This will need to be changed in a sec.
+        Spawner.GetComponent<WaveSpawning>().EnemyKilled();
         if (playerToFight != -1)
         {
             gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;

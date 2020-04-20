@@ -414,9 +414,12 @@ public class PlayerControllerOldInput : MonoBehaviour
         if (isRangedAttack)
         {
             // Sets us to have the 'GunShoot' audio clip
-            audioSource.clip = audioClipGunShoot;
+            if (audioSource != null) { audioSource.clip = audioClipGunShoot; }
             // Then plays that clip
-            audioSource.Play();
+            if (audioSource != null)
+            {
+                audioSource.Play();
+            }
 
             GameObject Bullet = GameObject.Instantiate(projectile, projectileSpawn.position, projectileSpawn.rotation);
             Bullet.GetComponent<Rigidbody>().AddForce(projectileSpawn.forward * forceStrength);
@@ -425,10 +428,12 @@ public class PlayerControllerOldInput : MonoBehaviour
         else
         {
             // Sets us to have the 'SwordSwing' audio clip
-            audioSource.clip = audioClipSwordSwing;
-            // Then plays that clip
-            audioSource.Play();
+            if (audioSource != null) { audioSource.clip = audioClipSwordSwing; }
 
+            if (audioSource != null)
+            { // Then plays that clip
+                audioSource.Play();
+            }
             GameObject Melee = GameObject.Instantiate(projectile, meleeSpawn.position, meleeSpawn.rotation);
             Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
             Destroy(Melee, 0.5f);

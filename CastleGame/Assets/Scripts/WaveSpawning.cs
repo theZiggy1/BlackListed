@@ -9,6 +9,7 @@ public class WaveSpawning : MonoBehaviour
     [SerializeField] GameObject gameManager;
     public int numWaves;
     public int currentWave = 0;
+    public int numEnemies;
         
     // Start is called before the first frame update
     void Start()
@@ -29,28 +30,37 @@ public class WaveSpawning : MonoBehaviour
         if (currentWave == numWaves)
         {
             //were done
+            // can end the area
         }
         else
         {
-            StartCoroutine("WaitUntilWaveStarts", waveScripts[currentWave].timeUntilWave);
+            StartCoroutine("WaitUntilWaveStarts", waveScripts[currentWave].waveStartTime); //The delay between when the last wave was, until when this one is. 
+
         }
     }
 
     public void EnemyKilled()
     {
-        //When enemies of current weave get to 0, call Waituntilwave ends. 
+        numEnemies--;
+        if (numEnemies == 0)
+        {
+
+            StartCoroutine("WaitUntilWaveEnds", waveScripts[currentWave].waveEndTime);
+        }
     }
 
-    public void PlayersHaveEntered()
+    public void playersHaveEntered()
     {
-
+        WaveSelector();
     }
     //Call this when we want to start the next wave. it will call the start wave function, and at the end, call spawnenemies on the wave. 
     IEnumerator WaitUntilWaveStarts(float timeToWait)
     {
         waveScripts[currentWave].OnStartWave();
         yield return new WaitForSeconds(timeToWait);
+        waveScripts[currentWave].setInfo(this.gameObject, this.gameManager);
         waveScripts[currentWave].SpawnEnemies();
+        numEnemies = waveScripts[currentWave].enemiesToSpawn.Length;
     }
 
     //When we get to 0 enemies this will get called before the next wave is called, in case we want to do anything before the wave ends. at the end it will call a function that selects the next wave. 
@@ -59,5 +69,6 @@ public class WaveSpawning : MonoBehaviour
         waveScripts[currentWave].OnEndWave();
         yield return new WaitForSeconds(timeToWait);
         currentWave++;
+        WaveSelector();
     }
 }

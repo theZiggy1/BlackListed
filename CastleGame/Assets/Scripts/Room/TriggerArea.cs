@@ -26,7 +26,7 @@ public class TriggerArea : MonoBehaviour
            // Debug.Log("Players entered");
             if (battleArea != null)
             {
-                battleArea.GetComponent<TestEnemySpawnerScript>().playersHaveEntered();
+                battleArea.GetComponent<WaveSpawning>().playersHaveEntered();
             }
             this.gameObject.GetComponent<TriggerArea>().enabled = false;
         }
