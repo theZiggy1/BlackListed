@@ -1014,8 +1014,10 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn: []
-  spawnLocations: []
+  enemiesToSpawn:
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  spawnLocations:
+  - {fileID: 620087938}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
 --- !u!114 &1600110684
@@ -1056,6 +1058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveScripts:
   - {fileID: 1600110684}
+  - {fileID: 1600110683}
   gameManager: {fileID: 0}
   numWaves: 0
   currentWave: 0

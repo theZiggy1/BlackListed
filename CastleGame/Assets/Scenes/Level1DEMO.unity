@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 112000000, guid: ffcd5231b6c1b47409ef45cd4c44c7da,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8715,6 +8715,7 @@ GameObject:
   m_Component:
   - component: {fileID: 368709980}
   - component: {fileID: 368709981}
+  - component: {fileID: 368709982}
   m_Layer: 9
   m_Name: Final_Tile
   m_TagString: Untagged
@@ -8766,10 +8767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fb0f20ff1f9e0c48b22e9118e3bd625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyArray:
-  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
-  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
-  - {fileID: 4634237742330532158, guid: 8e42cbc7fce40434bb127c2f90f50edc, type: 3}
+  enemyArray: []
   spawnPoint:
   - {fileID: 69349782}
   - {fileID: 1711399273}
@@ -8782,6 +8780,23 @@ MonoBehaviour:
   - {fileID: 1424917953}
   - {fileID: 11507884}
   - {fileID: 250236359}
+--- !u!114 &368709982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 368709979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf56d60159c2104cabd7e2583a466f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveScripts: []
+  gameManager: {fileID: 0}
+  numWaves: 0
+  currentWave: 0
+  numEnemies: 0
 --- !u!1001 &368752753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49802,29 +49817,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 441189335187661260, guid: c6def021063b3124db2ea509f5be4ac9, type: 3}
---- !u!114 &723544452834699169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5089616653630181869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb0f20ff1f9e0c48b22e9118e3bd625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyArray:
-  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
-  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
-  spawnPoint:
-  - {fileID: 507718230}
-  - {fileID: 1850505490}
-  - {fileID: 1351503658}
-  gameManager: {fileID: 0}
-  enemyToSpawn: 0100000001000000
-  numEnemies: 0
-  attackLocations: []
 --- !u!1 &1350921396874891984
 GameObject:
   m_ObjectHideFlags: 0
@@ -49875,8 +49867,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1659046951580254912}
-  - component: {fileID: 6606049273408812175}
   - component: {fileID: 1741253175515031471}
+  - component: {fileID: 1659046951580254918}
+  - component: {fileID: 1659046951580254917}
+  - component: {fileID: 1659046951580254916}
   m_Layer: 9
   m_Name: Tile_1_Tavern_Game
   m_TagString: Untagged
@@ -49884,6 +49878,69 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1659046951580254916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659046951580254915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7177f0372f4f55749bdcefbedf538e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveInfo: Wave 2
+  waveStartTime: 1
+  waveEndTime: 0
+  numEnemies: 0
+  enemiesToSpawn:
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  spawnLocations:
+  - {fileID: 5596446395445762946}
+  Spawner: {fileID: 0}
+  gameManager: {fileID: 0}
+--- !u!114 &1659046951580254917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659046951580254915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7177f0372f4f55749bdcefbedf538e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveInfo: Wave 1
+  waveStartTime: 0
+  waveEndTime: 0
+  numEnemies: 0
+  enemiesToSpawn:
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  spawnLocations:
+  - {fileID: 5596446395445762946}
+  Spawner: {fileID: 0}
+  gameManager: {fileID: 0}
+--- !u!114 &1659046951580254918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1659046951580254915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf56d60159c2104cabd7e2583a466f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveScripts:
+  - {fileID: 1659046951580254917}
+  - {fileID: 1659046951580254916}
+  gameManager: {fileID: 0}
+  numWaves: 0
+  currentWave: 0
+  numEnemies: 0
 --- !u!65 &1659046951763054288
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -50934,8 +50991,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5089616653630181870}
-  - component: {fileID: 723544452834699169}
   - component: {fileID: 5300105097935647873}
+  - component: {fileID: 5089616653630181873}
+  - component: {fileID: 5089616653630181872}
+  - component: {fileID: 5089616653630181871}
   m_Layer: 9
   m_Name: Tile2
   m_TagString: Untagged
@@ -50977,6 +51036,72 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5089616653630181871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089616653630181869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7177f0372f4f55749bdcefbedf538e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveInfo: Wave 2
+  waveStartTime: 1
+  waveEndTime: 0
+  numEnemies: 0
+  enemiesToSpawn:
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  spawnLocations:
+  - {fileID: 1850505490}
+  - {fileID: 1351503658}
+  Spawner: {fileID: 0}
+  gameManager: {fileID: 0}
+--- !u!114 &5089616653630181872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089616653630181869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7177f0372f4f55749bdcefbedf538e3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaveInfo: Wave 1
+  waveStartTime: 0
+  waveEndTime: 0
+  numEnemies: 0
+  enemiesToSpawn:
+  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  spawnLocations:
+  - {fileID: 1850505490}
+  - {fileID: 1351503658}
+  Spawner: {fileID: 0}
+  gameManager: {fileID: 0}
+--- !u!114 &5089616653630181873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5089616653630181869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcf56d60159c2104cabd7e2583a466f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveScripts:
+  - {fileID: 5089616653630181872}
+  - {fileID: 5089616653630181871}
+  gameManager: {fileID: 0}
+  numWaves: 0
+  currentWave: 0
+  numEnemies: 0
 --- !u!114 &5300105096390582228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -51273,26 +51398,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5896f0caf82b5f6438a5640a2dbc476d, type: 3}
---- !u!114 &6606049273408812175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1659046951580254915}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fb0f20ff1f9e0c48b22e9118e3bd625, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyArray:
-  - {fileID: 4930572753960081760, guid: 46d2301abb7c89449a5e556fbfbbc958, type: 3}
-  spawnPoint:
-  - {fileID: 5596446395445762946}
-  gameManager: {fileID: 0}
-  enemyToSpawn: 00000000
-  numEnemies: 0
-  attackLocations: []
 --- !u!4 &7619419833094658601
 Transform:
   m_ObjectHideFlags: 0
