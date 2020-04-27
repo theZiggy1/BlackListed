@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wave : MonoBehaviour
+public abstract class Wave : MonoBehaviour
 {
     public string WaveInfo; //adding a bunch of waves to an object can get a little complex, so this makes it a bit easier to keep track
     public float waveStartTime = 0.0f; //The delay between when the last wave was, until when this one is. 
@@ -14,9 +14,10 @@ public class Wave : MonoBehaviour
     public GameObject Spawner;
     public GameObject gameManager;
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-      
+        Debug.Log("Actually Run");
+        numEnemies = enemiesToSpawn.Length;
     }
 
     // Update is called once per frame
@@ -46,7 +47,7 @@ public class Wave : MonoBehaviour
     {
         Spawner = spawner;
         gameManager = theManager;
-        numEnemies = enemiesToSpawn.Length;
+      //  numEnemies = enemiesToSpawn.Length;
     }
 
   
