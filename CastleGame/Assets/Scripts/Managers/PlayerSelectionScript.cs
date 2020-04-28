@@ -14,8 +14,8 @@ using UnityEngine.UI;
 
 public class PlayerSelectionScript : MonoBehaviour
 {
-    [SerializeField]
-    private string sceneNameToLoad; // There's probably a better way to do this
+    public string sceneNameToLoad; // There's probably a better way to do this
+    public string sceneNameToUnload;
 
     [SerializeField]
     private GameObject[] playerPrefabs; // Array containing the characters that the player can choose from
@@ -54,10 +54,23 @@ public class PlayerSelectionScript : MonoBehaviour
     private AsyncOperation loadingOperation;
     private float loadingProgress;
 
+    private AsyncOperation unloadingOperation;
+    private float unloadingProgress;
+
     [SerializeField]
     private GameObject loadingScreenObject; // Gets set to active once we're loading, and set to false once we've finished loading
     [SerializeField]
     private Slider loadingBar;
+
+    // This is temporary
+    [SerializeField]
+    GameObject[] levelSpawnPoints;
+
+    [SerializeField]
+    private bool loadingFromPlayerSelect;
+
+    [SerializeField]
+    private GameObject[] spawnedInPlayers; // The players that are currently spawned in
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +87,8 @@ public class PlayerSelectionScript : MonoBehaviour
         player2UI.SetActive(false);
         player3UI.SetActive(false);
         player4UI.SetActive(false);
+
+        loadingFromPlayerSelect = true;
     }
 
     // Update is called once per frame
@@ -100,6 +115,26 @@ public class PlayerSelectionScript : MonoBehaviour
         GameManager.GetComponent<GameManagerScript>().playersQueued = numOfPlayers;
     }
 
+    // Moves the spawn points to the correct locations in the world
+    private void ReadyUpSpawnPoints()
+    {
+        // This will temporarily set the active scene to be the current level, so we can set up spawnpoints
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneNameToLoad));
+
+        // Resets the levelSpawnPoints array so that each level we get the spawnpoints as fresh
+        levelSpawnPoints = null;
+        //levelSpawnPoints = new GameObject[0];
+
+        // Create a new array containing all the spawn points
+        levelSpawnPoints = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
+
+        for (int i = 0; i < spawnPoints.Length; i++)
+        {
+            // Moves the spawnpoint to the correct point in the world
+            spawnPoints[i].transform.position = new Vector3(levelSpawnPoints[i].transform.position.x, levelSpawnPoints[i].transform.position.y, levelSpawnPoints[i].transform.position.z);
+        }
+    }
+
     // Actually spawns the player in the world
     public void SpawnPlayer(int characterID, int playerID)
     {
@@ -112,7 +147,8 @@ public class PlayerSelectionScript : MonoBehaviour
             //Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
 
             GameObject playerInst = Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
-            
+            spawnedInPlayers[playerID] = playerInst; // Used to keep track of our players
+
             // Loop through each of the playerInst's children
             foreach (Transform child in playerInst.transform)
             {
@@ -162,6 +198,7 @@ public class PlayerSelectionScript : MonoBehaviour
     {
         Debug.Log("Play game!");
 
+
         // Reactivate all the player UI when we load the level
         player1UI.SetActive(true);
         player2UI.SetActive(true);
@@ -180,29 +217,58 @@ public class PlayerSelectionScript : MonoBehaviour
         //SceneManager.LoadSceneAsync(sceneNameToLoad, LoadSceneMode.Additive);
         StartCoroutine(LoadSceneAsynchronously());
 
+    }
+
+    // Done so that we only load stuff in once the level is fully loaded in
+    private void LoadLevel()
+    {
+        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint"); // These ideally *should* be in the level scene but at the moment they're in the player scene
+
+        
+
+        // It's safe to do this now, as we know that the level has definitely been loaded
+        ReadyUpSpawnPoints();
 
         // Set the active scene to be PlayerScene, so that our players get instantiated there
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("PlayerScene"));
-        spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint"); // These ideally *should* be in the level scene but at the moment they're in the player scene
 
-        for (int i = 0; i < numOfPlayers; i++)
+        // If we're loading in to the level 'fresh' from the player select (e.g. it's level 1)
+        if (loadingFromPlayerSelect)
         {
-            // For each of our players, spawn the relevant character, with the relevant colour
-            // e.g. if i = 2 then that's player 3, so spawn the character at position 2 of the playerCharIDs array
-            SpawnPlayer(playerCharIDs[i], i);
+            spawnedInPlayers = new GameObject[numOfPlayers]; // News the spawnedInPlayers array to be the length of numOfPlayers
+
+            for (int i = 0; i < numOfPlayers; i++)
+            {
+                // For each of our players, spawn the relevant character, with the relevant colour
+                // e.g. if i = 2 then that's player 3, so spawn the character at position 2 of the playerCharIDs array
+                SpawnPlayer(playerCharIDs[i], i);
+            }
+
+            // Once players are spawned in:
+            // Tell the FollowPlayer object how many players there are
+            GameObject followPlayerObject = GameObject.FindGameObjectWithTag("FollowObject");
+            followPlayerObject.GetComponent<FollowPlayerScript>().numberOfPlayers = numOfPlayers;
+            // Set the FollowPlayer object's playerObjects array to be the players
+            followPlayerObject.GetComponent<FollowPlayerScript>().playerObjects = GameManager.GetComponent<GameManagerScript>().currentPlayers;
+            // Tell the FollowPlayer object to start following the players
+            followPlayerObject.GetComponent<FollowPlayerScript>().startFollowing = true;
+
+
+            // Unload the player select scene
+            SceneManager.UnloadSceneAsync("PlayerSelectScene");
+
+            loadingFromPlayerSelect = false;
+        }
+        else // If we're loading in from another level previously
+        {
+            // We need to move the players to the relevant spawns, kinda like respawning them
+            for (int i = 0; i < spawnedInPlayers.Length; i++)
+            {
+                // Moves the relevant player to the relevant spawn point
+                spawnedInPlayers[i].transform.position = spawnPoints[i].transform.position;
+            }
         }
 
-        // Once players are spawned in:
-        // Tell the FollowPlayer object how many players there are
-        GameObject followPlayerObject = GameObject.FindGameObjectWithTag("FollowObject");
-        followPlayerObject.GetComponent<FollowPlayerScript>().numberOfPlayers = numOfPlayers;
-        // Set the FollowPlayer object's playerObjects array to be the players
-        followPlayerObject.GetComponent<FollowPlayerScript>().playerObjects = GameManager.GetComponent<GameManagerScript>().currentPlayers;
-        // Tell the FollowPlayer object to start following the players
-        followPlayerObject.GetComponent<FollowPlayerScript>().startFollowing = true;
-        
-        // Unload the player select scene
-        SceneManager.UnloadSceneAsync("PlayerSelectScene");
     }
 
     private IEnumerator LoadSceneAsynchronously()
@@ -216,20 +282,43 @@ public class PlayerSelectionScript : MonoBehaviour
         while (!loadingOperation.isDone)
         {
             // Transforms the 0-0.9 value of loading into a 0-1 value
-            loadingProgress = Mathf.Clamp01(loadingOperation.progress / 0.9f);
+            //loadingProgress = Mathf.Clamp01(loadingOperation.progress / 0.9f);
+            loadingProgress = (loadingOperation.progress / 0.9f);
             Debug.Log("Loading progress: " + loadingProgress);
 
             loadingBar.value = loadingProgress;
-            
-            // Once we've loaded
-            if (loadingProgress >= 1f)
-            {
-                // Hide the loading screen
-                loadingScreenObject.SetActive(false);
-            }
+            //loadingBar.value = (Mathf.Clamp01(loadingOperation.progress / 0.9f));
+
+            //// Once we've loaded
+            //if (loadingProgress >= 1f)
+            //{
+            //    // Hide the loading screen
+            //    loadingScreenObject.SetActive(false);
+
+            //    Debug.Log("Level should be loaded now");
+
+            //    // Now that the scene is loaded in, we can load the rest of the stuff we need to
+            //    LoadLevel();
+            //}
 
             // Wait till next frame
             yield return null;
-        }        
+        }
+        if (loadingOperation.isDone)
+        {
+            Debug.Log("We've loaded the level now");
+
+            // Hide the loading screen
+            loadingScreenObject.SetActive(false);
+
+            if (!loadingFromPlayerSelect)
+            {
+                // Unload the current scene
+                SceneManager.UnloadSceneAsync(sceneNameToUnload);
+            }
+
+            // Now that the scene is loaded in, we can load the rest of the stuff we need to
+            LoadLevel();
+        }
     }
 }

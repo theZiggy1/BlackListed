@@ -6,12 +6,18 @@ using UnityEngine.SceneManagement;
 public class EndScreenManagerScript : MonoBehaviour
 {
     [SerializeField]
-    private string sceneNameToLoad;
+    private string sceneNameNext;
+    [SerializeField]
+    private string sceneNamePrevious; // The previous level, that we'll unload
+
+    [SerializeField]
+    private GameObject playerInputManager; // Need to find this to tell it to load the next scene
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // When our EndScreen scene loads in, find the playerInputManager from the previous scene
+        playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
     }
 
     // Update is called once per frame
@@ -24,10 +30,20 @@ public class EndScreenManagerScript : MonoBehaviour
         }
     }
 
-    private void LoadNextLevel()
+    public void LoadNextLevel()
     {
         // This will load the named scene, which should be the end screen scene
-        SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
+        //SceneManager.LoadScene(sceneNameNext, LoadSceneMode.Additive);
+
+        // Set the playerInputManager to have the correct scene to load next
+        playerInputManager.GetComponent<PlayerSelectionScript>().sceneNameToLoad = sceneNameNext;
+        // Set the playerInputManager to have the correct scene to unload
+        playerInputManager.GetComponent<PlayerSelectionScript>().sceneNameToUnload = sceneNamePrevious;
+        // Then tell the playerInputManager to load that scene
+        playerInputManager.GetComponent<PlayerSelectionScript>().Play();
+
+        // Unload the current scene
+        //SceneManager.UnloadSceneAsync(sceneNamePrevious);
 
         // Unload the end screen scene
         SceneManager.UnloadSceneAsync("EndScreen");
