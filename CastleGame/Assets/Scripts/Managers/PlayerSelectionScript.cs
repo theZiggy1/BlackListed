@@ -72,6 +72,11 @@ public class PlayerSelectionScript : MonoBehaviour
     [SerializeField]
     private GameObject[] spawnedInPlayers; // The players that are currently spawned in
 
+    [SerializeField]
+    private Material[] skyboxes;
+    [SerializeField]
+    private Cubemap[] reflectionCubemaps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -222,15 +227,18 @@ public class PlayerSelectionScript : MonoBehaviour
     // Done so that we only load stuff in once the level is fully loaded in
     private void LoadLevel()
     {
+        // Then change our skybox to the relevant one for the level we're on
+        UpdateSkybox();
+
         spawnPoints = GameObject.FindGameObjectsWithTag("SpawnPoint"); // These ideally *should* be in the level scene but at the moment they're in the player scene
-
         
-
         // It's safe to do this now, as we know that the level has definitely been loaded
         ReadyUpSpawnPoints();
 
         // Set the active scene to be PlayerScene, so that our players get instantiated there
         SceneManager.SetActiveScene(SceneManager.GetSceneByName("PlayerScene"));
+
+        
 
         // If we're loading in to the level 'fresh' from the player select (e.g. it's level 1)
         if (loadingFromPlayerSelect)
@@ -269,6 +277,31 @@ public class PlayerSelectionScript : MonoBehaviour
             }
         }
 
+    }
+
+    // Updates our skybox to be the relevant one for the current level
+    private void UpdateSkybox()
+    {
+        if (sceneNameToLoad == "Level1")
+        {
+            RenderSettings.skybox = skyboxes[0];
+            RenderSettings.customReflection = reflectionCubemaps[0];
+        }
+        if (sceneNameToLoad == "Level 2")
+        {
+            RenderSettings.skybox = skyboxes[1];
+            RenderSettings.customReflection = reflectionCubemaps[1];
+        }
+        if (sceneNameToLoad == "Level 3")
+        {
+            RenderSettings.skybox = skyboxes[2];
+            RenderSettings.customReflection = reflectionCubemaps[2];
+        }
+        if (sceneNameToLoad == "Level 4")
+        {
+            RenderSettings.skybox = skyboxes[3];
+            RenderSettings.customReflection = reflectionCubemaps[3];
+        }
     }
 
     private IEnumerator LoadSceneAsynchronously()
@@ -313,11 +346,32 @@ public class PlayerSelectionScript : MonoBehaviour
 
             if (!loadingFromPlayerSelect)
             {
-                // Unload the current scene
-                SceneManager.UnloadSceneAsync(sceneNameToUnload);
+                // Start the unloading coroutine
+                StartCoroutine(UnloadSceneAsynchronously());
             }
+            else // We don't have to unload the previous level so we can go straight to this
+            {
+                // Now that the scene is loaded in, we can load the rest of the stuff we need to
+                LoadLevel();
+            }
+            
+        }
+    }
 
-            // Now that the scene is loaded in, we can load the rest of the stuff we need to
+    private IEnumerator UnloadSceneAsynchronously()
+    {
+        // Unload the current scene
+        unloadingOperation = SceneManager.UnloadSceneAsync(sceneNameToUnload);
+
+        while (!unloadingOperation.isDone)
+        {
+            Debug.Log("Unloading the previous level: " + unloadingOperation.progress);
+            // Wait till next frame
+            yield return null;
+        }
+        if (unloadingOperation.isDone) // If we've finished unloading the level
+        {
+            // Then we can safely load the next level
             LoadLevel();
         }
     }

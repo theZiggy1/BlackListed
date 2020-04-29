@@ -12,6 +12,11 @@ public class EndLevelTriggerScript : MonoBehaviour
     [SerializeField]
     private string sceneNameToLoad;
 
+    // These are both public, so that the EndScreenManager can find these
+    // and know what scene to load and what scene to unload
+    public string currentLevelName;
+    public string nextLevelName;
+
     // Start is called before the first frame update
     void Start()
     {
