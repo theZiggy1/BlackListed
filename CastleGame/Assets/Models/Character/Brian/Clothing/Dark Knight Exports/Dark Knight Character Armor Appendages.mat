@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5153319341145233240
+--- !u!114 &-9085309592561247109
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Standard_Boots
+  m_Name: Dark Knight Character Armor Appendages
   m_Shader: {fileID: -6465566751694194690, guid: c6255db6a84e54747aa3ece9e893d52a,
     type: 3}
   m_ShaderKeywords: 
@@ -34,19 +34,19 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_1AE79D10:
-        m_Texture: {fileID: 2800000, guid: 5a98460cf56043f40bbc8cfa625b2b3d, type: 3}
+        m_Texture: {fileID: 2800000, guid: dd8cc82dfb54a8b44b6136a6cff3ec1f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6D8F3DC7:
-        m_Texture: {fileID: 2800000, guid: 65ed321c9e58d9b4cb45373208c1d906, type: 3}
+        m_Texture: {fileID: 2800000, guid: 09b16ec33ec10d546b155e6e4d8ef5a1, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6EF6FE:
-        m_Texture: {fileID: 2800000, guid: 1e910123a376ad44d9d1c70baf22d259, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1280b435689e311469d503430b03944b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_6F9AB9E4:
-        m_Texture: {fileID: 2800000, guid: 029c2fd661696384ba06c56a7690c40b, type: 3}
+        m_Texture: {fileID: 2800000, guid: dbb8a24b717f393448748c1c962f7494, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_9099073B:
@@ -54,7 +54,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_B1E9C909:
-        m_Texture: {fileID: 2800000, guid: 4fa13c7169cdeb246abf44550b2edd4e, type: 3}
+        m_Texture: {fileID: 2800000, guid: 9450cbf8d249b3949905d3ffc8f60f60, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_C832D42B:
@@ -94,7 +94,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_3981617: 1
+    - Vector1_3981617: 0.5
     - Vector1_5B6F22F0: 0
     - Vector1_D41BA600: 1.1
     - _AlphaClip: 0
@@ -121,7 +121,7 @@ Material:
     m_Colors:
     - Color_1DEDE1BD: {r: 0, g: 0, b: 0, a: 0}
     - Color_DF1C534: {r: 1, g: 1, b: 1, a: 0}
-    - _BaseColor: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 1}
-    - _Color: {r: 0.49803922, g: 0.49803922, b: 0.49803922, a: 1}
+    - _BaseColor: {r: 0.18431373, g: 0.6745098, b: 0.49411765, a: 1}
+    - _Color: {r: 0.18431373, g: 0.6745098, b: 0.49411765, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
