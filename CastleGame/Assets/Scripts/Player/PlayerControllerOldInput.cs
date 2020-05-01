@@ -72,6 +72,11 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField]
     private AudioClip audioClipGunShoot;
 
+
+    // Dyeable clothing
+    public GameObject clothingPiece; // This will be changed to an array at some point - for now just quick implementation
+
+
     private Animator GetAnimator(string anim_name)
     {
         foreach (Animator anim in Animators)
@@ -125,7 +130,8 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         //Let's grab all the animators in the children uwu
         Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
-        string[] animator_names = { "Trousers", "Boots", "Tunic" };
+        //string[] animator_names = { "Trousers", "Boots", "Tunic" };
+        string[] animator_names = { "Trousers", "Boots", "Tunic", "Basic Plate Armor", "Wizard Robe", "Dark Knight Armor" };
         //Let's iterate through them all cause we just need brians
         foreach (Animator anim in animators)
         {

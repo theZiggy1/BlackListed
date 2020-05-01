@@ -74,6 +74,13 @@ public class FollowPlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        // Need to add a thing, where, if a player dies (and gets removed from the playerObjects array)
+        // the playerObjects array gets updated so that the dead player is removed.
+        // If they respawn they should be added back to the playerObjects array
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
         if (startFollowing)
         {
             //!!!Need to make this Dynamic!!!

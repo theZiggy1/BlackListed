@@ -152,34 +152,66 @@ public class PlayerSelectionScript : MonoBehaviour
             //Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
 
             GameObject playerInst = Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
+
+            // Changes the colour of our clothing according to which player we are
+            GameObject clothingPiece = playerInst.GetComponent<PlayerControllerOldInput>().clothingPiece;
+            playerChildMats = clothingPiece.GetComponent<Renderer>().materials;
+            playerChildMats[0] = PlayerMaterials[playerID];
+            clothingPiece.GetComponent<Renderer>().materials = playerChildMats;
+
             spawnedInPlayers[playerID] = playerInst; // Used to keep track of our players
 
-            // Loop through each of the playerInst's children
-            foreach (Transform child in playerInst.transform)
-            {
-                // Find child object with tag PlayerSubObject
-                if (child.CompareTag("PlayerSubObject"))
-                {
-                    // Loop through each of the child's children
-                    foreach (Transform secondChild in child)
-                    {
-                        // Find child object with tag PlayerSubObject - this has the renderer on it
-                        if (secondChild.CompareTag("PlayerMeshObject"))
-                        {
-                            playerChildMats = secondChild.GetComponent<Renderer>().materials;
 
-                            //playerMats[0].color = Color.black;
-                            //playerMats[0].SetColor("_MainColor", Color.black);
+            //// Loop through each of the playerInst's children
+            //foreach (Transform child in playerInst.transform)
+            //{
+            //    // Find child object with tag PlayerSubObject
+            //    if (child.CompareTag("PlayerSubObject"))
+            //    {
+            //        // Loop through each of the child's children
+            //        foreach (Transform secondChild in child)
+            //        {
+            //            //// Find child object with tag PlayerMeshObject - this has the renderer on it
+            //            //if (secondChild.CompareTag("PlayerMeshObject"))
+            //            //{
+            //            //    playerChildMats = secondChild.GetComponent<Renderer>().materials;
 
-                            // This will change the material at position 0 to show what player we are
-                            // e.g. character's hair colour will change to red if they're player1
-                            playerChildMats[0] = PlayerMaterials[playerID];
+            //            //    //playerMats[0].color = Color.black;
+            //            //    //playerMats[0].SetColor("_MainColor", Color.black);
 
-                            secondChild.GetComponent<Renderer>().materials = playerChildMats;
-                        }
-                    }
-                }
-            }
+            //            //    // This will change the material at position 0 to show what player we are
+            //            //    // e.g. character's hair colour will change to red if they're player1
+            //            //    playerChildMats[0] = PlayerMaterials[playerID];
+
+            //            //    secondChild.GetComponent<Renderer>().materials = playerChildMats;
+            //            //}
+
+            //            // Find child object with tag PlayerClothing - this has the clothing on it
+            //            if (secondChild.CompareTag("PlayerClothing"))
+            //            {
+            //                foreach (Transform thirdChild in secondChild)
+            //                {
+            //                    // Find child object with tag PlayerMeshObject - this has the renderer on it
+            //                    if (secondChild.CompareTag("PlayerMeshObject"))
+            //                    {
+            //                        playerChildMats = secondChild.GetComponent<Renderer>().materials;
+
+            //                        //playerMats[0].color = Color.black;
+            //                        //playerMats[0].SetColor("_MainColor", Color.black);
+
+            //                        // This will change the material at position 0 to show what player we are
+            //                        // e.g. character's hair colour will change to red if they're player1
+            //                        playerChildMats[0] = PlayerMaterials[playerID];
+
+            //                        secondChild.GetComponent<Renderer>().materials = playerChildMats;
+            //                    }
+            //                }
+            //            }
+
+
+            //        }
+            //    }
+            //}
 
             //Material[] playerMats = playerInst.GetComponent<Renderer>().materials;
 

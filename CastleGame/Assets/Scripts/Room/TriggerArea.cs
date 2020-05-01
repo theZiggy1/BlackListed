@@ -7,9 +7,12 @@ public class TriggerArea : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] GameObject battleArea;
     string PLAYER_TAG = "Player";
+
+    
+
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -17,13 +20,15 @@ public class TriggerArea : MonoBehaviour
     {
         
     }
+
+
     //When you enter the trigger area, this lets the area know so, and lets all players enter into the area. It also removes the trigger, so it cant be triggered a second time. 
     private void OnTriggerEnter(Collider other)
     {
-        if(!enabled) { return; }
-        if(other.gameObject.tag == PLAYER_TAG)
+        if (!enabled) { return; }
+        if (other.gameObject.tag == PLAYER_TAG)
         {
-           // Debug.Log("Players entered");
+            // Debug.Log("Players entered");
             if (battleArea != null)
             {
                 battleArea.GetComponent<WaveSpawning>().playersHaveEntered();
@@ -31,4 +36,7 @@ public class TriggerArea : MonoBehaviour
             this.gameObject.GetComponent<TriggerArea>().enabled = false;
         }
     }
+
+
+
 }

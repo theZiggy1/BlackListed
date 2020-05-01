@@ -849,7 +849,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0bc7bc1ca82d35e4abe62cb4d80a9fe6, type: 2}
+  - {fileID: 2100000, guid: e6557bdd534e71a4b92c10d3b54f9505, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1381,7 +1381,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d163d06bbaf98b142a54b8a4ce3ce42e, type: 2}
+  - {fileID: 2100000, guid: 431a8b667b96120479649b44bc83497e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8958,6 +8958,8 @@ GameObject:
   - component: {fileID: 7284649508481387129}
   - component: {fileID: 7549628603489083674}
   - component: {fileID: 2754680239243869539}
+  - component: {fileID: 935351634}
+  - component: {fileID: 935351633}
   m_Layer: 0
   m_Name: BrianPlayerController
   m_TagString: Player
@@ -9005,7 +9007,7 @@ BoxCollider:
   m_GameObject: {fileID: 7284649508481387106}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0.5, z: 0}
@@ -9036,8 +9038,8 @@ MonoBehaviour:
   insideTree: 0
   playerAnimator: {fileID: 4045561086176698404}
   audioSource: {fileID: 0}
-  audioClipSwordSwing: {fileID: 0}
-  audioClipGunShoot: {fileID: 0}
+  audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
+  audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
 --- !u!114 &2754680239243869539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9057,15 +9059,125 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathType: 1
   isInvulnerable: 0
-  usingAudio: 0
+  usingAudio: 1
   audioSource: {fileID: 0}
-  audioClipHurt: {fileID: 0}
-  audioClipDied: {fileID: 0}
+  audioClipHurt: {fileID: 8300000, guid: 03e2d21b01028724ba29f2796abaedb5, type: 3}
+  audioClipDied: {fileID: 8300000, guid: 3e0d7272f6062364d9a27c03bd066933, type: 3}
   canDropItem: 0
   itemDrops: []
   dropChances: []
   randomNumber: 0
   itemToDrop: {fileID: 0}
+--- !u!82 &935351634
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284649508481387106}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.6
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!136 &935351633
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7284649508481387106}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &7311797644932015199
 GameObject:
   m_ObjectHideFlags: 0
@@ -9741,7 +9853,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b0be6ed95482980489cdcb1e3ee7808a, type: 2}
+  - {fileID: 2100000, guid: 83830fdb47181404bba0e56c2d2cd2a5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
