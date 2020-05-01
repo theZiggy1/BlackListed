@@ -73,8 +73,8 @@ public class PlayerControllerOldInput : MonoBehaviour
     private AudioClip audioClipGunShoot;
 
 
-    // Dyeable clothing
-    public GameObject clothingPiece; // This will be changed to an array at some point - for now just quick implementation
+    //AB Dyeable clothing
+    public GameObject clothingPiece; //AB This will be changed to an array at some point - for now just quick implementation
 
 
     private Animator GetAnimator(string anim_name)
@@ -82,10 +82,10 @@ public class PlayerControllerOldInput : MonoBehaviour
         foreach (Animator anim in Animators)
         {
 
-            //If we found the desired animator
+            //AB If we found the desired animator
             if (anim.transform.gameObject.name == anim_name)
             {
-                //Let's return the animator
+                //AB Let's return the animator
                 return anim;
             }
 
@@ -94,7 +94,7 @@ public class PlayerControllerOldInput : MonoBehaviour
         return null;
     }
 
-    //setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
+    //AB setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
     private void SetAnimationInteger(string condition, int integer)
     {
         foreach (Animator anim in Animators)
@@ -119,41 +119,41 @@ public class PlayerControllerOldInput : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
+    //AB Start is called before the first frame update
     void Start()
     {
-        // Animation setup
+        //AB Animation setup
 
 
 
-        //Controller = GetComponent<CharacterController>();
+        //AB Controller = GetComponent<CharacterController>();
 
-        //Let's grab all the animators in the children uwu
+        //AB Let's grab all the animators in the children uwu
         Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
-        //string[] animator_names = { "Trousers", "Boots", "Tunic" };
+        //AB string[] animator_names = { "Trousers", "Boots", "Tunic" };
         string[] animator_names = { "Trousers", "Boots", "Tunic", "Basic Plate Armor", "Wizard Robe", "Dark Knight Armor" };
-        //Let's iterate through them all cause we just need brians
+        //AB Let's iterate through them all cause we just need brians
         foreach (Animator anim in animators)
         {
 
-            //If the gameobject of this anim is Brian, then we found the right animator!
+            //AB If the gameobject of this anim is Brian, then we found the right animator!
             if (animator_names.Contains(anim.transform.gameObject.name))
             {
-                //Let's yoink this :D
+                //AB Let's yoink this
                 Animators.Add(anim);
-                //Let's early out cause fuck the other animators
+                //AB Let's exit early we dont like the other animators
             }
         }
 
         Animators.Add(gameObject.transform.Find("Brian").GetComponent<Animator>());
 
 
-        //SetAnimationInteger("Condition", 0);
+        // SetAnimationInteger("Condition", 0);
 
-        //  transform.position = new Vector3(0, 0, 0);
+        // transform.position = new Vector3(0, 0, 0);
 
         transform.Rotate(0, 45, 0); //The character is rotated 45 degrees when spawned in to help with the rotation of the level. it was either this, or leave each section rotated 45 degrees, and due to how the controller takes in input. 
-        
+
         // Find the Game Manager
         gameManager = GameObject.FindGameObjectWithTag(GAMEMANAGER_TAG); //this is both the game manager and a blackboard for the player ai. 
         // Set ourselves to be in its array
