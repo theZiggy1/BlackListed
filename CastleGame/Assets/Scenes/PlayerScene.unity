@@ -1913,15 +1913,15 @@ MonoBehaviour:
   - {fileID: 4420566335824854092, guid: 23da7c0fcc6064f4b8aefbe02ee2708c, type: 3}
   - {fileID: 4420566335824854092, guid: 44132b3f328a0f740b0a9c64492742c8, type: 3}
   - {fileID: 4420566335824854092, guid: 3859f8ec902db184f8ec16796b6f690b, type: 3}
-  - {fileID: 2800910324737334903, guid: f46774bdf1189604391e7c6da05ecf9a, type: 3}
+  - {fileID: 4420566335824854092, guid: 5f47792007617874c80aff6f4ccfd4ae, type: 3}
   numOfPlayers: 0
   playerCharIDs: 00000000000000000000000000000000
   playerChildMats: []
   PlayerMaterials:
-  - {fileID: 2100000, guid: 1b88e2e6dd9ebb84ea27b3b0cd0aedfa, type: 2}
-  - {fileID: 2100000, guid: f84f81a72b9ac1641841c85ae80a98bf, type: 2}
-  - {fileID: 2100000, guid: 2c8e38e29ce1d1d4e8351ad1d4d3637e, type: 2}
-  - {fileID: 2100000, guid: 5f0650141dd96564e80e7e83d67e6204, type: 2}
+  - {fileID: 2100000, guid: 0df2c60ad5b102149aa094207862512d, type: 2}
+  - {fileID: 2100000, guid: 7ee74ea20bb41f742b069104742c3a29, type: 2}
+  - {fileID: 2100000, guid: 438fa5709949d2a4a899e2687b1ce37d, type: 2}
+  - {fileID: 2100000, guid: 12144a914e836cf479a1e1b26dd4bb60, type: 2}
   spawnPoints: []
   spawnIndex: 0
   GameManager: {fileID: 0}
