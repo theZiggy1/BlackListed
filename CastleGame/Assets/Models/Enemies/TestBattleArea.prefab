@@ -61,6 +61,8 @@ MonoBehaviour:
   - {fileID: 6161134099320409999}
   gameManager: {fileID: 0}
   enemyToSpawn: 00000000
+  numEnemies: 0
+  attackLocations: []
 --- !u!114 &136147874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +505,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &1955754938178864670
 Transform:

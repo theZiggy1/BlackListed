@@ -56,6 +56,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     public int playerNum;
     bool Attacking = false; // the right trigger is in fact an axis, and to keep the player from attacking each frame, once the trigger is depressed, this is called, and not reverted until the trigger is released completely. 
+    private bool doingAbility = false;
 
     // Tree stuff
     [SerializeField] GameObject insideTreeCamera;
@@ -78,6 +79,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     //AB Dyeable clothing
     public GameObject clothingPiece; //AB This will be changed to an array at some point - for now just quick implementation
 
+    [SerializeField] BaseClass myclass;
 
     private Animator GetAnimator(string anim_name)
     {
@@ -271,7 +273,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                 Attacking = true;
             }
         }
-         //This links with the above section. attacking needs to be reset when the player is odne pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
+         //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
         if (Attacking == true)
         {
             if (Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
@@ -281,6 +283,33 @@ public class PlayerControllerOldInput : MonoBehaviour
                 //SetAnimationInteger("Condition", 0);
             }
         }
+
+        //Handles the ability using from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
+        if (Input.GetAxis("Joy" + playerID + "LeftTrigger") != 0.0f)
+        {
+            if (doingAbility == false)
+            {
+                // Does the attack
+                OnAbilityLeftTrigger(); // Currently doesn't do anything
+
+                // Plays the animation
+                //SetAnimationInteger("Condition", INT);
+
+                // Sets us so we're attacking
+                doingAbility = true;
+            }
+        }
+        //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
+        if (doingAbility == true)
+        {
+            if (Input.GetAxis("Joy" + playerID + "LeftTrigger") == 0.0f)
+            {
+                doingAbility = false;
+
+                //SetAnimationInteger("Condition", 0);
+            }
+        }
+
 
         //buttons only return true the frame they are called with button down, so the above isnt true here. This lets us handle switching weapons.
         if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
@@ -417,7 +446,8 @@ public class PlayerControllerOldInput : MonoBehaviour
      * */
     void OnAttackRightTrigger()
     {
-      //  Debug.Log("Attacking!");
+        //  Debug.Log("Attacking!");
+        if (myclass != null) { myclass.genericAttack(); }
 
         if (isRangedAttack)
         {
@@ -448,11 +478,19 @@ public class PlayerControllerOldInput : MonoBehaviour
         }
     }
 
+    private void OnAbilityLeftTrigger()
+    {
+
+        if (myclass != null) { myclass.abilityAttack(); }
+        Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
+    }
+
     /*
      * simple control to change if the attack is melee or ranged, we control that using a bool value. 
      */
     void OnSwitchWeapon()
     {
+        if (myclass != null) { myclass.ultraAttack(); }
         isRangedAttack = !isRangedAttack;
       //  Debug.Log("Switching Weapon!" + isRangedAttack);
     }

@@ -233,6 +233,7 @@ MonoBehaviour:
   sceneNamePrevious: Level1
   sceneNameMainMenu: MainMenuScene
   playerInputManager: {fileID: 0}
+  endLevelTrigger: {fileID: 0}
 --- !u!4 &84559279
 Transform:
   m_ObjectHideFlags: 0

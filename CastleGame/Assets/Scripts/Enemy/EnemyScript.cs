@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -47,6 +48,7 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] GameObject rangedEnemyAttack;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] float forceStrength;
+    [SerializeField] NavMeshAgent thisAgent;
 
     [Space(20)] // 20 pixels of spacing in inspector
 
@@ -123,7 +125,7 @@ public class EnemyScript : MonoBehaviour
                     case fighterType.melee:
                         if(MoveTo == true)
                         {
-                            isMovingTo( playerObj.transform,10.0f);
+                            isMovingTo( playerObj.transform, 10.0f);
                         }
                         else if (performingAttack == false)
                         {
@@ -240,16 +242,17 @@ public class EnemyScript : MonoBehaviour
     void isMovingTo(Transform location , float speed)
     {
         Debug.Log("isMoving");
-        this.transform.position = Vector3.MoveTowards(this.gameObject.transform.position, location.position, Time.deltaTime * speedWhileGoing);
+        thisAgent.isStopped = false;
+        this.thisAgent.destination = location.position;
         this.transform.LookAt(location);
 
         float distance = Vector3.Distance(location.position, this.transform.position);
-
-        if (distance <= 1.5f)
+        Debug.Log("Distance: " + distance);
+        if (distance <= 4.0f)
         {
             Debug.Log("Done Moving");
             MoveTo = false;
-
+            thisAgent.isStopped = true;
         }
     }
 }

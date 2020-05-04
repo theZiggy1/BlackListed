@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5912429284673686266}
   - component: {fileID: 3706717990717548692}
   - component: {fileID: 4387834976384325412}
+  - component: {fileID: 3579467926423898031}
   m_Layer: 0
   m_Name: Bridge_Border2
   m_TagString: Untagged
@@ -77,6 +78,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3579467926423898031
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 85527576580087293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4495315344341838992, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &126161596908587912
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +103,7 @@ GameObject:
   - component: {fileID: 8874323614925711490}
   - component: {fileID: 2342446970458971042}
   - component: {fileID: 2452386410462163230}
+  - component: {fileID: 7807575190348002933}
   m_Layer: 0
   m_Name: Branch_right7
   m_TagString: Untagged
@@ -154,6 +170,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7807575190348002933
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126161596908587912}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &289297237323375789
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +195,7 @@ GameObject:
   - component: {fileID: 302623801905786203}
   - component: {fileID: 9025151818445573257}
   - component: {fileID: 5952907477074581498}
+  - component: {fileID: 774653934217754051}
   m_Layer: 0
   m_Name: Bridge_wall_branch_right5
   m_TagString: Untagged
@@ -231,6 +262,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &774653934217754051
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 289297237323375789}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &1174220466306945391
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +287,7 @@ GameObject:
   - component: {fileID: 608673399809384213}
   - component: {fileID: 5175718369513570259}
   - component: {fileID: 2246592406976560017}
+  - component: {fileID: 324568404362551987}
   m_Layer: 0
   m_Name: Bridge_wall_branch_left3
   m_TagString: Untagged
@@ -308,6 +354,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &324568404362551987
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1174220466306945391}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &1676566214315628903
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,6 +379,7 @@ GameObject:
   - component: {fileID: 8427403876052892492}
   - component: {fileID: 2944632506458222900}
   - component: {fileID: 2443404240985220275}
+  - component: {fileID: 1504163198724025556}
   m_Layer: 0
   m_Name: Branch_Left4
   m_TagString: Untagged
@@ -385,6 +446,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1504163198724025556
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676566214315628903}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &1836476600120511742
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +471,7 @@ GameObject:
   - component: {fileID: 8355346821775660415}
   - component: {fileID: 7506480687673353199}
   - component: {fileID: 647669736655983630}
+  - component: {fileID: 9073652251671841347}
   m_Layer: 0
   m_Name: Branch_Left6
   m_TagString: Untagged
@@ -462,6 +538,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &9073652251671841347
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836476600120511742}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &2104926478242844984
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,6 +563,7 @@ GameObject:
   - component: {fileID: 4451028831827047500}
   - component: {fileID: 692829739294945265}
   - component: {fileID: 760199145323258668}
+  - component: {fileID: 5108170914260386860}
   m_Layer: 0
   m_Name: Branch_Left8
   m_TagString: Untagged
@@ -539,6 +630,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5108170914260386860
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104926478242844984}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &2665998003773582137
 GameObject:
   m_ObjectHideFlags: 0
@@ -550,6 +655,7 @@ GameObject:
   - component: {fileID: 944668124643161706}
   - component: {fileID: 5627374322826033018}
   - component: {fileID: 5150320476600959882}
+  - component: {fileID: 4673139972117253200}
   m_Layer: 0
   m_Name: Branch_Left5
   m_TagString: Untagged
@@ -616,6 +722,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4673139972117253200
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2665998003773582137}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &3249410350463932270
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,6 +747,7 @@ GameObject:
   - component: {fileID: 1320452202772683776}
   - component: {fileID: 439333712611409487}
   - component: {fileID: 7241762156857084775}
+  - component: {fileID: 3107367262313465934}
   m_Layer: 0
   m_Name: Bridge_Platform
   m_TagString: Untagged
@@ -693,6 +814,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3107367262313465934
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249410350463932270}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 1215471521055805621, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &3432013842401136505
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +839,7 @@ GameObject:
   - component: {fileID: 9056546108997572681}
   - component: {fileID: 4944802463182415857}
   - component: {fileID: 2954205716301322603}
+  - component: {fileID: 42159098418096553}
   m_Layer: 0
   m_Name: Branch_right4
   m_TagString: Untagged
@@ -770,6 +906,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &42159098418096553
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3432013842401136505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &3760353589576923230
 GameObject:
   m_ObjectHideFlags: 0
@@ -781,6 +931,7 @@ GameObject:
   - component: {fileID: 4395769049628439230}
   - component: {fileID: 7039321560263568959}
   - component: {fileID: 3837853927792907339}
+  - component: {fileID: 8834253928645538431}
   m_Layer: 0
   m_Name: Branch_right6
   m_TagString: Untagged
@@ -847,6 +998,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8834253928645538431
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760353589576923230}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &3935487007261713614
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,6 +1023,7 @@ GameObject:
   - component: {fileID: 2225913613544664638}
   - component: {fileID: 5717952045500507423}
   - component: {fileID: 6432896478940700039}
+  - component: {fileID: 913831320638496743}
   m_Layer: 0
   m_Name: Branch_Left3
   m_TagString: Untagged
@@ -924,6 +1090,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &913831320638496743
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3935487007261713614}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &4025819247780877142
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +1115,7 @@ GameObject:
   - component: {fileID: 7525518581210561613}
   - component: {fileID: 1223599117080475220}
   - component: {fileID: 3980099572163681926}
+  - component: {fileID: 745928044279844163}
   m_Layer: 0
   m_Name: Bridge_wall_branch_right1
   m_TagString: Untagged
@@ -1001,6 +1182,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &745928044279844163
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4025819247780877142}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &4213250445960950463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1012,6 +1207,7 @@ GameObject:
   - component: {fileID: 2686472198355682963}
   - component: {fileID: 3139650540429321266}
   - component: {fileID: 5022280336011066680}
+  - component: {fileID: 2971036283645133997}
   m_Layer: 0
   m_Name: Branch_right2
   m_TagString: Untagged
@@ -1078,6 +1274,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2971036283645133997
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4213250445960950463}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &4246500978527419495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1299,7 @@ GameObject:
   - component: {fileID: 5765091618697817041}
   - component: {fileID: 7259390369043347992}
   - component: {fileID: 848810597102292739}
+  - component: {fileID: 6879085703600342520}
   m_Layer: 0
   m_Name: Bridge_wall_branch_right3
   m_TagString: Untagged
@@ -1155,6 +1366,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6879085703600342520
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4246500978527419495}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &4580149184447245381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,6 +1391,7 @@ GameObject:
   - component: {fileID: 3266107193289310755}
   - component: {fileID: 7270483366304608162}
   - component: {fileID: 4179919242007287561}
+  - component: {fileID: 1686183134153143643}
   m_Layer: 0
   m_Name: Branch_right1
   m_TagString: Untagged
@@ -1232,6 +1458,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1686183134153143643
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4580149184447245381}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &5041051619832409277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1483,7 @@ GameObject:
   - component: {fileID: 6219495679583775103}
   - component: {fileID: 1064582008294687751}
   - component: {fileID: 5640155530820157964}
+  - component: {fileID: 3515341168532748572}
   m_Layer: 0
   m_Name: Bridge_wall_branch_right4
   m_TagString: Untagged
@@ -1309,6 +1550,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3515341168532748572
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5041051619832409277}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &5293787263616140766
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1575,7 @@ GameObject:
   - component: {fileID: 1017626236911358384}
   - component: {fileID: 4520086367197720518}
   - component: {fileID: 4319136394848902855}
+  - component: {fileID: 5699605748474587138}
   m_Layer: 0
   m_Name: Branch_Left2
   m_TagString: Untagged
@@ -1386,6 +1642,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5699605748474587138
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5293787263616140766}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &5518134579849503082
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,6 +1667,7 @@ GameObject:
   - component: {fileID: 120998047374599867}
   - component: {fileID: 3723304733704522265}
   - component: {fileID: 6757023339320277848}
+  - component: {fileID: 8384746737573372793}
   m_Layer: 0
   m_Name: Bridge_wall_branch_left5
   m_TagString: Untagged
@@ -1463,6 +1734,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &8384746737573372793
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518134579849503082}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &6107649473083170022
 GameObject:
   m_ObjectHideFlags: 0
@@ -1474,6 +1759,7 @@ GameObject:
   - component: {fileID: 8729249502024680405}
   - component: {fileID: 8811262666554044005}
   - component: {fileID: 2706112251445223667}
+  - component: {fileID: 1296859720570123375}
   m_Layer: 0
   m_Name: Bridge_wall_branch_left4
   m_TagString: Untagged
@@ -1540,6 +1826,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1296859720570123375
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6107649473083170022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &6144223012744466880
 GameObject:
   m_ObjectHideFlags: 0
@@ -1551,6 +1851,7 @@ GameObject:
   - component: {fileID: 4345842321631512893}
   - component: {fileID: 3722807348370629997}
   - component: {fileID: 5585057678454125379}
+  - component: {fileID: 1674318109477763524}
   m_Layer: 0
   m_Name: Bridge_wall_branch_left1
   m_TagString: Untagged
@@ -1617,6 +1918,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &1674318109477763524
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144223012744466880}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &6289854391788729473
 GameObject:
   m_ObjectHideFlags: 0
@@ -1628,6 +1943,7 @@ GameObject:
   - component: {fileID: 9084168992887950076}
   - component: {fileID: 1821165724761070843}
   - component: {fileID: 2599907414640727336}
+  - component: {fileID: 2725840896063512778}
   m_Layer: 0
   m_Name: Branch_right5
   m_TagString: Untagged
@@ -1694,6 +2010,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2725840896063512778
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289854391788729473}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &6603511731710047941
 GameObject:
   m_ObjectHideFlags: 0
@@ -1705,6 +2035,7 @@ GameObject:
   - component: {fileID: 6915376958716378040}
   - component: {fileID: 972694396285386921}
   - component: {fileID: 7916374142765633055}
+  - component: {fileID: 2214290862943746693}
   m_Layer: 0
   m_Name: Branch_Left7
   m_TagString: Untagged
@@ -1771,6 +2102,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2214290862943746693
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6603511731710047941}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &6676516483068878472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,6 +2127,7 @@ GameObject:
   - component: {fileID: 6301378276916403908}
   - component: {fileID: 1785356309245316625}
   - component: {fileID: 2178874451555931533}
+  - component: {fileID: 2199962399286505859}
   m_Layer: 0
   m_Name: Branch_right3
   m_TagString: Untagged
@@ -1848,6 +2194,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2199962399286505859
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6676516483068878472}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &7810038165385906220
 GameObject:
   m_ObjectHideFlags: 0
@@ -1859,6 +2219,7 @@ GameObject:
   - component: {fileID: 7219175941344397658}
   - component: {fileID: 2113217956665077117}
   - component: {fileID: 2261159978903021181}
+  - component: {fileID: 7220025468834061103}
   m_Layer: 0
   m_Name: Branch_Left1
   m_TagString: Untagged
@@ -1925,6 +2286,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7220025468834061103
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7810038165385906220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &7950383451842579374
 GameObject:
   m_ObjectHideFlags: 0
@@ -1936,6 +2311,7 @@ GameObject:
   - component: {fileID: 5222995362903968134}
   - component: {fileID: 6178036944963725767}
   - component: {fileID: 461935185615911150}
+  - component: {fileID: 141283327251020788}
   m_Layer: 0
   m_Name: Bridge_wall_branch_right2
   m_TagString: Untagged
@@ -2002,6 +2378,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &141283327251020788
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7950383451842579374}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &8064702166620969360
 GameObject:
   m_ObjectHideFlags: 0
@@ -2013,6 +2403,7 @@ GameObject:
   - component: {fileID: 5407080069385333032}
   - component: {fileID: 3198239683663780782}
   - component: {fileID: 3923458540709640510}
+  - component: {fileID: 2540375851393075499}
   m_Layer: 0
   m_Name: Bridge_wall_branch_left6
   m_TagString: Untagged
@@ -2079,6 +2470,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &2540375851393075499
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064702166620969360}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &8572326578199299210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2090,6 +2495,7 @@ GameObject:
   - component: {fileID: 7122573831141469520}
   - component: {fileID: 6038059740201676539}
   - component: {fileID: 7655649564908041889}
+  - component: {fileID: 7230791040420413482}
   m_Layer: 0
   m_Name: Bridge_wall_branch_right6
   m_TagString: Untagged
@@ -2156,6 +2562,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7230791040420413482
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572326578199299210}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &8744750268950161505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,6 +2587,7 @@ GameObject:
   - component: {fileID: 78789297378590270}
   - component: {fileID: 1926850117363870835}
   - component: {fileID: 3789210218096425474}
+  - component: {fileID: 3635745442335908050}
   m_Layer: 0
   m_Name: Bridge_Border1
   m_TagString: Untagged
@@ -2233,6 +2654,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &3635745442335908050
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8744750268950161505}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4495315344341838992, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &8745113252490482348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2679,7 @@ GameObject:
   - component: {fileID: 6973672517602442573}
   - component: {fileID: 4426351990359149337}
   - component: {fileID: 648879141901364151}
+  - component: {fileID: 5410155386662750140}
   m_Layer: 0
   m_Name: Bridge_wall_branch_left2
   m_TagString: Untagged
@@ -2310,6 +2746,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5410155386662750140
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8745113252490482348}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &8776833142623331006
 GameObject:
   m_ObjectHideFlags: 0
@@ -2321,6 +2771,7 @@ GameObject:
   - component: {fileID: 2436546849524207440}
   - component: {fileID: 8322368541491959194}
   - component: {fileID: 4807242090393943633}
+  - component: {fileID: 5147293149423472257}
   m_Layer: 0
   m_Name: Branch_right8
   m_TagString: Untagged
@@ -2387,6 +2838,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &5147293149423472257
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8776833142623331006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -4747520851063094331, guid: afbe2523937fb8a4d9b439898115755f, type: 3}
 --- !u!1 &9150493284907876146
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,6 +2861,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5234956217672076577}
+  - component: {fileID: 5520640747011569497}
   m_Layer: 0
   m_Name: Elven_Style_Bridge
   m_TagString: Untagged
@@ -2448,3 +2914,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90.297005, z: 0}
+--- !u!64 &5520640747011569497
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9150493284907876146}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
