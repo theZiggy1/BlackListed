@@ -6,17 +6,32 @@ public class WizardClass : BaseClass
 {
     public override void abilityAttack()
     {
-        throw new System.NotImplementedException();
+        if (abilityCoolDown <= 0)
+        {
+            abilityCoolDown = genericAttackReset;
+            GameObject Melee = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
+            //   Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
+            Destroy(Melee, 5.0f);
+        }
     }
 
     public override void genericAttack()
     {
-        throw new System.NotImplementedException();
+        if (genericAattackCoolDown <= 0)
+        {
+            genericAattackCoolDown = genericAttackReset;
+            GameObject Melee = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
+            Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
+            Destroy(Melee, 0.5f);
+        }
     }
 
     public override void ultraAttack()
     {
-        throw new System.NotImplementedException();
+        if (ultraCoolDown <= 0)
+        {
+            ultraCoolDown = ultraCoolDownReset;
+        }
     }
 
     // Start is called before the first frame update
@@ -28,6 +43,9 @@ public class WizardClass : BaseClass
     // Update is called once per frame
     void Update()
     {
-        
+
+        abilityCoolDown -= Time.deltaTime;
+        ultraCoolDown -= Time.deltaTime;
+        genericAattackCoolDown -= Time.deltaTime;
     }
 }
