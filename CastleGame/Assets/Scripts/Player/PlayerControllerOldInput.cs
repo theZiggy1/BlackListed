@@ -50,6 +50,8 @@ public class PlayerControllerOldInput : MonoBehaviour
     bool isRangedAttack = true; //whether or not the character is attacking with a ranged attack. This will be depreciated if we implement more then 2 wepaons
 
     private string GAMEMANAGER_TAG = "GameManager";
+    private string GROUND_TAG = "Ground";
+    bool canJump = true;
     private GameObject gameManager;
 
     public int playerNum;
@@ -462,13 +464,25 @@ public class PlayerControllerOldInput : MonoBehaviour
      */ 
     void OnJump()
     {
-        Debug.Log("Jumping!");
-        this.GetComponent<Rigidbody>().AddForce(0.0f, jumpForce, 0.0f);
+        if (canJump)
+        {
+            canJump = false;
+            Debug.Log("Jumping!");
+            this.GetComponent<Rigidbody>().AddForce(0.0f, jumpForce, 0.0f);
+        }
     }
 
 
     private void SetupControls()
     {
         
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == GROUND_TAG)
+        {
+            canJump = true;
+        }
     }
 }
