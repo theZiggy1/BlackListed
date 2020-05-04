@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GunslingerClass : BaseClass
 {
+    public float forceStrength;
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -20,10 +21,11 @@ public class GunslingerClass : BaseClass
         if (genericAattackCoolDown <= 0)
         {
             genericAattackCoolDown = genericAttackReset;
-            GameObject Melee = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
-            Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
-            Destroy(Melee, 0.5f);
+            GameObject Bullet = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
+            Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * forceStrength);
+            Destroy(Bullet, 0.5f);
         }
+    }
 
     public override void ultraAttack()
     {
