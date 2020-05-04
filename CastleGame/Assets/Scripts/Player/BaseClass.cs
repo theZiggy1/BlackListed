@@ -12,6 +12,14 @@ public abstract class BaseClass : MonoBehaviour
     public GameObject basicAttackObj;
     public GameObject abilityAttackObj;
     public GameObject ultraAttackObj;
+
+    public float abilityCoolDown;
+    public float ultraCoolDown;
+    public float abilityCoolDownReset;
+    public float ultraCoolDownReset;
+    public float genericAattackCoolDown;
+    public float genericAttackReset;
+
     void Start()
     {
         
