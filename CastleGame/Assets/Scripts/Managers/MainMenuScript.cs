@@ -32,4 +32,18 @@ public class MainMenuScript : MonoBehaviour
         
         SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Single);
     }
+
+    public void QuitGame()
+    {
+        Debug.Log("Quitting game");
+        
+#if UNITY_EDITOR
+        // If we're using Unity Editor, stop play mode
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        // If we're using built game, quit application
+        Application.Quit ();
+#endif
+
+    }
 }
