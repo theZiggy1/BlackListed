@@ -79,6 +79,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     //AB Dyeable clothing
     public GameObject clothingPiece; //AB This will be changed to an array at some point - for now just quick implementation
 
+    [SerializeField] BaseClass myclass;
 
     private Animator GetAnimator(string anim_name)
     {
@@ -445,7 +446,8 @@ public class PlayerControllerOldInput : MonoBehaviour
      * */
     void OnAttackRightTrigger()
     {
-      //  Debug.Log("Attacking!");
+        //  Debug.Log("Attacking!");
+        if (myclass != null) { myclass.genericAttack(); }
 
         if (isRangedAttack)
         {
@@ -478,6 +480,8 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     private void OnAbilityLeftTrigger()
     {
+
+        if (myclass != null) { myclass.abilityAttack(); }
         Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
     }
 
@@ -486,6 +490,7 @@ public class PlayerControllerOldInput : MonoBehaviour
      */
     void OnSwitchWeapon()
     {
+        if (myclass != null) { myclass.ultraAttack(); }
         isRangedAttack = !isRangedAttack;
       //  Debug.Log("Switching Weapon!" + isRangedAttack);
     }
