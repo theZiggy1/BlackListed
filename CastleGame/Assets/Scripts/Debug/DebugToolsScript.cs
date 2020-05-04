@@ -20,6 +20,8 @@ public class DebugToolsScript : MonoBehaviour
     [SerializeField]
     private GameObject playerInputManager;
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
