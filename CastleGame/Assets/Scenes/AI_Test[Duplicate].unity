@@ -119,7 +119,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 0}
+  m_NavMeshData: {fileID: 23800000, guid: 19281efde589e394e8621d36120dec76, type: 2}
 --- !u!1 &90569334
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomTargetObject: {fileID: 0}
-  followPlayerObject: {fileID: 1824798683}
+  followPlayerObject: {fileID: 0}
   moveSpeed: 100
   moveToRoom: 0
 --- !u!1 &313427386
@@ -730,6 +730,11 @@ PrefabInstance:
       propertyPath: usingHealthBar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7284649508481387133, guid: c104d8bbcd9025b488030beb27607ac5,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 6.97
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c104d8bbcd9025b488030beb27607ac5, type: 3}
 --- !u!1 &895638872
@@ -944,12 +949,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!4 &1116694276 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3781615238339563569, guid: c104d8bbcd9025b488030beb27607ac5,
-    type: 3}
-  m_PrefabInstance: {fileID: 876633488}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1390419356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1037,7 +1036,6 @@ MonoBehaviour:
   waveEndTime: 1
   numEnemies: 0
   enemiesToSpawn:
-  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
   - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
   spawnLocations:
   - {fileID: 620087938}
@@ -1137,36 +1135,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958bb2ac4d041a4bb0ee9b3868f66dd, type: 3}
---- !u!1 &1824798682
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1824798683}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1824798683
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1824798682}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 17.63, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1116694276}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2014078306
 GameObject:
   m_ObjectHideFlags: 0
