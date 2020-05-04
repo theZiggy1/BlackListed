@@ -1211,6 +1211,8 @@ GameObject:
   - component: {fileID: 4298322441017848803}
   - component: {fileID: 3969303934101984956}
   - component: {fileID: 3606983860248848794}
+  - component: {fileID: 8823910744793796166}
+  - component: {fileID: 1121561810674945213}
   m_Layer: 0
   m_Name: Ian Enemy
   m_TagString: Enemy
@@ -1300,7 +1302,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4298322441017848800}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d46239892552b8544a907544a57d50c1, type: 3}
   m_Name: 
@@ -1309,7 +1311,7 @@ MonoBehaviour:
   playerToFight: -1
   gameManager: {fileID: 0}
   playerObj: {fileID: 0}
-  inheritedScript: {fileID: 0}
+  inheritedScript: {fileID: 1121561810674945213}
   damping: 2
   moveSpeed: 5
   numEnemies: 0
@@ -1322,10 +1324,11 @@ MonoBehaviour:
   newLocation: {x: 0, y: 0, z: 0}
   radius: 10
   rangedRadius: 15
-  rangedEnemyAttack: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+  rangedEnemyAttack: {fileID: 6516411327514499333, guid: feb03f85e2b6cd34784451a452528e91,
     type: 3}
   bulletSpawn: {fileID: 7520904752236182431}
   forceStrength: 200
+  thisAgent: {fileID: 8823910744793796166}
   enemyAnimator: {fileID: 0}
   MoveTo: 0
   performingAttack: 0
@@ -1357,6 +1360,44 @@ MonoBehaviour:
   dropChances: []
   randomNumber: 0
   itemToDrop: {fileID: 0}
+--- !u!195 &8823910744793796166
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298322441017848800}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &1121561810674945213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4298322441017848800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf55f32766a4e54aae3e37f7e974d6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Spawner: {fileID: 0}
+  playerToFight: -1
+  gameManager: {fileID: 0}
+  playerObj: {fileID: 0}
 --- !u!1 &4399036175073850036
 GameObject:
   m_ObjectHideFlags: 0

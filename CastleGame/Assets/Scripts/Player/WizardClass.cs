@@ -2,8 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WizardClass : MonoBehaviour
+public class WizardClass : BaseClass
 {
+    public override void abilityAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void genericAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ultraAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+
     // Start is called before the first frame update
     void Start()
     {

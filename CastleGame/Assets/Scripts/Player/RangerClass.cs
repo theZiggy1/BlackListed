@@ -2,17 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RangerClass : MonoBehaviour
-{
-    // Start is called before the first frame update
+public class RangerClass : BaseClass
+{ 
+    public override void abilityAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+    public override void genericAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override void ultraAttack()
+    {
+        throw new System.NotImplementedException();
+    }
+// Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
+
 }

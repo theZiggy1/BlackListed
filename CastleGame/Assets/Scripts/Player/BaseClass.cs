@@ -5,13 +5,13 @@ using UnityEngine;
 public abstract class BaseClass : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] Transform basicAttackLocation;
-    [SerializeField] Transform abilityLocation;
-    [SerializeField] Transform ultraLocation;
+    public  Transform basicAttackLocation;
+    public Transform abilityLocation;
+    public Transform ultraLocation;
 
-    [SerializeField] GameObject basicAttackObj;
-    [SerializeField] GameObject abilityAttackObj;
-    [SerializeField] GameObject ultraAttackObj;
+    public GameObject basicAttackObj;
+    public GameObject abilityAttackObj;
+    public GameObject ultraAttackObj;
     void Start()
     {
         
