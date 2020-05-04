@@ -56,6 +56,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     public int playerNum;
     bool Attacking = false; // the right trigger is in fact an axis, and to keep the player from attacking each frame, once the trigger is depressed, this is called, and not reverted until the trigger is released completely. 
+    private bool doingAbility = false;
 
     // Tree stuff
     [SerializeField] GameObject insideTreeCamera;
@@ -271,7 +272,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                 Attacking = true;
             }
         }
-         //This links with the above section. attacking needs to be reset when the player is odne pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
+         //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
         if (Attacking == true)
         {
             if (Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
@@ -281,6 +282,33 @@ public class PlayerControllerOldInput : MonoBehaviour
                 //SetAnimationInteger("Condition", 0);
             }
         }
+
+        //Handles the ability using from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
+        if (Input.GetAxis("Joy" + playerID + "LeftTrigger") != 0.0f)
+        {
+            if (doingAbility == false)
+            {
+                // Does the attack
+                OnAbilityLeftTrigger(); // Currently doesn't do anything
+
+                // Plays the animation
+                //SetAnimationInteger("Condition", INT);
+
+                // Sets us so we're attacking
+                doingAbility = true;
+            }
+        }
+        //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
+        if (doingAbility == true)
+        {
+            if (Input.GetAxis("Joy" + playerID + "LeftTrigger") == 0.0f)
+            {
+                doingAbility = false;
+
+                //SetAnimationInteger("Condition", 0);
+            }
+        }
+
 
         //buttons only return true the frame they are called with button down, so the above isnt true here. This lets us handle switching weapons.
         if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
@@ -446,6 +474,11 @@ public class PlayerControllerOldInput : MonoBehaviour
             Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
             Destroy(Melee, 0.5f);
         }
+    }
+
+    private void OnAbilityLeftTrigger()
+    {
+        Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
     }
 
     /*
