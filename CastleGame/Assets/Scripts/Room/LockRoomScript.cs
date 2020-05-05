@@ -37,11 +37,28 @@ public class LockRoomScript : MonoBehaviour
     [SerializeField]
     private bool waveNotSpawned = true;
 
+    [SerializeField]
+    [Tooltip("How long we give the players to enter the room, after this has expired, players are instead teleported into the room")]
+    private float playersEnteredTimer = 10f;
+
+    [SerializeField]
+    [Tooltip("The points that the four players get teleported to, if they don't enter the room in time")]
+    private Transform[] teleportPoints;
+
+    [SerializeField]
+    [Tooltip("The players in the scene, found at runtime")]
+    private GameObject[] players;
+
+    [SerializeField]
+    private bool coroutineStarted;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         numOfPlayers = gameManager.GetComponent<GameManagerScript>().numPlayers;
+        // Gets our current players, so that we can teleport the players if needs be
+        players = gameManager.GetComponent<GameManagerScript>().currentPlayers;
     }
 
     // Update is called once per frame
@@ -136,11 +153,23 @@ public class LockRoomScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // If a player enters our trigger
-        if (other.gameObject.CompareTag("Player"))
+        // We only need to do this if not all the players have entered yet
+        if (playersEntered != numOfPlayers)
         {
-            Debug.Log("A player has entered the arena");
-            playersEntered++;
+            // If a player enters our trigger
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("A player has entered the arena");
+                playersEntered++;
+
+                if (!coroutineStarted)
+                {
+                    Debug.Log("Starting countdown");
+                    StartCoroutine(EnteredRoomTimer());
+
+                    coroutineStarted = true;
+                }
+            }
         }
 
         // If *all* the players have entered
@@ -148,16 +177,47 @@ public class LockRoomScript : MonoBehaviour
         {
             Debug.Log("All players have entered, starting wave");
             StartWave();
+
+            Debug.Log("Stopping countdown, as all players have entered");
+            StopCoroutine(EnteredRoomTimer());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        // If a player leaves our trigger
-        if (other.gameObject.CompareTag("Player"))
+        // We only need to do this if not all the players have entered yet
+        if (playersEntered != numOfPlayers)
         {
-            Debug.Log("A player has left the arena");
-            playersEntered--;
+            // If a player leaves our trigger
+            if (other.gameObject.CompareTag("Player"))
+            {
+                Debug.Log("A player has left the arena");
+                playersEntered--;
+            }
         }
+    }
+
+    // Teleports all the players into the room
+    private void TeleportPlayersToRoom()
+    {
+        Debug.Log("Teleporting players to room");
+
+        for (int i = 0; i < numOfPlayers; i++)
+        {
+            // 'Teleports' the player
+            players[i].transform.position = teleportPoints[i].position;
+        }
+    }
+
+    private IEnumerator EnteredRoomTimer()
+    {
+        // Waits for timer to be up
+        yield return new WaitForSeconds(playersEnteredTimer);
+
+        // Then teleports the players into the room
+        TeleportPlayersToRoom();
+
+        // Also makes sure that the wave starts
+        StartWave();
     }
 }
