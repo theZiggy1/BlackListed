@@ -11,6 +11,11 @@ public class WaveSpawning : MonoBehaviour
     public int numWaves;
     public int currentWave = 0;
     public int numEnemies;
+
+    [Space(10)]
+
+    [SerializeField]
+    private GameObject doorLocker;
         
     // Start is called before the first frame update
     void Start()
@@ -30,10 +35,14 @@ public class WaveSpawning : MonoBehaviour
 
         if (currentWave == numWaves)
         {
-            foreach(GameObject door in Doors)
-            {
-                door.SetActive(false);
-            }
+            //foreach(GameObject door in Doors)
+            //{
+            //    door.SetActive(false);
+            //}
+
+            // Once waves are done, unlock the room
+            doorLocker.GetComponent<LockRoomScript>().UnlockRoom();
+            
             //were done
             // can end the area
         }

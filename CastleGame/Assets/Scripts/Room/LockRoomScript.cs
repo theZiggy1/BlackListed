@@ -15,6 +15,9 @@ public class LockRoomScript : MonoBehaviour
     [SerializeField]
     [Tooltip("Used to say which doors are locked at the start, corresponds with the doorLockColliders array")]
     private bool[] doorsLockedAtStart;
+    [SerializeField]
+    private GameObject[] doorObjects;
+
 
     [Space(15)]
 
@@ -30,6 +33,9 @@ public class LockRoomScript : MonoBehaviour
 
     [SerializeField]
     private int playersEntered; // Used to keep track of how many players have entered the trigger
+
+    [SerializeField]
+    private bool waveNotSpawned = true;
 
     // Start is called before the first frame update
     void Start()
@@ -76,11 +82,57 @@ public class LockRoomScript : MonoBehaviour
 
     private void StartWave()
     {
-        if (battleArea != null)
+        if (waveNotSpawned)
         {
-            battleArea.GetComponent<WaveSpawning>().playersHaveEntered();
+            if (battleArea != null)
+            {
+                // Tells the battle area to start the waves of enemies
+                battleArea.GetComponent<WaveSpawning>().playersHaveEntered();
+
+                // Locks the room
+                LockRoom();
+
+                // Now the wave has spawned, so we set this to false
+                waveNotSpawned = false;
+            }
         }
     }
+
+
+    // This will activate the room's colliders, and raise the doors
+    private void LockRoom()
+    {
+        Debug.Log("Locking room!");
+        // Activate all the colliders
+        foreach (GameObject colliderBox in doorLockColliders)
+        {
+            colliderBox.SetActive(true);
+        }
+
+        // Raise the doors
+        foreach (GameObject door in doorObjects)
+        {
+            door.GetComponent<DoorObjectScript>().RaiseDoor();
+        }
+    }
+
+    // Deactivates the room's colliders, and lowers the doors
+    public void UnlockRoom()
+    {
+        Debug.Log("Unlocking room!");
+        // Deactivate all the colliders
+        foreach (GameObject colliderBox in doorLockColliders)
+        {
+            colliderBox.SetActive(false);
+        }
+
+        // Lower the doors
+        foreach (GameObject door in doorObjects)
+        {
+            door.GetComponent<DoorObjectScript>().LowerDoor();
+        }
+    }
+
 
     private void OnTriggerEnter(Collider other)
     {
