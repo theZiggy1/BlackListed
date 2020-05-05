@@ -3952,6 +3952,7 @@ Transform:
   - {fileID: 9068317767331209780}
   - {fileID: 8899998647219600430}
   - {fileID: 8899998647954663803}
+  - {fileID: 358813588853185187}
   m_Father: {fileID: 4420566335824854099}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -4685,11 +4686,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   basicAttackLocation: {fileID: 8899998647954663803}
-  abilityLocation: {fileID: 0}
-  ultraLocation: {fileID: 0}
-  basicAttackObj: {fileID: 0}
-  abilityAttackObj: {fileID: 0}
-  ultraAttackObj: {fileID: 0}
+  abilityLocation: {fileID: 8899998647219600430}
+  ultraLocation: {fileID: 358813588853185187}
+  basicAttackObj: {fileID: 5930559040218471784, guid: cb62ca106b56f2e479cb6999733b3b61,
+    type: 3}
+  abilityAttackObj: {fileID: 6341742899488700442, guid: a42e120bf8ef3ea41a3c1edb3410cd11,
+    type: 3}
+  ultraAttackObj: {fileID: 4202388122349516071, guid: 9679738fcb02ca24188e34a94a4690d9,
+    type: 3}
   abilityCoolDown: 0
   ultraCoolDown: 0
   abilityCoolDownReset: 0
@@ -6606,6 +6610,36 @@ Transform:
   - {fileID: 495120759544373429}
   m_Father: {fileID: 8954141071888120270}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6419772505959594090
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 358813588853185187}
+  m_Layer: 0
+  m_Name: UltraSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &358813588853185187
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6419772505959594090}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.006317974, y: 0.74, z: 2.0215743}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1076356010035264368}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6427899310532092276
 GameObject:
@@ -9606,7 +9640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8899998647219600430}
   m_Layer: 0
-  m_Name: projectileSpawn
+  m_Name: AbilitySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9619,8 +9653,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8899998647219600431}
-  m_LocalRotation: {x: -0, y: -0.018227993, z: -0, w: 0.9998339}
-  m_LocalPosition: {x: 0, y: 2.38, z: 3.3000042}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.08, y: 0.77, z: 1.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1076356010035264368}
@@ -9636,7 +9670,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8899998647954663803}
   m_Layer: 0
-  m_Name: meleeSpawn
+  m_Name: AttackSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

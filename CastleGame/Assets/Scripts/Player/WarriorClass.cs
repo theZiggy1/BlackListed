@@ -21,7 +21,7 @@ public class WarriorClass : BaseClass
         {
             genericAattackCoolDown = genericAttackReset;
             GameObject Melee = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
-            Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
+            //Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
             Destroy(Melee, 0.5f);
         }
     }
@@ -31,6 +31,8 @@ public class WarriorClass : BaseClass
       if(ultraCoolDown<=0)
         {
             ultraCoolDown = ultraCoolDownReset;
+            GameObject Ultra = GameObject.Instantiate(ultraAttackObj, ultraLocation.position, ultraLocation.rotation);
+            Destroy(Ultra, 5.0f);
         }
     }
 
