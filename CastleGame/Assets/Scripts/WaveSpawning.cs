@@ -7,6 +7,7 @@ public class WaveSpawning : MonoBehaviour
 
     [SerializeField] Wave[] waveScripts;
     [SerializeField] GameObject gameManager;
+    [SerializeField] GameObject[] Doors;
     public int numWaves;
     public int currentWave = 0;
     public int numEnemies;
@@ -29,6 +30,10 @@ public class WaveSpawning : MonoBehaviour
 
         if (currentWave == numWaves)
         {
+            foreach(GameObject door in Doors)
+            {
+                door.SetActive(false);
+            }
             //were done
             // can end the area
         }
@@ -51,6 +56,11 @@ public class WaveSpawning : MonoBehaviour
 
     public void playersHaveEntered()
     {
+        foreach (GameObject door in Doors)
+        {
+            door.SetActive(true);
+        }
+        //Also need to enable the objects that keep the players from leaving the area here. 
         WaveSelector();
     }
     //Call this when we want to start the next wave. it will call the start wave function, and at the end, call spawnenemies on the wave. 
