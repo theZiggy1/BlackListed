@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 112000000, guid: 3e902d0d5fb6d85409d5f651e19645c2,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -112,7 +112,7 @@ NavMeshSettings:
     agentClimb: 0.8
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
-    minRegionArea: 2
+    minRegionArea: 0
     manualCellSize: 0
     cellSize: 0.16666667
     manualTileSize: 0
@@ -44461,7 +44461,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.34
+      value: 5.39
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
@@ -44471,7 +44471,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -159.69
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
@@ -55724,7 +55724,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.1
+      value: 5.74
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
@@ -55734,7 +55734,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -173.3
+      value: -162.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d8d947e6103821a4681b061f8599fea7,
         type: 3}
