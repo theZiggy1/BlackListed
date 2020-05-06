@@ -4536,6 +4536,7 @@ MonoBehaviour:
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
   clothingPiece: {fileID: 2974048407695749972}
   myclass: {fileID: 4017670159603876779}
+  isTumbling: 0
 --- !u!114 &9114107646784899917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4763,6 +4764,8 @@ MonoBehaviour:
   genericAattackCoolDown: 0
   genericAttackReset: 0
   forceStrength: 10
+  timeUntilAnimFinished: 0
+  inputScript: {fileID: 3496179518173501236}
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0

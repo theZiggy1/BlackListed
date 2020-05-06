@@ -5,6 +5,9 @@ using UnityEngine;
 public class GunslingerClass : BaseClass
 {
     public float forceStrength;
+    public float timeUntilAnimFinished;
+
+    [SerializeField] PlayerControllerOldInput inputScript;
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -12,6 +15,9 @@ public class GunslingerClass : BaseClass
             abilityCoolDown = genericAttackReset;
             this.gameObject.transform.position = abilityLocation.position;
             genericAattackCoolDown = 0.0f;
+
+            inputScript.isTumbling = true;
+            StartCoroutine("WaitUntilTumble", timeUntilAnimFinished);
         }
     }
 
@@ -46,5 +52,11 @@ public class GunslingerClass : BaseClass
         abilityCoolDown -= Time.deltaTime;
         ultraCoolDown -= Time.deltaTime;
         genericAattackCoolDown -= Time.deltaTime;
+    }
+
+    IEnumerator WaitUntilTumble(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        inputScript.isTumbling = false;
     }
 }

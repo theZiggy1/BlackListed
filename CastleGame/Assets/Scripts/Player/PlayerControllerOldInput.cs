@@ -81,6 +81,8 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     [SerializeField] BaseClass myclass;
 
+    public bool isTumbling = false;
+
     private Animator GetAnimator(string anim_name)
     {
         foreach (Animator anim in Animators)
@@ -330,6 +332,11 @@ public class PlayerControllerOldInput : MonoBehaviour
      */
     void Movement()
     {
+
+        if(isTumbling)
+        {
+            return;
+        }
         //Vector3 movement = new Vector3(movementVec.y, 0.0f, -movementVec.x) * movespeed * Time.deltaTime;
         //transform.Translate(movement);
 
@@ -402,7 +409,10 @@ public class PlayerControllerOldInput : MonoBehaviour
      */
     void LookAt()
     {
-       
+       if(isTumbling)
+        {
+            return;
+        }
         //like in movement, instead of being given the vector we need to build it ourselves. 
        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
       //  Debug.Log(LookDirection+" Right Stick Look around");

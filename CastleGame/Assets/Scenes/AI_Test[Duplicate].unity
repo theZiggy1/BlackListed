@@ -2112,6 +2112,8 @@ MonoBehaviour:
   genericAattackCoolDown: 0
   genericAttackReset: 0
   forceStrength: 10
+  timeUntilAnimFinished: 0.5
+  inputScript: {fileID: 879913423924282403}
 --- !u!23 &825383783847276844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2232,6 +2234,7 @@ MonoBehaviour:
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
   clothingPiece: {fileID: 1582744111967232067}
   myclass: {fileID: 825101693728379068}
+  isTumbling: 0
 --- !u!33 &911736923082125332
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7428,7 +7431,7 @@ MonoBehaviour:
   isPlayer: 1
   startingHealth: 100
   currentHealth: 0
-  usingHealthBar: 1
+  usingHealthBar: 0
   healthBar: {fileID: 0}
   deathType: 1
   isInvulnerable: 0
