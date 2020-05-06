@@ -4451,6 +4451,7 @@ GameObject:
   - component: {fileID: 9114107646784899917}
   - component: {fileID: 6359442801039663996}
   - component: {fileID: 6359442801039663999}
+  - component: {fileID: -5873657063619624558}
   m_Layer: 0
   m_Name: BrianWizard
   m_TagString: Player
@@ -4532,6 +4533,8 @@ MonoBehaviour:
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
   clothingPiece: {fileID: 935149844263020953}
+  myclass: {fileID: 0}
+  isTumbling: 0
 --- !u!114 &9114107646784899917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4670,6 +4673,32 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &-5873657063619624558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4420566335824854092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece9dcda46fbf2c47a9609acc2a0ab86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicAttackLocation: {fileID: 8899998647219600430}
+  abilityLocation: {fileID: 8899998647954663803}
+  ultraLocation: {fileID: 8899998647219600430}
+  basicAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+    type: 3}
+  abilityAttackObj: {fileID: 0}
+  ultraAttackObj: {fileID: 0}
+  abilityCoolDown: 0
+  ultraCoolDown: 0
+  abilityCoolDownReset: 0
+  ultraCoolDownReset: 0
+  genericAattackCoolDown: 0
+  genericAttackReset: 0
+  forceStrength: 0
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0
@@ -9580,7 +9609,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8899998647219600430}
   m_Layer: 0
-  m_Name: projectileSpawn
+  m_Name: genericSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9594,7 +9623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8899998647219600431}
   m_LocalRotation: {x: -0, y: -0.018227993, z: -0, w: 0.9998339}
-  m_LocalPosition: {x: 0, y: 2.38, z: 3.3000042}
+  m_LocalPosition: {x: 0.07, y: 1.23, z: 1.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1076356010035264368}
@@ -9610,7 +9639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8899998647954663803}
   m_Layer: 0
-  m_Name: meleeSpawn
+  m_Name: AbilitySpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9624,7 +9653,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8899998647954663800}
   m_LocalRotation: {x: -0, y: -0.018227993, z: -0, w: 0.9998339}
-  m_LocalPosition: {x: 0.006317974, y: 0.74, z: 2.0215743}
+  m_LocalPosition: {x: 0.08, y: 0.16, z: 0.08}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1076356010035264368}
