@@ -10,9 +10,8 @@ public class GunslingerClass : BaseClass
         if (abilityCoolDown <= 0)
         {
             abilityCoolDown = genericAttackReset;
-            GameObject Melee = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
-            //   Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
-            Destroy(Melee, 5.0f);
+            this.gameObject.transform.position = abilityLocation.position;
+            genericAattackCoolDown = 0.0f;
         }
     }
 
