@@ -8,8 +8,12 @@ public class EntityDamageScript : MonoBehaviour
     // e.g. A weapon, a bullet, a stalactite
 
     [SerializeField]
-    [Tooltip("The amount of damage this object will do when it hits an entity, !Remember! This object should have a trigger on it!")]
-    private float damage;
+    [Tooltip("The amount of damage this object will do when it hits an entity, or the amount it will heal a player, !Remember! This object should have a trigger on it!")]
+    private float damageOrHealing;
+
+    [SerializeField]
+    [Tooltip("If we're a health potion, we'll only 'damage' players and not enemies")]
+    private bool isHealthPotion;
 
     // Start is called before the first frame update
     void Start()
@@ -25,18 +29,38 @@ public class EntityDamageScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // If we hit anything tagged with player, or enemy
-        if (other.CompareTag("Player") || other.CompareTag("Enemy"))
+        if (isHealthPotion)
         {
-            // If it has an entity script on it
-            if (other.GetComponent<EntityScript>() != null)
+            // If we hit anything tagged with player, or enemy
+            if (other.CompareTag("Player"))
             {
-                other.GetComponent<EntityScript>().TakeDamage(damage);
+                // If it has an entity script on it
+                if (other.GetComponent<EntityScript>() != null)
+                {
+                    other.GetComponent<EntityScript>().TakeDamage(damageOrHealing);
+                }
+                else
+                {
+                    // Outputs this log, as players and enemies should have entity scripts
+                    Debug.Log("We've hit a player (as a health potion) but they don't have an entity script!");
+                }
             }
-            else
+        }
+        else // If we're not a health potion
+        {
+            // If we hit anything tagged with player, or enemy
+            if (other.CompareTag("Player") || other.CompareTag("Enemy"))
             {
-                // Outputs this log, as players and enemies should have entity scripts
-                Debug.Log("We've hit a player/enemy but they don't have an entity script!");
+                // If it has an entity script on it
+                if (other.GetComponent<EntityScript>() != null)
+                {
+                    other.GetComponent<EntityScript>().TakeDamage(damageOrHealing);
+                }
+                else
+                {
+                    // Outputs this log, as players and enemies should have entity scripts
+                    Debug.Log("We've hit a player/enemy but they don't have an entity script!");
+                }
             }
         }
     }

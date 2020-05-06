@@ -447,7 +447,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     void OnAttackRightTrigger()
     {
         //  Debug.Log("Attacking!");
-        if (myclass != null) { myclass.genericAttack(); }
+        if (myclass != null) { myclass.genericAttack(); return; }
 
         if (isRangedAttack)
         {
@@ -481,7 +481,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     private void OnAbilityLeftTrigger()
     {
 
-        if (myclass != null) { myclass.abilityAttack(); }
+        if (myclass != null) { myclass.abilityAttack(); return; }
         Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
     }
 
@@ -490,7 +490,7 @@ public class PlayerControllerOldInput : MonoBehaviour
      */
     void OnSwitchWeapon()
     {
-        if (myclass != null) { myclass.ultraAttack(); }
+        if (myclass != null) { myclass.ultraAttack(); return; }
         isRangedAttack = !isRangedAttack;
       //  Debug.Log("Switching Weapon!" + isRangedAttack);
     }
