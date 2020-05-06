@@ -6,8 +6,9 @@ public class GunslingerClass : BaseClass
 {
     public float forceStrength;
     public float timeUntilAnimFinished;
-
+    public string ENEMY_TAG = "Enemy";
     [SerializeField] PlayerControllerOldInput inputScript;
+    public float enemyDamage = 100;
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -37,6 +38,13 @@ public class GunslingerClass : BaseClass
         if (ultraCoolDown <= 0)
         {
             ultraCoolDown = ultraCoolDownReset;
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(ENEMY_TAG);
+
+            foreach( GameObject EnemyObj in enemies)
+            {
+                EnemyObj.GetComponent<EntityScript>().TakeDamage(enemyDamage);
+                //
+            }
         }
     }
 
