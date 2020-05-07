@@ -290,7 +290,7 @@ public class EntityScript : MonoBehaviour
         {
             Debug.Log("Dropped an item");
             // Spawns the item where the entity currently is
-            Instantiate(itemToDrop, transform.position, transform.rotation);
+            Instantiate(itemToDrop, transform.position, itemToDrop.transform.rotation);
         }
         else
         {
