@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3499683201878781380}
   - component: {fileID: 5189413549782957705}
   - component: {fileID: 4688626967922302750}
+  - component: {fileID: -7471152749788792009}
   m_Layer: 0
   m_Name: Wizard Ability
   m_TagString: Untagged
@@ -91,3 +92,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7471152749788792009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8069792359942950467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc4411fb1510ed146ab88937245c2403, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Players: []
+  PLAYER_TAG: Player
+  gainAmount: -1

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class WarriorClass : BaseClass
 {
+
+    public float forceStrength;
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
         {
-            abilityCoolDown = genericAttackReset;
-            GameObject Melee = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
+            abilityCoolDown = abilityCoolDownReset;
+            GameObject Ranged = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
+            Ranged.GetComponent<Rigidbody>().AddForce(abilityLocation.forward * forceStrength);
             //   Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
-            Destroy(Melee, 5.0f);
+            Destroy(Ranged, 5.0f);
         }
     }
 

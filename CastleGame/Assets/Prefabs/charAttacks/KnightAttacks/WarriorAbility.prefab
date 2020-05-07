@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6226205677500420613}
   - component: {fileID: 8778172839773982603}
   - component: {fileID: 694212950286544611}
-  - component: {fileID: -3286258496854355770}
+  - component: {fileID: -7059248436721038383}
   m_Layer: 0
   m_Name: WarriorAbility
   m_TagString: Untagged
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-3286258496854355770
+--- !u!114 &-7059248436721038383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,6 +101,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6341742899488700442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ec70437a6f3b3442a0d72f59cb2116a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2aaa96790447d9248b642c57ae3f7fab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  forceStrength: 0
+  OTHER_TAG: Enemy
+  enemyDamage: 100

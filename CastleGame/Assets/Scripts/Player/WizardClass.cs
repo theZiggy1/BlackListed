@@ -9,7 +9,7 @@ public class WizardClass : BaseClass
     {
         if (abilityCoolDown <= 0)
         {
-            abilityCoolDown = genericAttackReset;
+            abilityCoolDown = abilityCoolDown;
             GameObject Rift = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
             //   Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
             Destroy(Rift, 5.0f);
@@ -32,6 +32,10 @@ public class WizardClass : BaseClass
         if (ultraCoolDown <= 0)
         {
             ultraCoolDown = ultraCoolDownReset;
+            GameObject Bullet = GameObject.Instantiate(ultraAttackObj, ultraLocation.position, ultraLocation.rotation);
+            Bullet.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
+            Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * forceStrength);
+            Destroy(Bullet, 2.0f);
         }
     }
 

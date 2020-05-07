@@ -4533,7 +4533,7 @@ MonoBehaviour:
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
   clothingPiece: {fileID: 935149844263020953}
-  myclass: {fileID: 0}
+  myclass: {fileID: -5873657063619624558}
   isTumbling: 0
 --- !u!114 &9114107646784899917
 MonoBehaviour:
@@ -4550,7 +4550,7 @@ MonoBehaviour:
   isPlayer: 1
   startingHealth: 100
   currentHealth: 0
-  usingHealthBar: 1
+  usingHealthBar: 0
   healthBar: {fileID: 0}
   deathType: 1
   isInvulnerable: 0
@@ -4690,15 +4690,17 @@ MonoBehaviour:
   ultraLocation: {fileID: 8899998647219600430}
   basicAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
     type: 3}
-  abilityAttackObj: {fileID: 0}
-  ultraAttackObj: {fileID: 0}
+  abilityAttackObj: {fileID: 8069792359942950467, guid: 4f6016e5b5323c74c8d25f72e682c903,
+    type: 3}
+  ultraAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+    type: 3}
   abilityCoolDown: 0
   ultraCoolDown: 0
   abilityCoolDownReset: 0
   ultraCoolDownReset: 0
   genericAattackCoolDown: 0
   genericAttackReset: 0
-  forceStrength: 0
+  forceStrength: 100
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0
