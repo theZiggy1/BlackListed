@@ -4763,9 +4763,15 @@ MonoBehaviour:
   ultraCoolDownReset: 0
   genericAattackCoolDown: 0
   genericAttackReset: 0
-  forceStrength: 10
+  intialBulletVelocity: 100
+  intialDodgeVelocity: 400
+  jumpForce: 250
   timeUntilAnimFinished: 0
+  ENEMY_TAG: Enemy
   inputScript: {fileID: 3496179518173501236}
+  enemyDamage: 100
+  gunslingerBody: {fileID: 4420566335824854096}
+  Brian: {fileID: 4086073068019304803}
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0
