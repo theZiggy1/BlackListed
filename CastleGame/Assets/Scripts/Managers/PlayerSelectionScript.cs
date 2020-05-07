@@ -99,18 +99,7 @@ public class PlayerSelectionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // Moved this to the PlayerSelectManagerScript, in the PlayerSelectScene
-        //if (!levelLoaded)
-        //{
-        //    // If any controller presses start, then we start the game (will be probably be changed to a countdown or wait for all joined players to ready up first)
-        //    if (Input.GetButtonDown("Joy1ButtonStart") || Input.GetButtonDown("Joy2ButtonStart") || Input.GetButtonDown("Joy3ButtonStart") || Input.GetButtonDown("Joy4ButtonStart"))
-        //    {
-        //        // Load the level
-        //        Play();
-        //    }
 
-        //    levelLoaded = true;
-        //}
     }
 
     // Queues our player as 'joined to the game' ready for spawning
@@ -145,12 +134,7 @@ public class PlayerSelectionScript : MonoBehaviour
     {
         if (numOfPlayers < 4)
         {
-            //Instantiate(playerPrefab, transform.position, transform.rotation);
-            //Instantiate(playerPrefab, spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
-
             // Spawns the relevant character, for the player that is currently being spawned
-            //Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
-
             GameObject playerInst = Instantiate(playerPrefabs[characterID], spawnPoints[spawnIndex].transform.position, spawnPoints[spawnIndex].transform.rotation);
 
             // Changes the colour of our clothing according to which player we are
@@ -160,65 +144,7 @@ public class PlayerSelectionScript : MonoBehaviour
             clothingPiece.GetComponent<Renderer>().materials = playerChildMats;
 
             spawnedInPlayers[playerID] = playerInst; // Used to keep track of our players
-
-
-            //// Loop through each of the playerInst's children
-            //foreach (Transform child in playerInst.transform)
-            //{
-            //    // Find child object with tag PlayerSubObject
-            //    if (child.CompareTag("PlayerSubObject"))
-            //    {
-            //        // Loop through each of the child's children
-            //        foreach (Transform secondChild in child)
-            //        {
-            //            //// Find child object with tag PlayerMeshObject - this has the renderer on it
-            //            //if (secondChild.CompareTag("PlayerMeshObject"))
-            //            //{
-            //            //    playerChildMats = secondChild.GetComponent<Renderer>().materials;
-
-            //            //    //playerMats[0].color = Color.black;
-            //            //    //playerMats[0].SetColor("_MainColor", Color.black);
-
-            //            //    // This will change the material at position 0 to show what player we are
-            //            //    // e.g. character's hair colour will change to red if they're player1
-            //            //    playerChildMats[0] = PlayerMaterials[playerID];
-
-            //            //    secondChild.GetComponent<Renderer>().materials = playerChildMats;
-            //            //}
-
-            //            // Find child object with tag PlayerClothing - this has the clothing on it
-            //            if (secondChild.CompareTag("PlayerClothing"))
-            //            {
-            //                foreach (Transform thirdChild in secondChild)
-            //                {
-            //                    // Find child object with tag PlayerMeshObject - this has the renderer on it
-            //                    if (secondChild.CompareTag("PlayerMeshObject"))
-            //                    {
-            //                        playerChildMats = secondChild.GetComponent<Renderer>().materials;
-
-            //                        //playerMats[0].color = Color.black;
-            //                        //playerMats[0].SetColor("_MainColor", Color.black);
-
-            //                        // This will change the material at position 0 to show what player we are
-            //                        // e.g. character's hair colour will change to red if they're player1
-            //                        playerChildMats[0] = PlayerMaterials[playerID];
-
-            //                        secondChild.GetComponent<Renderer>().materials = playerChildMats;
-            //                    }
-            //                }
-            //            }
-
-
-            //        }
-            //    }
-            //}
-
-            //Material[] playerMats = playerInst.GetComponent<Renderer>().materials;
-
-            //playerMats[0].color = Color.black;
-
-            //playerInst.GetComponent<Renderer>().materials = playerMats;
-
+            
             spawnIndex++;
 
             //numOfPlayers++;
@@ -242,16 +168,6 @@ public class PlayerSelectionScript : MonoBehaviour
         player3UI.SetActive(true);
         player4UI.SetActive(true);
 
-        // Annoyingly this is read only
-        //GetComponent<PlayerInputManager>().maxPlayerCount
-
-        // Load the scene additively, so that our currently open scene stays open
-        //SceneManager.LoadScene(gameScene.name, LoadSceneMode.Additive);
-
-        // Load the level we're gonna go to
-        //SceneManager.LoadScene("Level1", LoadSceneMode.Additive);
-        //SceneManager.LoadScene(sceneNameToLoad, LoadSceneMode.Additive);
-        //SceneManager.LoadSceneAsync(sceneNameToLoad, LoadSceneMode.Additive);
         StartCoroutine(LoadSceneAsynchronously());
 
     }
@@ -353,19 +269,7 @@ public class PlayerSelectionScript : MonoBehaviour
 
             loadingBar.value = loadingProgress;
             //loadingBar.value = (Mathf.Clamp01(loadingOperation.progress / 0.9f));
-
-            //// Once we've loaded
-            //if (loadingProgress >= 1f)
-            //{
-            //    // Hide the loading screen
-            //    loadingScreenObject.SetActive(false);
-
-            //    Debug.Log("Level should be loaded now");
-
-            //    // Now that the scene is loaded in, we can load the rest of the stuff we need to
-            //    LoadLevel();
-            //}
-
+            
             // Wait till next frame
             yield return null;
         }

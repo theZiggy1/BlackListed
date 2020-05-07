@@ -97,12 +97,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
     void Start()
     {
         playerInputObject = GameObject.FindGameObjectWithTag("PlayerInputManager");
-
-        // Use to have these appear when you press a, now have it so they disappear when you press a
-        //player1JoinedImage.enabled = false;
-        //player2JoinedImage.enabled = false;
-        //player3JoinedImage.enabled = false;
-        //player4JoinedImage.enabled = false;
     }
 
     // Update is called once per frame

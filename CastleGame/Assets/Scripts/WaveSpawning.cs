@@ -35,16 +35,8 @@ public class WaveSpawning : MonoBehaviour
 
         if (currentWave == numWaves)
         {
-            //foreach(GameObject door in Doors)
-            //{
-            //    door.SetActive(false);
-            //}
-
             // Once waves are done, unlock the room
             doorLocker.GetComponent<LockRoomScript>().UnlockRoom();
-            
-            //were done
-            // can end the area
         }
         else
         {

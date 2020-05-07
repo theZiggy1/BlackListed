@@ -103,31 +103,10 @@ public class FollowPlayerScript : MonoBehaviour
             averageY = averageY / (numberOfPlayers + 1);
             averageZ = averageZ / (numberOfPlayers + 1);
 
-            
-
-            // This is hardcoded for 2 players, come back to this to make it dynamic for however many players there are
-            //Vector3 player1Pos = gameManager.GetComponent<GameManagerScript>().currentPlayers[0].transform.position;
-            //Vector3 player2Pos = gameManager.GetComponent<GameManagerScript>().currentPlayers[1].transform.position;
-
-            //averageXPlusP1 = player1Pos.x + ((averageX - player1Pos.x) / 2);
-            //averageYPlusP1 = player1Pos.y + ((averageY - player1Pos.y) / 2);
-            //averageZPlusP1 = player1Pos.z + ((averageZ - player1Pos.z) / 2);
-
-            //averageXPlusP1 = averageX + ((player1Pos.x - averageX) / 2);
-            //averageYPlusP1 = averageY + ((player1Pos.y - averageY) / 2);
-            //averageZPlusP1 = averageZ + ((player1Pos.z - averageZ) / 2);
-
-            //averageXPlusP1 = averageX - player1Pos.x;
-            //averageYPlusP1 = averageY - player1Pos.y;
-            //averageZPlusP1 = averageZ - player1Pos.z;
-
-            //transform.position = new Vector3((player1Pos.x + (player2Pos.x - player1Pos.x) / 2),
-            //                                  (player1Pos.y + (player2Pos.y - player1Pos.y) / 2),
-            //                                  (player1Pos.z + (player2Pos.z - player1Pos.z) / 2));
 
             transform.position = new Vector3(averageX, averageY, averageZ);
 
-
+            // - Tweak this and add it back in at some point - possibly just have the object the camera is attached to move back instead
             // Camera FOV change
             //mainCamera.GetComponent<Camera>().fieldOfView
 
