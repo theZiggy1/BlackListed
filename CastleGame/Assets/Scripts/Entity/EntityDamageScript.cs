@@ -15,6 +15,10 @@ public class EntityDamageScript : MonoBehaviour
     [Tooltip("If we're a health potion, we'll only 'damage' players and not enemies")]
     private bool isHealthPotion;
 
+    [SerializeField]
+    [Tooltip("If an entity interacts with us, should we destroy ouselves once they do?")]
+    private bool destroyOnTouch;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +41,12 @@ public class EntityDamageScript : MonoBehaviour
                 // If it has an entity script on it
                 if (other.GetComponent<EntityScript>() != null)
                 {
-                    other.GetComponent<EntityScript>().TakeDamage(damageOrHealing);
+                    other.GetComponent<EntityScript>().TakeDamage(damageOrHealing, isHealthPotion);
+
+                    if (destroyOnTouch)
+                    {
+                        DestroySelf();
+                    }
                 }
                 else
                 {
@@ -55,6 +64,11 @@ public class EntityDamageScript : MonoBehaviour
                 if (other.GetComponent<EntityScript>() != null)
                 {
                     other.GetComponent<EntityScript>().TakeDamage(damageOrHealing);
+
+                    if (destroyOnTouch)
+                    {
+                        DestroySelf();
+                    }
                 }
                 else
                 {
@@ -63,5 +77,11 @@ public class EntityDamageScript : MonoBehaviour
                 }
             }
         }
+    }
+
+    // Called if we're told to destroy ourselves once we hit an entity
+    private void DestroySelf()
+    {
+        Destroy(gameObject);
     }
 }

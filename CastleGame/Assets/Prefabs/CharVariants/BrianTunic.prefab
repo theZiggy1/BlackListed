@@ -4532,6 +4532,8 @@ MonoBehaviour:
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
   clothingPiece: {fileID: 2974048407695749972}
+  myclass: {fileID: 0}
+  isTumbling: 0
 --- !u!114 &9114107646784899917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4554,6 +4556,7 @@ MonoBehaviour:
   usingAudio: 1
   audioSource: {fileID: 0}
   audioClipHurt: {fileID: 8300000, guid: 03e2d21b01028724ba29f2796abaedb5, type: 3}
+  audioClipHealed: {fileID: 8300000, guid: 1818b38fe8d448b45be60f7ef4ba5006, type: 3}
   audioClipDied: {fileID: 8300000, guid: 3e0d7272f6062364d9a27c03bd066933, type: 3}
   canDropItem: 0
   itemDrops: []

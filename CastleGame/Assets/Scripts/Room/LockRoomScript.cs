@@ -31,8 +31,7 @@ public class LockRoomScript : MonoBehaviour
     //private bool[] playersEntered; // Array to keep track of which players have entered and which are yet to enter, or have left
     //// I already know this is going to cause a rare bug with the way players/controllers are asigned, so I'll fix that next
 
-    [SerializeField]
-    private int playersEntered; // Used to keep track of how many players have entered the trigger
+    public int playersEntered; // Used to keep track of how many players have entered the trigger
 
     [SerializeField]
     private bool waveNotSpawned = true;
@@ -49,6 +48,8 @@ public class LockRoomScript : MonoBehaviour
     [Tooltip("The players in the scene, found at runtime")]
     private GameObject[] players;
 
+    public bool[] playersEnteredArray; // If e.g. player 2 enters, then element 1 is changed to true, if they leave, it's changed to false again
+
     [SerializeField]
     private bool coroutineStarted;
     //[SerializeField]
@@ -61,6 +62,9 @@ public class LockRoomScript : MonoBehaviour
         numOfPlayers = gameManager.GetComponent<GameManagerScript>().numPlayers;
         // Gets our current players, so that we can teleport the players if needs be
         players = gameManager.GetComponent<GameManagerScript>().currentPlayers;
+
+        // Initialises the playersEnteredArray to be the correct length
+        playersEnteredArray = new bool[numOfPlayers];
     }
 
     // Update is called once per frame
@@ -161,8 +165,18 @@ public class LockRoomScript : MonoBehaviour
             // If a player enters our trigger
             if (other.gameObject.CompareTag("Player"))
             {
-                Debug.Log("A player has entered the arena");
-                playersEntered++;
+                // Only need to do the parts below, if the player hasn't already entered before,
+                // keep track of who has and hasn't entered
+
+                
+
+                // If the current player hasn't entered the arena before
+                if (playersEnteredArray[other.GetComponent<PlayerControllerOldInput>().playerNum] == false)
+                {
+                    Debug.Log("Player " + other.GetComponent<PlayerControllerOldInput>().playerID + " has entered the arena");
+                    playersEntered++;
+                }
+                playersEnteredArray[other.GetComponent<PlayerControllerOldInput>().playerNum] = true;
 
                 // If we only have one player we don't have to do any teleporting
                 // of the remaining players
@@ -190,19 +204,19 @@ public class LockRoomScript : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        // We only need to do this if not all the players have entered yet
-        if (playersEntered != numOfPlayers)
-        {
-            // If a player leaves our trigger
-            if (other.gameObject.CompareTag("Player"))
-            {
-                Debug.Log("A player has left the arena");
-                playersEntered--;
-            }
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    // We only need to do this if not all the players have entered yet
+    //    if (playersEntered != numOfPlayers)
+    //    {
+    //        // If a player leaves our trigger
+    //        if (other.gameObject.CompareTag("Player"))
+    //        {
+    //            Debug.Log("A player has left the arena");
+    //            playersEntered--;
+    //        }
+    //    }
+    //}
 
     // Teleports all the players into the room
     private void TeleportPlayersToRoom()

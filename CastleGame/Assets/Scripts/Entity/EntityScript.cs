@@ -60,6 +60,8 @@ public class EntityScript : MonoBehaviour
     [SerializeField]
     private AudioClip audioClipHurt;
     [SerializeField]
+    private AudioClip audioClipHealed;
+    [SerializeField]
     private AudioClip audioClipDied;
 
     [Header("Loot")]
@@ -154,22 +156,64 @@ public class EntityScript : MonoBehaviour
         healthBar.value = healthConverted;
     }
 
-    // Called by other things when they damage us
     public void TakeDamage(float damage)
+    {
+        if (isInvulnerable)
+        {
+            return; //If we are invulnerable we dont need to calculate damage do we. 
+        }
+
+        else // Otherwise, do damage to us
+        {
+            currentHealth -= damage;
+
+            if (usingAudio)
+            {
+                // Sets us to have the 'hurt' audio clip
+                audioSource.clip = audioClipHurt;
+                // Then plays that clip
+                audioSource.Play();
+            }
+        }
+
+        if (usingHealthBar)
+        {
+            UpdateHealthBar();
+        }
+    }
+
+    // Done as an override so that other things don't break
+    public void TakeDamage(float damage, bool isHealthPotion)
     {
         if(isInvulnerable)
         {
             return; //If we are invulnerable we dont need to calculate damage do we. 
         }
 
-        currentHealth -= damage;
-
-        if (usingAudio)
+        // If we're a health potion, heal us
+        if (isHealthPotion)
         {
-            // Sets us to have the 'hurt' audio clip
-            audioSource.clip = audioClipHurt;
-            // Then plays that clip
-            audioSource.Play();
+            currentHealth += damage;
+
+            if (usingAudio)
+            {
+                // Sets us to have the 'hurt' audio clip
+                audioSource.clip = audioClipHealed;
+                // Then plays that clip
+                audioSource.Play();
+            }
+        }
+        else // Otherwise, do damage to us
+        {
+            currentHealth -= damage;
+
+            if (usingAudio)
+            {
+                // Sets us to have the 'hurt' audio clip
+                audioSource.clip = audioClipHurt;
+                // Then plays that clip
+                audioSource.Play();
+            }
         }
 
         if (usingHealthBar)
