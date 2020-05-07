@@ -1,20 +1,27 @@
-﻿using System.Collections;
+﻿using FMOD;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GunslingerClass : BaseClass
 {
-    public float forceStrength;
+    public float intialBulletVelocity;
+    public float intialDodgeVelocity;
+    public float jumpForce;
     public float timeUntilAnimFinished;
     public string ENEMY_TAG = "Enemy";
     [SerializeField] PlayerControllerOldInput inputScript;
     public float enemyDamage = 100;
+    [SerializeField] Rigidbody gunslingerBody;
+    [SerializeField] GameObject Brian;
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
         {
             abilityCoolDown = genericAttackReset;
-            this.gameObject.transform.position = abilityLocation.position;
+            Vector3 forceVector = -Brian.transform.forward * intialDodgeVelocity;
+            forceVector += new Vector3(0.0f, jumpForce, 0.0f);
+            gunslingerBody.AddForce(forceVector);
             genericAattackCoolDown = 0.0f;
 
             inputScript.isTumbling = true;
@@ -28,7 +35,7 @@ public class GunslingerClass : BaseClass
         {
             genericAattackCoolDown = genericAttackReset;
             GameObject Bullet = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
-            Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * forceStrength);
+            Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * intialBulletVelocity);
             Destroy(Bullet, 0.5f);
         }
     }

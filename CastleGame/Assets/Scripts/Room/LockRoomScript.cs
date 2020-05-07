@@ -51,6 +51,8 @@ public class LockRoomScript : MonoBehaviour
 
     [SerializeField]
     private bool coroutineStarted;
+    //[SerializeField]
+    //private bool coroutineRunning;
 
     // Start is called before the first frame update
     void Start()
@@ -162,12 +164,17 @@ public class LockRoomScript : MonoBehaviour
                 Debug.Log("A player has entered the arena");
                 playersEntered++;
 
-                if (!coroutineStarted)
+                // If we only have one player we don't have to do any teleporting
+                // of the remaining players
+                if (numOfPlayers > 1)
                 {
-                    Debug.Log("Starting countdown");
-                    StartCoroutine(EnteredRoomTimer());
+                    if (!coroutineStarted)
+                    {
+                        Debug.Log("Starting countdown");
+                        StartCoroutine(EnteredRoomTimer());
 
-                    coroutineStarted = true;
+                        coroutineStarted = true;
+                    }
                 }
             }
         }
@@ -211,13 +218,23 @@ public class LockRoomScript : MonoBehaviour
 
     private IEnumerator EnteredRoomTimer()
     {
+        //coroutineRunning = true;
         // Waits for timer to be up
         yield return new WaitForSeconds(playersEnteredTimer);
 
-        // Then teleports the players into the room
-        TeleportPlayersToRoom();
+        //coroutineRunning = false;
 
-        // Also makes sure that the wave starts
-        StartWave();
+        if (playersEntered != numOfPlayers)
+        {
+            // Then teleports the players into the room
+            TeleportPlayersToRoom();
+
+            // Also makes sure that the wave starts
+            StartWave();
+        }
+        else
+        {
+            Debug.Log("All players have already entered, so no need to teleport players");
+        }
     }
 }
