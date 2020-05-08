@@ -66,7 +66,17 @@ public class LockRoomScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // numOfPlayers may equal 0 for a few frames when the first level loads in, due to the way scenes are loaded asyncrhonously
+        if (numOfPlayers == 0)
+        {
+            gameManager = GameObject.FindGameObjectWithTag("GameManager");
+            numOfPlayers = gameManager.GetComponent<GameManagerScript>().numPlayers;
+            // Gets our current players, so that we can teleport the players if needs be
+            players = gameManager.GetComponent<GameManagerScript>().currentPlayers;
+
+            // Initialises the playersEnteredArray to be the correct length
+            playersEnteredArray = new bool[numOfPlayers];
+        }
     }
 
     private void StartWave()
@@ -125,46 +135,50 @@ public class LockRoomScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // We only need to do this if not all the players have entered yet
-        if (playersEntered != numOfPlayers)
+        if (other.gameObject.CompareTag("Player"))
         {
-            // If a player enters our trigger
-            if (other.gameObject.CompareTag("Player"))
+
+            // We only need to do this if not all the players have entered yet
+            if (playersEntered != numOfPlayers)
             {
-                // Only need to do the parts below, if the player hasn't already entered before,
-                // keep track of who has and hasn't entered
-                
-                // If the current player hasn't entered the arena before
-                if (playersEnteredArray[other.GetComponent<PlayerControllerOldInput>().playerNum] == false)
-                {
-                    Debug.Log("Player " + other.GetComponent<PlayerControllerOldInput>().playerID + " has entered the arena");
-                    playersEntered++;
-                }
-                playersEnteredArray[other.GetComponent<PlayerControllerOldInput>().playerNum] = true;
+                //// If a player enters our trigger
+                //if (other.gameObject.CompareTag("Player"))
+                //{
+                    // Only need to do the parts below, if the player hasn't already entered before,
+                    // keep track of who has and hasn't entered
 
-                // If we only have one player we don't have to do any teleporting
-                // of the remaining players
-                if (numOfPlayers > 1)
-                {
-                    if (!coroutineStarted)
+                    // If the current player hasn't entered the arena before
+                    if (playersEnteredArray[other.GetComponent<PlayerControllerOldInput>().playerNum] == false)
                     {
-                        Debug.Log("Starting countdown");
-                        StartCoroutine(EnteredRoomTimer());
-
-                        coroutineStarted = true;
+                        Debug.Log("Player " + other.GetComponent<PlayerControllerOldInput>().playerID + " has entered the arena");
+                        playersEntered++;
                     }
-                }
+                    playersEnteredArray[other.GetComponent<PlayerControllerOldInput>().playerNum] = true;
+
+                    // If we only have one player we don't have to do any teleporting
+                    // of the remaining players
+                    if (numOfPlayers > 1)
+                    {
+                        if (!coroutineStarted)
+                        {
+                            Debug.Log("Starting countdown");
+                            StartCoroutine(EnteredRoomTimer());
+
+                            coroutineStarted = true;
+                        }
+                    }
+                //}
             }
-        }
 
-        // If *all* the players have entered
-        if (playersEntered == numOfPlayers)
-        {
-            Debug.Log("All players have entered, starting wave");
-            StartWave();
+            // If *all* the players have entered
+            if (playersEntered == numOfPlayers)
+            {
+                Debug.Log("All players have entered, starting wave");
+                StartWave();
 
-            Debug.Log("Stopping countdown, as all players have entered");
-            StopCoroutine(EnteredRoomTimer());
+                Debug.Log("Stopping countdown, as all players have entered");
+                StopCoroutine(EnteredRoomTimer());
+            }
         }
     }
 

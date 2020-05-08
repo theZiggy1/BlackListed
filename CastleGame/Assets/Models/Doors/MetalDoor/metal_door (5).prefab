@@ -285,6 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7534615656660489695}
+  - component: {fileID: 3271818627180260700}
   m_Layer: 9
   m_Name: metal_door (5)
   m_TagString: Untagged
@@ -301,7 +302,7 @@ Transform:
   m_GameObject: {fileID: 6830567407087429580}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 556.55, y: 7.89, z: 60.89}
-  m_LocalScale: {x: 3.3948603, y: 3.8643694, z: 3.3948603}
+  m_LocalScale: {x: 1.3245991, y: 1.3245988, z: 1.3245991}
   m_Children:
   - {fileID: 8769452056828373502}
   - {fileID: 5431587054220659617}
@@ -309,3 +310,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &3271818627180260700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830567407087429580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d8f85d20ce6cd74f8f9e92065bab1e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  originalPosition: {x: 0, y: 0, z: 0}
+  transformToMoveTo: {fileID: 0}
+  moveSpeed: 2
+  lerping: 0
+  moveUp: 0
+  moveDown: 0
+  startsLowered: 1
