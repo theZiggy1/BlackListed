@@ -4451,6 +4451,7 @@ GameObject:
   - component: {fileID: 9114107646784899917}
   - component: {fileID: 6359442801039663996}
   - component: {fileID: 6359442801039663999}
+  - component: {fileID: 7381174654263468418}
   m_Layer: 0
   m_Name: BrianTunic
   m_TagString: Player
@@ -4532,7 +4533,7 @@ MonoBehaviour:
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
   clothingPiece: {fileID: 2974048407695749972}
-  myclass: {fileID: 0}
+  myclass: {fileID: 7381174654263468418}
   isTumbling: 0
 --- !u!114 &9114107646784899917
 MonoBehaviour:
@@ -4673,6 +4674,37 @@ CapsuleCollider:
   m_Height: 1.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.9, z: 0}
+--- !u!114 &7381174654263468418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4420566335824854092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5510feec371301e498083f0865203528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicAttackLocation: {fileID: 8899998647219600430}
+  abilityLocation: {fileID: 8899998647219600430}
+  ultraLocation: {fileID: 8899998647219600430}
+  basicAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+    type: 3}
+  abilityAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+    type: 3}
+  ultraAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+    type: 3}
+  abilityCoolDown: 0
+  ultraCoolDown: 0
+  abilityCoolDownReset: 0
+  ultraCoolDownReset: 0
+  genericAattackCoolDown: 0
+  genericAttackReset: 0
+  forceStrength: 100
+  ArrayDelay:
+  - 0.5
+  - 1
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0
@@ -9583,7 +9615,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8899998647219600430}
   m_Layer: 0
-  m_Name: projectileSpawn
+  m_Name: basicAttackSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9597,7 +9629,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8899998647219600431}
   m_LocalRotation: {x: -0, y: -0.018227993, z: -0, w: 0.9998339}
-  m_LocalPosition: {x: 0, y: 2.38, z: 3.3000042}
+  m_LocalPosition: {x: 0.08, y: 0.63, z: 1.11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1076356010035264368}

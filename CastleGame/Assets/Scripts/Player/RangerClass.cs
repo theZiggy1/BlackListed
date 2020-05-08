@@ -5,14 +5,17 @@ using UnityEngine;
 public class RangerClass : BaseClass
 {
     public float forceStrength;
+    public float[] ArrayDelay;
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
         {
-            abilityCoolDown = genericAttackReset;
-            GameObject Melee = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
-            //   Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
-            Destroy(Melee, 5.0f);
+            abilityCoolDown = abilityCoolDownReset;
+            GameObject Arrow = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
+            Arrow.GetComponent<Rigidbody>().AddForce(abilityLocation.forward * forceStrength);
+            Destroy(Arrow, 5.0f);
+            StartCoroutine("DelayedArrow", ArrayDelay[0]);
+            StartCoroutine("DelayedArrow", ArrayDelay[1]);
         }
     }
     public override void genericAttack()
@@ -31,6 +34,10 @@ public class RangerClass : BaseClass
         if (ultraCoolDown <= 0)
         {
             ultraCoolDown = ultraCoolDownReset;
+
+            GameObject Arrow = GameObject.Instantiate(ultraAttackObj, ultraLocation.position, ultraLocation.rotation);
+            Arrow.GetComponent<Rigidbody>().AddForce(ultraLocation.forward * forceStrength);
+            Destroy(Arrow, 0.5f);
         }
     }
 // Start is called before the first frame update
@@ -45,6 +52,14 @@ public class RangerClass : BaseClass
         abilityCoolDown -= Time.deltaTime;
         ultraCoolDown -= Time.deltaTime;
         genericAattackCoolDown -= Time.deltaTime;
+    }
+
+    IEnumerator DelayedArrow(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+        GameObject Arrow = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
+        Arrow.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * forceStrength);
+        Destroy(Arrow, 5.0f);
     }
 
 }
