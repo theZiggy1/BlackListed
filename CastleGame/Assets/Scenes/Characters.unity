@@ -1156,6 +1156,11 @@ PrefabInstance:
       propertyPath: m_VertexStreams.Array.data[2]
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 2360646831165339222, guid: 164eef5ed9c542242b014968d0da3bce,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 164eef5ed9c542242b014968d0da3bce, type: 3}
 --- !u!114 &2786257196019497832
@@ -1341,6 +1346,7 @@ MonoBehaviour:
   audioClipSwordSwing: {fileID: 0}
   audioClipGunShoot: {fileID: 0}
   clothingPiece: {fileID: 0}
+  myclass: {fileID: 0}
 --- !u!1001 &2884528381559451806
 PrefabInstance:
   m_ObjectHideFlags: 0
