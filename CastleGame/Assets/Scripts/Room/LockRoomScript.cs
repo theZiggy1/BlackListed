@@ -12,9 +12,9 @@ public class LockRoomScript : MonoBehaviour
     // This script will 'lock' a room once all players have entered
     [SerializeField]
     private GameObject[] doorLockColliders; // The colliders that appear when a room is 'locked'
-    [SerializeField]
-    [Tooltip("Used to say which doors are locked at the start, corresponds with the doorLockColliders array")]
-    private bool[] doorsLockedAtStart;
+    //[SerializeField]
+    //[Tooltip("Used to say which doors are locked at the start, corresponds with the doorLockColliders array")]
+    //private bool[] doorsLockedAtStart;
     [SerializeField]
     private GameObject[] doorObjects;
 
