@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveSpawning : MonoBehaviour
 {
 
-    [SerializeField] Wave[] waveScripts;
+    public Wave[] waveScripts;
     [SerializeField] GameObject gameManager;
     [SerializeField] GameObject[] Doors;
     public int numWaves;

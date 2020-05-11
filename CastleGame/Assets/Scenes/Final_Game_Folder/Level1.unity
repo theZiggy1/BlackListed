@@ -17499,8 +17499,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: f32eeea3cef90a94fa69246809b5e5fd, type: 3}
 --- !u!4 &573306881 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8377042807445068598, guid: f32eeea3cef90a94fa69246809b5e5fd,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 573306880}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &573306882 stripped
@@ -33436,8 +33435,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: f32eeea3cef90a94fa69246809b5e5fd, type: 3}
 --- !u!4 &1052147421 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8377042807445068598, guid: f32eeea3cef90a94fa69246809b5e5fd,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1052147420}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1052147422 stripped
@@ -36047,8 +36045,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: f32eeea3cef90a94fa69246809b5e5fd, type: 3}
 --- !u!4 &1153086941 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8377042807445068598, guid: f32eeea3cef90a94fa69246809b5e5fd,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1153086940}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1153086942 stripped
@@ -38903,8 +38900,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1807157982}
   - {fileID: 1497870832}
+  - {fileID: 1807157982}
   - {fileID: 438025482}
   - {fileID: 1273777386}
   - {fileID: 866230576}
@@ -43595,8 +43592,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: f32eeea3cef90a94fa69246809b5e5fd, type: 3}
 --- !u!4 &1442653658 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 8377042807445068598, guid: f32eeea3cef90a94fa69246809b5e5fd,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1442653657}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1442653659 stripped
@@ -46043,7 +46039,7 @@ Transform:
   - {fileID: 1232199129}
   - {fileID: 139651751}
   m_Father: {fileID: 1244767140}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1498897630
 GameObject:
@@ -69813,7 +69809,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveScripts:
   - {fileID: 7596261152643200509}
-  - {fileID: 7596261152643200509}
+  - {fileID: 7596261152643200510}
   gameManager: {fileID: 0}
   Doors: []
   numWaves: 0
