@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class DebugToolsScript : MonoBehaviour
 {
+#if UNITY_EDITOR
     // Level names
     [SerializeField]
     private string level1Name;
@@ -64,4 +65,5 @@ public class DebugToolsScript : MonoBehaviour
         // Then tells the playerInputManager to load this level, and unload the other one
         playerInputManager.GetComponent<PlayerSelectionScript>().Play();
     }
+#endif
 }
