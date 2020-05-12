@@ -55,12 +55,20 @@ public class LockRoomScript : MonoBehaviour
     void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-        numOfPlayers = gameManager.GetComponent<GameManagerScript>().numPlayers;
-        // Gets our current players, so that we can teleport the players if needs be
-        players = gameManager.GetComponent<GameManagerScript>().currentPlayers;
 
-        // Initialises the playersEnteredArray to be the correct length
-        playersEnteredArray = new bool[numOfPlayers];
+        if (gameManager != null)
+        {
+            numOfPlayers = gameManager.GetComponent<GameManagerScript>().numPlayers;
+            // Gets our current players, so that we can teleport the players if needs be
+            players = gameManager.GetComponent<GameManagerScript>().currentPlayers;
+
+            // Initialises the playersEnteredArray to be the correct length
+            playersEnteredArray = new bool[numOfPlayers];
+        }
+        else
+        {
+            Debug.Log("Can't find the Game Manager!");
+        }
     }
 
     // Update is called once per frame
@@ -70,12 +78,20 @@ public class LockRoomScript : MonoBehaviour
         if (numOfPlayers == 0)
         {
             gameManager = GameObject.FindGameObjectWithTag("GameManager");
-            numOfPlayers = gameManager.GetComponent<GameManagerScript>().numPlayers;
-            // Gets our current players, so that we can teleport the players if needs be
-            players = gameManager.GetComponent<GameManagerScript>().currentPlayers;
 
-            // Initialises the playersEnteredArray to be the correct length
-            playersEnteredArray = new bool[numOfPlayers];
+            if (gameManager != null)
+            {
+                numOfPlayers = gameManager.GetComponent<GameManagerScript>().numPlayers;
+                // Gets our current players, so that we can teleport the players if needs be
+                players = gameManager.GetComponent<GameManagerScript>().currentPlayers;
+
+                // Initialises the playersEnteredArray to be the correct length
+                playersEnteredArray = new bool[numOfPlayers];
+            }
+            else
+            {
+                Debug.Log("Can't find the Game Manager! - 0 players!");
+            }
         }
     }
 

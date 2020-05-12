@@ -62,6 +62,10 @@ public class EntityScript : MonoBehaviour
     [SerializeField]
     private AudioClip audioClipHealed;
     [SerializeField]
+    private AudioClip audioClipHealingRift;
+    [SerializeField]
+    private AudioClip audioClipRevived;
+    [SerializeField]
     private AudioClip audioClipDied;
 
     [Header("Loot")]
@@ -82,6 +86,9 @@ public class EntityScript : MonoBehaviour
 
     [SerializeField]
     private GameObject itemToDrop; // The item that is going to get dropped
+
+    [SerializeField]
+    private bool isDead; // Used to say if we're dead
 
     // Start is called before the first frame update
     void Start()
@@ -197,7 +204,7 @@ public class EntityScript : MonoBehaviour
 
             if (usingAudio)
             {
-                // Sets us to have the 'hurt' audio clip
+                // Sets us to have the 'healed' audio clip
                 audioSource.clip = audioClipHealed;
                 // Then plays that clip
                 audioSource.Play();
@@ -222,8 +229,66 @@ public class EntityScript : MonoBehaviour
         }        
     }
 
+    public void HealingRift(float healing)
+    {
+        if (isInvulnerable)
+        {
+            return; //If we are invulnerable we dont need to calculate damage do we. 
+        }
+
+        currentHealth += healing;
+
+        if (usingAudio)
+        {
+            // Sets us to have the 'healing rift' audio clip
+            audioSource.clip = audioClipHealingRift;
+            // Then plays that clip
+            audioSource.Play();
+        }
+
+        if (usingHealthBar)
+        {
+            UpdateHealthBar();
+        }
+    }
+
+    // This script can be called by other things, to revive us, if we're dead
+    public void Revive()
+    {
+        if (isDead)
+        {
+            currentHealth = startingHealth;
+
+            //!!!Probably also put a thing here to tell the player that their controls are unlocked!!!
+            // E.g.
+            // GetComponent<PlayerControllerOldInput>().Revive();
+
+            if (usingAudio)
+            {
+                // Sets us to have the 'revived' audio clip
+                audioSource.clip = audioClipRevived;
+                // Then plays that clip
+                audioSource.Play();
+            }
+
+            isDead = false;
+        }
+    }
+
     private void Die()
     {
+        isDead = true;
+
+        if (isPlayer)
+        {
+            //!!!Probably also put a thing here to tell the player that their controls are locked!!!
+            // E.g.
+            // GetComponent<PlayerControllerOldInput>().Die();
+            // All this should do on the player's side, is lock their controls
+            // Then we'll play a death animation below here
+        }
+
+
         // This 'plays' but you don't actually have enough time to hear it,
         // as the player's gameobject is destroyed before you can hear it
         if (usingAudio)

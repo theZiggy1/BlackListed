@@ -89,4 +89,38 @@ public class CameraMoveScript : MonoBehaviour
     {
         moveToRoom = false;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // If the camera has a collider on it
+        if (GetComponent<BoxCollider>() != null)
+        {
+            if (other.gameObject != null)
+            {
+                // If we hit a thing, and it has a renderer on it
+                if (other.gameObject.GetComponent<Renderer>() != null)
+                {
+                    // Then disable that renderer, so that the camera can see through it
+                    other.gameObject.GetComponent<Renderer>().enabled = false;
+                }
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        // If the camera has a collider on it
+        if (GetComponent<BoxCollider>() != null)
+        {
+            if (other.gameObject != null)
+            {
+                // If we have stopped hitting a thing, and it has a renderer on it
+                if (other.gameObject.GetComponent<Renderer>() != null)
+                {
+                    // Then enable that renderer again
+                    other.gameObject.GetComponent<Renderer>().enabled = true;
+                }
+            }
+        }
+    }
 }

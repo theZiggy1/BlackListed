@@ -16,6 +16,10 @@ public class EntityDamageScript : MonoBehaviour
     private bool isHealthPotion;
 
     [SerializeField]
+    [Tooltip("If we're a healing rift, we'll only 'damage' players and not enemies")]
+    private bool isHealingRift;
+
+    [SerializeField]
     [Tooltip("If an entity interacts with us, should we destroy ouselves once they do?")]
     private bool destroyOnTouch;
 
@@ -52,6 +56,29 @@ public class EntityDamageScript : MonoBehaviour
                 {
                     // Outputs this log, as players and enemies should have entity scripts
                     Debug.Log("We've hit a player (as a health potion) but they don't have an entity script!");
+                }
+            }
+        }
+        else if (isHealingRift)
+        {
+            // If we hit anything tagged with player, or enemy
+            if (other.CompareTag("Player"))
+            {
+                // If it has an entity script on it
+                if (other.GetComponent<EntityScript>() != null)
+                {
+                    // I know this isn't best practice but it works
+                    other.GetComponent<EntityScript>().HealingRift(damageOrHealing);
+
+                    if (destroyOnTouch)
+                    {
+                        DestroySelf();
+                    }
+                }
+                else
+                {
+                    // Outputs this log, as players and enemies should have entity scripts
+                    Debug.Log("We've hit a player (as a healing rift) but they don't have an entity script!");
                 }
             }
         }
