@@ -7,6 +7,7 @@ public class bulletScript : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] float forceStrength;
     public string OTHER_TAG = "Enemy";
+    public string BELL_TAG = "Bell";
     public int enemyDamage = 100;
     void Start()
     {
@@ -26,6 +27,12 @@ public class bulletScript : MonoBehaviour
         if (other.gameObject.tag == OTHER_TAG)
         {
             other.gameObject.GetComponent<EntityScript>().TakeDamage(enemyDamage);
+            Destroy(this.gameObject);
+        }
+
+        if(other.gameObject.tag == BELL_TAG)
+        {
+            other.gameObject.GetComponent<Bell>().RingingBell();
             Destroy(this.gameObject);
         }
     }
