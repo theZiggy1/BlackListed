@@ -4690,9 +4690,9 @@ MonoBehaviour:
   basicAttackLocation: {fileID: 8899998647954663803}
   abilityLocation: {fileID: 8899998647219600430}
   ultraLocation: {fileID: 358813588853185187}
-  basicAttackObj: {fileID: 5930559040218471784, guid: cb62ca106b56f2e479cb6999733b3b61,
+  basicAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
     type: 3}
-  abilityAttackObj: {fileID: 6341742899488700442, guid: a42e120bf8ef3ea41a3c1edb3410cd11,
+  abilityAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
     type: 3}
   ultraAttackObj: {fileID: 4202388122349516071, guid: 9679738fcb02ca24188e34a94a4690d9,
     type: 3}
@@ -4702,7 +4702,7 @@ MonoBehaviour:
   ultraCoolDownReset: 0
   genericAattackCoolDown: 0
   genericAttackReset: 0
-  forceStrength: 0
+  forceStrength: 100
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0
