@@ -34,14 +34,14 @@ public class PlayerSelectManagerScript : MonoBehaviour
     //private Image Player4CharacterImage;
 
     // The images showing which character has been selected
-    [SerializeField]
-    private RawImage Player1CharacterImage;
-    [SerializeField]
-    private RawImage Player2CharacterImage;
-    [SerializeField]
-    private RawImage Player3CharacterImage;
-    [SerializeField]
-    private RawImage Player4CharacterImage;
+    //[SerializeField]
+    //private RawImage Player1CharacterImage;
+    //[SerializeField]
+    //private RawImage Player2CharacterImage;
+    //[SerializeField]
+    //private RawImage Player3CharacterImage;
+    //[SerializeField]
+    //private RawImage Player4CharacterImage;
 
     //!!! For use with Images
     //// Used to store all the images of the characters for the character select
@@ -53,14 +53,14 @@ public class PlayerSelectManagerScript : MonoBehaviour
     //[SerializeField]
     //private Texture[] characterImages;
 
-    [SerializeField]
-    private Texture[] characterImagesP1;
-    [SerializeField]
-    private Texture[] characterImagesP2;
-    [SerializeField]
-    private Texture[] characterImagesP3;
-    [SerializeField]
-    private Texture[] characterImagesP4;
+    //[SerializeField]
+    //private Texture[] characterImagesP1;
+    //[SerializeField]
+    //private Texture[] characterImagesP2;
+    //[SerializeField]
+    //private Texture[] characterImagesP3;
+    //[SerializeField]
+    //private Texture[] characterImagesP4;
 
     [SerializeField]
     private GameObject[] charactersP1;
@@ -92,10 +92,10 @@ public class PlayerSelectManagerScript : MonoBehaviour
     public int P4CharacterID;
 
     // This is done so we can colour each character in the select screen, to reflect which player we are
-    [SerializeField]
-    private GameObject[] characterObjects; // Stores the characters that are displayed for the charcter select
-    [SerializeField]
-    private Material[] playerMats; // Stores the materials of each player, e.g. P1 = red, P2 = green, etc
+    //[SerializeField]
+    //private GameObject[] characterObjects; // Stores the characters that are displayed for the charcter select
+    //[SerializeField]
+    //private Material[] playerMats; // Stores the materials of each player, e.g. P1 = red, P2 = green, etc
 
     private void Awake()
     {
@@ -188,7 +188,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     P1CharacterID++;
 
                     // If it gets greater than the number of characters we have, reset the value
-                    if (P1CharacterID >= characterImagesP1.Length)
+                    //if (P1CharacterID >= characterImagesP1.Length)
+                    if (P1CharacterID >= 4)
                     {
                         P1CharacterID = 0;
                     }
@@ -213,7 +214,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     // If it gets less than 0, wrap it back round to the number of characters we have
                     if (P1CharacterID < 0)
                     {
-                        P1CharacterID = characterImagesP1.Length - 1;
+                        //P1CharacterID = characterImagesP1.Length - 1;
+                        P1CharacterID = 3;
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
@@ -250,7 +252,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     P2CharacterID++;
 
                     // If it gets greater than the number of characters we have, reset the value
-                    if (P2CharacterID >= characterImagesP2.Length)
+                    //if (P2CharacterID >= characterImagesP2.Length)
+                    if (P2CharacterID >= 4)
                     {
                         P2CharacterID = 0;
                     }
@@ -273,7 +276,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     // If it gets less than 0, wrap it back round to the number of characters we have
                     if (P2CharacterID < 0)
                     {
-                        P2CharacterID = characterImagesP2.Length - 1;
+                        //P2CharacterID = characterImagesP2.Length - 1;
+                        P2CharacterID = 3;
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
@@ -308,7 +312,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     P3CharacterID++;
 
                     // If it gets greater than the number of characters we have, reset the value
-                    if (P3CharacterID >= characterImagesP3.Length)
+                    //if (P3CharacterID >= characterImagesP3.Length)
+                    if (P3CharacterID >= 4)
                     {
                         P3CharacterID = 0;
                     }
@@ -331,7 +336,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     // If it gets less than 0, wrap it back round to the number of characters we have
                     if (P3CharacterID < 0)
                     {
-                        P3CharacterID = characterImagesP3.Length - 1;
+                        //P3CharacterID = characterImagesP3.Length - 1;
+                        P3CharacterID = 3;
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
@@ -366,7 +372,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     P4CharacterID++;
 
                     // If it gets greater than the number of characters we have, reset the value
-                    if (P4CharacterID >= characterImagesP4.Length)
+                    //if (P4CharacterID >= characterImagesP4.Length)
+                    if (P4CharacterID >= 4)
                     {
                         P4CharacterID = 0;
                     }
@@ -389,7 +396,8 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     // If it gets less than 0, wrap it back round to the number of characters we have
                     if (P4CharacterID < 0)
                     {
-                        P4CharacterID = characterImagesP4.Length - 1;
+                        //P4CharacterID = characterImagesP4.Length - 1;
+                        P4CharacterID = 3;
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
