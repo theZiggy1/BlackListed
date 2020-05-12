@@ -71,7 +71,7 @@ public class WaveSpawning : MonoBehaviour
         yield return new WaitForSeconds(timeToWait);
         waveScripts[currentWave].setInfo(this.gameObject, this.gameManager);
         waveScripts[currentWave].SpawnEnemies();
-        numEnemies = waveScripts[currentWave].enemiesToSpawn.Length;
+        numEnemies = waveScripts[currentWave].ArrayofEnemies.Length;
     }
 
     //When we get to 0 enemies this will get called before the next wave is called, in case we want to do anything before the wave ends. at the end it will call a function that selects the next wave. 

@@ -2615,14 +2615,17 @@ MonoBehaviour:
   waveStartTime: 1
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 37205924}
   - {fileID: 1338656357}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &69522593
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2639,13 +2642,17 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 37205924}
   - {fileID: 1338656357}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &69522594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47352,14 +47359,17 @@ MonoBehaviour:
   waveStartTime: 1
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 0}
   - {fileID: 0}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &1504199839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47376,13 +47386,17 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 0}
   - {fileID: 0}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &1504199840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67617,12 +67631,16 @@ MonoBehaviour:
   waveStartTime: 1
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 5596446395445762946}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &1659046951580254917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67639,12 +67657,16 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 1950925344268812318, guid: cdd27138f91e15d4ebaf9fff20abe230, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 5596446395445762946}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &1659046951580254918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68714,14 +68736,17 @@ MonoBehaviour:
   waveStartTime: 1
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 2132144091471639455}
   - {fileID: 2132144092522984264}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &2132144092443402786
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68738,13 +68763,17 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 2132144091471639455}
   - {fileID: 2132144092522984264}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &2132144092443402787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69606,13 +69635,17 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 4632212132304965168}
   - {fileID: 4632212131202207463}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &4632212131131875214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69629,14 +69662,17 @@ MonoBehaviour:
   waveStartTime: 1
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 4632212132304965168}
   - {fileID: 4632212131202207463}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!1 &4632212131131875215
 GameObject:
   m_ObjectHideFlags: 0
@@ -71340,7 +71376,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveScripts:
   - {fileID: 7596261152643200509}
-  - {fileID: 7596261152643200510}
   gameManager: {fileID: 0}
   Doors: []
   numWaves: 0
@@ -71363,13 +71398,22 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
+  enemiesToSpawn1Player:
   - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn2Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn3Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn4Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 7596261153818387520}
   - {fileID: 7596261152714876055}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!114 &7596261152643200510
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -71386,14 +71430,17 @@ MonoBehaviour:
   waveStartTime: 1
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn:
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
-  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn1Player: []
+  enemiesToSpawn2Player: []
+  enemiesToSpawn3Player: []
+  enemiesToSpawn4Player: []
+  ArrayofEnemies: []
   spawnLocations:
   - {fileID: 7596261153818387520}
   - {fileID: 7596261152714876055}
   Spawner: {fileID: 0}
   gameManager: {fileID: 0}
+  numPlayers: 0
 --- !u!1 &7596261152643200511
 GameObject:
   m_ObjectHideFlags: 0
