@@ -4550,7 +4550,7 @@ MonoBehaviour:
   isPlayer: 1
   startingHealth: 100
   currentHealth: 0
-  usingHealthBar: 0
+  usingHealthBar: 1
   healthBar: {fileID: 0}
   deathType: 1
   isInvulnerable: 0

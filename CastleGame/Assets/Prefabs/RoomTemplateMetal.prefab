@@ -205,6 +205,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132144090934558294}
+  - component: {fileID: 4922407689268640700}
+  - component: {fileID: 7020327440089586079}
   m_Layer: 9
   m_Name: EnemySpawn (3)
   m_TagString: Untagged
@@ -226,6 +228,51 @@ Transform:
   m_Father: {fileID: 2132144091906846708}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4922407689268640700
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132144090934558295}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &7020327440089586079
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132144090934558295}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ffb051da6c0a93f4397849a325f7791d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2132144091384826723
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +863,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2132144091985673857}
+  - component: {fileID: 6062657139863483187}
+  - component: {fileID: 1823646182474727324}
   m_Layer: 9
   m_Name: EnemySpawn (4)
   m_TagString: Untagged
@@ -837,6 +886,51 @@ Transform:
   m_Father: {fileID: 2132144091906846708}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &6062657139863483187
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132144091985673862}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1823646182474727324
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132144091985673862}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ffb051da6c0a93f4397849a325f7791d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
 --- !u!1 &2132144092265523584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,7 +1322,6 @@ MonoBehaviour:
   - {fileID: 2132144092265523584}
   - {fileID: 2132144091720499380}
   - {fileID: 2132144091384826723}
-  doorsLockedAtStart: 000101
   doorObjects:
   - {fileID: 5200382713620700384}
   - {fileID: 5071657002866650359}
@@ -1325,15 +1418,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c781d3af15e467468c55b50b1fc1a68, type: 3}
---- !u!1 &1665183152623750559 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3117631563883807581, guid: 7c781d3af15e467468c55b50b1fc1a68,
-    type: 3}
-  m_PrefabInstance: {fileID: 4350448801111969474}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5357814172068776188 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8504240548897031742, guid: 7c781d3af15e467468c55b50b1fc1a68,
+    type: 3}
+  m_PrefabInstance: {fileID: 4350448801111969474}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1665183152623750559 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3117631563883807581, guid: 7c781d3af15e467468c55b50b1fc1a68,
     type: 3}
   m_PrefabInstance: {fileID: 4350448801111969474}
   m_PrefabAsset: {fileID: 0}
@@ -1416,15 +1509,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c781d3af15e467468c55b50b1fc1a68, type: 3}
---- !u!1 &5200382713620700384 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3117631563883807581, guid: 7c781d3af15e467468c55b50b1fc1a68,
-    type: 3}
-  m_PrefabInstance: {fileID: 7165075161876963261}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1543138580969134467 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8504240548897031742, guid: 7c781d3af15e467468c55b50b1fc1a68,
+    type: 3}
+  m_PrefabInstance: {fileID: 7165075161876963261}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5200382713620700384 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3117631563883807581, guid: 7c781d3af15e467468c55b50b1fc1a68,
     type: 3}
   m_PrefabInstance: {fileID: 7165075161876963261}
   m_PrefabAsset: {fileID: 0}
