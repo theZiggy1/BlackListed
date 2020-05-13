@@ -916,6 +916,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 391d5c0c8f6465245b395de9b1aa96b5, type: 2}
+  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3572,6 +3573,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6b465b7ed449f2640b53124b8a5fe399, type: 2}
+  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4558,12 +4560,15 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   audioClipHurt: {fileID: 8300000, guid: 03e2d21b01028724ba29f2796abaedb5, type: 3}
   audioClipHealed: {fileID: 8300000, guid: 1818b38fe8d448b45be60f7ef4ba5006, type: 3}
+  audioClipHealingRift: {fileID: 0}
+  audioClipRevived: {fileID: 0}
   audioClipDied: {fileID: 8300000, guid: 3e0d7272f6062364d9a27c03bd066933, type: 3}
   canDropItem: 0
   itemDrops: []
   dropChances: []
   randomNumber: 0
   itemToDrop: {fileID: 0}
+  isDead: 0
 --- !u!82 &6359442801039663996
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5500,6 +5505,7 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 431a8b667b96120479649b44bc83497e, type: 2}
+  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7496,6 +7502,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f7d175d6c81dd2a4a801aa3ea097bbf9, type: 2}
+  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7699,6 +7706,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f7d175d6c81dd2a4a801aa3ea097bbf9, type: 2}
+  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8195,6 +8203,7 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f7d175d6c81dd2a4a801aa3ea097bbf9, type: 2}
+  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
