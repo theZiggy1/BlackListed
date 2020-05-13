@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6442374050283243178
+--- !u!1 &4012769472565102415
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,9 +8,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8015475810503046329}
-  - component: {fileID: 1326229238307229327}
-  - component: {fileID: 4709427226930705014}
+  - component: {fileID: 138311191776769372}
+  - component: {fileID: 8984795557908156266}
+  - component: {fileID: 3426375785677878163}
   m_Layer: 0
   m_Name: Bluderbuss_Bullet
   m_TagString: Untagged
@@ -18,35 +18,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8015475810503046329
+--- !u!4 &138311191776769372
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6442374050283243178}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -0.021, y: 0.55, z: 2.096}
-  m_LocalScale: {x: 0.011597379, y: 0.011597379, z: 0.011597379}
+  m_GameObject: {fileID: 4012769472565102415}
+  m_LocalRotation: {x: -0.49873054, y: 0.50126624, z: -0.50126624, w: 0.49873054}
+  m_LocalPosition: {x: 1.2596, y: 0.4425, z: 0.8533}
+  m_LocalScale: {x: 0.004968, y: 0.004968, z: 0.004968}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1326229238307229327
+  m_LocalEulerAnglesHint: {x: 0.291, y: 90.00001, z: -90.00001}
+--- !u!33 &8984795557908156266
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6442374050283243178}
+  m_GameObject: {fileID: 4012769472565102415}
   m_Mesh: {fileID: -951608786083511892, guid: 90fe1d8b597c3814fba6999af2eb9039, type: 3}
---- !u!23 &4709427226930705014
+--- !u!23 &3426375785677878163
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6442374050283243178}
+  m_GameObject: {fileID: 4012769472565102415}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
