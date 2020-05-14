@@ -93,6 +93,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageOrHealing: 15
   isHealthPotion: 1
+  isHealingRift: 0
   destroyOnTouch: 1
 --- !u!65 &-6496706919974570977
 BoxCollider:
