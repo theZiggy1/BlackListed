@@ -2842,10 +2842,14 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn1Player: []
-  enemiesToSpawn2Player: []
-  enemiesToSpawn3Player: []
-  enemiesToSpawn4Player: []
+  enemiesToSpawn1Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn2Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn3Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn4Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
   ArrayofEnemies: []
   spawnLocations:
   - {fileID: 37205924}
@@ -18506,7 +18510,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528630345}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -23974,7 +23978,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 670056475}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -25117,7 +25121,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 694951044}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -29564,7 +29568,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 840216082}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -57403,7 +57407,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672689112}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -60655,7 +60659,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1767205597}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -62371,7 +62375,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1812071423}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -68421,7 +68425,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2012077609}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -72724,7 +72728,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8156684944351436148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -72978,7 +72982,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5625632992222023746}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -73823,7 +73827,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132144090848396970}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -73901,7 +73905,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132144091183811965}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -74135,7 +74139,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132144092082827810}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -74207,7 +74211,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132144092406665771}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -74300,10 +74304,14 @@ MonoBehaviour:
   waveStartTime: 1
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn1Player: []
-  enemiesToSpawn2Player: []
-  enemiesToSpawn3Player: []
-  enemiesToSpawn4Player: []
+  enemiesToSpawn1Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn2Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn3Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn4Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
   ArrayofEnemies: []
   spawnLocations:
   - {fileID: 2132144091471639455}
@@ -74327,10 +74335,16 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn1Player: []
-  enemiesToSpawn2Player: []
-  enemiesToSpawn3Player: []
-  enemiesToSpawn4Player: []
+  enemiesToSpawn1Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn2Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn3Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn4Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
   ArrayofEnemies: []
   spawnLocations:
   - {fileID: 2132144091471639455}
@@ -74458,7 +74472,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132144092474492208}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -74495,7 +74509,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132144092506927341}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -75041,7 +75055,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7435997443762158130}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -75105,7 +75119,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632212131084726148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -75199,10 +75213,14 @@ MonoBehaviour:
   waveStartTime: 0
   waveEndTime: 0
   numEnemies: 0
-  enemiesToSpawn1Player: []
-  enemiesToSpawn2Player: []
-  enemiesToSpawn3Player: []
-  enemiesToSpawn4Player: []
+  enemiesToSpawn1Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn2Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn3Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
+  enemiesToSpawn4Player:
+  - {fileID: 4298322441017848800, guid: 0b2303c85e8f5cc4c8f84d606b0fae4f, type: 3}
   ArrayofEnemies: []
   spawnLocations:
   - {fileID: 4632212132304965168}
@@ -75302,7 +75320,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632212131154262175}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -75447,7 +75465,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632212131184708930}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -75622,7 +75640,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632212131844771725}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -75743,7 +75761,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632212132746771205}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -75847,7 +75865,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4632212133082443986}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -76271,7 +76289,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1426597387279478253}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -76432,7 +76450,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3237054697660457179}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -76886,7 +76904,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7596261152598001140}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -77096,7 +77114,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7596261152662688495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -77233,7 +77251,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7596261152699344690}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -77375,7 +77393,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7596261153356359165}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -77529,7 +77547,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7596261154257326453}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -77633,7 +77651,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7596261154592742050}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -78170,7 +78188,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 418816319747836587}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
