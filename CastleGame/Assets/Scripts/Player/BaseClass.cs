@@ -4,6 +4,10 @@ using UnityEngine;
 
 public abstract class BaseClass : MonoBehaviour
 {
+
+    public float genericAttackReset;
+    public float abilityCoolDownReset;
+    public float ultraCoolDownReset;
     // Start is called before the first frame update
     public  Transform basicAttackLocation;
     public Transform abilityLocation;
@@ -15,10 +19,10 @@ public abstract class BaseClass : MonoBehaviour
 
     public float abilityCoolDown;
     public float ultraCoolDown;
-    public float abilityCoolDownReset;
-    public float ultraCoolDownReset;
     public float genericAattackCoolDown;
-    public float genericAttackReset;
+
+   
+   
 
     void Start()
     {
