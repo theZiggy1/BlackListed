@@ -325,6 +325,13 @@ public class PlayerControllerOldInput : MonoBehaviour
             OnJump();
         }
 
+        //DEBUG - Remove in the final game
+        // Heals us if we press B
+        if (Input.GetButtonDown("Joy" + playerID + "ButtonB"))
+        {
+            GetComponent<EntityScript>().TakeDamage(5, true);
+        }
+
 
     }
     /*

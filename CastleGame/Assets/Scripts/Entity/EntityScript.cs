@@ -143,10 +143,10 @@ public class EntityScript : MonoBehaviour
     void Update()
     {
         // GET RID OF THIS AT SOME POINT
-        if (usingHealthBar)
-        {
-            UpdateHealthBar();
-        }
+        //if (usingHealthBar)
+        //{
+        //    UpdateHealthBar();
+        //}
 
         if (currentHealth <= 0)
         {
@@ -173,6 +173,12 @@ public class EntityScript : MonoBehaviour
         else // Otherwise, do damage to us
         {
             currentHealth -= damage;
+
+            // Means that we don't get more health than our max
+            if (currentHealth > startingHealth)
+            {
+                currentHealth = startingHealth;
+            }
 
             if (usingAudio)
             {
@@ -202,6 +208,12 @@ public class EntityScript : MonoBehaviour
         {
             currentHealth += damage;
 
+            // Means that we don't get more health than our max
+            if (currentHealth > startingHealth)
+            {
+                currentHealth = startingHealth;
+            }
+
             if (usingAudio)
             {
                 // Sets us to have the 'healed' audio clip
@@ -213,6 +225,12 @@ public class EntityScript : MonoBehaviour
         else // Otherwise, do damage to us
         {
             currentHealth -= damage;
+
+            // Means that we don't get more health than our max
+            if (currentHealth > startingHealth)
+            {
+                currentHealth = startingHealth;
+            }
 
             if (usingAudio)
             {
@@ -237,6 +255,12 @@ public class EntityScript : MonoBehaviour
         }
 
         currentHealth += healing;
+
+        // Means that we don't get more health than our max
+        if (currentHealth > startingHealth)
+        {
+            currentHealth = startingHealth;
+        }
 
         if (usingAudio)
         {
