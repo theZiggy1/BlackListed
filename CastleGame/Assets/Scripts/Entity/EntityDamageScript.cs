@@ -106,6 +106,29 @@ public class EntityDamageScript : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        // If we hit anything tagged with player, or enemy
+        if (collision.gameObject.CompareTag("Player") || collision.gameObject.CompareTag("Enemy"))
+        {
+            // If it has an entity script on it
+            if (collision.gameObject.GetComponent<EntityScript>() != null)
+            {
+                collision.gameObject.GetComponent<EntityScript>().TakeDamage(damageOrHealing);
+
+                if (destroyOnTouch)
+                {
+                    DestroySelf();
+                }
+            }
+            else
+            {
+                // Outputs this log, as players and enemies should have entity scripts
+                Debug.Log("We've hit a player/enemy but they don't have an entity script!");
+            }
+        }
+    }
+
     // Called if we're told to destroy ourselves once we hit an entity
     private void DestroySelf()
     {

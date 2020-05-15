@@ -26,6 +26,8 @@ TagManager:
   - Ground
   - Bell
   - BellHandler
+  - CameraFollowObject
+  - CameraHideable
   layers:
   - Default
   - TransparentFX

@@ -62,6 +62,11 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField] GameObject insideTreeCamera;
     public bool insideTree = false;
 
+    // Camera - gets set by the mainCamera in each level
+    [SerializeField]
+    private Vector3 mainCameraRotation;
+    [SerializeField]
+    private bool mainCameraSet;
 
     // Animation stuff
     [SerializeField]
@@ -174,11 +179,18 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         // Audio
         audioSource = GetComponent<AudioSource>();
+
+
+        // Gives us a default value to work with
+        mainCameraRotation = new Vector3(0, 45, 0);
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+
         //our update loop due to the controller rewrite now handles what was originally sendmessage from the input system. Now we need to manually handle sending in these inputs
         //The first is to mandle movement. We also specifically do it in this order in case the right stick is being engaged to look a different direction, otherwise in movement, the player will naturally look towards the direction the player is walking towards. 
         //Movement();
@@ -355,6 +367,7 @@ public class PlayerControllerOldInput : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis("Joy"+ playerID +"LeftStickVertical"), 0.0f, Input.GetAxis("Joy"+ playerID +"LeftStickHorizontal"));
         movement = movement * Time.deltaTime * movespeed;
 
+        transform.rotation = Quaternion.Euler(new Vector3(0, mainCameraRotation.y - 90, 0));
 
         if (insideTree && movement.magnitude > 0.0)
         {
@@ -391,7 +404,9 @@ public class PlayerControllerOldInput : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
 
 
-                        lookRotation *= Quaternion.Euler(0, 45, 0);
+            //lookRotation *= Quaternion.Euler(0, 45, 0);
+            // This means that the movement now reflects the direction the camera is looking
+            lookRotation *= Quaternion.Euler(0, mainCameraRotation.y - 90, 0);
 
             //////Use this for setting animation. 
             //////SetAnimationInteger("Condition", 1);
@@ -433,8 +448,12 @@ public class PlayerControllerOldInput : MonoBehaviour
             return;
         }
                 Quaternion lookRotation = Quaternion.LookRotation(LookDirection, Vector3.up);
-       
-        lookRotation *= Quaternion.Euler(0, 45, 0); //As the camera is roated 45 degrees, if we didnt also do this, it makes movement wierd. when you moved left it would go left and slightly up from the camera, which while true left, instead left in relation to the camera. This fixes that. 
+
+        //lookRotation *= Quaternion.Euler(0, 45, 0); //As the camera is roated 45 degrees, if we didnt also do this, it makes movement wierd. when you moved left it would go left and slightly up from the camera, which while true left, instead left in relation to the camera. This fixes that. 
+
+        // This means that the movement now reflects the direction the camera is looking
+        lookRotation *= Quaternion.Euler(0, mainCameraRotation.y - 90, 0);
+
         float step = rotSpeed * Time.deltaTime;
                 thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
           // }
@@ -531,6 +550,12 @@ public class PlayerControllerOldInput : MonoBehaviour
     private void SetupControls()
     {
         
+    }
+
+    public void SetCamera(Transform camera)
+    {
+        //mainCamera = camera;
+        mainCameraRotation = camera.rotation.eulerAngles;
     }
 
     private void OnCollisionEnter(Collision collision)

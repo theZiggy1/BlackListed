@@ -30,6 +30,15 @@ public class LockRoomScript : MonoBehaviour
     public int playersEntered; // Used to keep track of how many players have entered the trigger
 
     [SerializeField]
+    private GameObject cameraFollowObject;
+    [SerializeField]
+    [Tooltip("This is the position we set in our room for the camera to go to, and the angle as well")]
+    private Transform cameraPositionObject;
+    [SerializeField]
+    [Tooltip("If set to true, our camera will move towards the cameraPositionObject")]
+    private bool moveCameraPosition;
+
+    [SerializeField]
     private bool waveNotSpawned = true;
 
     [SerializeField]
@@ -129,6 +138,11 @@ public class LockRoomScript : MonoBehaviour
         {
             door.GetComponent<DoorObjectScript>().RaiseDoor();
         }
+
+        if (moveCameraPosition)
+        {
+            cameraFollowObject.GetComponent<CameraFollowObjectScript>().MoveObjectPublic(cameraPositionObject);
+        }
     }
 
     // Deactivates the room's colliders, and lowers the doors
@@ -145,6 +159,11 @@ public class LockRoomScript : MonoBehaviour
         foreach (GameObject door in doorObjects)
         {
             door.GetComponent<DoorObjectScript>().LowerDoor();
+        }
+
+        if (moveCameraPosition)
+        {
+            cameraFollowObject.GetComponent<CameraFollowObjectScript>().MoveObjectPublic(true);
         }
     }
 
