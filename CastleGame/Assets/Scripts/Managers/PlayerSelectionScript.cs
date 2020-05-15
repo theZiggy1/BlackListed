@@ -222,6 +222,8 @@ public class PlayerSelectionScript : MonoBehaviour
             {
                 // Moves the relevant player to the relevant spawn point
                 spawnedInPlayers[i].transform.position = spawnPoints[i].transform.position;
+                // Sets the relevant player to have 0 velocity when they spawn in
+                spawnedInPlayers[i].GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
             }
         }
 
