@@ -511,7 +511,7 @@ PrefabInstance:
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
@@ -908,7 +908,7 @@ PrefabInstance:
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1093304747200845517, guid: e673e126e64dafb4b964c77eba0b0221,
         type: 3}
@@ -1506,7 +1506,7 @@ PrefabInstance:
     - target: {fileID: 978124582903858556, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 978124582903858556, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
         type: 3}
@@ -16418,7 +16418,7 @@ MonoBehaviour:
     type: 3}
   abilityAttackObj: {fileID: 8069792359942950467, guid: 4f6016e5b5323c74c8d25f72e682c903,
     type: 3}
-  ultraAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+  ultraAttackObj: {fileID: 2104084670665848553, guid: 7e7c7700ad9bf6d46a1dba18ca67f167,
     type: 3}
   abilityCoolDown: 0
   ultraCoolDown: 0
@@ -20861,7 +20861,7 @@ Transform:
   m_Children:
   - {fileID: 1076356010881304077}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4420566334711922993
 GameObject:
@@ -21005,7 +21005,7 @@ Transform:
   m_Children:
   - {fileID: 1076356009973580945}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &4420566335888868278
 BoxCollider:
@@ -21069,7 +21069,7 @@ Transform:
   m_Children:
   - {fileID: 1076356010596965023}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &4420566336373841343
 Rigidbody:
