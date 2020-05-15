@@ -12,7 +12,7 @@ public class WizardClass : BaseClass
             abilityCoolDown = abilityCoolDown;
             GameObject Rift = GameObject.Instantiate(abilityAttackObj, abilityLocation.position, abilityLocation.rotation);
             //   Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
-            Destroy(Rift, 5.0f);
+            Destroy(Rift, 6.0f);
         }
     }
 
