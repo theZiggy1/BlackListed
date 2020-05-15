@@ -49,7 +49,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5930559040218471784}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -106,4 +106,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceStrength: 0
   OTHER_TAG: Enemy
+  BELL_TAG: Bell
   enemyDamage: 100
