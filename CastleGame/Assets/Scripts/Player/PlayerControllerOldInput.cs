@@ -369,32 +369,6 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(new Vector3(0, mainCameraRotation.y - 90, 0));
 
-        if (insideTree && movement.magnitude > 0.0)
-        {
-            Transform camTx = Camera.main.transform; //get camera's transform
-                                                     //we want it so that the camera is always to the players right
-            Vector3 newFwd = camTx.right;
-            Vector3 camPos = camTx.position;
-            camPos.y = transform.position.y;
-            Vector3 newRight = camPos - transform.position;
-            newRight.Normalize();
-            Vector3 newUp = Vector3.Cross(newFwd, newRight);
-
-            Quaternion newRotation = Quaternion.LookRotation(newFwd, newUp);
-
-            transform.rotation = newRotation;
-            //now that the object is facing the right direction move it appropriately.
-            //get the input vector -- this is in local space to the character not in world space
-            Vector3 inputVector = new Vector3(-Input.GetAxis("Horizontal"), 0, -Input.GetAxis("Vertical"));
-            //call transform vector to convert the local space into world space to calculate movement
-            //inputVector = transform.TransformVector(inputVector);
-           // transform.position += (inputVector * Time.deltaTime * 2);
-            //of course the above could have been done with the following line without the need to transform the vector
-            transform.position += Vector3.Scale(transform.forward,  (inputVector * Time.deltaTime * this.movespeed));
-
-
-        }
-
         //If the player is only moving with one stick, and not both, we want the character to look in the direction that the player is walking, if they are using both sticks, then this gets overwritten.
         Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
 
@@ -460,21 +434,7 @@ public class PlayerControllerOldInput : MonoBehaviour
       //  }
     }
 
-    /*
-     * This handles the input from the left stick on all controllers. This has been depreciated. 
-     */
-    void OnLeftStick(InputValue value)
-    {
-        movementVec = value.Get<Vector2>();
-      // Debug.Log(value.Get<Vector2>());
-    }
 
-    //This is also depreciated. 
-    void OnRightStick(InputValue value)
-    {
-        rotVec = value.Get<Vector2>();
-        Debug.Log(value.Get<Vector2>());
-    }
 
     /*
      * This handles the attacking of the game. It is split into two parts, a melee and a ranged attack, using a bool value to control which controls
