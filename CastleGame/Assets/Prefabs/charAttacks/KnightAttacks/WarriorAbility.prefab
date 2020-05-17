@@ -4823,6 +4823,7 @@ GameObject:
   - component: {fileID: 8778172839773982603}
   - component: {fileID: 694212950286544611}
   - component: {fileID: -7059248436721038383}
+  - component: {fileID: 4441092009351315142}
   m_Layer: 0
   m_Name: WarriorAbility
   m_TagString: Untagged
@@ -4898,7 +4899,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6341742899488700442}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -4919,3 +4920,19 @@ MonoBehaviour:
   OTHER_TAG: Enemy
   BELL_TAG: Bell
   enemyDamage: 100
+--- !u!54 &4441092009351315142
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6341742899488700442}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 14
+  m_CollisionDetection: 0
