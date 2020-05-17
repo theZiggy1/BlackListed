@@ -2131,6 +2131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ian Enemy Ranged
       objectReference: {fileID: 0}
+    - target: {fileID: 4058950530786510851, guid: b7f54d178c7291c46829efd45451e01a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4058950530786510863, guid: b7f54d178c7291c46829efd45451e01a,
         type: 3}
       propertyPath: m_LocalPosition.x
