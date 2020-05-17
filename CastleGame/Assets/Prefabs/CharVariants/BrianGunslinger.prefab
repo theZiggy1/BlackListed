@@ -4709,9 +4709,9 @@ MonoBehaviour:
   ultraCoolDown: 0
   genericAattackCoolDown: 0
   intialBulletVelocity: 350
-  intialDodgeVelocity: 400
+  intialDodgeVelocity: 200
   jumpForce: 250
-  timeUntilAnimFinished: 0
+  timeUntilAnimFinished: 1
   ENEMY_TAG: Enemy
   inputScript: {fileID: 3496179518173501236}
   enemyDamage: 100

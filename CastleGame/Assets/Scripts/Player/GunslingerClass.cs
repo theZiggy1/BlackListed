@@ -79,5 +79,14 @@ public class GunslingerClass : BaseClass
     {
         yield return new WaitForSeconds(timeToWait);
         inputScript.isTumbling = false;
+        this.GetComponent<Rigidbody>().isKinematic = true;
+        StartCoroutine(WaitUntilTuronKin(0.001f));
+    }
+
+    IEnumerator WaitUntilTuronKin(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+
+        this.GetComponent<Rigidbody>().isKinematic = false;
     }
 }

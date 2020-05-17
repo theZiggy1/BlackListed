@@ -185,7 +185,10 @@ public class PlayerControllerOldInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isTumbling)
+        {
+            return;
+        }
 
         //our update loop due to the controller rewrite now handles what was originally sendmessage from the input system. Now we need to manually handle sending in these inputs
         //The first is to mandle movement. We also specifically do it in this order in case the right stick is being engaged to look a different direction, otherwise in movement, the player will naturally look towards the direction the player is walking towards. 
@@ -520,5 +523,18 @@ public class PlayerControllerOldInput : MonoBehaviour
         {
             canJump = true;
         }
+        if(isTumbling == true)
+        {
+            isTumbling = false;
+            this.GetComponent<Rigidbody>().isKinematic = true;
+            StartCoroutine(WaitUntilTuronKin(0.001f));
+        }
+    }
+
+    IEnumerator WaitUntilTuronKin(float timeToWait)
+    {
+        yield return new WaitForSeconds(timeToWait);
+
+        this.GetComponent<Rigidbody>().isKinematic = false;
     }
 }
