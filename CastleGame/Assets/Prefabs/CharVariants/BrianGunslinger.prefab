@@ -4530,8 +4530,8 @@ MonoBehaviour:
   meleeSpawn: {fileID: 8899998647954663803}
   forceStrength: 100
   playerNum: 0
-  insideTreeCamera: {fileID: 0}
-  insideTree: 0
+  mainCameraRotation: {x: 0, y: 0, z: 0}
+  mainCameraSet: 0
   playerAnimator: {fileID: 6946239299978696202}
   audioSource: {fileID: 0}
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
@@ -4699,11 +4699,12 @@ MonoBehaviour:
   ultraCoolDownReset: 0
   basicAttackLocation: {fileID: 8899998647219600430}
   abilityLocation: {fileID: 8899998647954663803}
-  ultraLocation: {fileID: 0}
-  basicAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+  ultraLocation: {fileID: 8899998647219600430}
+  basicAttackObj: {fileID: 1166248936650177267, guid: aa4e1c100c1a8fa40b4167c7ab6661f4,
     type: 3}
   abilityAttackObj: {fileID: 0}
-  ultraAttackObj: {fileID: 0}
+  ultraAttackObj: {fileID: 9174533890392346026, guid: e5596decdaac10044af4f328b50df4cc,
+    type: 3}
   abilityCoolDown: 0
   ultraCoolDown: 0
   genericAattackCoolDown: 0
@@ -4716,6 +4717,8 @@ MonoBehaviour:
   enemyDamage: 100
   gunslingerBody: {fileID: 4420566335824854096}
   Brian: {fileID: 4086073068019304803}
+  ParticleEffect: {fileID: 828680300562686009, guid: 793447497d15adf48b424aa1940b72b3,
+    type: 3}
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0

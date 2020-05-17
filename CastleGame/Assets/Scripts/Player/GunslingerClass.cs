@@ -14,6 +14,7 @@ public class GunslingerClass : BaseClass
     public float enemyDamage = 100;
     [SerializeField] Rigidbody gunslingerBody;
     [SerializeField] GameObject Brian;
+    [SerializeField] GameObject ParticleEffect;
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -34,9 +35,11 @@ public class GunslingerClass : BaseClass
         if (genericAattackCoolDown <= 0)
         {
             genericAattackCoolDown = genericAttackReset;
-            GameObject Bullet = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
-            Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * intialBulletVelocity);
-            Destroy(Bullet, 0.5f);
+            GameObject bullet = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
+            GameObject effect = GameObject.Instantiate(ParticleEffect, basicAttackLocation.position, basicAttackLocation.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * intialBulletVelocity);
+            Destroy(bullet, 0.5f);
+            Destroy(effect, 0.5f);
         }
     }
 
@@ -45,9 +48,12 @@ public class GunslingerClass : BaseClass
         if (ultraCoolDown <= 0)
         {
             ultraCoolDown = ultraCoolDownReset;
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag(ENEMY_TAG);
 
-            foreach( GameObject EnemyObj in enemies)
+
+            GameObject[] enemies = GameObject.FindGameObjectsWithTag(ENEMY_TAG);
+            GameObject Bullet = GameObject.Instantiate(ultraAttackObj, ultraLocation.position, ultraLocation.rotation);
+            Destroy(Bullet, 0.5f);
+            foreach ( GameObject EnemyObj in enemies)
             {
                 EnemyObj.GetComponent<EntityScript>().TakeDamage(enemyDamage);
                 //
