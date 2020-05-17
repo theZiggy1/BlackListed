@@ -58,10 +58,6 @@ public class PlayerControllerOldInput : MonoBehaviour
     bool Attacking = false; // the right trigger is in fact an axis, and to keep the player from attacking each frame, once the trigger is depressed, this is called, and not reverted until the trigger is released completely. 
     private bool doingAbility = false;
 
-    // Tree stuff
-    [SerializeField] GameObject insideTreeCamera;
-    public bool insideTree = false;
-
     // Camera - gets set by the mainCamera in each level
     [SerializeField]
     private Vector3 mainCameraRotation;

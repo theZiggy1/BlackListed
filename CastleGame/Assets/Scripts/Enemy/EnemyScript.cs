@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UIElements;
 
 public class EnemyScript : MonoBehaviour
 {
@@ -42,13 +43,15 @@ public class EnemyScript : MonoBehaviour
     public float speed2 = 10.0f;
     public float speedWhileGoing = 0.5f;
     public Vector3 newLocation;
-    Transform tempTransform;
+    public Transform tempTransform;
     public float radius = 5;
     public float rangedRadius = 7;
     [SerializeField] GameObject rangedEnemyAttack;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] float forceStrength;
     [SerializeField] NavMeshAgent thisAgent;
+    [SerializeField] float rangedAttackCoolDown = 0;
+    [SerializeField] float rangedAttackReset = 5;
 
     [Space(20)] // 20 pixels of spacing in inspector
 
@@ -58,6 +61,7 @@ public class EnemyScript : MonoBehaviour
 
 
     public bool MoveTo = false;
+    public bool MoveToRanged = false;
 
     public bool performingAttack = false;
 
@@ -69,7 +73,8 @@ public class EnemyScript : MonoBehaviour
         stateMachine = States.flocking;
         playerObj = inheritedScript.playerObj;
         playerToFight = inheritedScript.playerToFight;
-        gameManager = inheritedScript.gameManager; // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
+        gameManager = inheritedScript.gameManager;
+       // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
     }
 
     // Update is called once per frame
@@ -140,7 +145,7 @@ public class EnemyScript : MonoBehaviour
 
                         break;
                     case fighterType.ranged:
-                        if (MoveTo == true)
+                        if (MoveToRanged == true)
                         {
                             this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
                             theta += Time.deltaTime * speed;
@@ -153,16 +158,20 @@ public class EnemyScript : MonoBehaviour
                             newLocation.y = playerObj.transform.position.y + 1;
                             newLocation.z = playerObj.transform.position.z + (rangedRadius * Mathf.Sin(theta * Mathf.PI / 180));
 
-                            
                             tempTransform.position = newLocation;
                             tempTransform.rotation = playerObj.transform.rotation;
+                            
                             isMovingTo(tempTransform, 10.0f);
+                            rangedAttackCoolDown -= Time.deltaTime;
                         }
 
-                        else if(performingAttack == false)
+                        if(rangedAttackCoolDown <= 0 && performingAttack == false)
                         {
+                            MoveToRanged = false;
+                            thisAgent.isStopped = true;
                             StartCoroutine(rangedAttack(1.0f));
                         }
+   
 
                         // Animation for Ranged Spit
                         enemyAnimator.Play("Ranged Spit");
@@ -232,11 +241,15 @@ public class EnemyScript : MonoBehaviour
     IEnumerator rangedAttack(float timeToWait)
     {
         performingAttack = true;
+
+        this.transform.LookAt(playerObj.transform);
         yield return new WaitForSeconds(timeToWait);
         this.transform.LookAt(playerObj.transform);
         SpawnBullet();
-        MoveTo = true;
+        MoveToRanged = true;
+        rangedAttackCoolDown = rangedAttackReset;
         performingAttack = false;
+
     }
 
     void isMovingTo(Transform location , float speed)
