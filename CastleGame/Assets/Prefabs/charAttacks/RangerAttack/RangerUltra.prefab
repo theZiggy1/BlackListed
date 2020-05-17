@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 827690838464206277}
   - component: {fileID: 8866618853832717485}
   - component: {fileID: 1455358046744183260}
+  - component: {fileID: -1019976384704006565}
   m_Layer: 0
   m_Name: RangerUltra
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 3075039696931643988}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.5773079, y: 0.8228359, z: -0.292031}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 2444102016694870702}
   m_Father: {fileID: 0}
@@ -88,7 +89,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3075039696931643988}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -108,7 +109,24 @@ MonoBehaviour:
   forceStrength: 0
   OTHER_TAG: Enemy
   BELL_TAG: Bell
-  enemyDamage: 100
+  enemyDamage: 200
+  isRangerUltra: 1
+--- !u!54 &-1019976384704006565
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3075039696931643988}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!1001 &6312984343691141753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -139,22 +157,22 @@ PrefabInstance:
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
@@ -169,7 +187,7 @@ PrefabInstance:
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
@@ -179,17 +197,17 @@ PrefabInstance:
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.39485413
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.39485407
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8536300439186555095, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.9742706
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8649278690204255846, guid: 76c039312ba169e4e94c4b59202b699a,
         type: 3}

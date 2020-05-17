@@ -5,6 +5,7 @@ using UnityEngine;
 public class RangerClass : BaseClass
 {
     public float forceStrength;
+    public float rangerUltraVel;
     public float[] ArrayDelay;
     public override void abilityAttack()
     {
@@ -25,7 +26,7 @@ public class RangerClass : BaseClass
             genericAattackCoolDown = genericAttackReset;
             GameObject Bullet = GameObject.Instantiate(basicAttackObj, basicAttackLocation.position, basicAttackLocation.rotation);
             Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * forceStrength);
-            Destroy(Bullet, 0.5f);
+            Destroy(Bullet, 5.0f);
         }
     }
 
@@ -36,8 +37,8 @@ public class RangerClass : BaseClass
             ultraCoolDown = ultraCoolDownReset;
 
             GameObject Arrow = GameObject.Instantiate(ultraAttackObj, ultraLocation.position, ultraLocation.rotation);
-            Arrow.GetComponent<Rigidbody>().AddForce(ultraLocation.forward * forceStrength);
-            Destroy(Arrow, 0.5f);
+            Arrow.GetComponent<Rigidbody>().AddForce(ultraLocation.forward * rangerUltraVel);
+            Destroy(Arrow, 10.0f);
         }
     }
 // Start is called before the first frame update

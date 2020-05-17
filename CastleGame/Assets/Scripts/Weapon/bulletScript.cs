@@ -9,6 +9,7 @@ public class bulletScript : MonoBehaviour
     public string OTHER_TAG = "Enemy";
     public string BELL_TAG = "Bell";
     public int enemyDamage = 100;
+    public bool isRangerUltra = false;
     void Start()
     {
         //this.GetComponent<Rigidbody>().AddRelativeForce(this.transform.forward * forceStrength);
@@ -27,7 +28,7 @@ public class bulletScript : MonoBehaviour
         if (other.gameObject.tag == OTHER_TAG)
         {
             other.gameObject.GetComponent<EntityScript>().TakeDamage(enemyDamage);
-            Destroy(this.gameObject);
+            if (!isRangerUltra) { Destroy(this.gameObject); }
         }
 
         if(other.gameObject.tag == BELL_TAG)

@@ -3761,6 +3761,36 @@ Transform:
   m_Father: {fileID: 1095438486555348999}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3798731704443298632
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4817946325645141595}
+  m_Layer: 9
+  m_Name: ultraAttackSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4817946325645141595
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3798731704443298632}
+  m_LocalRotation: {x: -0, y: -0.018227993, z: -0, w: 0.9998339}
+  m_LocalPosition: {x: 0, y: 0.63, z: 3.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1076356010035264368}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3822385702147296895
 GameObject:
   m_ObjectHideFlags: 0
@@ -3955,6 +3985,7 @@ Transform:
   - {fileID: 9068317767331209780}
   - {fileID: 8899998647219600430}
   - {fileID: 8899998647954663803}
+  - {fileID: 4817946325645141595}
   m_Father: {fileID: 4420566335824854099}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -4529,8 +4560,8 @@ MonoBehaviour:
   meleeSpawn: {fileID: 8899998647954663803}
   forceStrength: 100
   playerNum: 0
-  insideTreeCamera: {fileID: 0}
-  insideTree: 0
+  mainCameraRotation: {x: 0, y: 0, z: 0}
+  mainCameraSet: 0
   playerAnimator: {fileID: 6946239299978696202}
   audioSource: {fileID: 0}
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
@@ -4698,20 +4729,21 @@ MonoBehaviour:
   ultraCoolDownReset: 0
   basicAttackLocation: {fileID: 8899998647219600430}
   abilityLocation: {fileID: 8899998647219600430}
-  ultraLocation: {fileID: 8899998647219600430}
-  basicAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+  ultraLocation: {fileID: 4817946325645141595}
+  basicAttackObj: {fileID: 8833563920388698906, guid: abdc37b0eda98404f977bd5d32ce94d5,
     type: 3}
-  abilityAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+  abilityAttackObj: {fileID: 5429319520952085509, guid: 340220ade1e441b40aef84a99c604e91,
     type: 3}
-  ultraAttackObj: {fileID: 2693584914107533023, guid: ec6209100ca00944c9162b4b158c1090,
+  ultraAttackObj: {fileID: 3075039696931643988, guid: 9c47feb6f1fc51144ba118cc0977fee5,
     type: 3}
   abilityCoolDown: 0
   ultraCoolDown: 0
   genericAattackCoolDown: 0
-  forceStrength: 100
+  forceStrength: 400
+  rangerUltraVel: 200
   ArrayDelay:
-  - 0.5
-  - 1
+  - 0.75
+  - 1.5
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0
