@@ -603,6 +603,12 @@ Transform:
   m_Father: {fileID: 1565447664}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &917004503 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4420566335824854092, guid: 44132b3f328a0f740b0a9c64492742c8,
+    type: 3}
+  m_PrefabInstance: {fileID: 2120211179}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &948808333
 GameObject:
   m_ObjectHideFlags: 0
@@ -828,6 +834,8 @@ GameObject:
   - component: {fileID: 1455673672}
   - component: {fileID: 1455673671}
   - component: {fileID: 1455673670}
+  - component: {fileID: 1455673676}
+  - component: {fileID: 1455673675}
   m_Layer: 0
   m_Name: TestEnemyAI
   m_TagString: Untagged
@@ -845,7 +853,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 10
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -923,12 +931,60 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1455673669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.56, z: 0}
+  m_LocalPosition: {x: -8.89, y: 1.56, z: 7.85}
   m_LocalScale: {x: 1, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1455673675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455673669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97f254346a71214d8cc92748bc17322, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayer: 0
+  startingHealth: 100
+  currentHealth: 100
+  usingHealthBar: 0
+  healthBar: {fileID: 0}
+  deathType: 0
+  isInvulnerable: 0
+  usingAudio: 0
+  audioSource: {fileID: 0}
+  audioClipHurt: {fileID: 0}
+  audioClipHealed: {fileID: 0}
+  audioClipHealingRift: {fileID: 0}
+  audioClipRevived: {fileID: 0}
+  audioClipDied: {fileID: 0}
+  canDropItem: 0
+  itemDrops: []
+  dropChances: []
+  randomNumber: 0
+  itemToDrop: {fileID: 0}
+  isDead: 0
+--- !u!114 &1455673676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455673669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3d9e239a101b84988d59457a4f5917, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inheritedScript: {fileID: 0}
+  targetLocation: {fileID: 0}
+  gameManager: {fileID: 1510603052}
+  thisAgent: {fileID: 1455673670}
 --- !u!1 &1510603052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 978124582903858558, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
@@ -1093,6 +1149,11 @@ PrefabInstance:
       propertyPath: isEngaged.Array.size
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
+        type: 3}
+      propertyPath: currentPlayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 917004503}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958bb2ac4d041a4bb0ee9b3868f66dd, type: 3}
 --- !u!1001 &2120211179
