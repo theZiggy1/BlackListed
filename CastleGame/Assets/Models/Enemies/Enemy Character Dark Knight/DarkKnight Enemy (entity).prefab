@@ -261,6 +261,7 @@ MonoBehaviour:
   speed2: 10
   speedWhileGoing: 0.5
   newLocation: {x: 0, y: 0, z: 0}
+  tempTransform: {fileID: 0}
   radius: 10
   rangedRadius: 15
   rangedEnemyAttack: {fileID: 6516411327514499333, guid: feb03f85e2b6cd34784451a452528e91,
@@ -268,8 +269,11 @@ MonoBehaviour:
   bulletSpawn: {fileID: 7520904752236182431}
   forceStrength: 200
   thisAgent: {fileID: 8823910744793796166}
+  rangedAttackCoolDown: 0
+  rangedAttackReset: 5
   enemyAnimator: {fileID: 8848453774719586040}
   MoveTo: 0
+  MoveToRanged: 0
   performingAttack: 0
 --- !u!114 &3606983860248848794
 MonoBehaviour:
@@ -306,6 +310,9 @@ MonoBehaviour:
   - 40
   randomNumber: 0
   itemToDrop: {fileID: 0}
+  doesParticlesOnDeath: 1
+  particleObject: {fileID: 2034424808371266236, guid: cb8ca4674f2d2df469721eefb50db4d1,
+    type: 3}
   isDead: 0
 --- !u!195 &8823910744793796166
 NavMeshAgent:

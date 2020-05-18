@@ -87,6 +87,17 @@ public class EntityScript : MonoBehaviour
     [SerializeField]
     private GameObject itemToDrop; // The item that is going to get dropped
 
+    [Space(10)]
+
+    [SerializeField]
+    [Tooltip("Do we emit particles when we die?")]
+    private bool doesParticlesOnDeath;
+    [SerializeField]
+    [Tooltip("The particle object we drop on death")]
+    private GameObject particleObject;
+
+    [Space(10)]
+
     [SerializeField]
     private bool isDead; // Used to say if we're dead
 
@@ -345,6 +356,11 @@ public class EntityScript : MonoBehaviour
         if (canDropItem)
         {
             DropItem();
+        }
+
+        if (doesParticlesOnDeath)
+        {
+            Instantiate(particleObject, transform.position, transform.rotation);
         }
 
         // This is temporary
