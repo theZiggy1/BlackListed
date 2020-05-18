@@ -97,7 +97,7 @@ LightmapSettings:
     m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -968,6 +968,8 @@ MonoBehaviour:
   dropChances: []
   randomNumber: 0
   itemToDrop: {fileID: 0}
+  doesParticlesOnDeath: 0
+  particleObject: {fileID: 0}
   isDead: 0
 --- !u!114 &1455673676
 MonoBehaviour:
@@ -985,6 +987,7 @@ MonoBehaviour:
   targetLocation: {fileID: 0}
   gameManager: {fileID: 1510603052}
   thisAgent: {fileID: 1455673670}
+  timeWaiting: 1
 --- !u!1 &1510603052 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 978124582903858558, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
