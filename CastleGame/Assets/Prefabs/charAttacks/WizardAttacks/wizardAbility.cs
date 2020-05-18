@@ -26,7 +26,7 @@ public class wizardAbility : MonoBehaviour
             foreach (GameObject player in Players)
             {
                 //Add Health
-                player.GetComponent<EntityScript>().TakeDamage(-1.0f);
+                player.GetComponent<EntityScript>().HealingRift(1.0f);
             }
         }
 
