@@ -310,6 +310,9 @@ MonoBehaviour:
   - 40
   randomNumber: 0
   itemToDrop: {fileID: 0}
+  doesParticlesOnDeath: 1
+  particleObject: {fileID: 9011562532730715137, guid: 21fd90936911627428726da432bade7a,
+    type: 3}
   isDead: 0
 --- !u!195 &8823910744793796166
 NavMeshAgent:
@@ -459,7 +462,7 @@ PrefabInstance:
     - target: {fileID: 8919498870376469279, guid: e1412b1a85dee3c4bace1dc4a94418cc,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8919498870376469279, guid: e1412b1a85dee3c4bace1dc4a94418cc,
         type: 3}
@@ -509,7 +512,7 @@ PrefabInstance:
     - target: {fileID: 1017995286586022254, guid: e1412b1a85dee3c4bace1dc4a94418cc,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1017995286586022254, guid: e1412b1a85dee3c4bace1dc4a94418cc,
         type: 3}

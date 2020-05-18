@@ -413,7 +413,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 56467bbcbf8707d45a268a24e1a6b4cf, type: 2}
-  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2990,7 +2989,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 83830fdb47181404bba0e56c2d2cd2a5, type: 2}
-  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3574,7 +3572,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6b465b7ed449f2640b53124b8a5fe399, type: 2}
-  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4601,6 +4598,8 @@ MonoBehaviour:
   dropChances: []
   randomNumber: 0
   itemToDrop: {fileID: 0}
+  doesParticlesOnDeath: 0
+  particleObject: {fileID: 0}
   isDead: 0
 --- !u!82 &6359442801039663996
 AudioSource:
@@ -5542,7 +5541,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 431a8b667b96120479649b44bc83497e, type: 2}
-  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6200,7 +6198,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e6557bdd534e71a4b92c10d3b54f9505, type: 2}
-  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

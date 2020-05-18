@@ -287,11 +287,22 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathType: 1
   isInvulnerable: 0
+  usingAudio: 0
+  audioSource: {fileID: 0}
+  audioClipHurt: {fileID: 0}
+  audioClipHealed: {fileID: 0}
+  audioClipHealingRift: {fileID: 0}
+  audioClipRevived: {fileID: 0}
+  audioClipDied: {fileID: 0}
   canDropItem: 0
   itemDrops: []
   dropChances: []
   randomNumber: 0
   itemToDrop: {fileID: 0}
+  doesParticlesOnDeath: 1
+  particleObject: {fileID: 9011562532730715137, guid: 21fd90936911627428726da432bade7a,
+    type: 3}
+  isDead: 0
 --- !u!114 &5922314209112434549
 MonoBehaviour:
   m_ObjectHideFlags: 0

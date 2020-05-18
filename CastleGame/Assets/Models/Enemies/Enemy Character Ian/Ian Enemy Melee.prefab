@@ -730,7 +730,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: e9644aa1774435b4391b67ccc7e78ebd, type: 2}
-  - {fileID: 2100000, guid: c409335b2c0a2c441aff40505b35b6d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1266,6 +1265,9 @@ MonoBehaviour:
   - 40
   randomNumber: 0
   itemToDrop: {fileID: 0}
+  doesParticlesOnDeath: 1
+  particleObject: {fileID: 9011562532730715137, guid: 21fd90936911627428726da432bade7a,
+    type: 3}
   isDead: 0
 --- !u!195 &8823910744793796166
 NavMeshAgent:
