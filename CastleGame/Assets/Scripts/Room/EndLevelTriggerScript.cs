@@ -17,6 +17,9 @@ public class EndLevelTriggerScript : MonoBehaviour
     public string currentLevelName;
     public string nextLevelName;
 
+    [SerializeField]
+    private bool hasPlayerEntered; // Used to say that a player has entered, so this can only trigger once
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,10 +40,16 @@ public class EndLevelTriggerScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        // If a player enters the trigger box, we show the end screen
-        if (other.gameObject.CompareTag("Player"))
+        // If a player hasn't entered us yet
+        if (!hasPlayerEntered)
         {
-            ShowEndScreen();
-        }        
+            // If a player enters the trigger box, we show the end screen
+            if (other.gameObject.CompareTag("Player"))
+            {
+                hasPlayerEntered = true;
+
+                ShowEndScreen();
+            }
+        }
     }
 }

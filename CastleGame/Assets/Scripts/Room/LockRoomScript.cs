@@ -226,6 +226,13 @@ public class LockRoomScript : MonoBehaviour
         {
             // 'Teleports' the player
             players[i].transform.position = teleportPoints[i].position;
+
+            // If a player is dead
+            if (players[i].GetComponent<EntityScript>().isDead)
+            {
+                // Then revive that player
+                players[i].GetComponent<EntityScript>().Revive();
+            }
         }
     }
 

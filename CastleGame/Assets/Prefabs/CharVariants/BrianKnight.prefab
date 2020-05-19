@@ -4500,10 +4500,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4420566335824854092}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.5, y: 1, z: 1.5}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &3496179518173501236
 MonoBehaviour:
@@ -4534,6 +4534,8 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
+  isDead: 0
+  playerInputManager: {fileID: 0}
   clothingPiece: {fileID: 4411837408377033329}
   myclass: {fileID: 6978582922574808174}
   isTumbling: 0

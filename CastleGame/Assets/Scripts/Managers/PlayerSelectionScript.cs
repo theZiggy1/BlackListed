@@ -143,6 +143,9 @@ public class PlayerSelectionScript : MonoBehaviour
             playerChildMats[0] = PlayerMaterials[playerID];
             clothingPiece.GetComponent<Renderer>().materials = playerChildMats;
 
+            // Sets each player to know us
+            playerInst.GetComponent<PlayerControllerOldInput>().playerInputManager = gameObject;
+
             spawnedInPlayers[playerID] = playerInst; // Used to keep track of our players
             
             spawnIndex++;
@@ -313,4 +316,35 @@ public class PlayerSelectionScript : MonoBehaviour
             LoadLevel();
         }
     }
+
+    // Players will call this each time one of them dies, if they're all dead, then we show the Game Over screen
+    public void CheckGameOver()
+    {
+        bool showGameOver = false;
+
+        foreach(GameObject player in spawnedInPlayers)
+        {
+            if (!player.GetComponent<EntityScript>().isDead)
+            {
+                Debug.Log("A player is still alive");
+
+                showGameOver = false;
+
+                // Breaks out of the loop, as at least one of our players is still alive
+                break;
+            }
+            else
+            {
+                showGameOver = true;
+            }
+        }
+
+        if (showGameOver)
+        {
+            // Loads the Game Over screen
+            SceneManager.LoadSceneAsync("GameOverScreen", LoadSceneMode.Additive);
+        }
+    }
+
+
 }

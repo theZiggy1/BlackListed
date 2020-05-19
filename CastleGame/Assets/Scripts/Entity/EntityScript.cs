@@ -98,8 +98,7 @@ public class EntityScript : MonoBehaviour
 
     [Space(10)]
 
-    [SerializeField]
-    private bool isDead; // Used to say if we're dead
+    public bool isDead; // Used to say if we're dead
 
     // Start is called before the first frame update
     void Start()
@@ -134,6 +133,11 @@ public class EntityScript : MonoBehaviour
                 }
 
             }
+
+            if (GetComponent<BoxCollider>() == null)
+            {
+                Debug.Log("Box collider trigger not set on player! Therefore players won't be able to revive eachother!");
+            }
         }
 
         currentHealth = startingHealth;
@@ -159,10 +163,10 @@ public class EntityScript : MonoBehaviour
         //    UpdateHealthBar();
         //}
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }
+        //if (currentHealth <= 0)
+        //{
+        //    Die();
+        //}
     }
 
     private void UpdateHealthBar()
@@ -181,7 +185,8 @@ public class EntityScript : MonoBehaviour
             return; //If we are invulnerable we dont need to calculate damage do we. 
         }
 
-        else // Otherwise, do damage to us
+        // We only need to do this stuff if we're not already dead
+        if (!isDead)
         {
             currentHealth -= damage;
 
@@ -198,11 +203,17 @@ public class EntityScript : MonoBehaviour
                 // Then plays that clip
                 audioSource.Play();
             }
-        }
 
-        if (usingHealthBar)
-        {
-            UpdateHealthBar();
+
+            if (usingHealthBar)
+            {
+                UpdateHealthBar();
+            }
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
@@ -214,48 +225,57 @@ public class EntityScript : MonoBehaviour
             return; //If we are invulnerable we dont need to calculate damage do we. 
         }
 
-        // If we're a health potion, heal us
-        if (isHealthPotion)
+        // We only need to do this stuff if we're not already dead
+        if (!isDead)
         {
-            currentHealth += damage;
-
-            // Means that we don't get more health than our max
-            if (currentHealth > startingHealth)
+            // If we're a health potion, heal us
+            if (isHealthPotion)
             {
-                currentHealth = startingHealth;
+                currentHealth += damage;
+
+                // Means that we don't get more health than our max
+                if (currentHealth > startingHealth)
+                {
+                    currentHealth = startingHealth;
+                }
+
+                if (usingAudio)
+                {
+                    // Sets us to have the 'healed' audio clip
+                    audioSource.clip = audioClipHealed;
+                    // Then plays that clip
+                    audioSource.Play();
+                }
+            }
+            else // Otherwise, do damage to us
+            {
+                currentHealth -= damage;
+
+                // Means that we don't get more health than our max
+                if (currentHealth > startingHealth)
+                {
+                    currentHealth = startingHealth;
+                }
+
+                if (usingAudio)
+                {
+                    // Sets us to have the 'hurt' audio clip
+                    audioSource.clip = audioClipHurt;
+                    // Then plays that clip
+                    audioSource.Play();
+                }
             }
 
-            if (usingAudio)
+            if (usingHealthBar)
             {
-                // Sets us to have the 'healed' audio clip
-                audioSource.clip = audioClipHealed;
-                // Then plays that clip
-                audioSource.Play();
+                UpdateHealthBar();
+            }
+
+            if (currentHealth <= 0)
+            {
+                Die();
             }
         }
-        else // Otherwise, do damage to us
-        {
-            currentHealth -= damage;
-
-            // Means that we don't get more health than our max
-            if (currentHealth > startingHealth)
-            {
-                currentHealth = startingHealth;
-            }
-
-            if (usingAudio)
-            {
-                // Sets us to have the 'hurt' audio clip
-                audioSource.clip = audioClipHurt;
-                // Then plays that clip
-                audioSource.Play();
-            }
-        }
-
-        if (usingHealthBar)
-        {
-            UpdateHealthBar();
-        }        
     }
 
     public void HealingRift(float healing)
@@ -265,25 +285,34 @@ public class EntityScript : MonoBehaviour
             return; //If we are invulnerable we dont need to calculate damage do we. 
         }
 
-        currentHealth += healing;
-
-        // Means that we don't get more health than our max
-        if (currentHealth > startingHealth)
+        // We only need to do this stuff if we're not already dead
+        if (!isDead)
         {
-            currentHealth = startingHealth;
-        }
+            currentHealth += healing;
 
-        if (usingAudio)
-        {
-            // Sets us to have the 'healing rift' audio clip
-            audioSource.clip = audioClipHealingRift;
-            // Then plays that clip
-            audioSource.Play();
-        }
+            // Means that we don't get more health than our max
+            if (currentHealth > startingHealth)
+            {
+                currentHealth = startingHealth;
+            }
 
-        if (usingHealthBar)
-        {
-            UpdateHealthBar();
+            if (usingAudio)
+            {
+                // Sets us to have the 'healing rift' audio clip
+                audioSource.clip = audioClipHealingRift;
+                // Then plays that clip
+                audioSource.Play();
+            }
+
+            if (usingHealthBar)
+            {
+                UpdateHealthBar();
+            }
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
         }
     }
 
@@ -294,9 +323,23 @@ public class EntityScript : MonoBehaviour
         {
             currentHealth = startingHealth;
 
-            //!!!Probably also put a thing here to tell the player that their controls are unlocked!!!
-            // E.g.
-            // GetComponent<PlayerControllerOldInput>().Revive();
+            if (usingHealthBar)
+            {
+                UpdateHealthBar();
+            }
+            
+
+            if (isPlayer)
+            {
+                //!!!Probably also put a thing here to tell the player that their controls are unlocked!!!
+                // E.g.
+                // GetComponent<PlayerControllerOldInput>().Revive();
+
+                GetComponent<PlayerControllerOldInput>().Revive();
+
+                //// Disables the box collider trigger, so that other players can't trigger us anymore, as we're now alive
+                //GetComponent<BoxCollider>().enabled = false;
+            }
 
             if (usingAudio)
             {
@@ -321,6 +364,11 @@ public class EntityScript : MonoBehaviour
             // GetComponent<PlayerControllerOldInput>().Die();
             // All this should do on the player's side, is lock their controls
             // Then we'll play a death animation below here
+
+            GetComponent<PlayerControllerOldInput>().Die();
+
+            //// Enables the box collider trigger, so that other players can trigger us
+            //GetComponent<BoxCollider>().enabled = true;
         }
 
 
@@ -363,9 +411,13 @@ public class EntityScript : MonoBehaviour
             Instantiate(particleObject, transform.position, transform.rotation);
         }
 
-        // This is temporary
-        Debug.Log(this.gameObject.name + " has died");
-        Destroy(this.gameObject);
+        // Will only happen for enemies
+        if (!isPlayer)
+        {
+            // This is temporary
+            Debug.Log(this.gameObject.name + " has died");
+            Destroy(this.gameObject);
+        }
     }
 
     private void DropItem()
@@ -402,6 +454,25 @@ public class EntityScript : MonoBehaviour
             Debug.Log("No item dropped");
         }
 
+    }
+
+    // Used for the revive mechanic
+    private void OnTriggerStay(Collider other)
+    {
+        // If we're dead
+        if (isDead)
+        {
+            // If we're a player
+            if (other.gameObject.CompareTag("Player"))
+            {
+                // If the other player presses the B button
+                if (Input.GetButtonDown("Joy" + other.gameObject.GetComponent<PlayerControllerOldInput>().playerID + "ButtonB"))
+                {
+                    Revive();
+                }
+
+            }
+        }
     }
 
     //These two have been aded by Anton, along with the isInvulnerable var in this way to keep with how Farran wrote the script.

@@ -77,6 +77,13 @@ public class PlayerControllerOldInput : MonoBehaviour
     private AudioClip audioClipGunShoot;
 
 
+    // Death stuff
+    [SerializeField]
+    private bool isDead; // If we're dead, our controls will lock
+
+    public GameObject playerInputManager;
+
+
     //AB Dyeable clothing
     public GameObject clothingPiece; //AB This will be changed to an array at some point - for now just quick implementation
 
@@ -185,164 +192,178 @@ public class PlayerControllerOldInput : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isTumbling)
+        // If we're alive, we can do stuff, otherwise, our controls are locked
+        if (!isDead)
         {
-            return;
-        }
 
-        //our update loop due to the controller rewrite now handles what was originally sendmessage from the input system. Now we need to manually handle sending in these inputs
-        //The first is to mandle movement. We also specifically do it in this order in case the right stick is being engaged to look a different direction, otherwise in movement, the player will naturally look towards the direction the player is walking towards. 
-        //Movement();
-        //LookAt();
-        // With these two functions above always getting called every frame, instead of input being checked in Update *then* the functions being called,
-        // it means that these will always override any other animation that the player is doing
-        // So therefore input checking needs to be switched to be here, *then* call these functions after
-
-        //Debug.Log("Left stick horizontal = " + Input.GetAxis("Joy" + playerID + "LeftStickHorizontal"));
-        //Debug.Log("Left stick vertical = " + Input.GetAxis("Joy" + playerID + "LeftStickVertical"));
-
-        // With these functions we'll combine it with what direction the character is looking at
-        // to determine which direction of walk animation to use
-
-        // Character is moving right (or looking right)
-        if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") < -0.1f))
-        {
-            Debug.Log("Moving right");
-
-            Movement();
-            LookAt();
-
-            // Do the animation for movement
-            //playerAnimator.Play("Sword Run Forward");
-            SetAnimationInteger("Condition", 1);
-        }
-        // Character is moving left (or looking left)
-        else if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") > 0.1f))
-        {
-            Debug.Log("Moving left");
-
-            Movement();
-            LookAt();
-
-            // Do the animation for movement
-            //playerAnimator.Play("Sword Run Forward");
-            SetAnimationInteger("Condition", 1);
-        }
-        // Character is moving up (or looking up)
-        else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") > 0.1f))
-        {
-            Debug.Log("Moving up");
-
-            Movement();
-            LookAt();
-
-            // Do the animation for movement
-            //playerAnimator.Play("Sword Run Forward");
-            SetAnimationInteger("Condition", 1);
-        }
-        // Character is moving down (or looking down)
-        else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") < -0.1f))
-        {
-            Debug.Log("Moving down");
-
-            Movement();
-            LookAt();
-
-            // Do the animation for movement
-            //playerAnimator.Play("Sword Run Forward");
-            SetAnimationInteger("Condition", 1);
-        }
-        else
-        {
-            if (!Attacking)
+            if (isTumbling)
             {
-                Debug.Log("Not moving");
+                return;
+            }
 
-                //playerAnimator.Play("Sword Idle");
-                SetAnimationInteger("Condition", 0);
+            //our update loop due to the controller rewrite now handles what was originally sendmessage from the input system. Now we need to manually handle sending in these inputs
+            //The first is to mandle movement. We also specifically do it in this order in case the right stick is being engaged to look a different direction, otherwise in movement, the player will naturally look towards the direction the player is walking towards. 
+            //Movement();
+            //LookAt();
+            // With these two functions above always getting called every frame, instead of input being checked in Update *then* the functions being called,
+            // it means that these will always override any other animation that the player is doing
+            // So therefore input checking needs to be switched to be here, *then* call these functions after
+
+            //Debug.Log("Left stick horizontal = " + Input.GetAxis("Joy" + playerID + "LeftStickHorizontal"));
+            //Debug.Log("Left stick vertical = " + Input.GetAxis("Joy" + playerID + "LeftStickVertical"));
+
+            // With these functions we'll combine it with what direction the character is looking at
+            // to determine which direction of walk animation to use
+
+            // Character is moving right (or looking right)
+            if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") < -0.1f))
+            {
+                Debug.Log("Moving right");
+
+                Movement();
+                LookAt();
+
+                // Do the animation for movement
+                //playerAnimator.Play("Sword Run Forward");
+                SetAnimationInteger("Condition", 1);
+            }
+            // Character is moving left (or looking left)
+            else if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") > 0.1f))
+            {
+                Debug.Log("Moving left");
+
+                Movement();
+                LookAt();
+
+                // Do the animation for movement
+                //playerAnimator.Play("Sword Run Forward");
+                SetAnimationInteger("Condition", 1);
+            }
+            // Character is moving up (or looking up)
+            else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") > 0.1f))
+            {
+                Debug.Log("Moving up");
+
+                Movement();
+                LookAt();
+
+                // Do the animation for movement
+                //playerAnimator.Play("Sword Run Forward");
+                SetAnimationInteger("Condition", 1);
+            }
+            // Character is moving down (or looking down)
+            else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") < -0.1f))
+            {
+                Debug.Log("Moving down");
+
+                Movement();
+                LookAt();
+
+                // Do the animation for movement
+                //playerAnimator.Play("Sword Run Forward");
+                SetAnimationInteger("Condition", 1);
             }
             else
             {
-                Debug.Log("We are attacking, so we're not going to revert the animation to idle yet");
+                if (!Attacking)
+                {
+                    Debug.Log("Not moving");
+
+                    //playerAnimator.Play("Sword Idle");
+                    SetAnimationInteger("Condition", 0);
+                }
+                else
+                {
+                    Debug.Log("We are attacking, so we're not going to revert the animation to idle yet");
+                }
             }
-        }
 
 
 
-        //Handles the attacking from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
-        if (Input.GetAxis("Joy" + playerID + "RightTrigger") != 0.0f)
-        {
-            if (Attacking == false)
+            //Handles the attacking from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
+            if (Input.GetAxis("Joy" + playerID + "RightTrigger") != 0.0f)
             {
-                // Does the attack
-                OnAttackRightTrigger();
+                if (Attacking == false)
+                {
+                    // Does the attack
+                    OnAttackRightTrigger();
 
-                // Plays the animation
-                // Naming for this is absolute right now, will probably change later
-                //playerAnimator.Play("Sword Swing 1");
-                SetAnimationInteger("Condition", 5);
+                    // Plays the animation
+                    // Naming for this is absolute right now, will probably change later
+                    //playerAnimator.Play("Sword Swing 1");
+                    SetAnimationInteger("Condition", 5);
 
-                // Sets us so we're attacking
-                Attacking = true;
+                    // Sets us so we're attacking
+                    Attacking = true;
+                }
             }
-        }
-         //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
-        if (Attacking == true)
-        {
-            if (Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
+            //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
+            if (Attacking == true)
             {
-                Attacking = false;
+                if (Input.GetAxis("Joy" + playerID + "RightTrigger") == 0.0f)
+                {
+                    Attacking = false;
 
-                //SetAnimationInteger("Condition", 0);
+                    //SetAnimationInteger("Condition", 0);
+                }
             }
-        }
 
-        //Handles the ability using from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
-        if (Input.GetAxis("Joy" + playerID + "LeftTrigger") != 0.0f)
-        {
-            if (doingAbility == false)
+            //Handles the ability using from the player. This is called only the first frame, as a bool is set to true, before it can be called again. 
+            if (Input.GetAxis("Joy" + playerID + "LeftTrigger") != 0.0f)
             {
-                // Does the attack
-                OnAbilityLeftTrigger(); // Currently doesn't do anything
+                if (doingAbility == false)
+                {
+                    // Does the attack
+                    OnAbilityLeftTrigger(); // Currently doesn't do anything
 
-                // Plays the animation
-                //SetAnimationInteger("Condition", INT);
+                    // Plays the animation
+                    //SetAnimationInteger("Condition", INT);
 
-                // Sets us so we're attacking
-                doingAbility = true;
+                    // Sets us so we're attacking
+                    doingAbility = true;
+                }
             }
-        }
-        //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
-        if (doingAbility == true)
-        {
-            if (Input.GetAxis("Joy" + playerID + "LeftTrigger") == 0.0f)
+            //This links with the above section. attacking needs to be reset when the player is done pressing the trigger, but as it is a a float value, it needs to check to see if its the whole way depressed/ 
+            if (doingAbility == true)
             {
-                doingAbility = false;
+                if (Input.GetAxis("Joy" + playerID + "LeftTrigger") == 0.0f)
+                {
+                    doingAbility = false;
 
-                //SetAnimationInteger("Condition", 0);
+                    //SetAnimationInteger("Condition", 0);
+                }
             }
+
+
+            //buttons only return true the frame they are called with button down, so the above isnt true here. This lets us handle switching weapons.
+            if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
+            {
+                OnSwitchWeapon();
+            }
+
+            //This lets us handle jumping
+            if (Input.GetButtonDown("Joy" + playerID + "ButtonA"))
+            {
+                OnJump();
+            }
+
+            //DEBUG - Remove in the final game
+            // Heals us if we press LB
+            if (Input.GetButtonDown("Joy" + playerID + "ButtonLB"))
+            {
+                GetComponent<EntityScript>().TakeDamage(5, true);
+            }
+
+
+
         }
-
-
-        //buttons only return true the frame they are called with button down, so the above isnt true here. This lets us handle switching weapons.
-        if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
+        else // We've died so we need to play the death animation
         {
-            OnSwitchWeapon();
+            // Sets us back to idle
+            SetAnimationInteger("Condition", 0);
+            // Then does the death animation
+            SetAnimationInteger("Condition", 20);
         }
-
-        //This lets us handle jumping
-        if (Input.GetButtonDown("Joy" + playerID + "ButtonA"))
-        {
-            OnJump();
-        }
-
-        //DEBUG - Remove in the final game
-        // Heals us if we press B
-        if (Input.GetButtonDown("Joy" + playerID + "ButtonB"))
-        {
-            GetComponent<EntityScript>().TakeDamage(5, true);
-        }
-
 
     }
     /*
@@ -381,7 +402,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             // This means that the movement now reflects the direction the camera is looking
             lookRotation *= Quaternion.Euler(0, mainCameraRotation.y - 90, 0);
 
-            //////Use this for setting animation. 
+            //////Use this for setting animation. buttonLB
             //////SetAnimationInteger("Condition", 1);
 
             float step = rotSpeed * Time.deltaTime;
@@ -505,6 +526,22 @@ public class PlayerControllerOldInput : MonoBehaviour
         }
     }
 
+
+    // Called by the entity script when our health reaches 0
+    public void Die()
+    {
+        isDead = true;
+
+        // Tells our playerInputManager to check if there's a game over - if all players are dead
+        playerInputManager.GetComponent<PlayerSelectionScript>().CheckGameOver();
+    }
+    // Called by the entity script when we get revived
+    public void Revive()
+    {
+        isDead = false;
+        // Sets us back to idle
+        SetAnimationInteger("Condition", 0);
+    }
 
     private void SetupControls()
     {
