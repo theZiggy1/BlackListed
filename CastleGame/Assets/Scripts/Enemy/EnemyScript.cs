@@ -52,6 +52,9 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] NavMeshAgent thisAgent;
     [SerializeField] float rangedAttackCoolDown = 0;
     [SerializeField] float rangedAttackReset = 5;
+    public float addMinRandomTheta = -20.0f;
+    public float addMaxRandomTheta = 20.0f;
+
 
     [Space(20)] // 20 pixels of spacing in inspector
 
@@ -74,6 +77,7 @@ public class EnemyScript : MonoBehaviour
         playerObj = inheritedScript.playerObj;
         playerToFight = inheritedScript.playerToFight;
         gameManager = inheritedScript.gameManager;
+        theta += Random.Range(addMinRandomTheta, addMaxRandomTheta);
        // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
     }
 
