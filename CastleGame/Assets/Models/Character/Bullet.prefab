@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2693584914107533011
 Transform:
   m_ObjectHideFlags: 0
@@ -122,4 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceStrength: 100
-  ENEMY_TAG: Enemy
+  OTHER_TAG: Enemy
+  BELL_TAG: Bell
+  enemyDamage: 100
+  isRangerUltra: 0
