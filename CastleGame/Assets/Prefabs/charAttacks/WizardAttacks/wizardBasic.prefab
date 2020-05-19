@@ -110,7 +110,7 @@ MonoBehaviour:
   OTHER_TAG: Enemy
   BELL_TAG: Bell
   enemyDamage: 200
-  isRangerUltra: 1
+  isRangerUltra: 0
 --- !u!54 &4635434208282761342
 Rigidbody:
   m_ObjectHideFlags: 0
