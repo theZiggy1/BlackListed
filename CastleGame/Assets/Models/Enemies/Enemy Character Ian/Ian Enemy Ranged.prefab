@@ -1196,6 +1196,8 @@ MonoBehaviour:
   thisAgent: {fileID: 8756734278923154853}
   rangedAttackCoolDown: 0
   rangedAttackReset: 5
+  addMinRandomTheta: -20
+  addMaxRandomTheta: 70
   enemyAnimator: {fileID: 0}
   MoveTo: 0
   MoveToRanged: 0

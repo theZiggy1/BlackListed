@@ -1226,6 +1226,8 @@ MonoBehaviour:
   thisAgent: {fileID: 8823910744793796166}
   rangedAttackCoolDown: 0
   rangedAttackReset: 5
+  addMinRandomTheta: -20
+  addMaxRandomTheta: 70
   enemyAnimator: {fileID: 0}
   MoveTo: 0
   MoveToRanged: 0
@@ -1243,7 +1245,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  startingHealth: 100
+  startingHealth: 200
   currentHealth: 0
   usingHealthBar: 0
   healthBar: {fileID: 0}
