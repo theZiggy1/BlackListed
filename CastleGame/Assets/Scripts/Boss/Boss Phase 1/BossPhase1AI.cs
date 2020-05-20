@@ -13,6 +13,7 @@ public class BossPhase1AI : MonoBehaviour
     [SerializeField] Vector3 locationToReturn;
     [SerializeField] Vector3 chosenPlayerPosition;
     [SerializeField] GameObject AttackObj;
+    [SerializeField] Transform AttackLocation;
     bool choseALocation = false;
     [SerializeField] float moveSpeed = 50;
     [SerializeField] float returnToBaseSpeed = 10.0f;
@@ -48,6 +49,9 @@ public class BossPhase1AI : MonoBehaviour
 
     void SpawnAttack()
     {
+        GameObject Attack = GameObject.Instantiate(AttackObj, AttackLocation.position, AttackLocation.rotation);
+        Attack.transform.parent = this.transform;
+       // Destroy(Attack, 5.0f);
         //Dont forget to make it a child, so that it can remain in front the whole time. 
         // collision.collider.gameObject.transform.parent = transform;
     }
@@ -66,6 +70,7 @@ public class BossPhase1AI : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
 
         ChooseAPlayer();
+        SpawnAttack();
         choseALocation = true;
     }
 

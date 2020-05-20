@@ -25,8 +25,10 @@ public class bulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject.tag);
         if (other.gameObject.tag == OTHER_TAG)
         {
+            Debug.Log("Hit a player");
             other.gameObject.GetComponent<EntityScript>().TakeDamage(enemyDamage);
             if (!isRangerUltra) { Destroy(this.gameObject); }
         }
