@@ -83,6 +83,35 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     public GameObject playerInputManager;
 
+    // Ability + Ultra UI stuff
+    // These are gonna be arrays as there's gonna be multiple UI elements for each player
+    [SerializeField]
+    private GameObject playerUI; // The UI for this specific player
+    public int characterID; // The ID of the character we have - gets set by the playerSelectionScript
+
+    //[SerializeField]
+    //private GameObject[] abilityUIOverlay; // The overlay that goes on top of the UI to mask it
+    //[SerializeField]
+    //private GameObject[] ultraUIOverlay; // The overlay that goes on top of the UI to mask it
+
+    [SerializeField]
+    private GameObject gunslingerUI;
+    [SerializeField]
+    private GameObject knightUI;
+    [SerializeField]
+    private GameObject rangerUI;
+    [SerializeField]
+    private GameObject wizardUI;
+
+    [SerializeField]
+    private GameObject abilityUI;
+    [SerializeField]
+    private GameObject ultraUI;
+
+    [SerializeField]
+    private bool abilityUIOn;
+    [SerializeField]
+    private bool ultraUIOn;
 
     //AB Dyeable clothing
     public GameObject clothingPiece; //AB This will be changed to an array at some point - for now just quick implementation
@@ -186,6 +215,111 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         // Gives us a default value to work with
         mainCameraRotation = new Vector3(0, 45, 0);
+
+
+        // UI stuff
+        SetupUI();
+
+    }
+
+    private void SetupUI()
+    {
+        // Gets the UI parent object with the relevant tag
+        playerUI = GameObject.FindGameObjectWithTag("Player" + playerID + "UI");
+
+        if (playerUI == null)
+        {
+            Debug.Log("PlayerUI not set up!");
+        }
+        else
+        {
+            foreach (Transform childObject in playerUI.transform)
+            {
+                if (characterID == 0) // Gunslinger
+                {
+                    if (childObject.CompareTag("GunslingerUI"))
+                    {
+                        gunslingerUI = childObject.gameObject;
+                        gunslingerUI.SetActive(true);
+
+                        foreach (Transform secondChild in childObject)
+                        {
+                            if (secondChild.CompareTag("AbilityUI"))
+                            {
+                                abilityUI = secondChild.gameObject;
+                            }
+                            if (secondChild.CompareTag("UltraUI"))
+                            {
+                                ultraUI = secondChild.gameObject;
+                            }
+                        }
+                    }
+                }
+                if (characterID == 1) // Knight
+                {
+                    if (childObject.CompareTag("KnightUI"))
+                    {
+                        knightUI = childObject.gameObject;
+                        knightUI.SetActive(true);
+
+                        foreach (Transform secondChild in childObject)
+                        {
+                            if (secondChild.CompareTag("AbilityUI"))
+                            {
+                                abilityUI = secondChild.gameObject;
+                            }
+                            if (secondChild.CompareTag("UltraUI"))
+                            {
+                                ultraUI = secondChild.gameObject;
+                            }
+                        }
+                    }
+                }
+                if (characterID == 2) // Wizard
+                {
+                    if (childObject.CompareTag("WizardUI"))
+                    {
+                        wizardUI = childObject.gameObject;
+                        wizardUI.SetActive(true);
+
+                        foreach (Transform secondChild in childObject)
+                        {
+                            if (secondChild.CompareTag("AbilityUI"))
+                            {
+                                abilityUI = secondChild.gameObject;
+                            }
+                            if (secondChild.CompareTag("UltraUI"))
+                            {
+                                ultraUI = secondChild.gameObject;
+                            }
+                        }
+                    }
+                }
+                if (characterID == 3) // Ranger
+                {
+                    if (childObject.CompareTag("RangerUI"))
+                    {
+                        rangerUI = childObject.gameObject;
+                        rangerUI.SetActive(true);
+
+                        foreach (Transform secondChild in childObject)
+                        {
+                            if (secondChild.CompareTag("AbilityUI"))
+                            {
+                                abilityUI = secondChild.gameObject;
+                            }
+                            if (secondChild.CompareTag("UltraUI"))
+                            {
+                                ultraUI = secondChild.gameObject;
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+        }
+
 
     }
 
@@ -356,6 +490,36 @@ public class PlayerControllerOldInput : MonoBehaviour
 
 
 
+            // Ability + Ultra UI stuff
+            // If Ability has finished cooldown
+            if (myclass.abilityCoolDown <= 0)
+            {
+                //if (!abilityUIOn)
+                //{
+                    abilityUI.SetActive(true);
+                    //abilityUIOn = true;
+                //}
+            }
+            else
+            {
+                abilityUI.SetActive(false);
+            }
+            if (myclass.ultraCoolDown <= 0)
+            {
+                //if (!ultraUIOn)
+                //{
+                    ultraUI.SetActive(true);
+                    //ultraUIOn = true;
+                //}
+            }
+            else
+            {
+                ultraUI.SetActive(false);
+            }
+
+            Debug.Log("Ability Cooldown: " + myclass.abilityCoolDown);
+            Debug.Log("Ultra Cooldown: " + myclass.ultraCoolDown);
+            
         }
         else // We've died so we need to play the death animation
         {
@@ -499,6 +663,10 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         if (myclass != null) { myclass.abilityAttack(); return; }
         Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
+
+        // Sets the ability UI to be false, comes back when cooldown finished
+        abilityUI.SetActive(false);
+        //abilityUIOn = false;
     }
 
     /*
@@ -508,7 +676,11 @@ public class PlayerControllerOldInput : MonoBehaviour
     {
         if (myclass != null) { myclass.ultraAttack(); return; }
         isRangedAttack = !isRangedAttack;
-      //  Debug.Log("Switching Weapon!" + isRangedAttack);
+        //  Debug.Log("Switching Weapon!" + isRangedAttack);
+
+        // Sets the ultra UI to be false, comes back when cooldown finished
+        ultraUI.SetActive(false);
+        //ultraUIOn = false;
     }
 
 

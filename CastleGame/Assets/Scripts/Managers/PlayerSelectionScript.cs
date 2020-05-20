@@ -146,6 +146,9 @@ public class PlayerSelectionScript : MonoBehaviour
             // Sets each player to know us
             playerInst.GetComponent<PlayerControllerOldInput>().playerInputManager = gameObject;
 
+            // Sets the player so that they know what character they are
+            playerInst.GetComponent<PlayerControllerOldInput>().characterID = characterID;
+
             spawnedInPlayers[playerID] = playerInst; // Used to keep track of our players
             
             spawnIndex++;
@@ -166,10 +169,10 @@ public class PlayerSelectionScript : MonoBehaviour
 
 
         // Reactivate all the player UI when we load the level
-        player1UI.SetActive(true);
-        player2UI.SetActive(true);
-        player3UI.SetActive(true);
-        player4UI.SetActive(true);
+        //player1UI.SetActive(true);
+        //player2UI.SetActive(true);
+        //player3UI.SetActive(true);
+        //player4UI.SetActive(true);
 
         StartCoroutine(LoadSceneAsynchronously());
 
@@ -201,6 +204,24 @@ public class PlayerSelectionScript : MonoBehaviour
                 // For each of our players, spawn the relevant character, with the relevant colour
                 // e.g. if i = 2 then that's player 3, so spawn the character at position 2 of the playerCharIDs array
                 SpawnPlayer(playerCharIDs[i], i);
+
+                if (i == 0)
+                {
+                    player1UI.SetActive(true);
+                }
+                if (i == 1)
+                {
+                    player2UI.SetActive(true);
+                }
+                if (i == 2)
+                {
+                    player3UI.SetActive(true);
+                }
+                if (i == 3)
+                {
+                    player4UI.SetActive(true);
+                }
+
             }
 
             // Once players are spawned in:

@@ -28,6 +28,12 @@ TagManager:
   - BellHandler
   - CameraFollowObject
   - CameraHideable
+  - GunslingerUI
+  - KnightUI
+  - RangerUI
+  - WizardUI
+  - AbilityUI
+  - UltraUI
   layers:
   - Default
   - TransparentFX
