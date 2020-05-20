@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -12,15 +13,21 @@ public class BossPhase1AI : MonoBehaviour
     [SerializeField] Vector3 locationToReturn;
     [SerializeField] Vector3 chosenPlayerPosition;
     [SerializeField] GameObject AttackObj;
+    bool choseALocation = false;
+    [SerializeField] float moveSpeed = 50;
+    [SerializeField] float returnToBaseSpeed = 10.0f;
     void Start()
     {
-        
+        StartCoroutine(Test());
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(choseALocation == true)
+        {
+            MoveTo(chosenPlayerPosition, moveSpeed, false);
+        }
     }
 
     void Attack()
@@ -33,18 +40,34 @@ public class BossPhase1AI : MonoBehaviour
 
     void ChooseAPlayer()
     {
-
+        int playerNum = Random.Range(0, gameManager.numPlayers); //inclusive of min, exclusive of max
+        Debug.Log(" God damn it" + playerNum);
+        Debug.Log(" " + gameManager.numPlayers);
+        chosenPlayerPosition = gameManager.currentPlayers[playerNum].gameObject.transform.position;
     }
 
     void SpawnAttack()
     {
         //Dont forget to make it a child, so that it can remain in front the whole time. 
+        // collision.collider.gameObject.transform.parent = transform;
     }
 
-    void MoveTo(Vector3 location)
+    void MoveTo(Vector3 location, float speed, bool LookAt)
     {
-
+        this.transform.position = Vector3.MoveTowards(transform.position, location, speed * Time.deltaTime);
+        if(LookAt)
+        {
+            this.transform.LookAt(location);
+        }
     }
 
-  
+    IEnumerator Test()
+    {
+        yield return new WaitForSeconds(1.0f);
+
+        ChooseAPlayer();
+        choseALocation = true;
+    }
+
+
 }
