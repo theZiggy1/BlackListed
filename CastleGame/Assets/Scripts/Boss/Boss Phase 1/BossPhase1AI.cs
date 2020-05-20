@@ -15,6 +15,7 @@ public class BossPhase1AI : MonoBehaviour
     [SerializeField] GameObject AttackObj;
     [SerializeField] Transform AttackLocation;
     bool choseALocation = false;
+    bool returnToBase = true;
     [SerializeField] float moveSpeed = 50;
     [SerializeField] float returnToBaseSpeed = 10.0f;
     void Start()
@@ -28,6 +29,11 @@ public class BossPhase1AI : MonoBehaviour
         if(choseALocation == true)
         {
             MoveTo(chosenPlayerPosition, moveSpeed, false);
+        }
+
+        if(returnToBase == true)
+        {
+            MoveTo(locationToReturn, returnToBaseSpeed, false);
         }
     }
 
