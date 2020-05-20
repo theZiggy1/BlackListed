@@ -4694,9 +4694,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ece9dcda46fbf2c47a9609acc2a0ab86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genericAttackReset: 0
-  abilityCoolDownReset: 0
-  ultraCoolDownReset: 0
+  genericAttackReset: 1
+  abilityCoolDownReset: 1
+  ultraCoolDownReset: 1
   basicAttackLocation: {fileID: 8899998647219600430}
   abilityLocation: {fileID: 8899998647954663803}
   ultraLocation: {fileID: 8899998647219600430}

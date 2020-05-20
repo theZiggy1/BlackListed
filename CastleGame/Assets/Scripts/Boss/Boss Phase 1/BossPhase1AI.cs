@@ -39,7 +39,6 @@ public class BossPhase1AI : MonoBehaviour
         }
     }
 
-
     void ChooseAPlayer()
     {
         int playerNum = Random.Range(0, gameManager.numPlayers); //inclusive of min, exclusive of max
@@ -93,4 +92,14 @@ public class BossPhase1AI : MonoBehaviour
         StartCoroutine(AttackPattern(attackPatternTime));
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log(collision.collider.tag);
+        //Things to do
+    // Alos stop anim if you collide with the player. 
+        if(collision.collider.tag == "Ground")
+        {
+            Debug.Log("Touched theGround");
+        }
+    }
 }

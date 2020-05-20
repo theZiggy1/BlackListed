@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6068941292960735411}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.192, z: 1.034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8316291960074721441}
@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 8316291960074721447}
   m_Layer: 0
   m_Name: BossPhase1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -140,13 +140,15 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   enemyVariables: {fileID: 8316291960074721444}
   Entity: {fileID: 8316291960074721447}
-  locationToReturn: {x: 0, y: 0, z: 0}
+  locationToReturn: {x: 0, y: 10, z: 0}
   chosenPlayerPosition: {x: 0, y: 0, z: 0}
   AttackObj: {fileID: 6516411327514499333, guid: feb03f85e2b6cd34784451a452528e91,
     type: 3}
   AttackLocation: {fileID: 9105296746065606994}
-  moveSpeed: 50
+  moveSpeed: 5
   returnToBaseSpeed: 10
+  attackPatternTime: 5
+  returnToBaseTime: 5
 --- !u!114 &8316291960074721444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlayer: 0
-  startingHealth: 0
+  startingHealth: 100
   currentHealth: 0
   usingHealthBar: 0
   healthBar: {fileID: 0}
