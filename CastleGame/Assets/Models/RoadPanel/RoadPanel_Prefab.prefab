@@ -7,6 +7,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 94d23dab4dbe15f41908a8a7bcae02e9,
+        type: 3}
+      propertyPath: m_Name
+      value: RoadPanel_Prefab
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 94d23dab4dbe15f41908a8a7bcae02e9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -82,10 +87,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7e986762671184f48a049e9b3d298b0c, type: 2}
-    - target: {fileID: -927199367670048503, guid: 94d23dab4dbe15f41908a8a7bcae02e9,
+    - target: {fileID: -1504981713932161579, guid: 94d23dab4dbe15f41908a8a7bcae02e9,
         type: 3}
-      propertyPath: m_Name
-      value: RoadPanel_Prefab
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94d23dab4dbe15f41908a8a7bcae02e9, type: 3}
