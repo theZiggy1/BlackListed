@@ -260,21 +260,25 @@ public class PlayerSelectionScript : MonoBehaviour
         {
             RenderSettings.skybox = skyboxes[0];
             RenderSettings.customReflection = reflectionCubemaps[0];
+            RenderSettings.fog = false;
         }
         if (sceneNameToLoad == "Level 2")
         {
             RenderSettings.skybox = skyboxes[1];
             RenderSettings.customReflection = reflectionCubemaps[1];
+            RenderSettings.fog = false;
         }
         if (sceneNameToLoad == "Level 3")
         {
             RenderSettings.skybox = skyboxes[2];
             RenderSettings.customReflection = reflectionCubemaps[2];
+            RenderSettings.fog = true;
         }
         if (sceneNameToLoad == "Level 4")
         {
             RenderSettings.skybox = skyboxes[3];
             RenderSettings.customReflection = reflectionCubemaps[3];
+            RenderSettings.fog = false;
         }
     }
 
