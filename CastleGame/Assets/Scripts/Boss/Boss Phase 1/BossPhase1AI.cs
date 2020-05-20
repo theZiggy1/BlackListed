@@ -15,9 +15,11 @@ public class BossPhase1AI : MonoBehaviour
     [SerializeField] GameObject AttackObj;
     [SerializeField] Transform AttackLocation;
     bool choseALocation = false;
-    bool returnToBase = true;
+    bool returnToBase = false;
     [SerializeField] float moveSpeed = 50;
     [SerializeField] float returnToBaseSpeed = 10.0f;
+    [SerializeField] float attackPatternTime = 5.0f;
+    [SerializeField] float returnToBaseTime = 5.0f;
     void Start()
     {
         StartCoroutine(Test());
@@ -28,7 +30,7 @@ public class BossPhase1AI : MonoBehaviour
     {
         if(choseALocation == true)
         {
-            MoveTo(chosenPlayerPosition, moveSpeed, false);
+            MoveTo(chosenPlayerPosition, moveSpeed, true);
         }
 
         if(returnToBase == true)
@@ -37,13 +39,6 @@ public class BossPhase1AI : MonoBehaviour
         }
     }
 
-    void Attack()
-    {
-        //Choose a player to attack, and find its location
-        //Place a hitbox in front of the crystal, and move towards that position
-        //wait some time before coming back up
-       
-    }
 
     void ChooseAPlayer()
     {
@@ -75,10 +70,27 @@ public class BossPhase1AI : MonoBehaviour
     {
         yield return new WaitForSeconds(1.0f);
 
+        StartCoroutine(AttackPattern(attackPatternTime));
+    }
+
+    IEnumerator AttackPattern(float waitTimer)
+    {
         ChooseAPlayer();
         SpawnAttack();
         choseALocation = true;
+        yield return new WaitForSeconds(waitTimer); //This is how long we want to wait on the ground for
+        //At the end of this, we call Return to Home
+        choseALocation = false;
+        StartCoroutine(ReturntoHome(returnToBaseTime));
     }
 
+    IEnumerator ReturntoHome(float waitTimer)
+    {
+        returnToBase = true;
+        yield return new WaitForSeconds(waitTimer); //This is how long we want to wait in the air for. 
+        returnToBase = false;
+        //At the end of this we call attack Pattern
+        StartCoroutine(AttackPattern(attackPatternTime));
+    }
 
 }

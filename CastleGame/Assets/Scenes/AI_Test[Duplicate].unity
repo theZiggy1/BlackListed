@@ -1175,6 +1175,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossPhase1
       objectReference: {fileID: 0}
+    - target: {fileID: 8316291960074721446, guid: df4a230b1178de94c85307650e6d4bf9,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8316291960074721441, guid: df4a230b1178de94c85307650e6d4bf9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1239,6 +1244,16 @@ PrefabInstance:
         type: 3}
       propertyPath: moveSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316291960074721445, guid: df4a230b1178de94c85307650e6d4bf9,
+        type: 3}
+      propertyPath: locationToReturn.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316291960074721447, guid: df4a230b1178de94c85307650e6d4bf9,
+        type: 3}
+      propertyPath: startingHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df4a230b1178de94c85307650e6d4bf9, type: 3}
