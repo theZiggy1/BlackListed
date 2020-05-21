@@ -4772,7 +4772,7 @@ PrefabInstance:
     - target: {fileID: 1460997551301362399, guid: de45ebd7e7de74046af586b413001f80,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1460997551301362399, guid: de45ebd7e7de74046af586b413001f80,
         type: 3}
@@ -10700,6 +10700,7 @@ MonoBehaviour:
   sceneNameToLoad: EndScreen
   currentLevelName: Level1
   nextLevelName: Level 2
+  hasPlayerEntered: 0
 --- !u!65 &383161231
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13896,7 +13897,7 @@ PrefabInstance:
     - target: {fileID: 6322786525965015683, guid: b86b75af8435eca4bbeff8b6fb348884,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6322786525965015683, guid: b86b75af8435eca4bbeff8b6fb348884,
         type: 3}
@@ -48222,7 +48223,7 @@ PrefabInstance:
     - target: {fileID: 6322786525965015683, guid: b86b75af8435eca4bbeff8b6fb348884,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6322786525965015683, guid: b86b75af8435eca4bbeff8b6fb348884,
         type: 3}
@@ -58295,7 +58296,7 @@ PrefabInstance:
     - target: {fileID: 1460997551301362399, guid: de45ebd7e7de74046af586b413001f80,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1460997551301362399, guid: de45ebd7e7de74046af586b413001f80,
         type: 3}
@@ -60905,7 +60906,7 @@ PrefabInstance:
     - target: {fileID: 6322786525965015683, guid: b86b75af8435eca4bbeff8b6fb348884,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6322786525965015683, guid: b86b75af8435eca4bbeff8b6fb348884,
         type: 3}
@@ -62080,7 +62081,7 @@ PrefabInstance:
     - target: {fileID: 2287754755290270383, guid: 897a52dee0d7ad34bb8d79cf953096e7,
         type: 3}
       propertyPath: m_Materials.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2287754755290270383, guid: 897a52dee0d7ad34bb8d79cf953096e7,
         type: 3}
