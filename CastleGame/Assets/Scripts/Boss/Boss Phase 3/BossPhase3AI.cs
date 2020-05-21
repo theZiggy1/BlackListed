@@ -9,6 +9,20 @@ public class BossPhase3AI : MonoBehaviour
     [SerializeField] NavMeshAgent navAgent;
     [SerializeField] GameManagerScript gameManager;
     [SerializeField] Vector3 chosenPlayerPosition;
+    bool performingAttack = false;
+    bool choosingAttack = false;
+
+    enum States
+    {
+        Attack1Ground,
+        Attack2Adds,
+        Attack3SkySword,
+        Attack4Rotate,
+        Attack5Hand,
+        numStates
+    }
+
+    [SerializeField] States currentState;
     // Start is called before the first frame update
     //the boss has 5 attacks
     //Attack one is the sword slam (at locaation) where some rocks come out
@@ -29,6 +43,36 @@ public class BossPhase3AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if(performingAttack)
+        {
+            return;
+        }
+
+        if(choosingAttack)
+        {
+            return;
+        }
+       
+        
+        switch (currentState)
+        {
+            case States.Attack1Ground:
+                if (HasReachedLocation(chosenPlayerPosition))
+                {
+                    Debug.Log("Got you");
+                }
+                break;
+            case States.Attack4Rotate:
+                if (HasReachedLocation(chosenPlayerPosition))
+                {
+                    Debug.Log("Got you");
+                }
+                break;
+                
+        }
+
+
         if(HasReachedLocation(chosenPlayerPosition))
         {
             Debug.Log("Got you");
@@ -65,17 +109,87 @@ public class BossPhase3AI : MonoBehaviour
     bool HasReachedLocation(Vector3 location) 
     {
 
-        if(Vector3.Distance(this.gameObject.transform.position, location) > 1.0f)
+        if(Vector3.Distance(this.gameObject.transform.position, location) < 1.0f)
         {
             return true;
         }
         return false;
     }
 
-    void Attack1()
+    IEnumerable Attack1(float waitTimer)
     {
-        //Spawn Attacks at location
-
+        //Spawn rocks 
+        performingAttack = true;
+    
+        yield return new WaitForSeconds(waitTimer);
+        performingAttack = false;
     }
 
+    IEnumerable Attack2(float waitTimer)
+    {
+        //Spawn rocks 
+        performingAttack = true;
+
+        yield return new WaitForSeconds(waitTimer);
+        performingAttack = false;
+    }
+    IEnumerable Attack3(float waitTimer)
+    {
+        //Spawn rocks 
+        performingAttack = true;
+
+        yield return new WaitForSeconds(waitTimer);
+        performingAttack = false;
+    }
+    IEnumerable Attack4(float waitTimer)
+    {
+        //Spawn rocks 
+        performingAttack = true;
+
+        yield return new WaitForSeconds(waitTimer);
+        performingAttack = false;
+    }
+
+    IEnumerable Attack5(float waitTimer)
+    {
+        //Spawn rocks 
+        performingAttack = true;
+
+        yield return new WaitForSeconds(waitTimer);
+        performingAttack = false;
+    }
+
+
+    IEnumerable ChooseAttack(float waitTimer)
+    {
+        yield return new WaitForSeconds(waitTimer);
+
+        //Choose an attack, update the state machine, call the correct functions
+        int randNum = Random.Range(1, 6);
+        switch(randNum)
+        {
+            case 1:
+                currentState = States.Attack1Ground;
+                ChooseAPlayer();
+                Moveto(chosenPlayerPosition, true);
+                break;
+            case 2:
+                currentState = States.Attack2Adds;
+                //This state bypasses having to call functions in update
+                break;
+            case 3:
+                currentState = States.Attack3SkySword;
+                //This state also bypasses having to call functions in update
+                break;
+            case 4:
+                currentState = States.Attack4Rotate;
+                ChooseAPlayer();
+                Moveto(chosenPlayerPosition, true);
+                break;
+            case 5:
+                currentState = States.Attack5Hand;
+                //This state as well as the other two bypasses having to call update functions
+                break;
+        }
+    }
 }
