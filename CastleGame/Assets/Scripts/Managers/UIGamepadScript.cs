@@ -137,27 +137,62 @@ public class UIGamepadScript : MonoBehaviour
                 // Setting this so we can't just hold down the stick and keep moving
                 movedButtons = true;
             }
+
+            if (Input.GetAxis("Joy1LeftStickHorizontal") > 0.5f)
+            {
+                Debug.Log("Moving left");
+
+                // If it's a slider we're moving
+                if (buttonArray[currentButtonIndex].GetComponent<Slider>() != null)
+                {
+                    buttonArray[currentButtonIndex].GetComponent<Slider>().value -= 0.1f;
+                }
+
+                // Setting this so we can't just hold down the stick and keep moving
+                movedButtons = true;
+            }
+            if (Input.GetAxis("Joy1LeftStickHorizontal") < -0.5f)
+            {
+                Debug.Log("Moving right");
+
+                // If it's a slider we're moving
+                if (buttonArray[currentButtonIndex].GetComponent<Slider>() != null)
+                {
+                    buttonArray[currentButtonIndex].GetComponent<Slider>().value += 0.1f;
+                }
+
+                // Setting this so we can't just hold down the stick and keep moving
+                movedButtons = true;
+            }
+
         }
 
         // If our stick is back in the centre, then
-        if (Input.GetAxis("Joy1LeftStickVertical") < 0.25f && Input.GetAxis("Joy1LeftStickVertical") > -0.25f)
+        if ((Input.GetAxis("Joy1LeftStickVertical") < 0.25f && Input.GetAxis("Joy1LeftStickVertical") > -0.25f) &&
+            (Input.GetAxis("Joy1LeftStickHorizontal") < 0.25f && Input.GetAxis("Joy1LeftStickHorizontal") > -0.25f))
         {
             // Reset this so we can move images again
             movedButtons = false;
         }
+        //// If our stick is back in the centre, then
+        //if (Input.GetAxis("Joy1LeftStickHorizontal") < 0.25f && Input.GetAxis("Joy1LeftStickHorizontal") > -0.25f)
+        //{
+        //    // Reset this so we can move images again
+        //    movedButtons = false;
+        //}
 
 
 
         if (Input.GetButtonDown("Joy1ButtonA"))
         {
             // If it's a button we're clicking
-            if (GetComponent<Button>() != null)
+            if (buttonArray[currentButtonIndex].GetComponent<Button>() != null)
             {
                 // 'Clicks' the button that is at the current position of our array
                 buttonArray[currentButtonIndex].GetComponent<Button>().onClick.Invoke();
             }
             // If it's a slider we're moving
-            if (GetComponent<Slider>() != null)
+            if (buttonArray[currentButtonIndex].GetComponent<Slider>() != null)
             {
                 buttonArray[currentButtonIndex].GetComponent<Slider>().value += 0.1f;
             }
@@ -165,10 +200,14 @@ public class UIGamepadScript : MonoBehaviour
         if (Input.GetButtonDown("Joy1ButtonB"))
         {
             // If it's a slider we're moving
-            if (GetComponent<Slider>() != null)
+            if (buttonArray[currentButtonIndex].GetComponent<Slider>() != null)
             {
                 buttonArray[currentButtonIndex].GetComponent<Slider>().value -= 0.1f;
             }
         }
+        
+
+
     }
+
 }
