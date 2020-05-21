@@ -14,6 +14,7 @@ public class BossPhase3AI : MonoBehaviour
 
     enum States
     {
+        
         Attack1Ground,
         Attack2Adds,
         Attack3SkySword,
@@ -177,6 +178,7 @@ public class BossPhase3AI : MonoBehaviour
         //Choose an attack, update the state machine, call the correct functions
         int randNum = Random.Range(1, 6);
         Debug.Log(randNum);
+        Debug.Log("CHose an attack");
         switch(randNum)
         {
             case 1:
