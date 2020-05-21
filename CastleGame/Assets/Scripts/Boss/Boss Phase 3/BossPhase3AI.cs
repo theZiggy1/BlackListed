@@ -70,12 +70,6 @@ public class BossPhase3AI : MonoBehaviour
                 break;
                 
         }
-
-
-        if(HasReachedLocation(chosenPlayerPosition))
-        {
-            Debug.Log("Got you");
-        }
     }
 
     //the boss has 5 attacks
@@ -100,8 +94,8 @@ public class BossPhase3AI : MonoBehaviour
     void ChooseAPlayer()
     {
         int playerNum = Random.Range(0, gameManager.numPlayers); //inclusive of min, exclusive of max
-        Debug.Log(" God damn it" + playerNum);
-        Debug.Log(" " + gameManager.numPlayers);
+        Debug.Log("PlayerNum" + playerNum);
+       // Debug.Log(" " + gameManager.numPlayers);
         chosenPlayerPosition = gameManager.currentPlayers[playerNum].gameObject.transform.position;
     }
 
@@ -179,7 +173,12 @@ public class BossPhase3AI : MonoBehaviour
         int randNum = Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
-        switch(randNum)
+        currentState = States.Attack1Ground;
+        ChooseAPlayer();
+        Moveto(chosenPlayerPosition, true);
+
+        /*
+        switch (randNum)
         {
             case 1:
                 currentState = States.Attack1Ground;
@@ -207,6 +206,6 @@ public class BossPhase3AI : MonoBehaviour
                 //This state as well as the other two bypasses having to call update functions
                 StartCoroutine(ChooseAttack(3.0f));
                 break;
-        }
+        }*/
     }
 }
