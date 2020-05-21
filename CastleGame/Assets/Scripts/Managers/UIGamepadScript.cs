@@ -25,6 +25,14 @@ public class UIGamepadScript : MonoBehaviour
         numNavigationTypes
     }
 
+    //[SerializeField]
+    //[Tooltip("Do we transition to another menu in this scene?")]
+    //private bool transitionsToOtherMenu;
+
+    //[SerializeField]
+    //[Tooltip("The other UIGamepadManager we transition to")]
+    //private GameObject otherUIGamepadManager;
+
     [SerializeField]
     private int currentButtonIndex; // The index in the array of the current button we have selected
 
@@ -142,8 +150,25 @@ public class UIGamepadScript : MonoBehaviour
 
         if (Input.GetButtonDown("Joy1ButtonA"))
         {
-            // 'Clicks' the button that is at the current position of our array
-            buttonArray[currentButtonIndex].GetComponent<Button>().onClick.Invoke();
+            // If it's a button we're clicking
+            if (GetComponent<Button>() != null)
+            {
+                // 'Clicks' the button that is at the current position of our array
+                buttonArray[currentButtonIndex].GetComponent<Button>().onClick.Invoke();
+            }
+            // If it's a slider we're moving
+            if (GetComponent<Slider>() != null)
+            {
+                buttonArray[currentButtonIndex].GetComponent<Slider>().value += 0.1f;
+            }
+        }
+        if (Input.GetButtonDown("Joy1ButtonB"))
+        {
+            // If it's a slider we're moving
+            if (GetComponent<Slider>() != null)
+            {
+                buttonArray[currentButtonIndex].GetComponent<Slider>().value -= 0.1f;
+            }
         }
     }
 }

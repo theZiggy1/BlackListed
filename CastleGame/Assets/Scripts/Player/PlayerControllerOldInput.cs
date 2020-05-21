@@ -108,10 +108,10 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField]
     private GameObject ultraUI;
 
-    [SerializeField]
-    private bool abilityUIOn;
-    [SerializeField]
-    private bool ultraUIOn;
+    //[SerializeField]
+    //private bool abilityUIOn;
+    //[SerializeField]
+    //private bool ultraUIOn;
 
     //AB Dyeable clothing
     public GameObject clothingPiece; //AB This will be changed to an array at some point - for now just quick implementation
@@ -494,27 +494,39 @@ public class PlayerControllerOldInput : MonoBehaviour
             // If Ability has finished cooldown
             if (myclass.abilityCoolDown <= 0)
             {
-                //if (!abilityUIOn)
-                //{
+                if (abilityUI != null)
+                {
+                    //if (!abilityUIOn)
+                    //{
                     abilityUI.SetActive(true);
                     //abilityUIOn = true;
-                //}
+                    //}
+                }
             }
             else
             {
-                abilityUI.SetActive(false);
+                if (abilityUI != null)
+                {
+                    abilityUI.SetActive(false);
+                }
             }
             if (myclass.ultraCoolDown <= 0)
             {
-                //if (!ultraUIOn)
-                //{
+                if (ultraUI != null)
+                {
+                    //if (!ultraUIOn)
+                    //{
                     ultraUI.SetActive(true);
                     //ultraUIOn = true;
-                //}
+                    //}
+                }
             }
             else
             {
-                ultraUI.SetActive(false);
+                if (ultraUI != null)
+                {
+                    ultraUI.SetActive(false);
+                }
             }
 
             Debug.Log("Ability Cooldown: " + myclass.abilityCoolDown);
@@ -664,9 +676,12 @@ public class PlayerControllerOldInput : MonoBehaviour
         if (myclass != null) { myclass.abilityAttack(); return; }
         Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
 
-        // Sets the ability UI to be false, comes back when cooldown finished
-        abilityUI.SetActive(false);
-        //abilityUIOn = false;
+        if (abilityUI != null)
+        {
+            // Sets the ability UI to be false, comes back when cooldown finished
+            abilityUI.SetActive(false);
+            //abilityUIOn = false;
+        }
     }
 
     /*
@@ -678,9 +693,12 @@ public class PlayerControllerOldInput : MonoBehaviour
         isRangedAttack = !isRangedAttack;
         //  Debug.Log("Switching Weapon!" + isRangedAttack);
 
-        // Sets the ultra UI to be false, comes back when cooldown finished
-        ultraUI.SetActive(false);
-        //ultraUIOn = false;
+        if (ultraUI != null)
+        {
+            // Sets the ultra UI to be false, comes back when cooldown finished
+            ultraUI.SetActive(false);
+            //ultraUIOn = false;
+        }
     }
 
 
