@@ -14,7 +14,6 @@ public class BossPhase3AI : MonoBehaviour
 
     enum States
     {
-        
         Attack1Ground,
         Attack2Adds,
         Attack3SkySword,
@@ -177,7 +176,7 @@ public class BossPhase3AI : MonoBehaviour
         ChooseAPlayer();
         Moveto(chosenPlayerPosition, true);
 
-        /*
+        
         switch (randNum)
         {
             case 1:
@@ -206,6 +205,6 @@ public class BossPhase3AI : MonoBehaviour
                 //This state as well as the other two bypasses having to call update functions
                 StartCoroutine(ChooseAttack(3.0f));
                 break;
-        }*/
+        }
     }
 }
