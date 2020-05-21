@@ -36,14 +36,12 @@ public class BossPhase3AI : MonoBehaviour
 
     void Start()
     {
-        ChooseAPlayer();
-        Moveto(chosenPlayerPosition, true);
+        StartCoroutine(ChooseAttack(2.0f));
     }
 
     // Update is called once per frame
     void Update()
     {
-
         if(performingAttack)
         {
             return;
@@ -60,13 +58,13 @@ public class BossPhase3AI : MonoBehaviour
             case States.Attack1Ground:
                 if (HasReachedLocation(chosenPlayerPosition))
                 {
-                    Debug.Log("Got you");
+                    StartCoroutine(Attack1(2.0f));
                 }
                 break;
             case States.Attack4Rotate:
                 if (HasReachedLocation(chosenPlayerPosition))
                 {
-                    Debug.Log("Got you");
+                    StartCoroutine(Attack4(2.0f));
                 }
                 break;
                 
@@ -116,56 +114,69 @@ public class BossPhase3AI : MonoBehaviour
         return false;
     }
 
-    IEnumerable Attack1(float waitTimer)
+    IEnumerator Attack1(float waitTimer)
     {
         //Spawn rocks 
         performingAttack = true;
-    
+        Debug.Log("ATK 1");
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
+        Debug.Log(" Done ATK 1");
+        StartCoroutine(ChooseAttack(3.0f));
     }
 
-    IEnumerable Attack2(float waitTimer)
+    IEnumerator Attack2(float waitTimer)
     {
         //Spawn rocks 
         performingAttack = true;
-
+        Debug.Log("ATK 2");
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
+        Debug.Log(" Done ATK 2");
+        StartCoroutine(ChooseAttack(3.0f));
     }
-    IEnumerable Attack3(float waitTimer)
+    IEnumerator Attack3(float waitTimer)
     {
         //Spawn rocks 
         performingAttack = true;
-
+        Debug.Log("ATK 3");
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
+        Debug.Log(" Done ATK 3");
+        StartCoroutine(ChooseAttack(3.0f));
     }
-    IEnumerable Attack4(float waitTimer)
+    IEnumerator Attack4(float waitTimer)
     {
         //Spawn rocks 
         performingAttack = true;
-
+        Debug.Log("ATK 4");
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
+        Debug.Log(" Done ATK 4");
+        StartCoroutine(ChooseAttack(3.0f));
     }
 
-    IEnumerable Attack5(float waitTimer)
+    IEnumerator Attack5(float waitTimer)
     {
         //Spawn rocks 
         performingAttack = true;
-
+        Debug.Log("ATK 5");
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
+        Debug.Log(" Done ATK 5");
+        StartCoroutine(ChooseAttack(3.0f));
     }
 
 
-    IEnumerable ChooseAttack(float waitTimer)
+    IEnumerator ChooseAttack(float waitTimer)
     {
+        Debug.Log("Attack waiting");
+        choosingAttack = true;
         yield return new WaitForSeconds(waitTimer);
-
+        choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
         int randNum = Random.Range(1, 6);
+        Debug.Log(randNum);
         switch(randNum)
         {
             case 1:
@@ -176,10 +187,12 @@ public class BossPhase3AI : MonoBehaviour
             case 2:
                 currentState = States.Attack2Adds;
                 //This state bypasses having to call functions in update
+                StartCoroutine(Attack2(3.0f));
                 break;
             case 3:
                 currentState = States.Attack3SkySword;
                 //This state also bypasses having to call functions in update
+                StartCoroutine(Attack3(3.0f));
                 break;
             case 4:
                 currentState = States.Attack4Rotate;
@@ -188,7 +201,9 @@ public class BossPhase3AI : MonoBehaviour
                 break;
             case 5:
                 currentState = States.Attack5Hand;
+                StartCoroutine(Attack5(3.0f));
                 //This state as well as the other two bypasses having to call update functions
+                StartCoroutine(ChooseAttack(3.0f));
                 break;
         }
     }
