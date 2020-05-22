@@ -4,14 +4,49 @@ using UnityEngine;
 
 public class AudioObjectScript : MonoBehaviour
 {
+    [Tooltip("So that the music and SFX volumes know what to apply to")]
+    public bool isMusic;
     [SerializeField]
     private float originalAudioLevel;
     [SerializeField]
     private float currentAudioLevel;
 
+    [Space(5)]
+
+    //[SerializeField]
+    //private GameObject audioManager;
+    [SerializeField]
+    private GameObject gameManager;
+
+    [SerializeField]
+    private bool isInMainMenu;
+
+
     // Start is called before the first frame update
     void Start()
     {
+        // In the main menu the game manager isn't there, so the slider sets our audio level instead
+        if (!isInMainMenu)
+        {
+            // Game manager has the music and sfx audio levels on it
+            gameManager = GameObject.FindGameObjectWithTag("GameManager");
+            if (gameManager != null)
+            {
+                if (isMusic)
+                {
+                    changeAudio(gameManager.GetComponent<GameManagerScript>().musicAudioLevel);
+                }
+                else
+                {
+                    changeAudio(gameManager.GetComponent<GameManagerScript>().sfxAudioLevel);
+                }
+            }
+            else
+            {
+                Debug.Log("Can't find game manager!");
+            }
+        }
+
         if (GetComponent<AudioSource>() != null)
         {
             originalAudioLevel = GetComponent<AudioSource>().volume;

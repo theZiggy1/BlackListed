@@ -10,6 +10,11 @@ public class GameManagerScript : MonoBehaviour
     public GameObject[] currentPlayers;
     public bool[] isEngaged;
 
+    [Space(10)]
+
+    public float sfxAudioLevel;
+    public float musicAudioLevel;
+
     // Start is called before the first frame update
     void Start()
     {
