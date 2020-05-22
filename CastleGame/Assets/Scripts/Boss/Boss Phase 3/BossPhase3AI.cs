@@ -11,7 +11,16 @@ public class BossPhase3AI : MonoBehaviour
     [SerializeField] Vector3 chosenPlayerPosition;
     bool performingAttack = false;
     bool choosingAttack = false;
+    [SerializeField] Animator charAnimator;
 
+    [SerializeField] int idleAnimation;
+    [SerializeField] int walkAnimation;
+
+    [SerializeField] int attack1Animation;
+    [SerializeField] int attack2Animation;
+    [SerializeField] int attack3Animation;
+    [SerializeField] int attack4Animation;
+    [SerializeField] int attack5Animation;
     enum States
     {
         Attack1Ground,
@@ -39,6 +48,16 @@ public class BossPhase3AI : MonoBehaviour
         StartCoroutine(ChooseAttack(2.0f));
     }
 
+
+    private void SetAnimationInteger(string condition, int integer)
+    {
+        charAnimator.SetInteger(condition, integer);
+
+      /*  foreach (Animator anim in Animators)
+        {
+            anim.SetInteger(condition, integer);
+        }*/
+    }
     // Update is called once per frame
     void Update()
     {
