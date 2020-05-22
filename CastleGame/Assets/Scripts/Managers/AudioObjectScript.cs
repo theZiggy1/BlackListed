@@ -25,6 +25,16 @@ public class AudioObjectScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (GetComponent<AudioSource>() != null)
+        {
+            originalAudioLevel = GetComponent<AudioSource>().volume;
+            currentAudioLevel = originalAudioLevel;
+        }
+        else
+        {
+            Debug.Log("We don't have an audio source!");
+        }
+
         // In the main menu the game manager isn't there, so the slider sets our audio level instead
         if (!isInMainMenu)
         {
@@ -47,15 +57,7 @@ public class AudioObjectScript : MonoBehaviour
             }
         }
 
-        if (GetComponent<AudioSource>() != null)
-        {
-            originalAudioLevel = GetComponent<AudioSource>().volume;
-            currentAudioLevel = originalAudioLevel;
-        }
-        else
-        {
-            Debug.Log("We don't have an audio source!");
-        }
+        
     }
 
     // Update is called once per frame

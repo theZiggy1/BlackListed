@@ -3908,7 +3908,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NUM
+  m_Text: 100
 --- !u!222 &481901286
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5882,7 +5882,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NUM
+  m_Text: 100
 --- !u!222 &901390379
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14298,8 +14298,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b70ebdfa97e3f9b42a4d9c38ccd3b578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxAudioLevel: 0
-  musicAudioLevel: 0
+  sfxAudioLevel: 1
+  musicAudioLevel: 1
 --- !u!4 &2146155796
 Transform:
   m_ObjectHideFlags: 0

@@ -4451,6 +4451,7 @@ GameObject:
   - component: {fileID: 3496179518173501236}
   - component: {fileID: 9114107646784899917}
   - component: {fileID: 6359442801039663996}
+  - component: {fileID: -6327584351460393692}
   - component: {fileID: 6359442801039663999}
   - component: {fileID: -5873657063619624558}
   m_Layer: 0
@@ -4543,6 +4544,7 @@ MonoBehaviour:
   wizardUI: {fileID: 0}
   abilityUI: {fileID: 0}
   ultraUI: {fileID: 0}
+  pauseManager: {fileID: 0}
   clothingPiece: {fileID: 935149844263020953}
   myclass: {fileID: -5873657063619624558}
   isTumbling: 0
@@ -4555,6 +4557,9 @@ MonoBehaviour:
   jumpStartInt: 35
   jumpLoopInt: 36
   jumpLandInt: 36
+  dodgeStartInt: 0
+  dodgeLoopInt: 0
+  dodgeLandInt: 0
 --- !u!114 &9114107646784899917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4686,6 +4691,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-6327584351460393692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4420566335824854092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed57c38585e8dbf49b991a6804f20e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMusic: 0
+  originalAudioLevel: 0.6
+  currentAudioLevel: 0
+  gameManager: {fileID: 0}
+  isInMainMenu: 0
 --- !u!136 &6359442801039663999
 CapsuleCollider:
   m_ObjectHideFlags: 0
