@@ -15,6 +15,7 @@ public class BossPhase3AI : MonoBehaviour
 
     [SerializeField] int idleAnimation;
     [SerializeField] int walkAnimation;
+    [SerializeField] int introAnimation;
 
     [SerializeField] int attack1Animation;
     [SerializeField] int attack2Animation;
@@ -45,6 +46,7 @@ public class BossPhase3AI : MonoBehaviour
 
     void Start()
     {
+        SetAnimationInteger("SkeletonKingCondition", introAnimation);
         StartCoroutine(ChooseAttack(2.0f));
     }
 
@@ -107,6 +109,7 @@ public class BossPhase3AI : MonoBehaviour
         {
             this.transform.LookAt(location);
         }
+        SetAnimationInteger("SkeletonKingCondition", walkAnimation);
     }
 
     void ChooseAPlayer()
@@ -129,6 +132,7 @@ public class BossPhase3AI : MonoBehaviour
 
     IEnumerator Attack1(float waitTimer)
     {
+        SetAnimationInteger("SkeletonKingCondition", attack1Animation);
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 1");
@@ -140,6 +144,8 @@ public class BossPhase3AI : MonoBehaviour
 
     IEnumerator Attack2(float waitTimer)
     {
+
+        SetAnimationInteger("SkeletonKingCondition", attack2Animation);
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 2");
@@ -150,6 +156,8 @@ public class BossPhase3AI : MonoBehaviour
     }
     IEnumerator Attack3(float waitTimer)
     {
+
+        SetAnimationInteger("SkeletonKingCondition", attack3Animation);
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 3");
@@ -160,6 +168,8 @@ public class BossPhase3AI : MonoBehaviour
     }
     IEnumerator Attack4(float waitTimer)
     {
+
+        SetAnimationInteger("SkeletonKingCondition", attack4Animation);
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 4");
@@ -171,6 +181,8 @@ public class BossPhase3AI : MonoBehaviour
 
     IEnumerator Attack5(float waitTimer)
     {
+
+        SetAnimationInteger("SkeletonKingCondition", attack5Animation);
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 5");
@@ -183,6 +195,7 @@ public class BossPhase3AI : MonoBehaviour
 
     IEnumerator ChooseAttack(float waitTimer)
     {
+        SetAnimationInteger("SkeletonKingCondition", idleAnimation);
         Debug.Log("Attack waiting");
         choosingAttack = true;
         yield return new WaitForSeconds(waitTimer);

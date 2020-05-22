@@ -62,6 +62,10 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private Animator enemyAnimator;
 
+    [SerializeField] int idleAnimation;
+    [SerializeField] int walkAnimation;
+    [SerializeField] int attackAnimation;
+
 
     public bool MoveTo = false;
     public bool MoveToRanged = false;
