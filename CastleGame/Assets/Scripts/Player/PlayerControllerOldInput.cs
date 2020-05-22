@@ -120,6 +120,16 @@ public class PlayerControllerOldInput : MonoBehaviour
 
     public bool isTumbling = false;
 
+    [SerializeField] int idleInt;
+    [SerializeField] int movingInt;
+    [SerializeField] int genericAttackInt;
+    [SerializeField] int abilityAttackInt;
+    [SerializeField] int ultraAttackInt;
+    [SerializeField] int deadInt;
+    [SerializeField] int jumpStartInt;
+    [SerializeField] int jumpLandInt;
+
+
     private Animator GetAnimator(string anim_name)
     {
         foreach (Animator anim in Animators)
@@ -359,7 +369,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
                 // Do the animation for movement
                 //playerAnimator.Play("Sword Run Forward");
-                SetAnimationInteger("Condition", 1);
+                SetAnimationInteger("Condition", movingInt);
             }
             // Character is moving left (or looking left)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") > 0.1f))
@@ -371,7 +381,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
                 // Do the animation for movement
                 //playerAnimator.Play("Sword Run Forward");
-                SetAnimationInteger("Condition", 1);
+                SetAnimationInteger("Condition", movingInt);
             }
             // Character is moving up (or looking up)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") > 0.1f))
@@ -383,7 +393,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
                 // Do the animation for movement
                 //playerAnimator.Play("Sword Run Forward");
-                SetAnimationInteger("Condition", 1);
+                SetAnimationInteger("Condition", movingInt);
             }
             // Character is moving down (or looking down)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") < -0.1f))
@@ -395,7 +405,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
                 // Do the animation for movement
                 //playerAnimator.Play("Sword Run Forward");
-                SetAnimationInteger("Condition", 1);
+                SetAnimationInteger("Condition", movingInt);
             }
             else
             {
@@ -404,7 +414,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                     Debug.Log("Not moving");
 
                     //playerAnimator.Play("Sword Idle");
-                    SetAnimationInteger("Condition", 0);
+                    SetAnimationInteger("Condition", idleInt);
                 }
                 else
                 {
@@ -425,7 +435,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                     // Plays the animation
                     // Naming for this is absolute right now, will probably change later
                     //playerAnimator.Play("Sword Swing 1");
-                    SetAnimationInteger("Condition", 5);
+                    SetAnimationInteger("Condition", genericAttackInt);
 
                     // Sets us so we're attacking
                     Attacking = true;
@@ -451,7 +461,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                     OnAbilityLeftTrigger(); // Currently doesn't do anything
 
                     // Plays the animation
-                    //SetAnimationInteger("Condition", INT);
+                   SetAnimationInteger("Condition", abilityAttackInt);
 
                     // Sets us so we're attacking
                     doingAbility = true;
@@ -473,12 +483,15 @@ public class PlayerControllerOldInput : MonoBehaviour
             if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
             {
                 OnSwitchWeapon();
+                SetAnimationInteger("Condition", ultraAttackInt);
             }
 
             //This lets us handle jumping
             if (Input.GetButtonDown("Joy" + playerID + "ButtonA"))
             {
                 OnJump();
+                SetAnimationInteger("Condition", jumpStartInt);
+                Debug.Log(" Jumping");
             }
 
             //DEBUG - Remove in the final game
@@ -529,16 +542,16 @@ public class PlayerControllerOldInput : MonoBehaviour
                 }
             }
 
-            Debug.Log("Ability Cooldown: " + myclass.abilityCoolDown);
-            Debug.Log("Ultra Cooldown: " + myclass.ultraCoolDown);
+          //  Debug.Log("Ability Cooldown: " + myclass.abilityCoolDown);
+         //   Debug.Log("Ultra Cooldown: " + myclass.ultraCoolDown);
             
         }
         else // We've died so we need to play the death animation
         {
             // Sets us back to idle
-            SetAnimationInteger("Condition", 0);
+            SetAnimationInteger("Condition", idleInt);
             // Then does the death animation
-            SetAnimationInteger("Condition", 20);
+            SetAnimationInteger("Condition", deadInt);
         }
 
     }
@@ -730,7 +743,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     {
         isDead = false;
         // Sets us back to idle
-        SetAnimationInteger("Condition", 0);
+        SetAnimationInteger("Condition", idleInt);
     }
 
     private void SetupControls()
@@ -749,6 +762,7 @@ public class PlayerControllerOldInput : MonoBehaviour
         if(collision.collider.tag == GROUND_TAG)
         {
             canJump = true;
+            SetAnimationInteger("Condition", jumpLandInt);
         }
         if(isTumbling == true)
         {
