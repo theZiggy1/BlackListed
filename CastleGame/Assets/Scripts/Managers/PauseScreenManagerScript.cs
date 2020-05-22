@@ -73,6 +73,6 @@ public class PauseScreenManagerScript : MonoBehaviour
         SceneManager.LoadScene(sceneNameMainMenu);
 
         // Unload the Game Over screen scene
-        SceneManager.UnloadSceneAsync("GameOverScreen");
+        //SceneManager.UnloadSceneAsync("GameOverScreen");
     }
 }

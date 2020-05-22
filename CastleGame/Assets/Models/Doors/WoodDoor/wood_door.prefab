@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6503281442819703549}
   - component: {fileID: 683638326089186820}
   - component: {fileID: 6236304824201082588}
+  - component: {fileID: 8860176664974579231}
   m_Layer: 0
   m_Name: wood_door
   m_TagString: Untagged
@@ -99,6 +100,27 @@ MonoBehaviour:
   moveUp: 0
   moveDown: 0
   startsLowered: 1
+  useAnimation: 0
+  animator: {fileID: 0}
+--- !u!95 &8860176664974579231
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243014816448203480}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: cf450ccf0f2b0004e8b46ad4eaef169f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2107186830651252523
 GameObject:
   m_ObjectHideFlags: 0

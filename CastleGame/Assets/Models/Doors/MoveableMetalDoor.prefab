@@ -134,6 +134,61 @@ PrefabInstance:
       propertyPath: transformToMoveTo
       value: 
       objectReference: {fileID: 8504240549717047285}
+    - target: {fileID: 3271818627180260700, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: useAnimation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769452056828373502, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769452056828373502, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769452056828373502, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769452056828373502, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 8769452056828373502, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431587054220659617, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431587054220659617, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431587054220659617, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431587054220659617, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5431587054220659617, guid: 558e36f3fe6e43f49a640c678d218c14,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 558e36f3fe6e43f49a640c678d218c14, type: 3}
 --- !u!4 &2098489115094937934 stripped

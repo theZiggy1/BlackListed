@@ -168,6 +168,7 @@ GameObject:
   - component: {fileID: 1461513813737971844}
   - component: {fileID: 5148984892694355069}
   - component: {fileID: 890566031}
+  - component: {fileID: 4862212837088574422}
   m_Layer: 9
   m_Name: stone_door (1)
   m_TagString: Untagged
@@ -256,3 +257,24 @@ MonoBehaviour:
   moveUp: 0
   moveDown: 0
   startsLowered: 0
+  useAnimation: 1
+  animator: {fileID: 0}
+--- !u!95 &4862212837088574422
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6865746935084771489}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09896ac8bd719204393fd73d98b5ace0, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

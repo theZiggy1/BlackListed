@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8377042807445068598}
   m_Layer: 0
-  m_Name: MoveableWoodDoor (3)
+  m_Name: MoveableWoodDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,6 +139,11 @@ PrefabInstance:
       propertyPath: transformToMoveTo
       value: 
       objectReference: {fileID: 8377042808235715325}
+    - target: {fileID: 6236304824201082588, guid: d5c04a4485afc1c43a08cbbde8745e8c,
+        type: 3}
+      propertyPath: useAnimation
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5c04a4485afc1c43a08cbbde8745e8c, type: 3}
 --- !u!4 &3591676779670883424 stripped

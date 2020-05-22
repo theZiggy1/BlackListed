@@ -286,6 +286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7534615656660489695}
   - component: {fileID: 3271818627180260700}
+  - component: {fileID: 1225265108857775692}
   m_Layer: 9
   m_Name: metal_door (5)
   m_TagString: Untagged
@@ -329,3 +330,24 @@ MonoBehaviour:
   moveUp: 0
   moveDown: 0
   startsLowered: 1
+  useAnimation: 0
+  animator: {fileID: 0}
+--- !u!95 &1225265108857775692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830567407087429580}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d1ee50cde9389494d8c2a970cbbd211d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

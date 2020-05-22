@@ -25,9 +25,28 @@ public class DoorObjectScript : MonoBehaviour
     [Tooltip("Set to true if we want the door to lower at the start")]
     private bool startsLowered;
 
+    [Space(5)]
+
+    [SerializeField]
+    private bool useAnimation;
+    [SerializeField]
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (useAnimation)
+        {
+            if (GetComponent<Animator>() != null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            else
+            {
+                Debug.Log("There's no animator attached to this door but it's set to use animation!");
+            }
+        }
+
         // Finds our position at the start
         originalPosition = transform.position;
 
@@ -43,8 +62,15 @@ public class DoorObjectScript : MonoBehaviour
     {
         if (moveUp)
         {
-            //transform.position = Vector3.Lerp(transformToMoveTo.position, originalPosition, Time.deltaTime * moveSpeed);
-            transform.position = Vector3.MoveTowards(transform.position, originalPosition, Time.deltaTime * moveSpeed);
+            if (useAnimation)
+            {
+                animator.Play("Close");
+            }
+            else // If we're not doing an animation, instead move us up
+            {
+                //transform.position = Vector3.Lerp(transformToMoveTo.position, originalPosition, Time.deltaTime * moveSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, originalPosition, Time.deltaTime * moveSpeed);
+            }
 
             Debug.Log("Moving up!");
 
@@ -59,8 +85,15 @@ public class DoorObjectScript : MonoBehaviour
         }
         if (moveDown)
         {
-            //transform.position = Vector3.Lerp(originalPosition, transformToMoveTo.position, Time.deltaTime * moveSpeed);
-            transform.position = Vector3.MoveTowards(transform.position, transformToMoveTo.position, Time.deltaTime * moveSpeed);
+            if (useAnimation)
+            {
+                animator.Play("Open");
+            }
+            else // If we're not doing an animation, instead move us down
+            {
+                //transform.position = Vector3.Lerp(originalPosition, transformToMoveTo.position, Time.deltaTime * moveSpeed);
+                transform.position = Vector3.MoveTowards(transform.position, transformToMoveTo.position, Time.deltaTime * moveSpeed);
+            }
 
             Debug.Log("Moving down!");
 
