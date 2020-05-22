@@ -150,6 +150,8 @@ public class PlayerControllerOldInput : MonoBehaviour
     //AB setting animation, instead of setting a condition each time. It goes through each on all animation controller possible settings.
     private void SetAnimationInteger(string condition, int integer)
     {
+
+        
         foreach (Animator anim in Animators)
         {
             anim.SetInteger(condition, integer);
@@ -459,7 +461,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                 {
                     // Does the attack
                     OnAbilityLeftTrigger(); // Currently doesn't do anything
-
+                    Debug.Log("Perform ability");
                     // Plays the animation
                    SetAnimationInteger("Condition", abilityAttackInt);
 
