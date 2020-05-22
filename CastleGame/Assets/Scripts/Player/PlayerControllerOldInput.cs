@@ -54,6 +54,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     bool canJump = true;
     private GameObject gameManager;
 
+
     public int playerNum;
     bool Attacking = false; // the right trigger is in fact an axis, and to keep the player from attacking each frame, once the trigger is depressed, this is called, and not reverted until the trigger is released completely. 
     private bool doingAbility = false;
@@ -108,10 +109,15 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField]
     private GameObject ultraUI;
 
+    [SerializeField]
+    private GameObject pauseManager;
+
     //[SerializeField]
     //private bool abilityUIOn;
     //[SerializeField]
     //private bool ultraUIOn;
+
+
 
     //AB Dyeable clothing
     public GameObject clothingPiece; //AB This will be changed to an array at some point - for now just quick implementation
@@ -235,6 +241,7 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         // UI stuff
         SetupUI();
+        pauseManager = GameObject.FindGameObjectWithTag("PauseManager");
 
     }
 
@@ -506,8 +513,6 @@ public class PlayerControllerOldInput : MonoBehaviour
                 GetComponent<EntityScript>().TakeDamage(5, true);
             }
 
-
-
             // Ability + Ultra UI stuff
             // If Ability has finished cooldown
             if (myclass.abilityCoolDown <= 0)
@@ -557,6 +562,12 @@ public class PlayerControllerOldInput : MonoBehaviour
             SetAnimationInteger("Condition", idleInt);
             // Then does the death animation
             SetAnimationInteger("Condition", deadInt);
+        }
+
+        // Pause button
+        if (Input.GetButtonDown("Joy1ButtonStart"))
+        {
+            pauseManager.GetComponent<PauseScreenManagerScript>().PauseGame();
         }
 
     }
