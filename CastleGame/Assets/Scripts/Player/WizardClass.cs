@@ -14,6 +14,10 @@ public class WizardClass : BaseClass
             //   Melee.transform.localScale = new Vector3(1.5f, 4.0f, 1.5f);
             Destroy(Rift, 6.0f);
         }
+        else
+        {
+            return;
+        }
     }
 
     public override void genericAttack()
@@ -25,6 +29,10 @@ public class WizardClass : BaseClass
             Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * forceStrength);
             Destroy(Bullet, 2.0f);
         }
+        else
+        {
+            return;
+        }
     }
 
     public override void ultraAttack()
@@ -35,7 +43,11 @@ public class WizardClass : BaseClass
             GameObject Bullet = GameObject.Instantiate(ultraAttackObj, ultraLocation.position, ultraLocation.rotation);
             Bullet.transform.localScale = new Vector3(5.0f, 5.0f, 5.0f);
             Bullet.GetComponent<Rigidbody>().AddForce(basicAttackLocation.forward * forceStrength);
-            Destroy(Bullet, 2.0f);
+            Destroy(Bullet, 5.0f);
+        }
+        else
+        {
+            return;
         }
     }
 

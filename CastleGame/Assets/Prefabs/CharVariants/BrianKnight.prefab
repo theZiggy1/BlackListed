@@ -4554,7 +4554,8 @@ MonoBehaviour:
   ultraAttackInt: 5
   deadInt: 20
   jumpStartInt: 35
-  jumpLandInt: 37
+  jumpLoopInt: 36
+  jumpLandInt: 36
 --- !u!114 &9114107646784899917
 MonoBehaviour:
   m_ObjectHideFlags: 0
