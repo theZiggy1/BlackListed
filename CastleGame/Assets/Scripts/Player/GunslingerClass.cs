@@ -19,6 +19,7 @@ public class GunslingerClass : BaseClass
     {
         if (abilityCoolDown <= 0)
         {
+            inputScript.DodgeAnim();
             abilityCoolDown = genericAttackReset;
             Vector3 forceVector = -Brian.transform.forward * intialDodgeVelocity;
             forceVector += new Vector3(0.0f, jumpForce, 0.0f);

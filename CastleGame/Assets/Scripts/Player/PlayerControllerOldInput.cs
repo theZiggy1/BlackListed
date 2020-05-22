@@ -129,6 +129,9 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField] int jumpStartInt;
     [SerializeField] int jumpLoopInt;
     [SerializeField] int jumpLandInt;
+    [SerializeField] int dodgeStartInt;
+    [SerializeField] int dodgeLoopInt;
+    [SerializeField] int dodgeLandInt;
 
 
     private Animator GetAnimator(string anim_name)
@@ -797,4 +800,9 @@ public class PlayerControllerOldInput : MonoBehaviour
         this.GetComponent<Rigidbody>().isKinematic = false;
     }
 
+
+    public void DodgeAnim()
+    {
+        SetAnimationInteger("Condition", dodgeStartInt);
+    }
 }
