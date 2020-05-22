@@ -127,6 +127,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField] int ultraAttackInt;
     [SerializeField] int deadInt;
     [SerializeField] int jumpStartInt;
+    [SerializeField] int jumpLoopInt;
     [SerializeField] int jumpLandInt;
 
 
@@ -437,7 +438,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                     // Plays the animation
                     // Naming for this is absolute right now, will probably change later
                     //playerAnimator.Play("Sword Swing 1");
-                    SetAnimationInteger("Condition", genericAttackInt);
+                 //   SetAnimationInteger("Condition", genericAttackInt);
 
                     // Sets us so we're attacking
                     Attacking = true;
@@ -463,7 +464,7 @@ public class PlayerControllerOldInput : MonoBehaviour
                     OnAbilityLeftTrigger(); // Currently doesn't do anything
                     Debug.Log("Perform ability");
                     // Plays the animation
-                   SetAnimationInteger("Condition", abilityAttackInt);
+              
 
                     // Sets us so we're attacking
                     doingAbility = true;
@@ -485,14 +486,13 @@ public class PlayerControllerOldInput : MonoBehaviour
             if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
             {
                 OnSwitchWeapon();
-                SetAnimationInteger("Condition", ultraAttackInt);
+               // SetAnimationInteger("Condition", ultraAttackInt);
             }
 
             //This lets us handle jumping
             if (Input.GetButtonDown("Joy" + playerID + "ButtonA"))
             {
                 OnJump();
-                SetAnimationInteger("Condition", jumpStartInt);
                 Debug.Log(" Jumping");
             }
 
@@ -654,7 +654,12 @@ public class PlayerControllerOldInput : MonoBehaviour
     void OnAttackRightTrigger()
     {
         //  Debug.Log("Attacking!");
-        if (myclass != null) { myclass.genericAttack(); return; }
+        if (myclass != null) 
+        {     
+            myclass.genericAttack();
+            SetAnimationInteger("Condition", genericAttackInt);
+            return; 
+        }
 
         if (isRangedAttack)
         {
@@ -688,7 +693,12 @@ public class PlayerControllerOldInput : MonoBehaviour
     private void OnAbilityLeftTrigger()
     {
 
-        if (myclass != null) { myclass.abilityAttack(); return; }
+        if (myclass != null)
+        {
+            myclass.abilityAttack();
+            SetAnimationInteger("Condition", abilityAttackInt);
+            return;
+        }
         Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
 
         if (abilityUI != null)
@@ -704,7 +714,12 @@ public class PlayerControllerOldInput : MonoBehaviour
      */
     void OnSwitchWeapon()
     {
-        if (myclass != null) { myclass.ultraAttack(); return; }
+        if (myclass != null) 
+        {
+            myclass.ultraAttack();
+            SetAnimationInteger("Condition", ultraAttackInt);
+            return;
+        }
         isRangedAttack = !isRangedAttack;
         //  Debug.Log("Switching Weapon!" + isRangedAttack);
 
@@ -725,6 +740,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     {
         if (canJump)
         {
+            SetAnimationInteger("Condition", jumpStartInt);
             canJump = false;
             Debug.Log("Jumping!");
             this.GetComponent<Rigidbody>().AddForce(0.0f, jumpForce, 0.0f);
@@ -780,4 +796,5 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         this.GetComponent<Rigidbody>().isKinematic = false;
     }
+
 }

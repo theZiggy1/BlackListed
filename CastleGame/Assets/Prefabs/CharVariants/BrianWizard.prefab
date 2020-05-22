@@ -4534,9 +4534,26 @@ MonoBehaviour:
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
   isDead: 0
   playerInputManager: {fileID: 0}
+  playerUI: {fileID: 0}
+  characterID: 0
+  gunslingerUI: {fileID: 0}
+  knightUI: {fileID: 0}
+  rangerUI: {fileID: 0}
+  wizardUI: {fileID: 0}
+  abilityUI: {fileID: 0}
+  ultraUI: {fileID: 0}
   clothingPiece: {fileID: 935149844263020953}
   myclass: {fileID: -5873657063619624558}
   isTumbling: 0
+  idleInt: 0
+  movingInt: 1
+  genericAttackInt: 6
+  abilityAttackInt: 7
+  ultraAttackInt: 7
+  deadInt: 20
+  jumpStartInt: 35
+  jumpLoopInt: 36
+  jumpLandInt: 36
 --- !u!114 &9114107646784899917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9634,7 +9651,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8899998647219600431}
   m_LocalRotation: {x: -0, y: -0.018227993, z: -0, w: 0.9998339}
-  m_LocalPosition: {x: 0.07, y: 1.23, z: 1.47}
+  m_LocalPosition: {x: 0.09, y: 1.23, z: 0.86}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1076356010035264368}
