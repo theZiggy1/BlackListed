@@ -15,11 +15,19 @@ public class AudioPassingScript : MonoBehaviour
         audioManager = GameObject.FindGameObjectWithTag("AudioManager");
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
-        gameManager.GetComponent<GameManagerScript>().sfxAudioLevel = audioManager.GetComponent<AudioManagerScript>().sfxAudioLevel;
-        gameManager.GetComponent<GameManagerScript>().musicAudioLevel = audioManager.GetComponent<AudioManagerScript>().musicAudioLevel;
+        if (audioManager != null && gameManager != null)
+        {
+            gameManager.GetComponent<GameManagerScript>().sfxAudioLevel = audioManager.GetComponent<AudioManagerScript>().sfxAudioLevel;
+            gameManager.GetComponent<GameManagerScript>().musicAudioLevel = audioManager.GetComponent<AudioManagerScript>().musicAudioLevel;
 
-        Destroy(audioManager);
-        Destroy(gameObject);
+            Destroy(audioManager);
+            Destroy(gameObject);
+        }
+        else
+        {
+            Debug.Log("Can't find GameManager or AudioManager!");
+        }
+
     }
 
     // Update is called once per frame
