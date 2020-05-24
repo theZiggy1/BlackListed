@@ -12,6 +12,15 @@ public class BossPhase3AI : MonoBehaviour
     bool performingAttack = false;
     bool choosingAttack = false;
     [SerializeField] Animator charAnimator;
+    [SerializeField] Transform[] EnemySpawnPoints;
+    [SerializeField] GameObject EnemyAdds;
+
+    [SerializeField] GameObject swordAttackGround;
+    [SerializeField] GameObject spinAttack;
+    [SerializeField] Transform spinAttackLocation;
+    [SerializeField] GameObject swordAttackSky;
+    [SerializeField] GameObject handAttack;
+
 
     [SerializeField] int idleAnimation;
     [SerializeField] int walkAnimation;
@@ -129,7 +138,7 @@ public class BossPhase3AI : MonoBehaviour
         }
         return false;
     }
-
+    //Sword Attack
     IEnumerator Attack1(float waitTimer)
     {
         SetAnimationInteger("SkeletonKingCondition", attack1Animation);
@@ -141,7 +150,7 @@ public class BossPhase3AI : MonoBehaviour
         Debug.Log(" Done ATK 1");
         StartCoroutine(ChooseAttack(3.0f));
     }
-
+    //Spawn Adds
     IEnumerator Attack2(float waitTimer)
     {
 
@@ -154,31 +163,41 @@ public class BossPhase3AI : MonoBehaviour
         Debug.Log(" Done ATK 2");
         StartCoroutine(ChooseAttack(3.0f));
     }
+    //Sky sword
     IEnumerator Attack3(float waitTimer)
     {
 
         SetAnimationInteger("SkeletonKingCondition", attack3Animation);
+       // ChooseAPlayer();
+       // GameObject LightningStrike = GameObject.Instantiate(swordAttackSky, new Vector3(chosenPlayerPosition.x, 10, chosenPlayerPosition.z),  this.transform.rotation);
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 3");
         yield return new WaitForSeconds(waitTimer);
+
+       // Destroy(LightningStrike, 3.0f);
         performingAttack = false;
         Debug.Log(" Done ATK 3");
         StartCoroutine(ChooseAttack(3.0f));
     }
+
+    //rotate 
     IEnumerator Attack4(float waitTimer)
     {
-
+        GameObject SpinAttack = GameObject.Instantiate(spinAttack, spinAttackLocation.position, spinAttackLocation.rotation);
+        Destroy(SpinAttack, 3.5f);
         SetAnimationInteger("SkeletonKingCondition", attack4Animation);
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 4");
         yield return new WaitForSeconds(waitTimer);
+        
         performingAttack = false;
         Debug.Log(" Done ATK 4");
         StartCoroutine(ChooseAttack(3.0f));
     }
 
+    //Hand
     IEnumerator Attack5(float waitTimer)
     {
 
@@ -201,7 +220,7 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
-        int randNum =  Random.Range(1, 6);
+        int randNum = 4; // Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
 

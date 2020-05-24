@@ -353,7 +353,6 @@ GameObject:
   - component: {fileID: 5874099541947360625}
   - component: {fileID: 3769256713090357165}
   - component: {fileID: 9210632558133761642}
-  - component: {fileID: 8024447026467924705}
   m_Layer: 0
   m_Name: Skeleton King
   m_TagString: Untagged
@@ -407,17 +406,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3bba4a76a29ed93438e183259922c9d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  navAgent: {fileID: 0}
+  navAgent: {fileID: 3769256713090357165}
   gameManager: {fileID: 0}
   chosenPlayerPosition: {x: 0, y: 0, z: 0}
-  charAnimator: {fileID: 0}
+  charAnimator: {fileID: 5909753271014498022}
+  EnemySpawnPoints: []
+  EnemyAdds: {fileID: 0}
+  swordAttackGround: {fileID: 0}
+  spinAttack: {fileID: 0}
+  swordAttackSky: {fileID: 0}
+  handAttack: {fileID: 0}
   idleAnimation: 0
-  walkAnimation: 0
-  attack1Animation: 0
-  attack2Animation: 0
-  attack3Animation: 0
-  attack4Animation: 0
-  attack5Animation: 0
+  walkAnimation: 1
+  introAnimation: 0
+  attack1Animation: 3
+  attack2Animation: 7
+  attack3Animation: 7
+  attack4Animation: 4
+  attack5Animation: 10
   currentState: 0
 --- !u!195 &3769256713090357165
 NavMeshAgent:
@@ -475,22 +481,6 @@ MonoBehaviour:
   doesParticlesOnDeath: 0
   particleObject: {fileID: 0}
   isDead: 0
---- !u!114 &8024447026467924705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 779953213306028431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9bf55f32766a4e54aae3e37f7e974d6c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Spawner: {fileID: 0}
-  playerToFight: -1
-  gameManager: {fileID: 0}
-  playerObj: {fileID: 0}
 --- !u!1 &782255392340135003
 GameObject:
   m_ObjectHideFlags: 0

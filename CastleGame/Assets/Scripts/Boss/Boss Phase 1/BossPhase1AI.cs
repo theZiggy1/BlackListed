@@ -1,4 +1,5 @@
 ﻿
+using FMOD;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,9 @@ public class BossPhase1AI : MonoBehaviour
     [SerializeField] float returnToBaseSpeed = 10.0f;
     [SerializeField] float attackPatternTime = 5.0f;
     [SerializeField] float returnToBaseTime = 5.0f;
+    [SerializeField] float maxDelta;
+    [SerializeField] float maxMadDelta;
+    [SerializeField] Transform targetRotation;
     void Start()
     {
         StartCoroutine(Test());
@@ -31,19 +35,22 @@ public class BossPhase1AI : MonoBehaviour
         if(choseALocation == true)
         {
             MoveTo(chosenPlayerPosition, moveSpeed, true);
+
+            this.gameObject.transform.Rotate(new Vector3(0, 0, maxMadDelta * Time.deltaTime));
         }
 
         if(returnToBase == true)
         {
             MoveTo(locationToReturn, returnToBaseSpeed, false);
+            transform.rotation = Quaternion.RotateTowards(this.transform.rotation, targetRotation.rotation, maxDelta * Time.deltaTime);
         }
     }
 
     void ChooseAPlayer()
     {
         int playerNum = Random.Range(0, gameManager.numPlayers); //inclusive of min, exclusive of max
-        Debug.Log(" God damn it" + playerNum);
-        Debug.Log(" " + gameManager.numPlayers);
+        UnityEngine.Debug.Log(" God damn it" + playerNum);
+        UnityEngine.Debug.Log(" " + gameManager.numPlayers);
         chosenPlayerPosition = gameManager.currentPlayers[playerNum].gameObject.transform.position;
     }
 
@@ -64,6 +71,8 @@ public class BossPhase1AI : MonoBehaviour
             this.transform.LookAt(location);
         }
     }
+
+    
 
     IEnumerator Test()
     {
@@ -94,12 +103,12 @@ public class BossPhase1AI : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.collider.tag);
+        UnityEngine.Debug.Log(collision.collider.tag);
         //Things to do
     // Alos stop anim if you collide with the player. 
         if(collision.collider.tag == "Ground")
         {
-            Debug.Log("Touched theGround");
+            UnityEngine. Debug.Log("Touched theGround");
         }
     }
 }

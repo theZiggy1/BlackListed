@@ -375,7 +375,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Character is moving right (or looking right)
             if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") < -0.1f))
             {
-                Debug.Log("Moving right");
+            //    Debug.Log("Moving right");
 
                 Movement();
                 LookAt();
@@ -387,7 +387,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Character is moving left (or looking left)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") > 0.1f))
             {
-                Debug.Log("Moving left");
+             //   Debug.Log("Moving left");
 
                 Movement();
                 LookAt();
@@ -399,7 +399,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Character is moving up (or looking up)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") > 0.1f))
             {
-                Debug.Log("Moving up");
+              //  Debug.Log("Moving up");
 
                 Movement();
                 LookAt();
@@ -411,7 +411,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Character is moving down (or looking down)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") < -0.1f))
             {
-                Debug.Log("Moving down");
+              //  Debug.Log("Moving down");
 
                 Movement();
                 LookAt();
@@ -424,7 +424,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             {
                 if (!Attacking)
                 {
-                    Debug.Log("Not moving");
+                //    Debug.Log("Not moving");
 
                     //playerAnimator.Play("Sword Idle");
                     SetAnimationInteger("Condition", idleInt);
