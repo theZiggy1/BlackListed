@@ -62,17 +62,42 @@ public class EnemyScript : MonoBehaviour
     [SerializeField]
     private Animator enemyAnimator;
 
+    [SerializeField]
+    private string conditionName;
+    
     [SerializeField] int idleAnimation;
     [SerializeField] int walkAnimation;
     [SerializeField] int attackAnimation;
+    [SerializeField] int attackAnimationRanged;
 
+    [Space(5)]
 
+    // Audio stuff
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip audioClipAttack;
+    [SerializeField]
+    private AudioClip audioClipAttackRanged;
+
+    [Space(10)]
+    
     public bool MoveTo = false;
     public bool MoveToRanged = false;
 
     public bool performingAttack = false;
 
-    
+
+
+    private void SetAnimationInteger(string condition, int integer)
+    {
+        enemyAnimator.SetInteger(condition, integer);
+
+        /*  foreach (Animator anim in Animators)
+          {
+              anim.SetInteger(condition, integer);
+          }*/
+    }
 
 
     void Start()
@@ -82,7 +107,17 @@ public class EnemyScript : MonoBehaviour
         playerToFight = inheritedScript.playerToFight;
         gameManager = inheritedScript.gameManager;
         theta += Random.Range(addMinRandomTheta, addMaxRandomTheta);
-       // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
+        // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
+
+        // Audio stuff
+        if (GetComponent<AudioSource>() != null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        else
+        {
+            Debug.Log("Can't find AudioSource on enemy!");
+        }
     }
 
     // Update is called once per frame
@@ -128,7 +163,8 @@ public class EnemyScript : MonoBehaviour
                 this.transform.position = Vector3.MoveTowards(this.transform.position, newLocation, Time.deltaTime * speed2);
 
                 // Animation for Walking
-                enemyAnimator.Play("Walk");
+                //enemyAnimator.Play("Walk");
+                SetAnimationInteger(conditionName, walkAnimation);
 
                 break;
 
@@ -149,7 +185,8 @@ public class EnemyScript : MonoBehaviour
                       //  this.transform.position = Vector3.MoveTowards(this.transform.position,new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1, playerObj.transform.position.z), Time.deltaTime * moveSpeed);
 
                         // Animation for Biting
-                        enemyAnimator.Play("Bite");
+                        //enemyAnimator.Play("Bite");
+                        //SetAnimationInteger(conditionName, attackAnimation);
 
                         break;
                     case fighterType.ranged:
@@ -179,10 +216,11 @@ public class EnemyScript : MonoBehaviour
                             thisAgent.isStopped = true;
                             StartCoroutine(rangedAttack(1.0f));
                         }
-   
+
 
                         // Animation for Ranged Spit
-                        enemyAnimator.Play("Ranged Spit");
+                        //enemyAnimator.Play("Ranged Spit");
+                        //SetAnimationInteger(conditionName, attackAnimationRanged);
 
                         break;
                 }
@@ -242,6 +280,16 @@ public class EnemyScript : MonoBehaviour
         Bullet.GetComponent<bulletScript>().enemyDamage = 20;
         Destroy(Bullet, 1.0f);
         MoveTo = true;
+
+        // Animation
+        SetAnimationInteger(conditionName, attackAnimation);
+        // Audio
+        if (audioClipAttack != null && audioSource != null)
+        {
+            audioSource.clip = audioClipAttack;
+            audioSource.Play();
+        }
+
         performingAttack = false;
     }
 
@@ -256,6 +304,16 @@ public class EnemyScript : MonoBehaviour
         SpawnBullet();
         MoveToRanged = true;
         rangedAttackCoolDown = rangedAttackReset;
+        
+        // Animation
+        SetAnimationInteger(conditionName, attackAnimationRanged);
+        // Audio
+        if (audioClipAttack != null && audioSource != null)
+        {
+            audioSource.clip = audioClipAttackRanged;
+            audioSource.Play();
+        }
+
         performingAttack = false;
 
     }
@@ -266,6 +324,9 @@ public class EnemyScript : MonoBehaviour
         thisAgent.isStopped = false;
         this.thisAgent.destination = location.position;
         this.transform.LookAt(location);
+
+        // Animation
+        SetAnimationInteger(conditionName, walkAnimation);
 
         float distance = Vector3.Distance(location.position, this.transform.position);
         Debug.Log("Distance: " + distance);
