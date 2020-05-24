@@ -47,7 +47,7 @@ public class BossPhase3AI : MonoBehaviour
     void Start()
     {
         SetAnimationInteger("SkeletonKingCondition", introAnimation);
-        StartCoroutine(ChooseAttack(2.0f));
+        StartCoroutine(ChooseAttack(5.0f));
     }
 
 
@@ -85,7 +85,7 @@ public class BossPhase3AI : MonoBehaviour
             case States.Attack4Rotate:
                 if (HasReachedLocation(chosenPlayerPosition))
                 {
-                    StartCoroutine(Attack4(2.0f));
+                    StartCoroutine(Attack4(1.5f));
                 }
                 break;
                 
@@ -189,7 +189,7 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
         Debug.Log(" Done ATK 5");
-        StartCoroutine(ChooseAttack(3.0f));
+     //   StartCoroutine(ChooseAttack(3.0f));
     }
 
 
@@ -201,14 +201,10 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
-        int randNum = Random.Range(1, 6);
+        int randNum = 5; // Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
-        currentState = States.Attack1Ground;
-        ChooseAPlayer();
-        Moveto(chosenPlayerPosition, true);
 
-        
         switch (randNum)
         {
             case 1:
