@@ -1127,7 +1127,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1797144027}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.247}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 670689825}
@@ -1227,6 +1227,12 @@ PrefabInstance:
       propertyPath: spinAttackLocation
       value: 
       objectReference: {fileID: 1797144028}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: EnemyAdds
+      value: 
+      objectReference: {fileID: 7530541078289278063, guid: dbb948456b006f04d9bc20281fb5edec,
+        type: 3}
     - target: {fileID: 9210632558133761642, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: startingHealth

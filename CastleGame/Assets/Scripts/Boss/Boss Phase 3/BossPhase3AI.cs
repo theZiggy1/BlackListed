@@ -153,8 +153,12 @@ public class BossPhase3AI : MonoBehaviour
     //Spawn Adds
     IEnumerator Attack2(float waitTimer)
     {
-
+        //WIll need to make another dark knight or something, as a custom ai, as they dont spawn normally
         SetAnimationInteger("SkeletonKingCondition", attack2Animation);
+        foreach( Transform spawnPoint in EnemySpawnPoints)
+        {
+            GameObject Add = GameObject.Instantiate(EnemyAdds, spawnPoint.position, spawnPoint.rotation);
+        }
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 2");
@@ -220,7 +224,7 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
-        int randNum = 4; // Random.Range(1, 6);
+        int randNum =  Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
 
