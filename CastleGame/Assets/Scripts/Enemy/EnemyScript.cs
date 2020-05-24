@@ -274,6 +274,7 @@ public class EnemyScript : MonoBehaviour
     IEnumerator meleeAttack(float timeToWait)
     {
         performingAttack = true;
+        this.transform.LookAt(playerObj.transform);
         yield return new WaitForSeconds(timeToWait);
         GameObject Bullet = GameObject.Instantiate(rangedEnemyAttack, bulletSpawn.position, bulletSpawn.rotation);
         Bullet.GetComponent<bulletScript>().OTHER_TAG = "Player";
