@@ -189,7 +189,7 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
         Debug.Log(" Done ATK 5");
-     //   StartCoroutine(ChooseAttack(3.0f));
+        StartCoroutine(ChooseAttack(3.0f));
     }
 
 
@@ -201,7 +201,7 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
-        int randNum = 5; // Random.Range(1, 6);
+        int randNum =  Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
 
@@ -231,7 +231,6 @@ public class BossPhase3AI : MonoBehaviour
                 currentState = States.Attack5Hand;
                 StartCoroutine(Attack5(3.0f));
                 //This state as well as the other two bypasses having to call update functions
-                StartCoroutine(ChooseAttack(3.0f));
                 break;
         }
     }
