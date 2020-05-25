@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using JetBrains.Annotations;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,11 @@ public class bulletScript : MonoBehaviour
     public string BELL_TAG = "Bell";
     public int enemyDamage = 100;
     public bool isRangerUltra = false;
+
     void Start()
     {
         //this.GetComponent<Rigidbody>().AddRelativeForce(this.transform.forward * forceStrength);
+        
     }
 
     // Update is called once per frame
@@ -26,11 +29,16 @@ public class bulletScript : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.tag);
+
         if (other.gameObject.tag == OTHER_TAG)
         {
             Debug.Log("Hit a player");
             other.gameObject.GetComponent<EntityScript>().TakeDamage(enemyDamage);
-            if (!isRangerUltra) { Destroy(this.gameObject); }
+            if (!isRangerUltra)
+            {
+                Destroy(this.gameObject); 
+            }
+            
         }
 
         if(other.gameObject.tag == BELL_TAG)
