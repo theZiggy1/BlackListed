@@ -12,11 +12,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Chandelier_prefab
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: fbf5d4e823734e743bf252e1c0ac32a4,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: ff5a1dc7380b2b346ba6517d6dd52dee, type: 2}
     - target: {fileID: -4216859302048453862, guid: fbf5d4e823734e743bf252e1c0ac32a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87,5 +82,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: fbf5d4e823734e743bf252e1c0ac32a4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ff5a1dc7380b2b346ba6517d6dd52dee, type: 2}
+    - target: {fileID: -5178661895559278292, guid: fbf5d4e823734e743bf252e1c0ac32a4,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8516892043856572807, guid: 90c4ab2fe3e6368478090cc00a640bfc,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fbf5d4e823734e743bf252e1c0ac32a4, type: 3}
