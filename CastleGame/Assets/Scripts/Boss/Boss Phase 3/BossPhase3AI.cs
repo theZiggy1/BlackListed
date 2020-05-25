@@ -57,12 +57,44 @@ public class BossPhase3AI : MonoBehaviour
     //the attacks can be broken into 2 catagories
     // move to location, perform action
     // stand still, spawn prefab (while in an animation)
+    [Space(15)]
+    [Header("Audio")]
+    [SerializeField]
+    private AudioSource audioSource;
+    [SerializeField]
+    private AudioClip swordAttackAudio;
+    [SerializeField]
+    private AudioClip spawnAddsAttackAudio;
+    [SerializeField]
+    private AudioClip skySwordAttackAudio;
+    [SerializeField]
+    private AudioClip spinAttackAudio;
+    [SerializeField]
+    private AudioClip handAttackAudio;
 
     void Start()
     {
         Adds = new List<GameObject>();
         SetAnimationInteger("SkeletonKingCondition", introAnimation);
         StartCoroutine(ChooseAttack(5.0f));
+
+        // Set up the healthbar
+        // If we find the tagged gameObject
+        if (GameObject.FindGameObjectWithTag("BossHealthBar"))
+        {
+            GameObject healthBar = GameObject.FindGameObjectWithTag("BossHealthBar");
+            // Then set the entity script to use this health bar
+            GetComponent<EntityScript>().ChangeHealthBar(healthBar);
+        }
+        // if we have an audio source
+        if (GetComponent<AudioSource>())
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+        else
+        {
+            Debug.Log("Can't find an AudioSource on the boss!");
+        }
     }
 
 
@@ -148,6 +180,13 @@ public class BossPhase3AI : MonoBehaviour
     IEnumerator Attack1(float waitTimer)
     {
         SetAnimationInteger("SkeletonKingCondition", attack1Animation);
+        // Audio
+        if (audioSource != null && swordAttackAudio != null)
+        {
+            audioSource.clip = swordAttackAudio;
+            audioSource.Play();
+        }
+
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 1");
@@ -161,7 +200,14 @@ public class BossPhase3AI : MonoBehaviour
     {
         //WIll need to make another dark knight or something, as a custom ai, as they dont spawn normally
         SetAnimationInteger("SkeletonKingCondition", attack2Animation);
-        foreach( Transform spawnPoint in EnemySpawnPoints)
+        // Audio
+        if (audioSource != null && spawnAddsAttackAudio != null)
+        {
+            audioSource.clip = spawnAddsAttackAudio;
+            audioSource.Play();
+        }
+
+        foreach ( Transform spawnPoint in EnemySpawnPoints)
         {
             GameObject Add = GameObject.Instantiate(EnemyAdds, spawnPoint.position, spawnPoint.rotation);
             Adds.Add(Add); //This is a little ambigous, but its add the enemies that the boss spawns to a list so they can be destroyed when the boss is. 
@@ -180,6 +226,13 @@ public class BossPhase3AI : MonoBehaviour
     {
 
         SetAnimationInteger("SkeletonKingCondition", attack3Animation);
+        // Audio
+        if (audioSource != null && skySwordAttackAudio != null)
+        {
+            audioSource.clip = skySwordAttackAudio;
+            audioSource.Play();
+        }
+
         ChooseAPlayer();
         GameObject LightningStrike = GameObject.Instantiate(swordAttackSky, new Vector3(chosenPlayerPosition.x, 10, chosenPlayerPosition.z),  this.transform.rotation);
        
@@ -199,6 +252,13 @@ public class BossPhase3AI : MonoBehaviour
         GameObject SpinAttack = GameObject.Instantiate(spinAttack, spinAttackLocation.position, spinAttackLocation.rotation);
         Destroy(SpinAttack, 3.5f);
         SetAnimationInteger("SkeletonKingCondition", attack4Animation);
+        // Audio
+        if (audioSource != null && spinAttackAudio != null)
+        {
+            audioSource.clip = spinAttackAudio;
+            audioSource.Play();
+        }
+
         performingAttack = true;
         Debug.Log("ATK 4");
         yield return new WaitForSeconds(waitTimer);
@@ -212,6 +272,13 @@ public class BossPhase3AI : MonoBehaviour
     IEnumerator Attack5(float waitTimer)
     {
         SetAnimationInteger("SkeletonKingCondition", attack5Animation);
+        // Audio
+        if (audioSource != null && handAttackAudio != null)
+        {
+            audioSource.clip = handAttackAudio;
+            audioSource.Play();
+        }
+
         //Spawn rocks 
         performingAttack = true;
         StartCoroutine(Attack5wait(1.0f));

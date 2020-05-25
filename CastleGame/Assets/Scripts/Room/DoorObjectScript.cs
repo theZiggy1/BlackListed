@@ -55,6 +55,10 @@ public class DoorObjectScript : MonoBehaviour
         {
             LowerDoor();
         }
+        else // Otherwise, makes sure the door is raised
+        {
+            RaiseDoor();
+        }
     }
 
     // Update is called once per frame

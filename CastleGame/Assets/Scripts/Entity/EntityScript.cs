@@ -169,6 +169,12 @@ public class EntityScript : MonoBehaviour
         //}
     }
 
+    // This is so that the boss can set his own healthbar
+    public void ChangeHealthBar(GameObject sliderObject)
+    {
+        healthBar = sliderObject.GetComponent<Slider>();
+    }
+
     private void UpdateHealthBar()
     {
         // !!! This needs to be done fractionally so that any health can correspond to a float between 0 and 1

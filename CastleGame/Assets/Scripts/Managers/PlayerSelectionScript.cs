@@ -272,7 +272,7 @@ public class PlayerSelectionScript : MonoBehaviour
         {
             RenderSettings.skybox = skyboxes[2];
             RenderSettings.customReflection = reflectionCubemaps[2];
-            RenderSettings.fog = true;
+            RenderSettings.fog = false;
         }
         if (sceneNameToLoad == "Level 4")
         {

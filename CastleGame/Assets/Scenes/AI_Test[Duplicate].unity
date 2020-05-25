@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1815468, g: 0.22718757, b: 0.30740595, a: 1}
+  m_IndirectSpecularColor: {r: 0.18154654, g: 0.22718707, b: 0.30740517, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -943,15 +943,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9114107646784899917, guid: 44132b3f328a0f740b0a9c64492742c8,
-        type: 3}
-      propertyPath: usingHealthBar
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4420566335824854103, guid: 44132b3f328a0f740b0a9c64492742c8,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9114107646784899917, guid: 44132b3f328a0f740b0a9c64492742c8,
+        type: 3}
+      propertyPath: usingHealthBar
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44132b3f328a0f740b0a9c64492742c8, type: 3}
@@ -1071,21 +1071,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
-        type: 3}
-      propertyPath: isEngaged.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
-        type: 3}
-      propertyPath: currentPlayers.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
-        type: 3}
-      propertyPath: currentPlayers.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 978124582903858556, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1141,6 +1126,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
+        type: 3}
+      propertyPath: isEngaged.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
+        type: 3}
+      propertyPath: currentPlayers.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 978124582903858557, guid: e958bb2ac4d041a4bb0ee9b3868f66dd,
+        type: 3}
+      propertyPath: currentPlayers.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958bb2ac4d041a4bb0ee9b3868f66dd, type: 3}
 --- !u!1001 &2052097031
@@ -1150,6 +1150,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8180519303056260603, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 779953213306028431, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: m_Name
@@ -1225,6 +1230,31 @@ PrefabInstance:
       propertyPath: EnemySpawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1111325204}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: swordAttackAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: spawnAddsAttackAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: skySwordAttackAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: spinAttackAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: handAttackAudio
+      value: 
+      objectReference: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
     - target: {fileID: 9210632558133761642, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: startingHealth

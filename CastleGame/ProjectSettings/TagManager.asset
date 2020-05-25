@@ -37,6 +37,8 @@ TagManager:
   - AudioManager
   - PauseManager
   - WinManager
+  - BossHealthBar
+  - BossHealthBarChild
   layers:
   - Default
   - TransparentFX
