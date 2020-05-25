@@ -134,12 +134,24 @@ public class EnemyScript : MonoBehaviour
         //for now it simply checks the one it has been assigned, and then if the player isnt fighting the first one that checks fights said player. 
         if(stateMachine == States.flocking)
         {
-            if (gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] == false)
+            for(int x = 0; x< gameManager.GetComponent<GameManagerScript>().numPlayers; ++x)
+            {
+                if (gameManager.GetComponent<GameManagerScript>().isEngaged[x] == false)
+                {
+                    gameManager.GetComponent<GameManagerScript>().isEngaged[x] = true;
+                    stateMachine = States.fightingPlayer;
+                    playerObj = gameManager.GetComponent<GameManagerScript>().currentPlayers[x];
+                    MoveTo = true;
+                    Debug.Log("switching states");
+                    break;
+                }
+
+         /*   if (gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] == false)
             {
                 gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = true;
                 stateMachine = States.fightingPlayer;
                 MoveTo = true;
-                Debug.Log("switching states");
+                Debug.Log("switching states");*/
             }
         }
         Quaternion rotation = Quaternion.LookRotation(playerObj.transform.position - this.transform.position);
