@@ -9,6 +9,7 @@ public class BossPhase3AI : MonoBehaviour
     [SerializeField] NavMeshAgent navAgent;
     [SerializeField] GameManagerScript gameManager;
     [SerializeField] Vector3 chosenPlayerPosition;
+    [SerializeField] EntityScript HealthScript;
     bool performingAttack = false;
     bool choosingAttack = false;
     [SerializeField] Animator charAnimator;
@@ -20,6 +21,8 @@ public class BossPhase3AI : MonoBehaviour
     [SerializeField] Transform spinAttackLocation;
     [SerializeField] GameObject swordAttackSky;
     [SerializeField] GameObject handAttack;
+    [SerializeField] GameObject isInvulnerableObject;
+    [SerializeField] GameObject isAttackableObject;
 
 
     [SerializeField] int idleAnimation;
@@ -190,13 +193,12 @@ public class BossPhase3AI : MonoBehaviour
         StartCoroutine(ChooseAttack(3.0f));
     }
 
-    //rotate 
+    //Spin Attack
     IEnumerator Attack4(float waitTimer)
     {
         GameObject SpinAttack = GameObject.Instantiate(spinAttack, spinAttackLocation.position, spinAttackLocation.rotation);
         Destroy(SpinAttack, 3.5f);
         SetAnimationInteger("SkeletonKingCondition", attack4Animation);
-        //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 4");
         yield return new WaitForSeconds(waitTimer);
@@ -209,10 +211,7 @@ public class BossPhase3AI : MonoBehaviour
     //Hand
     IEnumerator Attack5(float waitTimer)
     {
-
         SetAnimationInteger("SkeletonKingCondition", attack5Animation);
-
-     
         //Spawn rocks 
         performingAttack = true;
         StartCoroutine(Attack5wait(1.0f));
@@ -240,10 +239,16 @@ public class BossPhase3AI : MonoBehaviour
         SetAnimationInteger("SkeletonKingCondition", idleAnimation);
         Debug.Log("Attack waiting");
         choosingAttack = true;
+        HealthScript.SetInvulnerable(false);
+        isInvulnerableObject.SetActive(false);
+        isAttackableObject.SetActive(true);
         yield return new WaitForSeconds(waitTimer);
+        HealthScript.SetInvulnerable(true);
+        isInvulnerableObject.SetActive(true);
+        isAttackableObject.SetActive(false);
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
-        int randNum = 5;// Random.Range(1, 6);
+        int randNum = Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
 

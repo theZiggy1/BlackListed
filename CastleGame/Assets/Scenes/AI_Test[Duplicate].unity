@@ -497,37 +497,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 620087937}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &670689820 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 779953213306028431, guid: f3580ed39d67593428d676beb8a12c8b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2052097031}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &670689824 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5909753271014498022, guid: f3580ed39d67593428d676beb8a12c8b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2052097031}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &670689825 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4362205216302511004, guid: f3580ed39d67593428d676beb8a12c8b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2052097031}
-  m_PrefabAsset: {fileID: 0}
---- !u!65 &670689826
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 670689820}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.61863786, y: 1.2479323, z: 0.528868}
-  m_Center: {x: -0.017703813, y: 0.80820614, z: 0.056498528}
 --- !u!1001 &845315311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1174,36 +1143,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e958bb2ac4d041a4bb0ee9b3868f66dd, type: 3}
---- !u!1 &1797144027
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1797144028}
-  m_Layer: 0
-  m_Name: SpinAttackLocation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1797144028
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797144027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.247}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 670689825}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2052097031
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1215,11 +1154,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Skeleton King
-      objectReference: {fileID: 0}
-    - target: {fileID: 779953213306028431, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4362205216302511004, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
@@ -1278,37 +1212,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
-      propertyPath: EnemySpawnPoints.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: swordAttackSky
-      value: 
-      objectReference: {fileID: 7618207447205780967, guid: d036f314a67bbcd468c909d4e89e53c1,
-        type: 3}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 1510603053}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: spinAttack
-      value: 
-      objectReference: {fileID: 3563243407773573417, guid: a746a7f6d8dcf324d86d6e83cfee3adf,
-        type: 3}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: spinAttackLocation
-      value: 
-      objectReference: {fileID: 1797144028}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: EnemyAdds
-      value: 
-      objectReference: {fileID: 4298322441017848800, guid: 8ea8ed71ab51ea14180b2abca3f71653,
-        type: 3}
     - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: EnemySpawnPoints.Array.data[0]
@@ -1319,76 +1225,10 @@ PrefabInstance:
       propertyPath: EnemySpawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1111325204}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: handAttack
-      value: 
-      objectReference: {fileID: 6566238526712137887, guid: 86ad3d776e6e3e24facdeae06c576643,
-        type: 3}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: walkAnimation
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: attack1Animation
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: attack2Animation
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: attack3Animation
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: attack5Animation
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: attack4Animation
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: charAnimator
-      value: 
-      objectReference: {fileID: 670689824}
     - target: {fileID: 9210632558133761642, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: startingHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1731334419654466319, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3540369421357927160, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 778065467413262316, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 433163101743143984, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 8579689811180787002, guid: f3580ed39d67593428d676beb8a12c8b,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
+      value: 1500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3580ed39d67593428d676beb8a12c8b, type: 3}

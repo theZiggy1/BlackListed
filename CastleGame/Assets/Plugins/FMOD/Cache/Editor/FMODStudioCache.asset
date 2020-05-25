@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: FMOD/FMODProject/Build/Desktop/Master.strings.bank
   SubDir: 
-  lastModified: 637239453880390471
+  lastModified: 637255861965277849
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -55,7 +55,7 @@ MonoBehaviour:
   lastModified: 637239453880380471
   LoadResult: 0
   FileSizes: []
-  Exists: 1
+  Exists: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,12 +70,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: -8550901500280199389}
-  - {fileID: -2199260120672082195}
+  - {fileID: 1593972663479908405}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: -2199260120672082195}
+  - {fileID: 1593972663479908405}
   StringsBanks:
   - {fileID: -8550901500280199389}
-  stringsBankWriteTime: 637239453880390471
+  stringsBankWriteTime: 637255861965277849
   cacheVersion: 3
+--- !u!114 &1593972663479908405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: FMOD/FMODProject/Build/Desktop/Master.bank
+  SubDir: 
+  lastModified: 637255861965277849
+  LoadResult: 0
+  FileSizes: []
+  Exists: 1
