@@ -31,6 +31,8 @@ public class BossPhase3AI : MonoBehaviour
     [SerializeField] int attack3Animation;
     [SerializeField] int attack4Animation;
     [SerializeField] int attack5Animation;
+
+    List<GameObject> Adds;
     enum States
     {
         Attack1Ground,
@@ -55,6 +57,7 @@ public class BossPhase3AI : MonoBehaviour
 
     void Start()
     {
+        Adds = new List<GameObject>();
         SetAnimationInteger("SkeletonKingCondition", introAnimation);
         StartCoroutine(ChooseAttack(5.0f));
     }
@@ -158,6 +161,8 @@ public class BossPhase3AI : MonoBehaviour
         foreach( Transform spawnPoint in EnemySpawnPoints)
         {
             GameObject Add = GameObject.Instantiate(EnemyAdds, spawnPoint.position, spawnPoint.rotation);
+            Adds.Add(Add); //This is a little ambigous, but its add the enemies that the boss spawns to a list so they can be destroyed when the boss is. 
+            Add.GetComponent<EnemyVarScript>().SpawningfromBoss(GameObject.FindWithTag("GameManager"), Random.Range(0, gameManager.numPlayers));
         }
         //Spawn rocks 
         performingAttack = true;
@@ -172,9 +177,9 @@ public class BossPhase3AI : MonoBehaviour
     {
 
         SetAnimationInteger("SkeletonKingCondition", attack3Animation);
-       // ChooseAPlayer();
-       // GameObject LightningStrike = GameObject.Instantiate(swordAttackSky, new Vector3(chosenPlayerPosition.x, 10, chosenPlayerPosition.z),  this.transform.rotation);
-        //Spawn rocks 
+        ChooseAPlayer();
+        GameObject LightningStrike = GameObject.Instantiate(swordAttackSky, new Vector3(chosenPlayerPosition.x, 10, chosenPlayerPosition.z),  this.transform.rotation);
+       
         performingAttack = true;
         Debug.Log("ATK 3");
         yield return new WaitForSeconds(waitTimer);
@@ -206,13 +211,27 @@ public class BossPhase3AI : MonoBehaviour
     {
 
         SetAnimationInteger("SkeletonKingCondition", attack5Animation);
+
+     
         //Spawn rocks 
         performingAttack = true;
+        StartCoroutine(Attack5wait(1.0f));
         Debug.Log("ATK 5");
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
         Debug.Log(" Done ATK 5");
         StartCoroutine(ChooseAttack(3.0f));
+    }
+
+    IEnumerator Attack5wait(float waitTimer)
+    {
+
+        yield return new WaitForSeconds(waitTimer);
+        for (int x = 0; x < gameManager.numPlayers; ++x)
+        {
+            GameObject hand = GameObject.Instantiate(handAttack, new Vector3(gameManager.currentPlayers[x].transform.position.x, 0.0f, gameManager.currentPlayers[x].transform.position.z), gameManager.currentPlayers[x].transform.rotation);
+            Destroy(hand, 1.0f);
+        }
     }
 
 
@@ -224,7 +243,7 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
-        int randNum =  Random.Range(1, 6);
+        int randNum = 5;// Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
 
@@ -255,6 +274,14 @@ public class BossPhase3AI : MonoBehaviour
                 StartCoroutine(Attack5(3.0f));
                 //This state as well as the other two bypasses having to call update functions
                 break;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        foreach(GameObject Add in Adds)
+        {
+            Add.GetComponent<EnemyScript>().DestoryedByBoss();
         }
     }
 }
