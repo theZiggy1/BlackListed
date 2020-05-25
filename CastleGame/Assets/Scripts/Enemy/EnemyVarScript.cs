@@ -19,7 +19,10 @@ public class EnemyVarScript : MonoBehaviour
     private void OnDestroy()
     {
         //This will need to be changed in a sec.
-        Spawner.GetComponent<WaveSpawning>().EnemyKilled();
+        if (Spawner != null)
+        {
+            Spawner.GetComponent<WaveSpawning>().EnemyKilled(); 
+        }
         if (playerToFight != -1)
         {
             gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
@@ -36,6 +39,14 @@ public class EnemyVarScript : MonoBehaviour
         gameManager = a_gameManager;
         playerToFight = playerNum;
         playerObj = gameManager.GetComponent<GameManagerScript>().currentPlayers[playerToFight];
+    }
+
+    public void SpawningfromBoss(GameObject a_gameManager, int playerNum)
+    {
+        gameManager = a_gameManager;
+        playerToFight = playerNum;
+        playerObj = gameManager.GetComponent<GameManagerScript>().currentPlayers[playerToFight];
+        this.GetComponent<EnemyScript>().BossSpawned();
     }
 
 

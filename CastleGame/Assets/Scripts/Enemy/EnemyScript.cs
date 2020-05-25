@@ -350,4 +350,14 @@ public class EnemyScript : MonoBehaviour
             thisAgent.isStopped = true;
         }
     }
+
+   public void BossSpawned()
+    {
+        stateMachine = States.fightingPlayer;
+    }
+
+    public void DestoryedByBoss()
+    {
+        Destroy(this.gameObject);
+    }
 }

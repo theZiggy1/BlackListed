@@ -811,6 +811,66 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+--- !u!1 &1111325203
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1111325204}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1111325204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111325203}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -23.33, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1230431271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1230431272}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1230431272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1230431271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -11.57, y: 0, z: 10.37}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1390419356
 GameObject:
   m_ObjectHideFlags: 0
@@ -1207,6 +1267,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
+      propertyPath: EnemySpawnPoints.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
       propertyPath: swordAttackSky
       value: 
       objectReference: {fileID: 7618207447205780967, guid: d036f314a67bbcd468c909d4e89e53c1,
@@ -1231,12 +1296,22 @@ PrefabInstance:
         type: 3}
       propertyPath: EnemyAdds
       value: 
-      objectReference: {fileID: 7530541078289278063, guid: dbb948456b006f04d9bc20281fb5edec,
+      objectReference: {fileID: 4298322441017848800, guid: 8ea8ed71ab51ea14180b2abca3f71653,
         type: 3}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: EnemySpawnPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1230431272}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: EnemySpawnPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1111325204}
     - target: {fileID: 9210632558133761642, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: startingHealth
-      value: 500
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1731334419654466319, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
