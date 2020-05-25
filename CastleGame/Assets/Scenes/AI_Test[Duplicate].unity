@@ -979,6 +979,11 @@ PrefabInstance:
       propertyPath: usingHealthBar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4420566335824854103, guid: 44132b3f328a0f740b0a9c64492742c8,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44132b3f328a0f740b0a9c64492742c8, type: 3}
 --- !u!1 &1510603052 stripped
@@ -1328,7 +1333,7 @@ PrefabInstance:
     - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: attack1Animation
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
