@@ -211,13 +211,27 @@ public class BossPhase3AI : MonoBehaviour
     {
 
         SetAnimationInteger("SkeletonKingCondition", attack5Animation);
+
+     
         //Spawn rocks 
         performingAttack = true;
+        StartCoroutine(Attack5wait(1.0f));
         Debug.Log("ATK 5");
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
         Debug.Log(" Done ATK 5");
         StartCoroutine(ChooseAttack(3.0f));
+    }
+
+    IEnumerator Attack5wait(float waitTimer)
+    {
+
+        yield return new WaitForSeconds(waitTimer);
+        for (int x = 0; x < gameManager.numPlayers; ++x)
+        {
+            GameObject hand = GameObject.Instantiate(handAttack, new Vector3(gameManager.currentPlayers[x].transform.position.x, 0.0f, gameManager.currentPlayers[x].transform.position.z), gameManager.currentPlayers[x].transform.rotation);
+            Destroy(hand, 1.0f);
+        }
     }
 
 
@@ -229,7 +243,7 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
-        int randNum = Random.Range(1, 6);
+        int randNum = 5;// Random.Range(1, 6);
         Debug.Log(randNum);
         Debug.Log("CHose an attack");
 

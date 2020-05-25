@@ -1308,6 +1308,12 @@ PrefabInstance:
       propertyPath: EnemySpawnPoints.Array.data[1]
       value: 
       objectReference: {fileID: 1111325204}
+    - target: {fileID: 5874099541947360625, guid: f3580ed39d67593428d676beb8a12c8b,
+        type: 3}
+      propertyPath: handAttack
+      value: 
+      objectReference: {fileID: 6566238526712137887, guid: 86ad3d776e6e3e24facdeae06c576643,
+        type: 3}
     - target: {fileID: 9210632558133761642, guid: f3580ed39d67593428d676beb8a12c8b,
         type: 3}
       propertyPath: startingHealth
