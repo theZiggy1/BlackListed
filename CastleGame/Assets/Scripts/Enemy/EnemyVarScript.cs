@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 
 
@@ -15,6 +16,7 @@ public class EnemyVarScript : MonoBehaviour
     public int playerToFight = -1; //If your fighting a specific player, it pulls this from the blackboard.
     public GameObject gameManager; //This is the blackboard.
     public GameObject playerObj; // This is the player we are fighting. 
+    public bool gotTooClose = false;
 
     private void OnDestroy()
     {
@@ -25,7 +27,10 @@ public class EnemyVarScript : MonoBehaviour
         }
         if (playerToFight != -1)
         {
-            gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
+            if (gotTooClose == false)
+            {
+                gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
+            }
         }
         else
         {

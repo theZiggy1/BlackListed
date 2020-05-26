@@ -202,6 +202,7 @@ public class EnemyScript : MonoBehaviour
                 {
                     stateMachine = States.fightingPlayer;
                     enemyState = fighterType.melee;
+                    inheritedScript.gotTooClose = true;
                 }
                 newLocation.x = playerObj.transform.position.x + (radius * Mathf.Cos(theta * Mathf.PI / 180));
                 newLocation.y = playerObj.transform.position.y + 1;
