@@ -54,6 +54,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] float rangedAttackReset = 5;
     public float addMinRandomTheta = -20.0f;
     public float addMaxRandomTheta = 20.0f;
+    [SerializeField] float thetaMaxThreshold;
+    [SerializeField] float theaMinThreshold;
 
 
     [Space(20)] // 20 pixels of spacing in inspector
@@ -97,6 +99,25 @@ public class EnemyScript : MonoBehaviour
           {
               anim.SetInteger(condition, integer);
           }*/
+    }
+
+    GameObject checkClosestPlayer()
+    {
+        GameObject closestPlayer = playerObj;
+
+
+        foreach(GameObject player in inheritedScript.gameManager.GetComponent<GameManagerScript>().currentPlayers)
+        {
+            if (player != null)
+            {
+                //other position this position
+                if (Vector3.Distance(player.transform.position, this.transform.position) < Vector3.Distance(playerObj.transform.position, this.transform.position))
+                {
+                    closestPlayer = player;
+                }
+            }
+        }
+        return closestPlayer;
     }
 
 
@@ -162,12 +183,26 @@ public class EnemyScript : MonoBehaviour
         {
             case States.flocking:
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
+            /*    if(theta >= thetaMaxThreshold)
+                {
+                    speed *= -1;
+                }
+                if(theta <- theaMinThreshold)
+                {
+                    speed *= -1;
+                }
+                */
                 theta += Time.deltaTime * speed;
                 if (theta > 360)
                 {
                     theta = 0;
                 }
-
+                playerObj = checkClosestPlayer();
+                if(Vector3.Distance(playerObj.transform.position, this.transform.position) < 4.0f)
+                {
+                    stateMachine = States.fightingPlayer;
+                    enemyState = fighterType.melee;
+                }
                 newLocation.x = playerObj.transform.position.x + (radius * Mathf.Cos(theta * Mathf.PI / 180));
                 newLocation.y = playerObj.transform.position.y + 1;
                 newLocation.z = playerObj.transform.position.z + (radius * Mathf.Sin(theta * Mathf.PI / 180));
