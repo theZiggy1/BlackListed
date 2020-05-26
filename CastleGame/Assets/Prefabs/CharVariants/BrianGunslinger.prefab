@@ -4548,15 +4548,15 @@ MonoBehaviour:
   myclass: {fileID: 4017670159603876779}
   isTumbling: 0
   idleInt: 0
-  movingInt: 0
-  genericAttackInt: 0
-  abilityAttackInt: 0
-  ultraAttackInt: 0
-  deadInt: 0
-  jumpStartInt: 0
-  jumpLoopInt: 0
-  jumpLandInt: 0
-  dodgeStartInt: 0
+  movingInt: 1
+  genericAttackInt: 41
+  abilityAttackInt: 99
+  ultraAttackInt: 41
+  deadInt: 20
+  jumpStartInt: 35
+  jumpLoopInt: 36
+  jumpLandInt: 36
+  dodgeStartInt: 99
   dodgeLoopInt: 0
   dodgeLandInt: 0
 --- !u!114 &9114107646784899917
