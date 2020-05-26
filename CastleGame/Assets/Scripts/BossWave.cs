@@ -26,11 +26,20 @@ public class BossWave : Wave
     {
         base.OnEndWave();
         //Will need to play the dying animation here
+        //In Coroutine, enable things after the yirld return
+        StartCoroutine(CanvasFinish(6.0f));
+
     }
 
     public override void OnStartWave()
     {
         base.OnStartWave();
         //Will need to play the cutscene here for the boss spawning in 
+    }
+
+    IEnumerator CanvasFinish(float waitTimer)
+    {
+        yield return new WaitForSeconds(waitTimer);
+        // spawn things after cutscene here. 
     }
 }
