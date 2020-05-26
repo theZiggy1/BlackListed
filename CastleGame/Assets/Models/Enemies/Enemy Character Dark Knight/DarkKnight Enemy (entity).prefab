@@ -168,6 +168,8 @@ MonoBehaviour:
   rangedAttackReset: 5
   addMinRandomTheta: -20
   addMaxRandomTheta: 70
+  thetaMaxThreshold: 0
+  thetaMinThreshold: 0
   enemyAnimator: {fileID: 8848453774719586040}
   conditionName: Dark Knight Condition
   idleAnimation: 0
@@ -200,9 +202,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathType: 1
   isInvulnerable: 0
-  usingAudio: 0
+  usingAudio: 1
   audioSource: {fileID: 0}
-  audioClipHurt: {fileID: 0}
+  audioClipHurt: {fileID: 8300000, guid: 3e0d7272f6062364d9a27c03bd066933, type: 3}
   audioClipHealed: {fileID: 0}
   audioClipHealingRift: {fileID: 0}
   audioClipRevived: {fileID: 0}
@@ -258,6 +260,9 @@ MonoBehaviour:
   playerToFight: -1
   gameManager: {fileID: 0}
   playerObj: {fileID: 0}
+  gotTooClose: 0
+  thetaMax: 0
+  thetaMin: 0
 --- !u!82 &-8239174203129974556
 AudioSource:
   m_ObjectHideFlags: 0

@@ -151,6 +151,11 @@ public class EntityScript : MonoBehaviour
         {
             // For now, the audio source is on the same object as us, so this is fine
             audioSource = GetComponent<AudioSource>();
+
+            if (audioSource == null)
+            {
+                Debug.Log("AudioSource is null on entity! Yet we're trying to use audio!");
+            }
         }
     }
 
@@ -173,6 +178,7 @@ public class EntityScript : MonoBehaviour
     public void ChangeHealthBar(GameObject sliderObject)
     {
         healthBar = sliderObject.GetComponent<Slider>();
+        usingHealthBar = true;
     }
 
     private void UpdateHealthBar()
@@ -202,7 +208,7 @@ public class EntityScript : MonoBehaviour
                 currentHealth = startingHealth;
             }
 
-            if (usingAudio)
+            if (usingAudio && audioSource!= null && audioClipHurt != null)
             {
                 // Sets us to have the 'hurt' audio clip
                 audioSource.clip = audioClipHurt;
@@ -245,7 +251,7 @@ public class EntityScript : MonoBehaviour
                     currentHealth = startingHealth;
                 }
 
-                if (usingAudio)
+                if (usingAudio && audioSource != null && audioClipHealed != null)
                 {
                     // Sets us to have the 'healed' audio clip
                     audioSource.clip = audioClipHealed;
@@ -263,7 +269,7 @@ public class EntityScript : MonoBehaviour
                     currentHealth = startingHealth;
                 }
 
-                if (usingAudio)
+                if (usingAudio && audioSource != null && audioClipHurt != null)
                 {
                     // Sets us to have the 'hurt' audio clip
                     audioSource.clip = audioClipHurt;
@@ -302,7 +308,7 @@ public class EntityScript : MonoBehaviour
                 currentHealth = startingHealth;
             }
 
-            if (usingAudio)
+            if (usingAudio && audioSource != null && audioClipHealingRift != null)
             {
                 // Sets us to have the 'healing rift' audio clip
                 audioSource.clip = audioClipHealingRift;
@@ -347,7 +353,7 @@ public class EntityScript : MonoBehaviour
                 //GetComponent<BoxCollider>().enabled = false;
             }
 
-            if (usingAudio)
+            if (usingAudio && audioSource != null && audioClipRevived != null)
             {
                 // Sets us to have the 'revived' audio clip
                 audioSource.clip = audioClipRevived;
@@ -380,7 +386,7 @@ public class EntityScript : MonoBehaviour
 
         // This 'plays' but you don't actually have enough time to hear it,
         // as the player's gameobject is destroyed before you can hear it
-        if (usingAudio)
+        if (usingAudio && audioSource != null && audioClipDied != null)
         {
             // Sets us to have the 'died' audio clip
             audioSource.clip = audioClipDied;

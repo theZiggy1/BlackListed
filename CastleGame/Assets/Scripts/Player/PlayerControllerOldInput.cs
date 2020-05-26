@@ -69,6 +69,8 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField]
     private Animator playerAnimator;
 
+    [Space(10)]
+
     [Header("Audio")]
     [SerializeField]
     private AudioSource audioSource;
@@ -77,23 +79,34 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField]
     private AudioClip audioClipGunShoot;
 
+    [Space(5)]
+
+    [SerializeField]
+    private AudioClip audioClipAttack;
+    [SerializeField]
+    private AudioClip audioClipAbility;
+    [SerializeField]
+    private AudioClip audioClipUltra;
+
 
     // Death stuff
+    [Space(10)]
+
+    [Header("Death")]
     [SerializeField]
     private bool isDead; // If we're dead, our controls will lock
+    [SerializeField]
+    private GameObject reviveSprite; // Gets set to active when we die
 
     public GameObject playerInputManager;
 
     // Ability + Ultra UI stuff
-    // These are gonna be arrays as there's gonna be multiple UI elements for each player
+    [Space(10)]
+
+    [Header("UI")]
     [SerializeField]
     private GameObject playerUI; // The UI for this specific player
     public int characterID; // The ID of the character we have - gets set by the playerSelectionScript
-
-    //[SerializeField]
-    //private GameObject[] abilityUIOverlay; // The overlay that goes on top of the UI to mask it
-    //[SerializeField]
-    //private GameObject[] ultraUIOverlay; // The overlay that goes on top of the UI to mask it
 
     [SerializeField]
     private GameObject gunslingerUI;
@@ -112,10 +125,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     [SerializeField]
     private GameObject pauseManager;
 
-    //[SerializeField]
-    //private bool abilityUIOn;
-    //[SerializeField]
-    //private bool ultraUIOn;
+    [Space(10)]
 
 
 
@@ -672,6 +682,14 @@ public class PlayerControllerOldInput : MonoBehaviour
         {     
             myclass.genericAttack();
             SetAnimationInteger("Condition", genericAttackInt);
+            
+            // Audio
+            if (audioSource != null && audioClipAttack != null)
+            {
+                audioSource.clip = audioClipAttack;
+                audioSource.Play();
+            }
+
             return; 
         }
 
@@ -711,6 +729,14 @@ public class PlayerControllerOldInput : MonoBehaviour
         {
             myclass.abilityAttack();
             SetAnimationInteger("Condition", abilityAttackInt);
+
+            // Audio
+            if (audioSource != null && audioClipAbility != null)
+            {
+                audioSource.clip = audioClipAbility;
+                audioSource.Play();
+            }
+
             return;
         }
         Debug.Log("Left Trigger pressed by player"+ playerID +", using ability");
@@ -732,6 +758,14 @@ public class PlayerControllerOldInput : MonoBehaviour
         {
             myclass.ultraAttack();
             SetAnimationInteger("Condition", ultraAttackInt);
+
+            // Audio
+            if (audioSource != null && audioClipUltra != null)
+            {
+                audioSource.clip = audioClipUltra;
+                audioSource.Play();
+            }
+
             return;
         }
         isRangedAttack = !isRangedAttack;
@@ -767,6 +801,12 @@ public class PlayerControllerOldInput : MonoBehaviour
     {
         isDead = true;
 
+        // Used so that people can revive us
+        GetComponent<BoxCollider>().enabled = true;
+
+        // Shows the revive button sprite
+        reviveSprite.SetActive(true);
+
         // Tells our playerInputManager to check if there's a game over - if all players are dead
         playerInputManager.GetComponent<PlayerSelectionScript>().CheckGameOver();
     }
@@ -774,6 +814,13 @@ public class PlayerControllerOldInput : MonoBehaviour
     public void Revive()
     {
         isDead = false;
+
+        // Once we're revived, this can be disabled again
+        GetComponent<BoxCollider>().enabled = false;
+
+        // Hides the revive button sprite
+        reviveSprite.SetActive(false);
+
         // Sets us back to idle
         SetAnimationInteger("Condition", idleInt);
     }

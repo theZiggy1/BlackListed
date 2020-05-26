@@ -11,6 +11,9 @@ public class WinScreenManager : MonoBehaviour
     [SerializeField]
     [Tooltip("The actual canvas Win Screen object")]
     private GameObject winScreenObject;
+    [SerializeField]
+    [Tooltip("The canvas that has the Ian Intro on it")]
+    private GameObject ianIntroScreenObject;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +26,15 @@ public class WinScreenManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void EnableIanIntroScreen()
+    {
+        ianIntroScreenObject.SetActive(true);
+    }
+    public void DisableIanIntroScreen()
+    {
+        ianIntroScreenObject.SetActive(false);
     }
 
     // Get another thing to call this function when you win the game

@@ -71,6 +71,8 @@ public class BossPhase3AI : MonoBehaviour
     private AudioClip spinAttackAudio;
     [SerializeField]
     private AudioClip handAttackAudio;
+    [SerializeField]
+    private AudioClip spawnInAudio;
 
     void Start()
     {
@@ -84,14 +86,28 @@ public class BossPhase3AI : MonoBehaviour
         // If we find the tagged gameObject
         if (GameObject.FindGameObjectWithTag("BossHealthBar"))
         {
+            // Finds the health bar
             GameObject healthBar = GameObject.FindGameObjectWithTag("BossHealthBar");
+            // Sets it to active so that it appears
+            healthBar.GetComponent<ToggleBossHealthBar>().EnableHealthBar();
             // Then set the entity script to use this health bar
             GetComponent<EntityScript>().ChangeHealthBar(healthBar);
+        }
+        else
+        {
+            Debug.Log("Can't find Boss Health Bar!");
         }
         // if we have an audio source
         if (GetComponent<AudioSource>())
         {
             audioSource = GetComponent<AudioSource>();
+
+            // Play a sound when we spawn in
+            if (audioSource != null && spawnInAudio != null)
+            {
+                audioSource.clip = spawnInAudio;
+                audioSource.Play();
+            }
         }
         else
         {

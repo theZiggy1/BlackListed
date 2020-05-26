@@ -126,6 +126,7 @@ MonoBehaviour:
   BELL_TAG: Bell
   enemyDamage: 10
   isRangerUltra: 1
+  objectToSpawn: {fileID: 0}
 --- !u!65 &232525266329399013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -497,6 +498,7 @@ GameObject:
   - component: {fileID: 670689826}
   - component: {fileID: 8180519303056260603}
   - component: {fileID: 3871516298593910750}
+  - component: {fileID: -3323079866214555262}
   m_Layer: 0
   m_Name: Skeleton King
   m_TagString: Enemy
@@ -586,6 +588,7 @@ MonoBehaviour:
   skySwordAttackAudio: {fileID: 0}
   spinAttackAudio: {fileID: 0}
   handAttackAudio: {fileID: 0}
+  spawnInAudio: {fileID: 8300000, guid: 815e941f73381c043b1012d8c8207d38, type: 3}
 --- !u!195 &3769256713090357165
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -667,7 +670,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -767,6 +770,26 @@ MonoBehaviour:
   playerToFight: -1
   gameManager: {fileID: 0}
   playerObj: {fileID: 0}
+  gotTooClose: 0
+  thetaMax: 0
+  thetaMin: 0
+--- !u!114 &-3323079866214555262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 779953213306028431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed57c38585e8dbf49b991a6804f20e39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMusic: 0
+  originalAudioLevel: 0
+  currentAudioLevel: 0
+  gameManager: {fileID: 0}
+  isInMainMenu: 0
 --- !u!1 &782255392340135003
 GameObject:
   m_ObjectHideFlags: 0

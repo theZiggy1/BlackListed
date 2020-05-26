@@ -12,10 +12,20 @@ public class bulletScript : MonoBehaviour
     public int enemyDamage = 100;
     public bool isRangerUltra = false;
 
+    // This is done so that attacks that don't stay around for long
+    // can still play some audio without cutting off, if the attack
+    // is destroyed fairly quickly
+    [SerializeField]
+    private GameObject objectToSpawn;
+
     void Start()
     {
         //this.GetComponent<Rigidbody>().AddRelativeForce(this.transform.forward * forceStrength);
-        
+        if (objectToSpawn != null)
+        {
+            GameObject spawnedObject = Instantiate(objectToSpawn, transform.position, transform.rotation);
+            Destroy(spawnedObject, 6.0f); // Destroys the object after 6 seconds, enough for any audio clip to play
+        }
     }
 
     // Update is called once per frame

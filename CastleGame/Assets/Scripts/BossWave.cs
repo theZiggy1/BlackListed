@@ -6,7 +6,9 @@ public class BossWave : Wave
 {
     [SerializeField] Transform[] AddSpawnPoints;
 
-
+    [SerializeField] GameObject winManager;
+    [SerializeField] AudioSource audioSourceMusic; // The AudioSource playing the background music
+    [SerializeField] AudioClip bossMusic;
 
 
     // Update is called once per frame
@@ -14,6 +16,12 @@ public class BossWave : Wave
     public override void SpawnEnemies()
     {
         base.SpawnEnemies();
+        // Play the boss music
+        if (bossMusic != null)
+        {
+            audioSourceMusic.clip = bossMusic;
+            audioSourceMusic.Play();
+        }
 
         //Spawn the single boss.  
         GameObject FinalBoss = GameObject.Instantiate(ArrayofEnemies[0], spawnLocations[0].position, spawnLocations[0].rotation);
@@ -26,6 +34,12 @@ public class BossWave : Wave
     {
         base.OnEndWave();
         //Will need to play the dying animation here
+
+        // Finds the win screen manager
+        winManager = GameObject.FindGameObjectWithTag("WinManager");
+        // Tells it to enable the win screen
+        winManager.GetComponent<WinScreenManager>().EnableWinScreen();
+
         //In Coroutine, enable things after the yirld return
         StartCoroutine(CanvasFinish(6.0f));
 

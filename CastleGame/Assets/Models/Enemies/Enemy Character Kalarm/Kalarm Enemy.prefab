@@ -304,6 +304,8 @@ MonoBehaviour:
   rangedAttackReset: 5
   addMinRandomTheta: -20
   addMaxRandomTheta: 20
+  thetaMaxThreshold: 0
+  thetaMinThreshold: 0
   enemyAnimator: {fileID: 8114967796078021622}
   conditionName: KalarmAnimControllerCondition
   idleAnimation: 0
@@ -311,8 +313,8 @@ MonoBehaviour:
   attackAnimation: 8
   attackAnimationRanged: 0
   audioSource: {fileID: 0}
-  audioClipAttack: {fileID: 8300000, guid: 2bb3c59eb907e8840985e1ed12ae2cd2, type: 3}
-  audioClipAttackRanged: {fileID: 8300000, guid: 2bb3c59eb907e8840985e1ed12ae2cd2,
+  audioClipAttack: {fileID: 8300000, guid: a0f7aae778f277245acc94568bf4e89d, type: 3}
+  audioClipAttackRanged: {fileID: 8300000, guid: a0f7aae778f277245acc94568bf4e89d,
     type: 3}
   MoveTo: 0
   MoveToRanged: 0
@@ -336,9 +338,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathType: 1
   isInvulnerable: 0
-  usingAudio: 0
+  usingAudio: 1
   audioSource: {fileID: 0}
-  audioClipHurt: {fileID: 0}
+  audioClipHurt: {fileID: 8300000, guid: 55b60d94fa784d0469832e30ced13141, type: 3}
   audioClipHealed: {fileID: 0}
   audioClipHealingRift: {fileID: 0}
   audioClipRevived: {fileID: 0}
@@ -394,6 +396,9 @@ MonoBehaviour:
   playerToFight: -1
   gameManager: {fileID: 0}
   playerObj: {fileID: 0}
+  gotTooClose: 0
+  thetaMax: 0
+  thetaMin: 0
 --- !u!82 &8911636598453781969
 AudioSource:
   m_ObjectHideFlags: 0
