@@ -13,7 +13,7 @@ public class BossPhase3AI : MonoBehaviour
     bool performingAttack = false;
     bool choosingAttack = false;
     [SerializeField] Animator charAnimator;
-    [SerializeField] Transform[] EnemySpawnPoints;
+    public Transform[] EnemySpawnPoints;
     [SerializeField] GameObject EnemyAdds;
 
     [SerializeField] GameObject swordAttackGround;
@@ -74,6 +74,8 @@ public class BossPhase3AI : MonoBehaviour
 
     void Start()
     {
+
+        gameManager = this.GetComponent<EnemyVarScript>().gameManager.GetComponent<GameManagerScript>();
         Adds = new List<GameObject>();
         SetAnimationInteger("SkeletonKingCondition", introAnimation);
         StartCoroutine(ChooseAttack(5.0f));
@@ -233,8 +235,7 @@ public class BossPhase3AI : MonoBehaviour
             audioSource.Play();
         }
 
-        ChooseAPlayer();
-        GameObject LightningStrike = GameObject.Instantiate(swordAttackSky, new Vector3(chosenPlayerPosition.x, 10, chosenPlayerPosition.z),  this.transform.rotation);
+        StartCoroutine(Attack3Delay(0.8f));
        
         performingAttack = true;
         Debug.Log("ATK 3");
@@ -295,9 +296,17 @@ public class BossPhase3AI : MonoBehaviour
         yield return new WaitForSeconds(waitTimer);
         for (int x = 0; x < gameManager.numPlayers; ++x)
         {
-            GameObject hand = GameObject.Instantiate(handAttack, new Vector3(gameManager.currentPlayers[x].transform.position.x, 0.0f, gameManager.currentPlayers[x].transform.position.z), gameManager.currentPlayers[x].transform.rotation);
+            GameObject hand = GameObject.Instantiate(handAttack, new Vector3(gameManager.currentPlayers[x].transform.position.x, this.transform.position.y, gameManager.currentPlayers[x].transform.position.z), gameManager.currentPlayers[x].transform.rotation);
             Destroy(hand, 1.0f);
         }
+    }
+
+    IEnumerator Attack3Delay(float waitTimer)
+    {
+        yield return new WaitForSeconds(waitTimer);
+        ChooseAPlayer();
+        GameObject LightningStrike = GameObject.Instantiate(swordAttackSky, new Vector3(chosenPlayerPosition.x, chosenPlayerPosition.y + 10, chosenPlayerPosition.z), this.transform.rotation);
+       
     }
 
 

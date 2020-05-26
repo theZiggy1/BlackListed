@@ -19,7 +19,7 @@ public class WaveSpawningInspector : Editor
         EditorGUILayout.LabelField("Current Waves");
         foreach (Wave item in spawner.waveScripts)
         {
-            EditorGUILayout.LabelField(item.WaveInfo);
+            if (item != null) { EditorGUILayout.LabelField(item.WaveInfo); }
         }
 
         base.DrawDefaultInspector();

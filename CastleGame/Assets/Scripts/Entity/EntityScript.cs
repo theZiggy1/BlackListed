@@ -498,4 +498,9 @@ public class EntityScript : MonoBehaviour
     {
         return currentHealth;
     }
+
+    public void SetStartingHealth(float health)
+    {
+        startingHealth = health;
+    }
 } 
