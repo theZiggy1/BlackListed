@@ -17,6 +17,8 @@ public class EnemyVarScript : MonoBehaviour
     public GameObject gameManager; //This is the blackboard.
     public GameObject playerObj; // This is the player we are fighting. 
     public bool gotTooClose = false;
+    public float thetaMax;
+    public float thetaMin;
 
     private void OnDestroy()
     {

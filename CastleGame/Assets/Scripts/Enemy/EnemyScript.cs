@@ -55,7 +55,7 @@ public class EnemyScript : MonoBehaviour
     public float addMinRandomTheta = -20.0f;
     public float addMaxRandomTheta = 20.0f;
     [SerializeField] float thetaMaxThreshold;
-    [SerializeField] float theaMinThreshold;
+    [SerializeField] float thetaMinThreshold;
 
 
     [Space(20)] // 20 pixels of spacing in inspector
@@ -127,6 +127,8 @@ public class EnemyScript : MonoBehaviour
         playerObj = inheritedScript.playerObj;
         playerToFight = inheritedScript.playerToFight;
         gameManager = inheritedScript.gameManager;
+        thetaMaxThreshold = inheritedScript.thetaMax;
+        thetaMinThreshold = inheritedScript.thetaMin;
         theta += Random.Range(addMinRandomTheta, addMaxRandomTheta);
         // Whenever a level loads in, it will find this from the PlayerScene that is loaded before it
 
@@ -183,20 +185,22 @@ public class EnemyScript : MonoBehaviour
         {
             case States.flocking:
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
-            /*    if(theta >= thetaMaxThreshold)
+               if(theta >= thetaMaxThreshold)
                 {
+                    theta = thetaMaxThreshold;
                     speed *= -1;
                 }
-                if(theta <- theaMinThreshold)
+                if(theta <= thetaMinThreshold)
                 {
+                    theta = thetaMinThreshold;
                     speed *= -1;
                 }
-                */
+                
                 theta += Time.deltaTime * speed;
-                if (theta > 360)
+              /*  if (theta > 360)
                 {
                     theta = 0;
-                }
+                }*/
                 playerObj = checkClosestPlayer();
                 if(Vector3.Distance(playerObj.transform.position, this.transform.position) < 4.0f)
                 {

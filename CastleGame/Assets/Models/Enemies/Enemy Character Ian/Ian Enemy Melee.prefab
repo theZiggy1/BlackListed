@@ -1230,6 +1230,8 @@ MonoBehaviour:
   rangedAttackReset: 5
   addMinRandomTheta: -20
   addMaxRandomTheta: 70
+  thetaMaxThreshold: 300
+  theaMinThreshold: 50
   enemyAnimator: {fileID: 3843895185195770371}
   conditionName: Ian Condition
   idleAnimation: 0
@@ -1320,6 +1322,7 @@ MonoBehaviour:
   playerToFight: -1
   gameManager: {fileID: 0}
   playerObj: {fileID: 0}
+  gotTooClose: 0
 --- !u!82 &-5590534595612403792
 AudioSource:
   m_ObjectHideFlags: 0
