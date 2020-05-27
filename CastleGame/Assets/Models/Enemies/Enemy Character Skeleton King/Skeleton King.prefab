@@ -583,11 +583,12 @@ MonoBehaviour:
   attack5Animation: 10
   currentState: 0
   audioSource: {fileID: 0}
-  swordAttackAudio: {fileID: 0}
-  spawnAddsAttackAudio: {fileID: 0}
-  skySwordAttackAudio: {fileID: 0}
-  spinAttackAudio: {fileID: 0}
-  handAttackAudio: {fileID: 0}
+  swordAttackAudio: {fileID: 8300000, guid: f7d33e56d3220df40aff5143830c4593, type: 3}
+  spawnAddsAttackAudio: {fileID: 8300000, guid: 66fafb8e7777c654488c0c4a64f159bc,
+    type: 3}
+  skySwordAttackAudio: {fileID: 8300000, guid: 14d39b86d3d1aa3408c7ab961de8af83, type: 3}
+  spinAttackAudio: {fileID: 8300000, guid: 835412d65423e284d903d45726740d57, type: 3}
+  handAttackAudio: {fileID: 8300000, guid: e85675dba8638834db5e96b4f2892a63, type: 3}
   spawnInAudio: {fileID: 8300000, guid: 815e941f73381c043b1012d8c8207d38, type: 3}
 --- !u!195 &3769256713090357165
 NavMeshAgent:
@@ -630,9 +631,9 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   deathType: 0
   isInvulnerable: 0
-  usingAudio: 0
+  usingAudio: 1
   audioSource: {fileID: 0}
-  audioClipHurt: {fileID: 0}
+  audioClipHurt: {fileID: 8300000, guid: 815e941f73381c043b1012d8c8207d38, type: 3}
   audioClipHealed: {fileID: 0}
   audioClipHealingRift: {fileID: 0}
   audioClipRevived: {fileID: 0}
