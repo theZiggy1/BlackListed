@@ -52,8 +52,8 @@ public class EnemyScript : MonoBehaviour
     [SerializeField] NavMeshAgent thisAgent;
     [SerializeField] float rangedAttackCoolDown = 0;
     [SerializeField] float rangedAttackReset = 5;
-    public float addMinRandomTheta = -20.0f;
-    public float addMaxRandomTheta = 20.0f;
+    public float addMinRandomTheta = 0.0f;
+    public float addMaxRandomTheta = 40.0f;
     [SerializeField] float thetaMaxThreshold;
     [SerializeField] float thetaMinThreshold;
 
@@ -123,6 +123,7 @@ public class EnemyScript : MonoBehaviour
 
     void Start()
     {
+        theta = thetaMinThreshold;
         stateMachine = States.flocking;
         playerObj = inheritedScript.playerObj;
         playerToFight = inheritedScript.playerToFight;
