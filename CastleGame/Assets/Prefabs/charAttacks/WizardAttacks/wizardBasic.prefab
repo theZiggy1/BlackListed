@@ -113,6 +113,8 @@ MonoBehaviour:
   BELL_TAG: Bell
   enemyDamage: 100
   isRangerUltra: 0
+  objectToSpawn: {fileID: 4771641848212912370, guid: 5393813ff93a3944c9efeac9c0524e24,
+    type: 3}
 --- !u!54 &4635434208282761342
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,7 +138,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2918383527091149062}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 849cbe0a8afe15a4987fbea61aa2257a, type: 3}
@@ -232,7 +234,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2918383527091149062}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ed57c38585e8dbf49b991a6804f20e39, type: 3}
   m_Name: 
