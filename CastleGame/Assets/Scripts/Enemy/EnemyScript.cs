@@ -50,6 +50,7 @@ public class EnemyScript : MonoBehaviour
     public float radius = 5;
     public float rangedRadius = 7;
     [SerializeField] GameObject rangedEnemyAttack;
+    [SerializeField] GameObject actuallyRangedAttack;
     [SerializeField] Transform bulletSpawn;
     [SerializeField] float forceStrength;
     [SerializeField] NavMeshAgent thisAgent;
@@ -320,7 +321,7 @@ public class EnemyScript : MonoBehaviour
 
     public void SpawnBullet()
     {
-        GameObject Bullet = GameObject.Instantiate(rangedEnemyAttack, bulletSpawn.position, bulletSpawn.rotation);
+        GameObject Bullet = GameObject.Instantiate(actuallyRangedAttack, bulletSpawn.position, bulletSpawn.rotation);
         Bullet.GetComponent<Rigidbody>().AddForce(bulletSpawn.forward * forceStrength);
         Bullet.GetComponent<bulletScript>().OTHER_TAG = "Player";
         Bullet.GetComponent<bulletScript>().enemyDamage = 20;
