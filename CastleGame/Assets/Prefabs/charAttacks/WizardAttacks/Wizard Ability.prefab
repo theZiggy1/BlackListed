@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Players: []
   PLAYER_TAG: Player
-  gainAmount: -10
+  gainAmount: 10
 --- !u!135 &7143341311670418652
 SphereCollider:
   m_ObjectHideFlags: 0
