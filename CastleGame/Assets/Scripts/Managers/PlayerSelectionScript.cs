@@ -61,6 +61,8 @@ public class PlayerSelectionScript : MonoBehaviour
     private GameObject loadingScreenObject; // Gets set to active once we're loading, and set to false once we've finished loading
     [SerializeField]
     private Slider loadingBar;
+    [SerializeField]
+    private Text loadingBarText;
 
     // This is temporary
     [SerializeField]
@@ -299,7 +301,8 @@ public class PlayerSelectionScript : MonoBehaviour
 
             loadingBar.value = loadingProgress;
             //loadingBar.value = (Mathf.Clamp01(loadingOperation.progress / 0.9f));
-            
+            loadingBarText.text = (loadingProgress * 100f).ToString() + "%";
+
             // Wait till next frame
             yield return null;
         }
