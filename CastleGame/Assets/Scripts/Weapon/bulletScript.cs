@@ -61,7 +61,10 @@ public class bulletScript : MonoBehaviour
         if(other.gameObject.tag == DUMMY_TAG)
         {
             other.gameObject.GetComponent<TargetDummyScript>().HitDummy();
-            Destroy(this.gameObject);
+            if (!isRangerUltra)
+            {
+                Destroy(this.gameObject);
+            }
 
         }
     }
