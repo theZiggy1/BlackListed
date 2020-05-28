@@ -36,7 +36,7 @@ public class IanWave : Wave
             {
                 if (player != null)
                 {
-                    player.GetComponent<PlayerControllerOldInput>().isTumbling = false;
+                    player.GetComponent<PlayerControllerOldInput>().isDead = false;
                 }
             }
         }
@@ -67,7 +67,7 @@ public class IanWave : Wave
             {
                 if (player != null)
                 {
-                    player.GetComponent<PlayerControllerOldInput>().isTumbling = true;
+                    player.GetComponent<PlayerControllerOldInput>().isDead = true;
                 }
             }
         }

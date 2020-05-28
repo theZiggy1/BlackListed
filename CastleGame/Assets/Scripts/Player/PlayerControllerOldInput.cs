@@ -7,6 +7,7 @@ using System.Linq;
 
 /*
  * Script Written by Anton Ziegler s1907905
+ * and Farran Holmes s1712383
  */
 public class PlayerControllerOldInput : MonoBehaviour
 {
@@ -93,8 +94,7 @@ public class PlayerControllerOldInput : MonoBehaviour
     [Space(10)]
 
     [Header("Death")]
-    [SerializeField]
-    private bool isDead; // If we're dead, our controls will lock
+    public bool isDead; // If we're dead, our controls will lock
     [SerializeField]
     private GameObject reviveSprite; // Gets set to active when we die
 
