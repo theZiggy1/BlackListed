@@ -4535,6 +4535,9 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   audioClipSwordSwing: {fileID: 8300000, guid: e256495c9e87fa44389222c58647f855, type: 3}
   audioClipGunShoot: {fileID: 8300000, guid: 50f65653bb2ab9841b0bfef9bad3e4eb, type: 3}
+  audioClipAttack: {fileID: 0}
+  audioClipAbility: {fileID: 0}
+  audioClipUltra: {fileID: 0}
   isDead: 0
   reviveSprite: {fileID: 8565366340320011562}
   playerInputManager: {fileID: 0}
@@ -4737,8 +4740,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genericAttackReset: 1
-  abilityCoolDownReset: 1
-  ultraCoolDownReset: 1
+  abilityCoolDownReset: 3
+  ultraCoolDownReset: 10
   basicAttackLocation: {fileID: 8899998647219600430}
   abilityLocation: {fileID: 8899998647954663803}
   ultraLocation: {fileID: 7669709847226000956}

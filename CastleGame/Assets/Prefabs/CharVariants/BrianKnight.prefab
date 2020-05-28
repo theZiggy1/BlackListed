@@ -4834,8 +4834,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   genericAttackReset: 1
-  abilityCoolDownReset: 1
-  ultraCoolDownReset: 1
+  abilityCoolDownReset: 3
+  ultraCoolDownReset: 10
   basicAttackLocation: {fileID: 8899998647954663803}
   abilityLocation: {fileID: 8899998647219600430}
   ultraLocation: {fileID: 358813588853185187}
@@ -4848,8 +4848,6 @@ MonoBehaviour:
   abilityCoolDown: 0
   ultraCoolDown: 0
   genericAattackCoolDown: 0
-  basicAttackAudio: {fileID: 8300000, guid: 988c076874d2da744841432bcb3e289e, type: 3}
-  audioSource: {fileID: 0}
   forceStrength: 100
 --- !u!1 &4500699307225303426
 GameObject:
