@@ -23,6 +23,9 @@ public class GunslingerClass : BaseClass
     [SerializeField] float timeToTurnOff = 1.0f;
 
     public string DUMMY_TAG = "dummyEnemy";
+    //This ability forces the player backwards, reloads their gun, and doesnt allow them to move while doing so. 
+
+    //Its meant as a dodge. 
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -39,6 +42,7 @@ public class GunslingerClass : BaseClass
         }
     }
 
+    //Spawns an object, and a blast for the attack. 
     public override void genericAttack()
     {
         if (genericAattackCoolDown <= 0)
@@ -52,6 +56,7 @@ public class GunslingerClass : BaseClass
         }
     }
 
+    //This finds all enemies in the level, and hits them all once with damage
     public override void ultraAttack()
     {
         if (ultraCoolDown <= 0)

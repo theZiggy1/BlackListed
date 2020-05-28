@@ -6,7 +6,8 @@ using UnityEngine;
  * ****************/
 public class MiniBossAi : MonoBehaviour
 {
-
+    //This script didnt make it into the final game
+    //This was meant to be a miniboss that the player would fight, with 6 attacks, in a finite state machine. 3 of the attacks are identical to the other 3, exvept they are performed more the nonce. 
     enum States
     {
         Phase1Slow,

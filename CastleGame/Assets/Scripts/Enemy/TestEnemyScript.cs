@@ -7,6 +7,8 @@ using UnityEngine;
  * ****************/
 public class TestEnemyScript : MonoBehaviour
 {
+    //This was the start of the enemy AI, and was changed. All this code is also elsewhere, and this sees no play
+
     // Start is called before the first frame update
     public GameObject Spawner;
     public int playerToFight = -1;

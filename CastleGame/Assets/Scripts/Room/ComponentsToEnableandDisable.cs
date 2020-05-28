@@ -9,6 +9,7 @@ using UnityEngine;
 public class ComponentsToEnableandDisable : MonoBehaviour
 {
     // Start is called before the first frame update
+    //This script has been depreciated, but its original intent was to handle the objects that would disappear and reappear when you entered.exited a room. 
 
     [SerializeField] GameObject[] WallComponents;
     [SerializeField] GameObject[] RoomComponents;

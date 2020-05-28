@@ -17,8 +17,8 @@ public class PlayerControllerOldInput : MonoBehaviour
     private string buttonA; // Button 0
     private string buttonB; // Button 1
     private string buttonX; // Button 2
-    private string buttonY; // Button 3
     private string buttonLB; // Button 4
+    private string buttonY; // Button 3
     private string buttonRB; // Button 5
     private string buttonBack; // Button 6
     private string buttonStart; // Button 7
@@ -222,11 +222,6 @@ public class PlayerControllerOldInput : MonoBehaviour
 
         Animators.Add(gameObject.transform.Find("Brian").GetComponent<Animator>());
 
-
-        // SetAnimationInteger("Condition", 0);
-
-        // transform.position = new Vector3(0, 0, 0);
-
         transform.Rotate(0, 45, 0); //The character is rotated 45 degrees when spawned in to help with the rotation of the level. it was either this, or leave each section rotated 45 degrees, and due to how the controller takes in input. 
 
         // Find the Game Manager
@@ -370,14 +365,6 @@ public class PlayerControllerOldInput : MonoBehaviour
 
             //our update loop due to the controller rewrite now handles what was originally sendmessage from the input system. Now we need to manually handle sending in these inputs
             //The first is to mandle movement. We also specifically do it in this order in case the right stick is being engaged to look a different direction, otherwise in movement, the player will naturally look towards the direction the player is walking towards. 
-            //Movement();
-            //LookAt();
-            // With these two functions above always getting called every frame, instead of input being checked in Update *then* the functions being called,
-            // it means that these will always override any other animation that the player is doing
-            // So therefore input checking needs to be switched to be here, *then* call these functions after
-
-            //Debug.Log("Left stick horizontal = " + Input.GetAxis("Joy" + playerID + "LeftStickHorizontal"));
-            //Debug.Log("Left stick vertical = " + Input.GetAxis("Joy" + playerID + "LeftStickVertical"));
 
             // With these functions we'll combine it with what direction the character is looking at
             // to determine which direction of walk animation to use
@@ -454,12 +441,6 @@ public class PlayerControllerOldInput : MonoBehaviour
                 {
                     // Does the attack
                     OnAttackRightTrigger();
-
-                    // Plays the animation
-                    // Naming for this is absolute right now, will probably change later
-                    //playerAnimator.Play("Sword Swing 1");
-                 //   SetAnimationInteger("Condition", genericAttackInt);
-
                     // Sets us so we're attacking
                     Attacking = true;
                 }
@@ -562,8 +543,6 @@ public class PlayerControllerOldInput : MonoBehaviour
                 }
             }
 
-          //  Debug.Log("Ability Cooldown: " + myclass.abilityCoolDown);
-         //   Debug.Log("Ultra Cooldown: " + myclass.ultraCoolDown);
             
         }
         else // We've died so we need to play the death animation
@@ -591,11 +570,6 @@ public class PlayerControllerOldInput : MonoBehaviour
         {
             return;
         }
-        //Vector3 movement = new Vector3(movementVec.y, 0.0f, -movementVec.x) * movespeed * Time.deltaTime;
-        //transform.Translate(movement);
-
-      //  Debug.Log("Joy1LeftStickVertical: " + Input.GetAxis("Joy1LeftStickVertical"));
-       // Debug.Log("Joy1LeftStickHorizontal: " + Input.GetAxis("Joy1LeftStickHorizontal"));
 
         //The new concesion to the input system, instead of getting a vector we need to build it ourselves from both the horizontal and vertical axis. 
         //outside tree movement
@@ -613,12 +587,10 @@ public class PlayerControllerOldInput : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation(movement, Vector3.up);
 
 
-            //lookRotation *= Quaternion.Euler(0, 45, 0);
             // This means that the movement now reflects the direction the camera is looking
             lookRotation *= Quaternion.Euler(0, mainCameraRotation.y - 90, 0);
 
-            //////Use this for setting animation. buttonLB
-            //////SetAnimationInteger("Condition", 1);
+       
 
             float step = rotSpeed * Time.deltaTime;
           thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
@@ -646,12 +618,6 @@ public class PlayerControllerOldInput : MonoBehaviour
         }
         //like in movement, instead of being given the vector we need to build it ourselves. 
        Vector3 LookDirection = new Vector3(Input.GetAxis("Joy" + playerID + "RightStickVertical"), 0.0f, Input.GetAxis("Joy" + playerID + "RightStickHorizontal"));
-      //  Debug.Log(LookDirection+" Right Stick Look around");
-       // if (LookDirection.x > 0.11 || LookDirection.x < -0.11)
-        //{
-          //  if (LookDirection.z > 0.11 || LookDirection.z < -0.11)
-           // {
-            //the deadzone of a stick is 0.0, and we dont want the character to look at that direction. if you let go of the stick, it would always look at 0,0, instead of the last direction it was looking in.
         if(LookDirection == Vector3.zero)
         {
             return;

@@ -7,7 +7,7 @@ using UnityEngine;
  * ****************/
 public abstract class BaseClass : MonoBehaviour
 {
-
+    //This is an abstract class, to handle each individual classes abilities, instead of calling or writting into a bunch of different effects, we simply made this, and oveerrode the functions. 
     public float genericAttackReset;
     public float abilityCoolDownReset;
     public float ultraCoolDownReset;

@@ -62,7 +62,7 @@ public class RangerClass : BaseClass
         ultraCoolDown -= Time.deltaTime;
         genericAattackCoolDown -= Time.deltaTime;
     }
-
+    //This is called to call 2 extra arrows for the ranger. 
     IEnumerator DelayedArrow(float timeToWait)
     {
         yield return new WaitForSeconds(timeToWait);

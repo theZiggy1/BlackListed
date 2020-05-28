@@ -7,6 +7,7 @@ using UnityEngine;
  * ****************/
 public abstract class Wave : MonoBehaviour
 {
+    //This is an abstract class, meant so we can call directly into the functions, and ovveride them. 
     public string WaveInfo; //adding a bunch of waves to an object can get a little complex, so this makes it a bit easier to keep track
     public float waveStartTime = 0.0f; //The delay between when the last wave was, until when this one is. 
     public float waveEndTime = 0.0f; //Adding this in case we want to run cinematics or somethning at the end of the wave.

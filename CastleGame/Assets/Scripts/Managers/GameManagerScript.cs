@@ -6,11 +6,12 @@ using UnityEngine;
  * Anton Ziegler s1907905
  * ****************/
 public class GameManagerScript : MonoBehaviour
+
 {
     public int numPlayers; // This is the number of players actually spawned currently
     public int playersQueued; // This is the number of players queued up for spawning
-    public GameObject[] currentPlayers;
-    public bool[] isEngaged;
+    public GameObject[] currentPlayers; //This is all currently playing players
+    public bool[] isEngaged; //this is whether the player is being attacked by an ememy
 
     [Space(10)]
 

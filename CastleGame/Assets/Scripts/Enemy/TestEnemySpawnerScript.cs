@@ -7,6 +7,7 @@ using UnityEngine;
  * ****************/
 public class TestEnemySpawnerScript : MonoBehaviour
 {
+    //This is an old spawning method, where i intended to simply have an array of enums and a switch case to spawn the enemies, for the designers. we chnged methods to allow for control between the waves. and also to allow for more then 1 wave per room. 
     // Start is called before the first frame update
     [SerializeField] [Tooltip("0: will spawn as melee enemy 1: ranged enemy")] GameObject[] enemyArray; //This has been depreciated 
     [SerializeField] Transform[] spawnPoint; //This has as well

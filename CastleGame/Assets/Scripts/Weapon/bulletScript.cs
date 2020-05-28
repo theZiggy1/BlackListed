@@ -14,7 +14,7 @@ public class bulletScript : MonoBehaviour
     public string BELL_TAG = "Bell";
     public string DUMMY_TAG = "dummyEnemy";
     public int enemyDamage = 100;
-    public bool isRangerUltra = false;
+    public bool isRangerUltra = false; //If we are a "ranger ult" we dont want to destroy right away
 
     // This is done so that attacks that don't stay around for long
     // can still play some audio without cutting off, if the attack
@@ -39,7 +39,7 @@ public class bulletScript : MonoBehaviour
     }
 
 
-
+    //We check if we hit something, and if the tag corresponds we do damage to that object. 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log(other.gameObject.tag);
