@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class TestRoomCameraMoveTo : MonoBehaviour
 {
     //This script moved the camera to a room when you entered it, and was changed when the camera was moved to follw the player. 

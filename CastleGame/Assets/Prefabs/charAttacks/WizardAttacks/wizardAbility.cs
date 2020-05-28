@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class wizardAbility : MonoBehaviour
 {
     //This ability checks the list each second and gives them health, if they are standing in the collider. 
