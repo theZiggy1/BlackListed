@@ -4738,8 +4738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83e164867b3065e46b306768e50bf76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  genericAttackReset: 1
-  abilityCoolDownReset: 3
+  genericAttackReset: 2
+  abilityCoolDownReset: 1
   ultraCoolDownReset: 10
   basicAttackLocation: {fileID: 8899998647219600430}
   abilityLocation: {fileID: 8899998647954663803}
@@ -4763,6 +4763,8 @@ MonoBehaviour:
   Brian: {fileID: 4086073068019304803}
   ParticleEffect: {fileID: 828680300562686009, guid: 793447497d15adf48b424aa1940b72b3,
     type: 3}
+  timeToTurnOff: 1
+  DUMMY_TAG: dummyEnemy
 --- !u!1 &4500699307225303426
 GameObject:
   m_ObjectHideFlags: 0
