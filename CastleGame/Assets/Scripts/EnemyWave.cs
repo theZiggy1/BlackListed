@@ -7,7 +7,7 @@ using UnityEngine;
  * ****************/
 public class EnemyWave : Wave
 {
-    // Start is called before the first frame update
+    //This class is how we generically spawne nemies in the world. 
     [SerializeField] float thetaMax = 355;
     [SerializeField] float thetaMin = 180;
 
@@ -17,6 +17,7 @@ public class EnemyWave : Wave
 
     }
 
+    //This spawns enemies at the corisponding spawn point. 
     public override void SpawnEnemies()
     {
         base.SpawnEnemies();

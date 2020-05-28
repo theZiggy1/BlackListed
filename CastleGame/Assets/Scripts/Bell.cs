@@ -7,6 +7,8 @@ using UnityEngine;
  * ****************/
 public class Bell : MonoBehaviour
 {
+    //This handled updating an ununsed bell mechanic, that wouls allow you to progress through a level. 
+    //This called to a central object when "rung", and when all were rang, it wouild spawn a new room to fight a miniboss. 
     GameObject BellHandler;
     public string BELLHAND_TAG = "BellHandler";
     // Start is called before the first frame update

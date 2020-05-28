@@ -8,7 +8,9 @@ using UnityEngine;
 public class WarriorClass : BaseClass
 {
 
+    //This is the classes for the warrior. in PLayer controller we call into these functions
     public float forceStrength;
+    //This spawns the moving wave
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -20,7 +22,7 @@ public class WarriorClass : BaseClass
             Destroy(Ranged, 5.0f);
         }
     }
-
+    //this is the regular attack, a close sword attack, with the corrisponding trigger 
     public override void genericAttack()
     {
         if (genericAattackCoolDown <= 0)
@@ -32,6 +34,7 @@ public class WarriorClass : BaseClass
         }
     }
 
+    //This is a wall that is spawned, thst the enemies need to navigate around
     public override void ultraAttack()
     {
       if(ultraCoolDown<=0)

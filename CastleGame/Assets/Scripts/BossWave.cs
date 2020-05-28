@@ -6,6 +6,7 @@ using UnityEngine;
  * Anton Ziegler s1907905
  * ****************/
 public class BossWave : Wave
+    //This wave handles spawning the boss, and making sure the boss has the relevant parts of information, mainly the points to spawn the aditional enemies around the boss. 
 {
     [SerializeField] Transform[] AddSpawnPoints;
 
@@ -36,6 +37,8 @@ public class BossWave : Wave
         FinalBoss.GetComponent<EntityScript>().SetStartingHealth(1500 * numPlayers);
     }
 
+
+    //This also plays the cutscene after the boss is dead. 
     public override void OnEndWave()
     {
         base.OnEndWave();

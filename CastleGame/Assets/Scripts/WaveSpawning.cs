@@ -8,6 +8,9 @@ using UnityEngine;
 public class WaveSpawning : MonoBehaviour
 {
 
+
+//The wave spawning was writtent to handle an inherited class from Wave. The idea was you would inherit the wave class, into say enemy wave, and then it would call each of the functions, one from before the wave starts,
+//one for when wave ends, and with timers for each, so we could control things such as cutscenes. 
     public Wave[] waveScripts;
     [SerializeField] GameObject gameManager;
     [SerializeField] GameObject[] Doors;
@@ -33,6 +36,7 @@ public class WaveSpawning : MonoBehaviour
         
     }
 
+    //If our waves are over, we can let the area unlock, and progress, otherwise we call the next wave to start. 
     public void WaveSelector()
     {
 

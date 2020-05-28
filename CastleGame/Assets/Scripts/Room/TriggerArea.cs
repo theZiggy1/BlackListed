@@ -7,6 +7,7 @@ using UnityEngine;
  * ****************/
 public class TriggerArea : MonoBehaviour
 {
+    //Similarly to the TriggerExit script, this one enabled a room as you approached it, so you could see where you were going. 
     // Start is called before the first frame update
     [SerializeField] GameObject battleArea;
     string PLAYER_TAG = "Player";

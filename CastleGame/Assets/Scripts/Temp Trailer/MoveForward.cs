@@ -7,6 +7,9 @@ using UnityEngine;
  * ****************/
 public class MoveForward : MonoBehaviour
 {
+    //This script was used in the trailer to move the chacters forward
+
+
     //private Vector3 ThisObjectsLocal;
     public float speed = 0.05f;
     public Transform endlocation;

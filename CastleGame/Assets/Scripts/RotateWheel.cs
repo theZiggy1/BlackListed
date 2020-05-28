@@ -15,6 +15,7 @@ public class RotateWheel : MonoBehaviour
     }
 
     // Update is called once per frame
+    //In the first level this spins the waterwheel. 
     void Update()
     {
         this.gameObject.transform.Rotate(new Vector3(0, 0, speed * Time.deltaTime));

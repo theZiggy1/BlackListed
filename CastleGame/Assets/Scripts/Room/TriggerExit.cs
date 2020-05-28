@@ -7,6 +7,7 @@ using UnityEngine;
  * ****************/
 public class TriggerExit : MonoBehaviour
 {
+    //This mechanic was meant to let the battle area know that the players have left, and it can hide the elements, a mechanic that was cut from the build. Originally when you left an area, it hid the previous room you were in. 
     [SerializeField] GameObject battleArea;
     string PLAYER_TAG = "Player";
     // Start is called before the first frame update

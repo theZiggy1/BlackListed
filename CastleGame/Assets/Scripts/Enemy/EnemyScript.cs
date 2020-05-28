@@ -9,6 +9,7 @@ using UnityEngine.UIElements;
  * ****************/
 public class EnemyScript : MonoBehaviour
 {
+    //The code for the Basic Ai is a finite state machine.
     // Start is called before the first frame update
     public GameObject Spawner;//dep
     public int playerToFight = -1;//dep
@@ -21,7 +22,6 @@ public class EnemyScript : MonoBehaviour
     public float numEnemies;
 
     //the different states in the finite state machine. each is written out in the update loop. 
-
     enum States
     {
         fightingPlayer,
@@ -88,6 +88,7 @@ public class EnemyScript : MonoBehaviour
 
     [Space(10)]
     
+    //These were added to help with giving the AI a chance to attack from time to time. 
     public bool MoveTo = false;
     public bool MoveToRanged = false;
 
@@ -98,13 +99,9 @@ public class EnemyScript : MonoBehaviour
     private void SetAnimationInteger(string condition, int integer)
     {
         enemyAnimator.SetInteger(condition, integer);
-
-        /*  foreach (Animator anim in Animators)
-          {
-              anim.SetInteger(condition, integer);
-          }*/
     }
 
+    //This returns the cloesst player to the nenemy.. this helps to keep it both potrolling a distance around the player, and also to determine if it should consider attacking 
     GameObject checkClosestPlayer()
     {
         GameObject closestPlayer = playerObj;
@@ -154,10 +151,6 @@ public class EnemyScript : MonoBehaviour
         // Animation for Walking
         //enemyAnimator.Play("Walk");
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SpawnBullet();
-        }
         //This checks the blackboard, which is part of the game manager, to see if the selected player is engaged. It might be changed in the future to check thorugh all players, and see if any of them are missig an engagement. 
         //for now it simply checks the one it has been assigned, and then if the player isnt fighting the first one that checks fights said player. 
         if(stateMachine == States.flocking)
@@ -174,12 +167,6 @@ public class EnemyScript : MonoBehaviour
                     break;
                 }
 
-         /*   if (gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] == false)
-            {
-                gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = true;
-                stateMachine = States.fightingPlayer;
-                MoveTo = true;
-                Debug.Log("switching states");*/
             }
         }
         Quaternion rotation = Quaternion.LookRotation(playerObj.transform.position - this.transform.position);
@@ -190,6 +177,8 @@ public class EnemyScript : MonoBehaviour
         {
             case States.flocking:
                 this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
+
+                //the enemies should move around the area of the circle, and not past it, if it does go past, it can have a hard time getting back so we also set it to the max. 
                if(theta >= thetaMaxThreshold)
                 {
                     theta = thetaMaxThreshold;
@@ -202,17 +191,15 @@ public class EnemyScript : MonoBehaviour
                 }
                 
                 theta += Time.deltaTime * speed;
-              /*  if (theta > 360)
-                {
-                    theta = 0;
-                }*/
                 playerObj = checkClosestPlayer();
+                //This checks if a player is too close to the enemy, if they are, this causes them to attack
                 if(Vector3.Distance(playerObj.transform.position, this.transform.position) < 4.0f)
                 {
                     stateMachine = States.fightingPlayer;
                     enemyState = fighterType.melee;
                     inheritedScript.gotTooClose = true;
                 }
+
                 newLocation.x = playerObj.transform.position.x + (radius * Mathf.Cos(theta * Mathf.PI / 180));
                 newLocation.y = playerObj.transform.position.y + 1;
                 newLocation.z = playerObj.transform.position.z + (radius * Mathf.Sin(theta * Mathf.PI / 180));
@@ -225,6 +212,8 @@ public class EnemyScript : MonoBehaviour
 
                 break;
 
+                //This nesting handles how the enemy attacks, if they are set as melee or ranged\
+                //Because they handle a lot of the same code, for moving around, it was easier to write them in a nested enum. 
             case States.fightingPlayer:
                 switch (enemyState)
                 {
@@ -237,13 +226,6 @@ public class EnemyScript : MonoBehaviour
                         {
                             StartCoroutine(meleeAttack(1.0f));
                         }
-
-                     //   this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
-                      //  this.transform.position = Vector3.MoveTowards(this.transform.position,new Vector3(playerObj.transform.position.x, playerObj.transform.position.y + 1, playerObj.transform.position.z), Time.deltaTime * moveSpeed);
-
-                        // Animation for Biting
-                        //enemyAnimator.Play("Bite");
-                        //SetAnimationInteger(conditionName, attackAnimation);
 
                         break;
                     case fighterType.ranged:
@@ -273,52 +255,20 @@ public class EnemyScript : MonoBehaviour
                             thisAgent.isStopped = true;
                             StartCoroutine(rangedAttack(1.0f));
                         }
-
-
-                        // Animation for Ranged Spit
-                        //enemyAnimator.Play("Ranged Spit");
-                        //SetAnimationInteger(conditionName, attackAnimationRanged);
-
                         break;
                 }
                 break;
 
             case States.attackedByPlayer:
 
-                this.transform.rotation = Quaternion.Slerp(this.transform.rotation, rotation, Time.deltaTime * damping);
+               //This was removed from the game. 
                 break;
 
         }
     }
 
-    //when thsi charcter is destoryed, it updates the blackboard, that it has in fact finished fighting that player
-  /*  private void OnDestroy()
-    {
-        Spawner.GetComponent<TestEnemySpawnerScript>().EnemyKilled();
-        gameManager.GetComponent<GameManagerScript>().isEngaged[playerToFight] = false;
-    }
 
-
-    public void SpawningInfo(GameObject a_spawner, GameObject a_gameManager, int playerNum, int type)
-
-    {
-      switch(type)
-        {
-            case 0:
-                enemyState = fighterType.melee;
-                break;
-            case 1:
-                enemyState = fighterType.ranged;
-                break;
-        }
-
-        Spawner = a_spawner;
-        gameManager = a_gameManager;
-        playerToFight = playerNum;
-
-    }
-    */
-
+    
     public void SpawnBullet()
     {
         GameObject Bullet = GameObject.Instantiate(actuallyRangedAttack, bulletSpawn.position, bulletSpawn.rotation);
@@ -376,6 +326,7 @@ public class EnemyScript : MonoBehaviour
 
     }
 
+    //this maves the enemy towards the location we want, and also checks if we are where wwe want to be. 
     void isMovingTo(Transform location , float speed)
     {
         Debug.Log("isMoving");
@@ -396,11 +347,13 @@ public class EnemyScript : MonoBehaviour
         }
     }
 
+    //This code is added for the boss room, so we didnt need the game manager to handle them flocking. 
    public void BossSpawned()
     {
         stateMachine = States.fightingPlayer;
     }
 
+    //The boss keeps a list of all enemies, and this destroys them. Was written this way so that unity could handle destorying them on cleanup instead of trying to destory a list object. 
     public void DestoryedByBoss()
     {
         Destroy(this.gameObject);

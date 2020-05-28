@@ -8,6 +8,7 @@ using UnityEngine;
 /// </summary>
 
 public class IanWave : Wave
+    //The firts wave of the boss room, a little different then the enemy wave, as it also plays a cutscene, and the enemy waves dont. 
 {
     [SerializeField]
     private GameObject winManager;
@@ -46,6 +47,7 @@ public class IanWave : Wave
         FinalBoss.GetComponent<EnemyVarScript>().SpawningInfo(Spawner, gameManager, Random.Range(0, gameManager.GetComponent<GameManagerScript>().numPlayers));
     }
 
+    //This plays the cut scene, and also keeps the player from moving around. 
     public override void OnStartWave()
     {
         base.OnStartWave();

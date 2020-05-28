@@ -9,8 +9,13 @@ using UnityEngine.UIElements;
  * ****************/
 public class BossPhase3AI : MonoBehaviour
 {
+  
 
-    
+
+
+
+        //The boss is a finite state machine. On a rewrite this would only posses 3 states, moveTo, ChooseAction, and PerformAction.
+        //In this iteration, the states are each attack, with aditional functions for moveTo and SelectAttack. 
     [SerializeField] NavMeshAgent navAgent;
     [SerializeField] GameManagerScript gameManager;
     [SerializeField] Vector3 chosenPlayerPosition;
@@ -21,6 +26,7 @@ public class BossPhase3AI : MonoBehaviour
     public Transform[] EnemySpawnPoints;
     [SerializeField] GameObject EnemyAdds;
 
+    //The list of what each attack spawns
     [SerializeField] GameObject swordAttackGround;
     [SerializeField] GameObject spinAttack;
     [SerializeField] Transform spinAttackLocation;
@@ -29,7 +35,7 @@ public class BossPhase3AI : MonoBehaviour
     [SerializeField] GameObject isInvulnerableObject;
     [SerializeField] GameObject isAttackableObject;
 
-
+    //Animation triggers. 
     [SerializeField] int idleAnimation;
     [SerializeField] int walkAnimation;
     [SerializeField] int introAnimation;
@@ -52,15 +58,7 @@ public class BossPhase3AI : MonoBehaviour
     }
 
     [SerializeField] States currentState;
-    //the boss has 5 attacks
-    //Attack one is the sword slam (at locaation) where some rocks come out
-    //Attack 2 is to summon some minions, this one is easy
-    //Skyward sword is also easy
-    //360 sword swing is move to location, play anim again. 
-    //reach into the ground and spawn hand. 
-    //the attacks can be broken into 2 catagories
-    // move to location, perform action
-    // stand still, spawn prefab (while in an animation)
+ 
     [Space(15)]
     [Header("Audio")]
     [SerializeField]
@@ -132,6 +130,7 @@ public class BossPhase3AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if we are attacking, or choosing an attack, we dont need to continue through the update loop. 
         if(performingAttack)
         {
             return;
@@ -143,6 +142,7 @@ public class BossPhase3AI : MonoBehaviour
         }
        
         
+        //once we reach a location we can perform these actions
         switch (currentState)
         {
             case States.Attack1Ground:
@@ -163,9 +163,9 @@ public class BossPhase3AI : MonoBehaviour
 
     //the boss has 5 attacks
     //Attack one is the sword slam (at locaation) where some rocks come out
-    //Attack 2 is to summon some minions, this one is easy
-    //Skyward sword is also easy
-    //360 sword swing is move to location, play anim again. 
+    //Attack 2 is to summon some minions
+    //Skyward sword spawns a lighting attack
+    //360 sword swing is move to location, play anim.
     //reach into the ground and spawn hand. 
     //the attacks can be broken into 2 catagories
     // move to location, perform action

@@ -6,8 +6,11 @@ using UnityEngine;
  * Anton Ziegler s1907905
  * ****************/
 public class WizardClass : BaseClass
+    //This is the classes for the wizard. in PLayer controller we call into these functions
 {
     public float forceStrength;
+
+    //This spawns an object in a directoion. in this case it shoudl be a wave
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -23,6 +26,7 @@ public class WizardClass : BaseClass
         }
     }
 
+    //This calls the regular sword swing, and a collider for it. 
     public override void genericAttack()
     {
         if (genericAattackCoolDown <= 0)
@@ -38,6 +42,7 @@ public class WizardClass : BaseClass
         }
     }
 
+    //This spawns a crowsd control wall, that enemies need to naviagte around
     public override void ultraAttack()
     {
         if (ultraCoolDown <= 0)
