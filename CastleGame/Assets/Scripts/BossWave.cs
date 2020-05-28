@@ -8,7 +8,9 @@ public class BossWave : Wave
 
     [SerializeField] GameObject winManager;
     [SerializeField] AudioSource audioSourceMusic; // The AudioSource playing the background music
+    [SerializeField] AudioClip bossMusicIntro;
     [SerializeField] AudioClip bossMusic;
+    [SerializeField] GameObject audioChanger;
 
 
     // Update is called once per frame
@@ -19,8 +21,9 @@ public class BossWave : Wave
         // Play the boss music
         if (bossMusic != null)
         {
-            audioSourceMusic.clip = bossMusic;
-            audioSourceMusic.Play();
+            //audioSourceMusic.clip = bossMusic;
+            audioChanger.GetComponent<AudioLoopScript>().ChangeAudio(bossMusicIntro, bossMusic);
+            //audioSourceMusic.Play();
         }
 
         //Spawn the single boss.  
@@ -39,6 +42,9 @@ public class BossWave : Wave
         winManager = GameObject.FindGameObjectWithTag("WinManager");
         // Tells it to enable the win screen
         winManager.GetComponent<WinScreenManager>().EnableWinScreen();
+
+        // Tell the music to stop
+        audioChanger.GetComponent<AudioLoopScript>().StopAudio();
 
         //In Coroutine, enable things after the yirld return
         StartCoroutine(CanvasFinish(6.0f));
