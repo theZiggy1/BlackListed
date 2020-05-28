@@ -23,6 +23,9 @@ public class EndScreenManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Allows us to wait a second before taking any input
+        StartCoroutine(WaitBeforeController());
+
         // When our EndScreen scene loads in, find the playerInputManager from the previous scene
         playerInputManager = GameObject.FindGameObjectWithTag("PlayerInputManager");
 
@@ -31,6 +34,8 @@ public class EndScreenManagerScript : MonoBehaviour
         // Once we've found it, set our scene names
         sceneNameNext = endLevelTrigger.GetComponent<EndLevelTriggerScript>().nextLevelName;
         sceneNamePrevious = endLevelTrigger.GetComponent<EndLevelTriggerScript>().currentLevelName;
+
+        
     }
 
     // Update is called once per frame
@@ -41,6 +46,8 @@ public class EndScreenManagerScript : MonoBehaviour
         //{
         //    LoadNextLevel();
         //}
+
+
     }
 
     public void LoadNextLevel()
@@ -70,5 +77,13 @@ public class EndScreenManagerScript : MonoBehaviour
 
         // Unload the end screen scene
         SceneManager.UnloadSceneAsync("EndScreen");
+    }
+
+    IEnumerator WaitBeforeController()
+    {
+        yield return new WaitForSeconds(0.25f);
+
+        // Enables our gamepad UI script, after the time has expired
+        GetComponent<UIGamepadScript>().enabled = true;
     }
 }
