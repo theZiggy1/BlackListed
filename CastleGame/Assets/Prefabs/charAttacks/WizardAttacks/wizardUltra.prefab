@@ -4870,8 +4870,9 @@ MonoBehaviour:
   forceStrength: 0
   OTHER_TAG: Enemy
   BELL_TAG: Bell
-  enemyDamage: 100
-  isRangerUltra: 0
+  DUMMY_TAG: dummyEnemy
+  enemyDamage: 200
+  isRangerUltra: 1
   objectToSpawn: {fileID: 4771641848212912370, guid: 93e6f0b476a0671479b5feb00745bd4c,
     type: 3}
 --- !u!54 &8495835489714845585

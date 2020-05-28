@@ -50,7 +50,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3563243407773573417}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -124,5 +124,7 @@ MonoBehaviour:
   forceStrength: 100
   OTHER_TAG: Player
   BELL_TAG: Bell
+  DUMMY_TAG: dummyEnemy
   enemyDamage: 10
   isRangerUltra: 0
+  objectToSpawn: {fileID: 0}
