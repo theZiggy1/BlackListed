@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class LightingStrikeScript : MonoBehaviour
 {
     // Start is called before the first frame update

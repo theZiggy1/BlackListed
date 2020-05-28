@@ -5,6 +5,7 @@ using UnityEngine;
 /******************
  * Anton Ziegler s1907905
  * ****************/
+
 public class LockRoomScript : MonoBehaviour
 {
     [SerializeField]

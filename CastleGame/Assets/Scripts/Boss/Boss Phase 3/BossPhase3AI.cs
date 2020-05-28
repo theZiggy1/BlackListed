@@ -4,8 +4,13 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class BossPhase3AI : MonoBehaviour
 {
+
+    
     [SerializeField] NavMeshAgent navAgent;
     [SerializeField] GameManagerScript gameManager;
     [SerializeField] Vector3 chosenPlayerPosition;
@@ -47,7 +52,6 @@ public class BossPhase3AI : MonoBehaviour
     }
 
     [SerializeField] States currentState;
-    // Start is called before the first frame update
     //the boss has 5 attacks
     //Attack one is the sword slam (at locaation) where some rocks come out
     //Attack 2 is to summon some minions, this one is easy
