@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class RushEnemy : MonoBehaviour
 {
     [SerializeField] EnemyVarScript inheritedScript;

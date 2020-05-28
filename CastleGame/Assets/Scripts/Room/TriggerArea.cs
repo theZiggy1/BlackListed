@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class TriggerArea : MonoBehaviour
 {
     // Start is called before the first frame update

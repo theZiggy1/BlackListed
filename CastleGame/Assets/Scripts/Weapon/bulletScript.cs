@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class bulletScript : MonoBehaviour
 {
     // Start is called before the first frame update

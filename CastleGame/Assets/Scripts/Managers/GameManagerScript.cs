@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class GameManagerScript : MonoBehaviour
 {
     public int numPlayers; // This is the number of players actually spawned currently

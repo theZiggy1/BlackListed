@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using UnityEngine;
 
-
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 //This script has been created to hold all the variables that are needed for all the enemies.
 //I concluded that having a script to hold all the information, and then simply creating another script that handles the ai itself would be a better solution.
 //Currently if i want to pass information into the miniboss, id have to pass it into the 'EnemyScript" as that holds information like player variables. 
 // By splitting them, it lets me write more legible code. 
+//I really should have made this an abstract class, that implements the Entity script, and this needed to be implemented by the Boss AI and enemy AI.
 public class EnemyVarScript : MonoBehaviour
 {
     //This script holds a couple generic functions that all enemies will need, such as an onDestroy, and an onSpawn

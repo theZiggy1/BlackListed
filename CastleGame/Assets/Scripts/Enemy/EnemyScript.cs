@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UIElements;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class EnemyScript : MonoBehaviour
 {
     // Start is called before the first frame update

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public abstract class Wave : MonoBehaviour
 {
     public string WaveInfo; //adding a bunch of waves to an object can get a little complex, so this makes it a bit easier to keep track

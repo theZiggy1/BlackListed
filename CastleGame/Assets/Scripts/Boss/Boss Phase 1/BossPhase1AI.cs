@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class BossPhase1AI : MonoBehaviour
 {
     // Start is called before the first frame update

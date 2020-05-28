@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
+
 public class ComponentsToEnableandDisable : MonoBehaviour
 {
     // Start is called before the first frame update

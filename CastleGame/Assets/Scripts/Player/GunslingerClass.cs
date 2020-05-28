@@ -3,6 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/******************
+ * Anton Ziegler s1907905
+ * ****************/
 public class GunslingerClass : BaseClass
 {
     public float intialBulletVelocity;
