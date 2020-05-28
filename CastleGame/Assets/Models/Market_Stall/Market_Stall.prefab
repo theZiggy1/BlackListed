@@ -779,6 +779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1778007284830912676}
+  - component: {fileID: 9112309166719464249}
   m_Layer: 9
   m_Name: Market_Stall
   m_TagString: Untagged
@@ -828,6 +829,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -182.56898, z: 0}
+--- !u!65 &9112309166719464249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3384342885560332983}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.625098, y: 6.425675, z: 5.5660105}
+  m_Center: {x: 29.150799, y: 2.7128363, z: -10.566072}
 --- !u!1 &3671591259723483659
 GameObject:
   m_ObjectHideFlags: 0
