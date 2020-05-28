@@ -497,13 +497,6 @@ public class PlayerControllerOldInput : MonoBehaviour
                 Debug.Log(" Jumping");
             }
 
-            //DEBUG - Remove in the final game
-            // Heals us if we press LB
-            if (Input.GetButtonDown("Joy" + playerID + "ButtonLB"))
-            {
-                GetComponent<EntityScript>().TakeDamage(5, true);
-            }
-
             // Ability + Ultra UI stuff
             // If Ability has finished cooldown
             if (myclass.abilityCoolDown <= 0)
