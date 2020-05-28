@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// By Anton Ziegler s1907905
+/// and Farran Holmes s1712383
+/// </summary>
+
 public class IanWave : Wave
 {
     [SerializeField]
@@ -10,6 +15,7 @@ public class IanWave : Wave
     private AudioSource audioSourceMusic; // The AudioSource playing the background music
     [SerializeField]
     private AudioClip ianMusic;
+
 
     public override void SpawnEnemies()
     {
@@ -21,6 +27,18 @@ public class IanWave : Wave
         {
             audioSourceMusic.clip = ianMusic;
             audioSourceMusic.Play();
+        }
+
+        //Need to also unlock the players' movement so they can now move around again
+        if (gameObject != null)
+        {
+            foreach (GameObject player in gameManager.GetComponent<GameManagerScript>().currentPlayers)
+            {
+                if (player != null)
+                {
+                    player.GetComponent<PlayerControllerOldInput>().isTumbling = false;
+                }
+            }
         }
 
         //Spawn the single boss.  
@@ -39,6 +57,21 @@ public class IanWave : Wave
         winManager.GetComponent<WinScreenManager>().EnableIanIntroScreen();
         // Stop playing background music
         audioSourceMusic.Stop();
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        //Need to also lock the players' movement so they can't move around till the wave has spawned
+        if (gameManager != null)
+        {
+            foreach (GameObject player in gameManager.GetComponent<GameManagerScript>().currentPlayers)
+            {
+                if (player != null)
+                {
+                    player.GetComponent<PlayerControllerOldInput>().isTumbling = true;
+                }
+            }
+        }
+
 
     }
 
