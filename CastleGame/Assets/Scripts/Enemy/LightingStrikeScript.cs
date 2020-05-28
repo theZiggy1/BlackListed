@@ -7,6 +7,7 @@ using UnityEngine;
  * ****************/
 public class LightingStrikeScript : MonoBehaviour
 {
+    //when the boss calls this, we also want to make a hitbox that hits the ground, which this makes. 
     // Start is called before the first frame update
     [SerializeField] GameObject EnemyBullet;
     [SerializeField] float downForce;

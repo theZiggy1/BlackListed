@@ -6,6 +6,7 @@ using UnityEngine;
  * ****************/
 public class EnemySpawnerScript : MonoBehaviour
 {
+    //This script predates the testspawnerscript, and also moved the camera to the room. this was prior to changes we had for the room idea. 
     // Start is called before the first frame update
     [SerializeField] GameObject wallBehind;
     [SerializeField] GameObject wallInfront;

@@ -8,6 +8,7 @@ using UnityEngine.AI;
  * ****************/
 public class RushEnemy : MonoBehaviour
 {
+    //this is a finite state enemy that doesnt make it into the game. it chooses a locations and runs towards that location, and once it gets there, it then waits before selecting another location. 
     [SerializeField] EnemyVarScript inheritedScript;
     [SerializeField] Transform targetLocation;
     public GameObject gameManager;//dep

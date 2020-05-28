@@ -10,6 +10,8 @@ using UnityEngine.UIElements;
  * ****************/
 public class BossPhase1AI : MonoBehaviour
 {
+
+    //This ai never made it into the game. it was a two stage enemy, that would select a player and ram them, before going back to the home location. 
     // Start is called before the first frame update
     [SerializeField] GameManagerScript gameManager;
     [SerializeField] EnemyVarScript enemyVariables;
