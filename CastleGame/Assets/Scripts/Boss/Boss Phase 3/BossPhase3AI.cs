@@ -208,6 +208,8 @@ public class BossPhase3AI : MonoBehaviour
         //Spawn rocks 
         performingAttack = true;
         Debug.Log("ATK 1");
+
+
         yield return new WaitForSeconds(waitTimer);
         performingAttack = false;
         Debug.Log(" Done ATK 1");
@@ -331,13 +333,18 @@ public class BossPhase3AI : MonoBehaviour
         SetAnimationInteger("SkeletonKingCondition", idleAnimation);
         Debug.Log("Attack waiting");
         choosingAttack = true;
+
         HealthScript.SetInvulnerable(false);
         isInvulnerableObject.SetActive(false);
         isAttackableObject.SetActive(true);
+
         yield return new WaitForSeconds(waitTimer);
+
         HealthScript.SetInvulnerable(true);
         isInvulnerableObject.SetActive(true);
         isAttackableObject.SetActive(false);
+
+
         choosingAttack = false;
         //Choose an attack, update the state machine, call the correct functions
         int randNum = Random.Range(1, 6);

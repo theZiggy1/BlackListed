@@ -9,6 +9,7 @@ public class bulletScript : MonoBehaviour
     [SerializeField] float forceStrength;
     public string OTHER_TAG = "Enemy";
     public string BELL_TAG = "Bell";
+    public string DUMMY_TAG = "dummyEnemy";
     public int enemyDamage = 100;
     public bool isRangerUltra = false;
 
@@ -55,6 +56,13 @@ public class bulletScript : MonoBehaviour
         {
             other.gameObject.GetComponent<Bell>().RingingBell();
             Destroy(this.gameObject);
+        }
+
+        if(other.gameObject.tag == DUMMY_TAG)
+        {
+            other.gameObject.GetComponent<TargetDummyScript>().HitDummy();
+            Destroy(this.gameObject);
+
         }
     }
 }

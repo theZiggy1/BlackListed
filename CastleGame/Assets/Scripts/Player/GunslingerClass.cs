@@ -15,6 +15,10 @@ public class GunslingerClass : BaseClass
     [SerializeField] Rigidbody gunslingerBody;
     [SerializeField] GameObject Brian;
     [SerializeField] GameObject ParticleEffect;
+    
+    [SerializeField] float timeToTurnOff = 1.0f;
+
+    public string DUMMY_TAG = "dummyEnemy";
     public override void abilityAttack()
     {
         if (abilityCoolDown <= 0)
@@ -52,12 +56,21 @@ public class GunslingerClass : BaseClass
 
 
             GameObject[] enemies = GameObject.FindGameObjectsWithTag(ENEMY_TAG);
+            GameObject[] targetDummies = GameObject.FindGameObjectsWithTag(DUMMY_TAG);
             GameObject Bullet = GameObject.Instantiate(ultraAttackObj, ultraLocation.position, ultraLocation.rotation);
             Destroy(Bullet, 0.5f);
             foreach ( GameObject EnemyObj in enemies)
             {
                 EnemyObj.GetComponent<EntityScript>().TakeDamage(enemyDamage);
                 //
+            }
+
+            foreach (GameObject dummyObj in targetDummies)
+            {
+                if (dummyObj != null)
+                {
+                    dummyObj.GetComponent<TargetDummyScript>().HitDummy();
+                }
             }
         }
     }
