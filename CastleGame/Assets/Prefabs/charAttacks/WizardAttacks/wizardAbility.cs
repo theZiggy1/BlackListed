@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class wizardAbility : MonoBehaviour
 {
+    //This ability checks the list each second and gives them health, if they are standing in the collider. 
     // Start is called before the first frame update
     [SerializeField] List<GameObject> Players;
     public string PLAYER_TAG = "Player";
@@ -26,7 +27,7 @@ public class wizardAbility : MonoBehaviour
             foreach (GameObject player in Players)
             {
                 //Add Health
-                player.GetComponent<EntityScript>().HealingRift(1.0f);
+                player.GetComponent<EntityScript>().HealingRift(gainAmount);
             }
         }
 
