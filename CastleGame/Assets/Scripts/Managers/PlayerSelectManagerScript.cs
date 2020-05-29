@@ -70,6 +70,15 @@ public class PlayerSelectManagerScript : MonoBehaviour
     private GameObject[] charactersP3;
     [SerializeField]
     private GameObject[] charactersP4;
+    [SerializeField]
+    private GameObject[] charLabelsP1;
+    [SerializeField]
+    private GameObject[] charLabelsP2;
+    [SerializeField]
+    private GameObject[] charLabelsP3;
+    [SerializeField]
+    private GameObject[] charLabelsP4;
+
 
     private bool P1Joined;
     private bool P2Joined;
@@ -445,8 +454,13 @@ public class PlayerSelectManagerScript : MonoBehaviour
             {
                 character.SetActive(false);
             }
+            foreach (GameObject label in charLabelsP1)
+            {
+                label.SetActive(false);
+            }
 
             charactersP1[charID].SetActive(true);
+            charLabelsP1[charID].SetActive(true);
         }
         if (playerID == 2)
         {
@@ -454,8 +468,13 @@ public class PlayerSelectManagerScript : MonoBehaviour
             {
                 character.SetActive(false);
             }
+            foreach (GameObject label in charLabelsP2)
+            {
+                label.SetActive(false);
+            }
 
             charactersP2[charID].SetActive(true);
+            charLabelsP2[charID].SetActive(true);
         }
         if (playerID == 3)
         {
@@ -463,8 +482,13 @@ public class PlayerSelectManagerScript : MonoBehaviour
             {
                 character.SetActive(false);
             }
+            foreach (GameObject label in charLabelsP3)
+            {
+                label.SetActive(false);
+            }
 
             charactersP3[charID].SetActive(true);
+            charLabelsP3[charID].SetActive(true);
         }
         if (playerID == 4)
         {
@@ -472,8 +496,13 @@ public class PlayerSelectManagerScript : MonoBehaviour
             {
                 character.SetActive(false);
             }
+            foreach (GameObject label in charLabelsP4)
+            {
+                label.SetActive(false);
+            }
 
             charactersP4[charID].SetActive(true);
+            charLabelsP4[charID].SetActive(true);
         }
 
     }
