@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Farran Holmes s1712383
+/// </summary>
 public class ToggleBossHealthBar : MonoBehaviour
 {
     [SerializeField]

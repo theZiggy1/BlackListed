@@ -71,13 +71,12 @@ public class CameraChangeTrigger : MonoBehaviour
             }
             else if (moveCameraRotation) // Set the camera to change rotation but still follow the players
             {
-                //cameraFollowObject.GetComponent<CameraFollowObjectScript>().MoveObjectPublic(cameraTargetObject.rotation);
+
                 cameraFollowObject.GetComponent<CameraFollowObjectScript>().MoveObjectPublic(Quaternion.Euler(cameraRotation));
             }
             else if (moveCameraRotationAndOffset) // Set the camera to change rotation, and have an offset, but still follow the players
             {
-                //-8.17
-                //cameraFollowObject.GetComponent<CameraFollowObjectScript>().MoveObjectPublic(cameraTargetObject.rotation, cameraOffset);
+
                 cameraFollowObject.GetComponent<CameraFollowObjectScript>().MoveObjectPublic(Quaternion.Euler(cameraRotation), cameraOffset);
             }
             else // Set the camera to follow the players again

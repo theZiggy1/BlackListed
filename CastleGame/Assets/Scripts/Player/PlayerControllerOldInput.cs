@@ -201,11 +201,11 @@ public class PlayerControllerOldInput : MonoBehaviour
 
 
 
-        //AB Controller = GetComponent<CharacterController>();
+
 
         //AB Let's grab all the animators in the children uwu
         Animator[] animators = gameObject.transform.Find("Brian").gameObject.transform.Find("Clothing").GetComponentsInChildren<Animator>();
-        //AB string[] animator_names = { "Trousers", "Boots", "Tunic" };
+
         string[] animator_names = { "Trousers", "Boots", "Tunic", "Basic Plate Armor", "Wizard Robe", "Dark Knight Armor" };
         //AB Let's iterate through them all cause we just need brians
         foreach (Animator anim in animators)
@@ -372,58 +372,54 @@ public class PlayerControllerOldInput : MonoBehaviour
             // Character is moving right (or looking right)
             if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") < -0.1f))
             {
-            //    Debug.Log("Moving right");
+
 
                 Movement();
                 LookAt();
 
                 // Do the animation for movement
-                //playerAnimator.Play("Sword Run Forward");
+
                 SetAnimationInteger("Condition", movingInt);
             }
             // Character is moving left (or looking left)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickHorizontal") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickHorizontal") > 0.1f))
             {
-             //   Debug.Log("Moving left");
+
 
                 Movement();
                 LookAt();
 
                 // Do the animation for movement
-                //playerAnimator.Play("Sword Run Forward");
+
                 SetAnimationInteger("Condition", movingInt);
             }
             // Character is moving up (or looking up)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") > 0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") > 0.1f))
             {
-              //  Debug.Log("Moving up");
+
 
                 Movement();
                 LookAt();
 
                 // Do the animation for movement
-                //playerAnimator.Play("Sword Run Forward");
+
                 SetAnimationInteger("Condition", movingInt);
             }
             // Character is moving down (or looking down)
             else if ((Input.GetAxis("Joy" + playerID + "LeftStickVertical") < -0.1f) || (Input.GetAxis("Joy" + playerID + "RightStickVertical") < -0.1f))
             {
-              //  Debug.Log("Moving down");
+
 
                 Movement();
                 LookAt();
 
-                // Do the animation for movement
-                //playerAnimator.Play("Sword Run Forward");
                 SetAnimationInteger("Condition", movingInt);
             }
             else
             {
                 if (!Attacking)
                 {
-                //    Debug.Log("Not moving");
 
-                    //playerAnimator.Play("Sword Idle");
                     SetAnimationInteger("Condition", idleInt);
                 }
                 else
@@ -452,7 +448,6 @@ public class PlayerControllerOldInput : MonoBehaviour
                 {
                     Attacking = false;
 
-                    //SetAnimationInteger("Condition", 0);
                 }
             }
 
@@ -478,7 +473,6 @@ public class PlayerControllerOldInput : MonoBehaviour
                 {
                     doingAbility = false;
 
-                    //SetAnimationInteger("Condition", 0);
                 }
             }
 
@@ -487,7 +481,7 @@ public class PlayerControllerOldInput : MonoBehaviour
             if (Input.GetButtonDown("Joy" + playerID + "ButtonY"))
             {
                 OnSwitchWeapon();
-               // SetAnimationInteger("Condition", ultraAttackInt);
+
             }
 
             //This lets us handle jumping
@@ -503,11 +497,9 @@ public class PlayerControllerOldInput : MonoBehaviour
             {
                 if (abilityUI != null)
                 {
-                    //if (!abilityUIOn)
-                    //{
+
                     abilityUI.SetActive(true);
-                    //abilityUIOn = true;
-                    //}
+
                 }
             }
             else
@@ -521,11 +513,9 @@ public class PlayerControllerOldInput : MonoBehaviour
             {
                 if (ultraUI != null)
                 {
-                    //if (!ultraUIOn)
-                    //{
+
                     ultraUI.SetActive(true);
-                    //ultraUIOn = true;
-                    //}
+
                 }
             }
             else
@@ -587,12 +577,12 @@ public class PlayerControllerOldInput : MonoBehaviour
 
             float step = rotSpeed * Time.deltaTime;
           thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
-           // Debug.Log(LookDirection+" Left Stick Look Direction");
+
         }
         
         // Actually do the movement
         transform.Translate(movement);
-        //   Debug.Log(movement+" Left Stick Movement");
+
 
         
 
@@ -617,15 +607,14 @@ public class PlayerControllerOldInput : MonoBehaviour
         }
                 Quaternion lookRotation = Quaternion.LookRotation(LookDirection, Vector3.up);
 
-        //lookRotation *= Quaternion.Euler(0, 45, 0); //As the camera is roated 45 degrees, if we didnt also do this, it makes movement wierd. when you moved left it would go left and slightly up from the camera, which while true left, instead left in relation to the camera. This fixes that. 
+     
 
         // This means that the movement now reflects the direction the camera is looking
         lookRotation *= Quaternion.Euler(0, mainCameraRotation.y - 90, 0);
 
         float step = rotSpeed * Time.deltaTime;
                 thisPlayerChild.transform.rotation = Quaternion.RotateTowards(lookRotation, thisPlayerChild.transform.rotation, step);
-          // }
-      //  }
+
     }
 
 
@@ -636,7 +625,6 @@ public class PlayerControllerOldInput : MonoBehaviour
      * */
     void OnAttackRightTrigger()
     {
-        //  Debug.Log("Attacking!");
         if (myclass != null) 
         {     
             myclass.genericAttack();
@@ -704,7 +692,6 @@ public class PlayerControllerOldInput : MonoBehaviour
         {
             // Sets the ability UI to be false, comes back when cooldown finished
             abilityUI.SetActive(false);
-            //abilityUIOn = false;
         }
     }
 
@@ -728,13 +715,11 @@ public class PlayerControllerOldInput : MonoBehaviour
             return;
         }
         isRangedAttack = !isRangedAttack;
-        //  Debug.Log("Switching Weapon!" + isRangedAttack);
 
         if (ultraUI != null)
         {
             // Sets the ultra UI to be false, comes back when cooldown finished
             ultraUI.SetActive(false);
-            //ultraUIOn = false;
         }
     }
 

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Farran Holmes s1712383
+/// </summary>
 public class PauseScreenManagerScript : MonoBehaviour
 {
     [SerializeField]
@@ -46,10 +49,7 @@ public class PauseScreenManagerScript : MonoBehaviour
     public void PauseGame()
     {
         EnablePauseScreen();
-        // Makes the time scale go to 0.01, so time barely passes
-        // This is basically like stopping it, but still allows update to happen
-        // So that we can still navigate the menu, as it requires update to work
-        //Time.timeScale = 0.01f;
+        // Makes the time scale go to 0, so time doesn't pass
         Time.timeScale = 0f;
 
         Debug.Log("Paused game! Time scale set to 0!");
@@ -72,7 +72,6 @@ public class PauseScreenManagerScript : MonoBehaviour
         // Load the Main Menu scene
         SceneManager.LoadScene(sceneNameMainMenu);
 
-        // Unload the Game Over screen scene
-        //SceneManager.UnloadSceneAsync("GameOverScreen");
+
     }
 }

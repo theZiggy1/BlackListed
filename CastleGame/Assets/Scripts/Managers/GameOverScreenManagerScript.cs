@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Farran Holmes s1712383
+/// </summary>
+
 public class GameOverScreenManagerScript : MonoBehaviour
 {
     [SerializeField]

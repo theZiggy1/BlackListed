@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Farran Holmes s1712383
+/// </summary>
+
 public class DoorObjectScript : MonoBehaviour
 {
     [SerializeField]
@@ -78,14 +82,6 @@ public class DoorObjectScript : MonoBehaviour
 
             Debug.Log("Moving up!");
 
-            // Seems to be some kind of issue with Vector3.Distance
-            //// If the distance becomes this small, we're basically there already
-            //if (Vector3.Distance(transform.position, transformToMoveTo.position) < 0.1f)
-            //{
-            //    // 'Clamps' our position to the correct one
-            //    transform.position = transformToMoveTo.position;
-            //    moveUp = false;
-            //}
         }
         if (moveDown)
         {
@@ -101,14 +97,6 @@ public class DoorObjectScript : MonoBehaviour
 
             Debug.Log("Moving down!");
 
-            // Seems to be some kind of issue with Vector3.Distance
-            //// If the distance becomes this small, we're basically there already
-            //if (Vector3.Distance(transform.position, originalPosition) < 0.1f)
-            //{
-            //    // 'Clamps' our position to the correct one
-            //    transform.position = originalPosition;
-            //    moveDown = false;
-            //}
         }
     }
 
@@ -118,8 +106,6 @@ public class DoorObjectScript : MonoBehaviour
         moveUp = true;
         moveDown = false;
 
-        //// Lerps between transformToMoveTo and original position
-        //Vector3.Lerp(transformToMoveTo.position, originalPosition, Time.deltaTime * moveSpeed);
     }
 
     // Doors get lowered when we've finished the wave
@@ -128,7 +114,5 @@ public class DoorObjectScript : MonoBehaviour
         moveDown = true;
         moveUp = false;
 
-        // Lerps between original position and transformToMoveTo
-        //Vector3.Lerp(originalPosition, transformToMoveTo.position, Time.deltaTime * moveSpeed);
     }
 }

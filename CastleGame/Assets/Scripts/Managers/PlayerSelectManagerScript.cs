@@ -23,16 +23,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
     [SerializeField]
     private GameObject player4JoinedImage;
 
-    //// The images showing which character has been selected
-    //[SerializeField]
-    //private Image Player1CharacterImage;
-    //[SerializeField]
-    //private Image Player2CharacterImage;
-    //[SerializeField]
-    //private Image Player3CharacterImage;
-    //[SerializeField]
-    //private Image Player4CharacterImage;
-
     // The images showing which character has been selected
     [SerializeField]
     private RawImage Player1CharacterImage;
@@ -43,15 +33,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
     [SerializeField]
     private RawImage Player4CharacterImage;
 
-    //!!! For use with Images
-    //// Used to store all the images of the characters for the character select
-    //[SerializeField]
-    //private Sprite[] characterImages;
-
-    //!!!For use with RawImages
-    // Used to store all the images of the characters for the character select
-    //[SerializeField]
-    //private Texture[] characterImages;
 
     [SerializeField]
     private Texture[] characterImagesP1;
@@ -130,8 +111,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 P1Joined = true;
 
                 // Sets us to show char1's portrait
-                //Player1CharacterImage.sprite = characterImages[0];
-                //Player1CharacterImage.texture = characterImagesP1[0];
                 ChangeCharacterImage(1, 0);
             }
         }
@@ -145,8 +124,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 P2Joined = true;
 
                 // Sets us to show char1's portrait
-                //Player2CharacterImage.sprite = characterImages[0];
-                //Player2CharacterImage.texture = characterImagesP2[0];
                 ChangeCharacterImage(2, 0);
             }
         }
@@ -160,8 +137,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 P3Joined = true;
 
                 // Sets us to show char1's portrait
-                //Player3CharacterImage.sprite = characterImages[0];
-                //Player3CharacterImage.texture = characterImagesP3[0];
                 ChangeCharacterImage(3, 0);
             }
         }
@@ -175,8 +150,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                 P4Joined = true;
 
                 // Sets us to show char1's portrait
-                //Player4CharacterImage.sprite = characterImages[0];
-                //Player4CharacterImage.texture = characterImagesP4[0];
                 ChangeCharacterImage(4, 0);
             }
         }
@@ -203,11 +176,7 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player1CharacterImage.sprite = characterImages[P1CharacterID];
-                    //Player1CharacterImage.texture = characterImagesP1[P1CharacterID];
                     ChangeCharacterImage(1, P1CharacterID);
-
-                    //ChangeCharacterMat(characterObjects[P1CharacterID], 0);
 
                     P1MovedImage = true;
                 }
@@ -226,11 +195,7 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player1CharacterImage.sprite = characterImages[P1CharacterID];
-                    //Player1CharacterImage.texture = characterImagesP1[P1CharacterID];
                     ChangeCharacterImage(1, P1CharacterID);
-
-                    //ChangeCharacterMat(characterObjects[P1CharacterID], 0);
 
                     P1MovedImage = true;
                 }
@@ -265,8 +230,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player2CharacterImage.sprite = characterImages[P2CharacterID];
-                    //Player2CharacterImage.texture = characterImagesP2[P2CharacterID];
                     ChangeCharacterImage(2, P2CharacterID);
 
                     P2MovedImage = true;
@@ -286,8 +249,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player2CharacterImage.sprite = characterImages[P2CharacterID];
-                    //Player2CharacterImage.texture = characterImagesP2[P2CharacterID];
                     ChangeCharacterImage(2, P2CharacterID);
 
                     P2MovedImage = true;
@@ -323,8 +284,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player3CharacterImage.sprite = characterImages[P3CharacterID];
-                    //Player3CharacterImage.texture = characterImagesP3[P3CharacterID];
                     ChangeCharacterImage(3, P3CharacterID);
 
                     P3MovedImage = true;
@@ -344,8 +303,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player3CharacterImage.sprite = characterImages[P3CharacterID];
-                    //Player3CharacterImage.texture = characterImagesP3[P3CharacterID];
                     ChangeCharacterImage(3, P3CharacterID);
 
                     P3MovedImage = true;
@@ -381,8 +338,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player4CharacterImage.sprite = characterImages[P4CharacterID];
-                    //Player4CharacterImage.texture = characterImagesP4[P4CharacterID];
                     ChangeCharacterImage(4, P4CharacterID);
 
                     P4MovedImage = true;
@@ -402,8 +357,6 @@ public class PlayerSelectManagerScript : MonoBehaviour
                     }
 
                     // Set the player's image to be the revelant one from the characterImages array
-                    //Player4CharacterImage.sprite = characterImages[P4CharacterID];
-                    //Player4CharacterImage.texture = characterImagesP4[P4CharacterID];
                     ChangeCharacterImage(4, P4CharacterID);
 
                     P4MovedImage = true;
@@ -507,18 +460,5 @@ public class PlayerSelectManagerScript : MonoBehaviour
 
     }
 
-    // Just realised this isn't actually going to work
-    //private void ChangeCharacterMat(GameObject characterObject, int materialID)
-    //{
-    //    //// Changes the colour of our clothing according to which player we are
-    //    //GameObject clothingPiece = playerInst.GetComponent<PlayerControllerOldInput>().clothingPiece;
-    //    //playerChildMats = clothingPiece.GetComponent<Renderer>().materials;
-    //    //playerChildMats[0] = PlayerMaterials[playerID];
-    //    //clothingPiece.GetComponent<Renderer>().materials = playerChildMats;
 
-    //    GameObject clothingPiece = characterObject.GetComponent<PlayerControllerOldInput>().clothingPiece;
-    //    Material[] clothingMats = clothingPiece.GetComponent<Renderer>().materials;
-    //    clothingMats[0] = playerMats[materialID];
-    //    clothingPiece.GetComponent<Renderer>().materials = clothingMats;
-    //}
 }

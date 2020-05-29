@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Farran Holmes s1712383
+/// </summary>
+
 public class FogTriggerScript : MonoBehaviour
 {
     [SerializeField]
@@ -33,7 +37,6 @@ public class FogTriggerScript : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             currentFogDensity = RenderSettings.fogDensity;
-            //RenderSettings.fog = fogOn;
             StartCoroutine(FadeFog());
         }
     }

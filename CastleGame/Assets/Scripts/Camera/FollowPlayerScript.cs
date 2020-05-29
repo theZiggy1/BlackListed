@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Farran Holmes
+/// Farran Holmes s1712383
 /// 19/2/20
 /// </summary>
 
@@ -21,10 +21,6 @@ public class FollowPlayerScript : MonoBehaviour
     [Tooltip("The maximum aperture (zoom) of the camera")]
     private float maxAperture;
 
-    //[SerializeField]
-    //private GameObject mainCamera; // Our main camera
-    //[SerializeField]
-    //private GameObject camMoveObject; // The object attached to us that the camera lerps towards
 
     public int numberOfPlayers; // The number of players we have, will be set by the PlayerSelectManager once we load the level
     public bool startFollowing; // Set to false at the start, gets set to true once the level has loaded in
@@ -45,14 +41,6 @@ public class FollowPlayerScript : MonoBehaviour
     [SerializeField]
     private float averageZPlusP1; // The average of all the Z components of the vectors
 
-    //[SerializeField]
-    //private Vector3 player1Pos; // The vector3 position of player 1
-    //[SerializeField]
-    //private Vector3 player2Pos; // The vector3 position of player 2
-    //[SerializeField]
-    //private Vector3 player3Pos; // The vector3 position of player 3
-    //[SerializeField]
-    //private Vector3 player4Pos; // The vector3 position of player 4
 
     public GameObject[] playerObjects;
 
@@ -62,28 +50,17 @@ public class FollowPlayerScript : MonoBehaviour
         // Find the Game Manager
         gameManager = GameObject.FindGameObjectWithTag(GAMEMANAGER_TAG);
 
-        // Set up the playerPositions array
-        //player1Pos = gameManager.GetComponent<GameManagerScript>().currentPlayers[0].
-        // Get the GameManager (or something) to set this array up once we load in
-
-        // Don't need to find the main camera anymore, as now the camera movement is camera centric
-        // Find Main Camera
-        //mainCamera = GameObject.FindGameObjectWithTag(MAINCAM_TAG);
     }
 
     // Update is called once per frame
     void Update()
     {
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        // Need to add a thing, where, if a player dies (and gets removed from the playerObjects array)
-        // the playerObjects array gets updated so that the dead player is removed.
-        // If they respawn they should be added back to the playerObjects array
-        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
 
 
         if (startFollowing)
         {
-            //!!!Need to make this Dynamic!!!
+
 
             // To make it dynamic, do a for loop that incrementally adds on each Vec3 value, then divides by how many players there are, to get an average value
             // We should have been told how many players there are to follow
@@ -106,19 +83,7 @@ public class FollowPlayerScript : MonoBehaviour
 
             transform.position = new Vector3(averageX, averageY, averageZ);
 
-            // - Tweak this and add it back in at some point - possibly just have the object the camera is attached to move back instead
-            // Camera FOV change
-            //mainCamera.GetComponent<Camera>().fieldOfView
 
-            //Vector3 playerDistanceDifference = new Vector3((player1Pos.x + (player2Pos.x - player1Pos.x) / 2),
-            //                                                (player1Pos.y + (player2Pos.y - player1Pos.y) / 2),
-            //                                                (player1Pos.z + (player2Pos.z - player1Pos.z) / 2));
-
-            //mainCamera.GetComponent<Camera>().fieldOfView = 60 + ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3);
-            //mainCamera.transform.position = new Vector3 (-70 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), mainCamera.transform.position.y, mainCamera.transform.position.z);
-            //camMoveObject.transform.position = new Vector3(-20 - ((playerDistanceDifference.x + playerDistanceDifference.y + playerDistanceDifference.z) / 3), camMoveObject.transform.position.y, camMoveObject.transform.position.z);
-
-            //mainCamera.GetComponent<CameraMoveScript>().
 
         }
         else

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Farran Holmes s1712383
+/// </summary>
 public class WinScreenManager : MonoBehaviour
 {
     [SerializeField]
@@ -56,13 +59,7 @@ public class WinScreenManager : MonoBehaviour
     // The 'Quit' button on the end screen will call this function
     public void QuitToMainMenu()
     {
-        // Make sure to resume before we quit
-        //ResumeGame();
-
         // Load the Main Menu scene
         SceneManager.LoadScene(sceneNameMainMenu);
-
-        // Unload the Game Over screen scene
-        //SceneManager.UnloadSceneAsync("GameOverScreen");
     }
 }

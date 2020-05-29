@@ -162,16 +162,7 @@ public class EntityScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // GET RID OF THIS AT SOME POINT
-        //if (usingHealthBar)
-        //{
-        //    UpdateHealthBar();
-        //}
 
-        //if (currentHealth <= 0)
-        //{
-        //    Die();
-        //}
     }
 
     // This is so that the boss can set his own healthbar
@@ -343,14 +334,10 @@ public class EntityScript : MonoBehaviour
 
             if (isPlayer)
             {
-                //!!!Probably also put a thing here to tell the player that their controls are unlocked!!!
-                // E.g.
-                // GetComponent<PlayerControllerOldInput>().Revive();
+
 
                 GetComponent<PlayerControllerOldInput>().Revive();
 
-                //// Disables the box collider trigger, so that other players can't trigger us anymore, as we're now alive
-                //GetComponent<BoxCollider>().enabled = false;
             }
 
             if (usingAudio && audioSource != null && audioClipRevived != null)
@@ -371,16 +358,9 @@ public class EntityScript : MonoBehaviour
 
         if (isPlayer)
         {
-            //!!!Probably also put a thing here to tell the player that their controls are locked!!!
-            // E.g.
-            // GetComponent<PlayerControllerOldInput>().Die();
-            // All this should do on the player's side, is lock their controls
-            // Then we'll play a death animation below here
 
             GetComponent<PlayerControllerOldInput>().Die();
 
-            //// Enables the box collider trigger, so that other players can trigger us
-            //GetComponent<BoxCollider>().enabled = true;
         }
 
 

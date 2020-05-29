@@ -4,6 +4,7 @@ using UnityEngine;
 
 /******************
  * Anton Ziegler s1907905
+ * Farran Holmes s1712383
  * ****************/
 public class CameraMoveScript : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class CameraMoveScript : MonoBehaviour
 
     public bool moveToRoom; // Tells the camera to move to the current room's camera location, if it's in that mode
 
-    //public bool followingPlayers; // Tells the camera to follow the players instead of going to a room's camera location
+
 
     private Transform targetObject;
     private bool doLerp;
@@ -34,35 +35,13 @@ public class CameraMoveScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //GameObject followObject = GameObject.FindGameObjectWithTag("FollowObject");
 
-        //if (followObject != null)
-        //{
-        //    foreach (Transform child in followObject.transform)
-        //    {
-        //        if (child.CompareTag("FollowObjectChild"))
-        //        {
-        //            followPlayerObject = child;
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.Log("Camera can't find FollowPlayer object!");
-        //}
-
-        //targetObject = followPlayerObject;
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         if (gameManager != null)
         {
-            //foreach (GameObject player in gameManager.GetComponent<GameManagerScript>().currentPlayers)
-            //{
-            //    // Sets each player to know the transform of this camera
-            //    // This is used so that the player can move relative to the camera
-            //    player.GetComponent<PlayerControllerOldInput>().SetCamera(transform);
-            //}
+
 
             for (int i = 0; i < gameManager.GetComponent<GameManagerScript>().numPlayers; i++)
             {
@@ -130,8 +109,7 @@ public class CameraMoveScript : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetObject.position, moveSpeed * Time.deltaTime);
 
         // Change camera angle - looks in the same direction as the target object (its forward vector)
-        //transform.LookAt(targetObject.forward);
-        //transform.rotation = targetObject.rotation;
+
         transform.rotation = Quaternion.Slerp(transform.rotation, targetObject.rotation, rotateSpeed * Time.deltaTime);
     }
 

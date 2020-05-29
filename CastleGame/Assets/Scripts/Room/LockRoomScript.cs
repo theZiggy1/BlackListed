@@ -4,6 +4,7 @@ using UnityEngine;
 
 /******************
  * Anton Ziegler s1907905
+ * Farran Holmes s1712383
  * ****************/
 
 public class LockRoomScript : MonoBehaviour
@@ -16,9 +17,7 @@ public class LockRoomScript : MonoBehaviour
     // This script will 'lock' a room once all players have entered
     [SerializeField]
     private GameObject[] doorLockColliders; // The colliders that appear when a room is 'locked'
-    //[SerializeField]
-    //[Tooltip("Used to say which doors are locked at the start, corresponds with the doorLockColliders array")]
-    //private bool[] doorsLockedAtStart;
+
     [SerializeField]
     private GameObject[] doorObjects;
 
@@ -61,8 +60,7 @@ public class LockRoomScript : MonoBehaviour
 
     [SerializeField]
     private bool coroutineStarted;
-    //[SerializeField]
-    //private bool coroutineRunning;
+
 
     // Start is called before the first frame update
     void Start()
@@ -180,9 +178,7 @@ public class LockRoomScript : MonoBehaviour
             // We only need to do this if not all the players have entered yet
             if (playersEntered != numOfPlayers)
             {
-                //// If a player enters our trigger
-                //if (other.gameObject.CompareTag("Player"))
-                //{
+
                     // Only need to do the parts below, if the player hasn't already entered before,
                     // keep track of who has and hasn't entered
 
@@ -206,7 +202,7 @@ public class LockRoomScript : MonoBehaviour
                             coroutineStarted = true;
                         }
                     }
-                //}
+
             }
 
             // If *all* the players have entered
@@ -246,7 +242,7 @@ public class LockRoomScript : MonoBehaviour
         // Waits for timer to be up
         yield return new WaitForSeconds(playersEnteredTimer);
 
-        //coroutineRunning = false;
+
 
         if (playersEntered != numOfPlayers)
         {

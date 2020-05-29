@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Farran Holmes s1712383
+/// </summary>
 public class UIGamepadScript : MonoBehaviour
 {
     [SerializeField]
@@ -25,13 +28,7 @@ public class UIGamepadScript : MonoBehaviour
         numNavigationTypes
     }
 
-    //[SerializeField]
-    //[Tooltip("Do we transition to another menu in this scene?")]
-    //private bool transitionsToOtherMenu;
 
-    //[SerializeField]
-    //[Tooltip("The other UIGamepadManager we transition to")]
-    //private GameObject otherUIGamepadManager;
 
     [SerializeField]
     private int currentButtonIndex; // The index in the array of the current button we have selected
@@ -70,12 +67,7 @@ public class UIGamepadScript : MonoBehaviour
                     // Then we wrap it back around to 0
                     currentButtonIndex = 0;
                 }
-                //// If the index gets smaller than 0
-                //if (currentButtonIndex < 0)
-                //{
-                //    // Then we wrap it back around to the length of the array
-                //    currentButtonIndex = buttonArray.Length - 1;
-                //}
+
 
                 // Look for the highlight object
                 foreach (Transform child in buttonArray[currentButtonIndex].transform)
@@ -106,12 +98,7 @@ public class UIGamepadScript : MonoBehaviour
 
                 currentButtonIndex--;
 
-                //// If the index gets larger
-                //if (currentButtonIndex >= buttonArray.Length)
-                //{
-                //    // Then we wrap it back around to 0
-                //    currentButtonIndex = 0;
-                //}
+
                 // If the index gets smaller than 0
                 if (currentButtonIndex < 0)
                 {
@@ -174,12 +161,7 @@ public class UIGamepadScript : MonoBehaviour
             // Reset this so we can move images again
             movedButtons = false;
         }
-        //// If our stick is back in the centre, then
-        //if (Input.GetAxis("Joy1LeftStickHorizontal") < 0.25f && Input.GetAxis("Joy1LeftStickHorizontal") > -0.25f)
-        //{
-        //    // Reset this so we can move images again
-        //    movedButtons = false;
-        //}
+
 
 
 

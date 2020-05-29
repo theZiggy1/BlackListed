@@ -4,6 +4,7 @@ using UnityEngine;
 
 /******************
  * Anton Ziegler s1907905
+ * Farran Holmes s1712383
  * ****************/
 public class GameManagerScript : MonoBehaviour
 

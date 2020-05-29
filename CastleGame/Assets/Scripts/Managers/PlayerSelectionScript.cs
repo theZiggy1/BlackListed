@@ -64,7 +64,7 @@ public class PlayerSelectionScript : MonoBehaviour
     [SerializeField]
     private Text loadingBarText;
 
-    // This is temporary
+
     [SerializeField]
     GameObject[] levelSpawnPoints;
 
@@ -119,7 +119,6 @@ public class PlayerSelectionScript : MonoBehaviour
 
         // Resets the levelSpawnPoints array so that each level we get the spawnpoints as fresh
         levelSpawnPoints = null;
-        //levelSpawnPoints = new GameObject[0];
 
         // Create a new array containing all the spawn points
         levelSpawnPoints = GameObject.FindGameObjectsWithTag("PlayerSpawnPoint");
@@ -155,7 +154,6 @@ public class PlayerSelectionScript : MonoBehaviour
             
             spawnIndex++;
 
-            //numOfPlayers++;
         }
     }
 
@@ -170,11 +168,7 @@ public class PlayerSelectionScript : MonoBehaviour
         Debug.Log("Play game!");
 
 
-        // Reactivate all the player UI when we load the level
-        //player1UI.SetActive(true);
-        //player2UI.SetActive(true);
-        //player3UI.SetActive(true);
-        //player4UI.SetActive(true);
+
 
         StartCoroutine(LoadSceneAsynchronously());
 
@@ -295,12 +289,12 @@ public class PlayerSelectionScript : MonoBehaviour
         while (!loadingOperation.isDone)
         {
             // Transforms the 0-0.9 value of loading into a 0-1 value
-            //loadingProgress = Mathf.Clamp01(loadingOperation.progress / 0.9f);
+
             loadingProgress = (loadingOperation.progress / 0.9f);
             Debug.Log("Loading progress: " + loadingProgress);
 
             loadingBar.value = loadingProgress;
-            //loadingBar.value = (Mathf.Clamp01(loadingOperation.progress / 0.9f));
+
             loadingBarText.text = (loadingProgress * 100f).ToString() + "%";
 
             // Wait till next frame

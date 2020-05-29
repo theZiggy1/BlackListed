@@ -13,8 +13,7 @@ public class CameraFollowObjectScript : MonoBehaviour
     private Transform originalTarget; // This is probably going to be the player follow child object
     [SerializeField]
     private Transform targetObject;
-    //[SerializeField]
-    //private float moveSped = 5f;
+
     [SerializeField]
     private Vector3 offset;
     [SerializeField]
